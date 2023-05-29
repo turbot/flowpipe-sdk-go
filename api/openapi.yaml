@@ -1,0 +1,216 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: info@flowpipe.io
+    name: Flowpipe
+    url: http://www.flowpipe.io
+  description: Flowpipe is workflow and pipelines for DevSecOps.
+  license:
+    name: AGPLv3
+    url: https://www.gnu.org/licenses/agpl-3.0.en.html
+  title: Flowpipe
+  version: 0.1.0
+servers:
+- url: https://localhost/api/v0
+paths:
+  /pipeline:
+    get:
+      description: Lists pipelines
+      operationId: pipeline_list
+      parameters:
+      - description: "The max number of items to fetch per page of data, subject to\
+          \ a min and max of 1 and 100 respectively. If not specified will default\
+          \ to 25."
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 25
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: "When list results are truncated, next_token will be returned,\
+          \ which is a cursor to fetch the next page of data. Pass next_token to the\
+          \ subsequent list request to fetch the next page of data."
+        explode: true
+        in: query
+        name: next_token
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPipelineResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Forbidden
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Internal Server Error
+      summary: List pipelines
+      tags:
+      - Pipeline
+components:
+  schemas:
+    Input:
+      type: object
+    ListPipelineResponse:
+      example:
+        next_token: next_token
+        items:
+        - args: "{}"
+          output: output
+          parallel: true
+          name: name
+          type: type
+          steps:
+            key:
+              depends_on:
+              - depends_on
+              - depends_on
+              input_template: input_template
+              for: for
+              name: name
+              type: type
+        - args: "{}"
+          output: output
+          parallel: true
+          name: name
+          type: type
+          steps:
+            key:
+              depends_on:
+              - depends_on
+              - depends_on
+              input_template: input_template
+              for: for
+              name: name
+              type: type
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/Pipeline'
+          type: array
+        next_token:
+          type: string
+      type: object
+    Pipeline:
+      example:
+        args: "{}"
+        output: output
+        parallel: true
+        name: name
+        type: type
+        steps:
+          key:
+            depends_on:
+            - depends_on
+            - depends_on
+            input_template: input_template
+            for: for
+            name: name
+            type: type
+      properties:
+        args:
+          type: object
+        name:
+          type: string
+        output:
+          type: string
+        parallel:
+          type: boolean
+        steps:
+          additionalProperties:
+            $ref: '#/components/schemas/PipelineStep'
+          type: object
+        type:
+          type: string
+      type: object
+    PipelineStep:
+      example:
+        depends_on:
+        - depends_on
+        - depends_on
+        input_template: input_template
+        for: for
+        name: name
+        type: type
+      properties:
+        depends_on:
+          items:
+            type: string
+          type: array
+        for:
+          type: string
+        input_template:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+      type: object
+    fperr.ErrorDetailModel:
+      properties:
+        location:
+          type: string
+        message:
+          type: string
+      type: object
+    fperr.ErrorModel:
+      properties:
+        detail:
+          type: string
+        instance:
+          type: string
+        status:
+          type: integer
+        title:
+          type: string
+        type:
+          type: string
+        validation_errors:
+          items:
+            $ref: '#/components/schemas/fperr.ErrorDetailModel'
+          type: array
+      required:
+      - instance
+      - status
+      - title
+      - type
+      type: object
+  securitySchemes:
+    ApiKeyAuth:
+      in: header
+      name: Authorization
+      type: apiKey
