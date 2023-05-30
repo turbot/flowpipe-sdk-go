@@ -4,13 +4,13 @@ All URIs are relative to *https://localhost/api/v0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PipelineList**](PipelineApi.md#PipelineList) | **Get** /pipeline | List pipelines
+[**List**](PipelineApi.md#List) | **Get** /pipeline | List pipelines
 
 
 
-## PipelineList
+## List
 
-> ListPipelineResponse PipelineList(ctx).Limit(limit).NextToken(nextToken).Execute()
+> ListPipelineResponse List(ctx).Limit(limit).NextToken(nextToken).Execute()
 
 List pipelines
 
@@ -25,7 +25,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    openapiclient "github.com/turbot/flowpipe-sdk-go"
 )
 
 func main() {
@@ -34,13 +34,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PipelineApi.PipelineList(context.Background()).Limit(limit).NextToken(nextToken).Execute()
+    resp, r, err := apiClient.PipelineApi.List(context.Background()).Limit(limit).NextToken(nextToken).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PipelineApi.PipelineList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PipelineApi.List``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PipelineList`: ListPipelineResponse
-    fmt.Fprintf(os.Stdout, "Response from `PipelineApi.PipelineList`: %v\n", resp)
+    // response from `List`: ListPipelineResponse
+    fmt.Fprintf(os.Stdout, "Response from `PipelineApi.List`: %v\n", resp)
 }
 ```
 
@@ -50,7 +50,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPipelineListRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
