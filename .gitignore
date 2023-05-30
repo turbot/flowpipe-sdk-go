@@ -7,6 +7,12 @@
 _obj
 _test
 
+# IDE
+.idea/
+.run
+.vscode/launch.json
+.vscode/settings.json
+
 # Architecture specific extensions/prefixes
 *.[568vq]
 [568vq].out
