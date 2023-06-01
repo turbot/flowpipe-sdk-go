@@ -20,5 +20,4 @@ model_list_pipeline_response.go
 model_pipeline.go
 model_pipeline_step.go
 response.go
-test/api_pipeline_test.go
 utils.go
