@@ -28,7 +28,9 @@ type {{classname}} struct {
 	AdditionalProperties map[string]interface{}
 {{/isAdditionalPropertiesTrue}}
 }
-
+func (o {{classname}}) GetResourceType() string {
+	return "{{classname}}"
+}
 {{#isAdditionalPropertiesTrue}}
 type _{{{classname}}} {{{classname}}}
 

@@ -27,7 +27,9 @@ type Pipeline struct {
 	Steps *map[string]PipelineStep `json:"steps,omitempty"`
 	Type *string `json:"type,omitempty"`
 }
-
+func (o Pipeline) GetResourceType() string {
+	return "Pipeline"
+}
 // NewPipeline instantiates a new Pipeline object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

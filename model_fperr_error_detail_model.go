@@ -23,7 +23,9 @@ type FperrErrorDetailModel struct {
 	Location *string `json:"location,omitempty"`
 	Message *string `json:"message,omitempty"`
 }
-
+func (o FperrErrorDetailModel) GetResourceType() string {
+	return "FperrErrorDetailModel"
+}
 // NewFperrErrorDetailModel instantiates a new FperrErrorDetailModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

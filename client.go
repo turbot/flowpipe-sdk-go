@@ -655,3 +655,9 @@ func formatErrorMessage(status string, v interface{}) string {
 
 	return strings.TrimSpace(fmt.Sprintf("%s %s", status, str))
 }
+
+
+type FlowpipeAPIResource interface {
+	GetResourceType() string
+}
+

@@ -23,7 +23,9 @@ type ListPipelineResponse struct {
 	Items []Pipeline `json:"items,omitempty"`
 	NextToken *string `json:"next_token,omitempty"`
 }
-
+func (o ListPipelineResponse) GetResourceType() string {
+	return "ListPipelineResponse"
+}
 // NewListPipelineResponse instantiates a new ListPipelineResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

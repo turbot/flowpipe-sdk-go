@@ -27,7 +27,9 @@ type FperrErrorModel struct {
 	Type string `json:"type"`
 	ValidationErrors []FperrErrorDetailModel `json:"validation_errors,omitempty"`
 }
-
+func (o FperrErrorModel) GetResourceType() string {
+	return "FperrErrorModel"
+}
 // NewFperrErrorModel instantiates a new FperrErrorModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
