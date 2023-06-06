@@ -81,6 +81,450 @@ paths:
       summary: List pipelines
       tags:
       - Pipeline
+  /pipeline/{pipeline_name}:
+    get:
+      description: Get pipeline
+      operationId: pipeline_get
+      parameters:
+      - description: The name of the pipeline
+        explode: false
+        in: path
+        name: pipeline_name
+        required: true
+        schema:
+          format: "^[a-z]{0,32}$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pipeline'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Not Found
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Internal Server Error
+      summary: Get pipeline
+      tags:
+      - Pipeline
+  /process:
+    get:
+      description: Lists processs
+      operationId: process_list
+      parameters:
+      - description: "The max number of items to fetch per page of data, subject to\
+          \ a min and max of 1 and 100 respectively. If not specified will default\
+          \ to 25."
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 25
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: "When list results are truncated, next_token will be returned,\
+          \ which is a cursor to fetch the next page of data. Pass next_token to the\
+          \ subsequent list request to fetch the next page of data."
+        explode: true
+        in: query
+        name: next_token
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListProcessResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Forbidden
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Internal Server Error
+      summary: List processs
+      tags:
+      - Process
+  /process/{process_id}:
+    get:
+      description: Get process
+      operationId: process_get
+      parameters:
+      - description: The name of the process
+        explode: false
+        in: path
+        name: process_id
+        required: true
+        schema:
+          format: "^[a-z]{0,32}$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Process'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Not Found
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Internal Server Error
+      summary: Get process
+      tags:
+      - Process
+  /trigger:
+    get:
+      description: Lists triggers
+      operationId: trigger_list
+      parameters:
+      - description: "The max number of items to fetch per page of data, subject to\
+          \ a min and max of 1 and 100 respectively. If not specified will default\
+          \ to 25."
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 25
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: "When list results are truncated, next_token will be returned,\
+          \ which is a cursor to fetch the next page of data. Pass next_token to the\
+          \ subsequent list request to fetch the next page of data."
+        explode: true
+        in: query
+        name: next_token
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListTriggerResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Forbidden
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Internal Server Error
+      summary: List triggers
+      tags:
+      - Trigger
+  /trigger/{trigger_name}:
+    get:
+      description: Get trigger
+      operationId: trigger_get
+      parameters:
+      - description: The name of the trigger
+        explode: false
+        in: path
+        name: trigger_name
+        required: true
+        schema:
+          format: "^[a-z]{0,32}$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trigger'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Not Found
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Internal Server Error
+      summary: Get trigger
+      tags:
+      - Trigger
+  /variable:
+    get:
+      description: Lists variables
+      operationId: variable_list
+      parameters:
+      - description: "The max number of items to fetch per page of data, subject to\
+          \ a min and max of 1 and 100 respectively. If not specified will default\
+          \ to 25."
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 25
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: "When list results are truncated, next_token will be returned,\
+          \ which is a cursor to fetch the next page of data. Pass next_token to the\
+          \ subsequent list request to fetch the next page of data."
+        explode: true
+        in: query
+        name: next_token
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListVariableResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Forbidden
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Internal Server Error
+      summary: List variables
+      tags:
+      - Variable
+  /variable/{variable_name}:
+    get:
+      description: Get variable
+      operationId: variable_get
+      parameters:
+      - description: The name of the variable
+        explode: false
+        in: path
+        name: variable_name
+        required: true
+        schema:
+          format: "^[a-z]{0,32}$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Variable'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Not Found
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Internal Server Error
+      summary: Get variable
+      tags:
+      - Variable
 components:
   schemas:
     Input:
@@ -121,6 +565,52 @@ components:
         items:
           items:
             $ref: '#/components/schemas/Pipeline'
+          type: array
+        next_token:
+          type: string
+      type: object
+    ListProcessResponse:
+      example:
+        next_token: next_token
+        items:
+        - process_id: process_id
+        - process_id: process_id
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/Process'
+          type: array
+        next_token:
+          type: string
+      type: object
+    ListTriggerResponse:
+      example:
+        next_token: next_token
+        items:
+        - name: name
+          type: type
+        - name: name
+          type: type
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/Trigger'
+          type: array
+        next_token:
+          type: string
+      type: object
+    ListVariableResponse:
+      example:
+        next_token: next_token
+        items:
+        - name: name
+          type: type
+        - name: name
+          type: type
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/Variable'
           type: array
         next_token:
           type: string
@@ -175,6 +665,33 @@ components:
           type: string
         input_template:
           type: string
+        name:
+          type: string
+        type:
+          type: string
+      type: object
+    Process:
+      example:
+        process_id: process_id
+      properties:
+        process_id:
+          type: string
+      type: object
+    Trigger:
+      example:
+        name: name
+        type: type
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+      type: object
+    Variable:
+      example:
+        name: name
+        type: type
+      properties:
         name:
           type: string
         type:

@@ -1,6 +1,6 @@
 module github.com/turbot/flowpipe-sdk-go
 
-go 1.18
+go 1.20
 
 require (
 )

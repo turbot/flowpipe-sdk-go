@@ -21,53 +21,53 @@ import (
 )
 
 
-// PipelineApiService PipelineApi service
-type PipelineApiService service
+// TriggerApiService TriggerApi service
+type TriggerApiService service
 
-type PipelineApiGetRequest struct {
+type TriggerApiGetRequest struct {
 	ctx context.Context
-	ApiService *PipelineApiService
-	pipelineName string
+	ApiService *TriggerApiService
+	triggerName string
 }
 
-func (r PipelineApiGetRequest) Execute() (*Pipeline, *http.Response, error) {
+func (r TriggerApiGetRequest) Execute() (*Trigger, *http.Response, error) {
 	return r.ApiService.GetExecute(r)
 }
 
 /*
-Get Get pipeline
+Get Get trigger
 
-Get pipeline
+Get trigger
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pipelineName The name of the pipeline
- @return PipelineApiGetRequest
+ @param triggerName The name of the trigger
+ @return TriggerApiGetRequest
 */
-func (a *PipelineApiService) Get(ctx context.Context, pipelineName string) PipelineApiGetRequest {
-	return PipelineApiGetRequest{
+func (a *TriggerApiService) Get(ctx context.Context, triggerName string) TriggerApiGetRequest {
+	return TriggerApiGetRequest{
 		ApiService: a,
 		ctx: ctx,
-		pipelineName: pipelineName,
+		triggerName: triggerName,
 	}
 }
 
 // Execute executes the request
-//  @return Pipeline
-func (a *PipelineApiService) GetExecute(r PipelineApiGetRequest) (*Pipeline, *http.Response, error) {
+//  @return Trigger
+func (a *TriggerApiService) GetExecute(r TriggerApiGetRequest) (*Trigger, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *Pipeline
+		localVarReturnValue  *Trigger
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PipelineApiService.Get")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TriggerApiService.Get")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pipeline/{pipeline_name}"
-	localVarPath = strings.Replace(localVarPath, "{"+"pipeline_name"+"}", url.PathEscape(parameterValueToString(r.pipelineName, "pipelineName")), -1)
+	localVarPath := localBasePath + "/trigger/{trigger_name}"
+	localVarPath = strings.Replace(localVarPath, "{"+"trigger_name"+"}", url.PathEscape(parameterValueToString(r.triggerName, "triggerName")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -192,60 +192,60 @@ func (a *PipelineApiService) GetExecute(r PipelineApiGetRequest) (*Pipeline, *ht
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PipelineApiListRequest struct {
+type TriggerApiListRequest struct {
 	ctx context.Context
-	ApiService *PipelineApiService
+	ApiService *TriggerApiService
 	limit *int32
 	nextToken *string
 }
 
 // The max number of items to fetch per page of data, subject to a min and max of 1 and 100 respectively. If not specified will default to 25.
-func (r PipelineApiListRequest) Limit(limit int32) PipelineApiListRequest {
+func (r TriggerApiListRequest) Limit(limit int32) TriggerApiListRequest {
 	r.limit = &limit
 	return r
 }
 
 // When list results are truncated, next_token will be returned, which is a cursor to fetch the next page of data. Pass next_token to the subsequent list request to fetch the next page of data.
-func (r PipelineApiListRequest) NextToken(nextToken string) PipelineApiListRequest {
+func (r TriggerApiListRequest) NextToken(nextToken string) TriggerApiListRequest {
 	r.nextToken = &nextToken
 	return r
 }
 
-func (r PipelineApiListRequest) Execute() (*ListPipelineResponse, *http.Response, error) {
+func (r TriggerApiListRequest) Execute() (*ListTriggerResponse, *http.Response, error) {
 	return r.ApiService.ListExecute(r)
 }
 
 /*
-List List pipelines
+List List triggers
 
-Lists pipelines
+Lists triggers
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PipelineApiListRequest
+ @return TriggerApiListRequest
 */
-func (a *PipelineApiService) List(ctx context.Context) PipelineApiListRequest {
-	return PipelineApiListRequest{
+func (a *TriggerApiService) List(ctx context.Context) TriggerApiListRequest {
+	return TriggerApiListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ListPipelineResponse
-func (a *PipelineApiService) ListExecute(r PipelineApiListRequest) (*ListPipelineResponse, *http.Response, error) {
+//  @return ListTriggerResponse
+func (a *TriggerApiService) ListExecute(r TriggerApiListRequest) (*ListTriggerResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListPipelineResponse
+		localVarReturnValue  *ListTriggerResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PipelineApiService.List")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TriggerApiService.List")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pipeline"
+	localVarPath := localBasePath + "/trigger"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

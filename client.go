@@ -51,6 +51,12 @@ type APIClient struct {
 	// API Services
 
 	PipelineApi *PipelineApiService
+
+	ProcessApi *ProcessApiService
+
+	TriggerApi *TriggerApiService
+
+	VariableApi *VariableApiService
 }
 
 type service struct {
@@ -70,6 +76,9 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 
 	// API Services
 	c.PipelineApi = (*PipelineApiService)(&c.common)
+	c.ProcessApi = (*ProcessApiService)(&c.common)
+	c.TriggerApi = (*TriggerApiService)(&c.common)
+	c.VariableApi = (*VariableApiService)(&c.common)
 
 	return c
 }

@@ -80,7 +80,14 @@ All URIs are relative to *https://localhost/api/v0*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*PipelineApi* | [**Get**](docs/PipelineApi.md#get) | **Get** /pipeline/{pipeline_name} | Get pipeline
 *PipelineApi* | [**List**](docs/PipelineApi.md#list) | **Get** /pipeline | List pipelines
+*ProcessApi* | [**Get**](docs/ProcessApi.md#get) | **Get** /process/{process_id} | Get process
+*ProcessApi* | [**List**](docs/ProcessApi.md#list) | **Get** /process | List processs
+*TriggerApi* | [**Get**](docs/TriggerApi.md#get) | **Get** /trigger/{trigger_name} | Get trigger
+*TriggerApi* | [**List**](docs/TriggerApi.md#list) | **Get** /trigger | List triggers
+*VariableApi* | [**Get**](docs/VariableApi.md#get) | **Get** /variable/{variable_name} | Get variable
+*VariableApi* | [**List**](docs/VariableApi.md#list) | **Get** /variable | List variables
 
 
 ## Documentation For Models
@@ -88,8 +95,14 @@ Class | Method | HTTP request | Description
  - [FperrErrorDetailModel](docs/FperrErrorDetailModel.md)
  - [FperrErrorModel](docs/FperrErrorModel.md)
  - [ListPipelineResponse](docs/ListPipelineResponse.md)
+ - [ListProcessResponse](docs/ListProcessResponse.md)
+ - [ListTriggerResponse](docs/ListTriggerResponse.md)
+ - [ListVariableResponse](docs/ListVariableResponse.md)
  - [Pipeline](docs/Pipeline.md)
  - [PipelineStep](docs/PipelineStep.md)
+ - [Process](docs/Process.md)
+ - [Trigger](docs/Trigger.md)
+ - [Variable](docs/Variable.md)
 
 
 ## Documentation For Authorization

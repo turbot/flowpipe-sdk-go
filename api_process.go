@@ -21,53 +21,53 @@ import (
 )
 
 
-// PipelineApiService PipelineApi service
-type PipelineApiService service
+// ProcessApiService ProcessApi service
+type ProcessApiService service
 
-type PipelineApiGetRequest struct {
+type ProcessApiGetRequest struct {
 	ctx context.Context
-	ApiService *PipelineApiService
-	pipelineName string
+	ApiService *ProcessApiService
+	processId string
 }
 
-func (r PipelineApiGetRequest) Execute() (*Pipeline, *http.Response, error) {
+func (r ProcessApiGetRequest) Execute() (*Process, *http.Response, error) {
 	return r.ApiService.GetExecute(r)
 }
 
 /*
-Get Get pipeline
+Get Get process
 
-Get pipeline
+Get process
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pipelineName The name of the pipeline
- @return PipelineApiGetRequest
+ @param processId The name of the process
+ @return ProcessApiGetRequest
 */
-func (a *PipelineApiService) Get(ctx context.Context, pipelineName string) PipelineApiGetRequest {
-	return PipelineApiGetRequest{
+func (a *ProcessApiService) Get(ctx context.Context, processId string) ProcessApiGetRequest {
+	return ProcessApiGetRequest{
 		ApiService: a,
 		ctx: ctx,
-		pipelineName: pipelineName,
+		processId: processId,
 	}
 }
 
 // Execute executes the request
-//  @return Pipeline
-func (a *PipelineApiService) GetExecute(r PipelineApiGetRequest) (*Pipeline, *http.Response, error) {
+//  @return Process
+func (a *ProcessApiService) GetExecute(r ProcessApiGetRequest) (*Process, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *Pipeline
+		localVarReturnValue  *Process
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PipelineApiService.Get")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProcessApiService.Get")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pipeline/{pipeline_name}"
-	localVarPath = strings.Replace(localVarPath, "{"+"pipeline_name"+"}", url.PathEscape(parameterValueToString(r.pipelineName, "pipelineName")), -1)
+	localVarPath := localBasePath + "/process/{process_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"process_id"+"}", url.PathEscape(parameterValueToString(r.processId, "processId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -192,60 +192,60 @@ func (a *PipelineApiService) GetExecute(r PipelineApiGetRequest) (*Pipeline, *ht
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PipelineApiListRequest struct {
+type ProcessApiListRequest struct {
 	ctx context.Context
-	ApiService *PipelineApiService
+	ApiService *ProcessApiService
 	limit *int32
 	nextToken *string
 }
 
 // The max number of items to fetch per page of data, subject to a min and max of 1 and 100 respectively. If not specified will default to 25.
-func (r PipelineApiListRequest) Limit(limit int32) PipelineApiListRequest {
+func (r ProcessApiListRequest) Limit(limit int32) ProcessApiListRequest {
 	r.limit = &limit
 	return r
 }
 
 // When list results are truncated, next_token will be returned, which is a cursor to fetch the next page of data. Pass next_token to the subsequent list request to fetch the next page of data.
-func (r PipelineApiListRequest) NextToken(nextToken string) PipelineApiListRequest {
+func (r ProcessApiListRequest) NextToken(nextToken string) ProcessApiListRequest {
 	r.nextToken = &nextToken
 	return r
 }
 
-func (r PipelineApiListRequest) Execute() (*ListPipelineResponse, *http.Response, error) {
+func (r ProcessApiListRequest) Execute() (*ListProcessResponse, *http.Response, error) {
 	return r.ApiService.ListExecute(r)
 }
 
 /*
-List List pipelines
+List List processs
 
-Lists pipelines
+Lists processs
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PipelineApiListRequest
+ @return ProcessApiListRequest
 */
-func (a *PipelineApiService) List(ctx context.Context) PipelineApiListRequest {
-	return PipelineApiListRequest{
+func (a *ProcessApiService) List(ctx context.Context) ProcessApiListRequest {
+	return ProcessApiListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ListPipelineResponse
-func (a *PipelineApiService) ListExecute(r PipelineApiListRequest) (*ListPipelineResponse, *http.Response, error) {
+//  @return ListProcessResponse
+func (a *ProcessApiService) ListExecute(r ProcessApiListRequest) (*ListProcessResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListPipelineResponse
+		localVarReturnValue  *ListProcessResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PipelineApiService.List")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProcessApiService.List")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pipeline"
+	localVarPath := localBasePath + "/process"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

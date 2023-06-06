@@ -1,19 +1,19 @@
-# \PipelineApi
+# \TriggerApi
 
 All URIs are relative to *https://localhost/api/v0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get**](PipelineApi.md#Get) | **Get** /pipeline/{pipeline_name} | Get pipeline
-[**List**](PipelineApi.md#List) | **Get** /pipeline | List pipelines
+[**Get**](TriggerApi.md#Get) | **Get** /trigger/{trigger_name} | Get trigger
+[**List**](TriggerApi.md#List) | **Get** /trigger | List triggers
 
 
 
 ## Get
 
-> Pipeline Get(ctx, pipelineName).Execute()
+> Trigger Get(ctx, triggerName).Execute()
 
-Get pipeline
+Get trigger
 
 
 
@@ -30,17 +30,17 @@ import (
 )
 
 func main() {
-    pipelineName := "pipelineName_example" // string | The name of the pipeline
+    triggerName := "triggerName_example" // string | The name of the trigger
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PipelineApi.Get(context.Background(), pipelineName).Execute()
+    resp, r, err := apiClient.TriggerApi.Get(context.Background(), triggerName).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PipelineApi.Get``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TriggerApi.Get``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Get`: Pipeline
-    fmt.Fprintf(os.Stdout, "Response from `PipelineApi.Get`: %v\n", resp)
+    // response from `Get`: Trigger
+    fmt.Fprintf(os.Stdout, "Response from `TriggerApi.Get`: %v\n", resp)
 }
 ```
 
@@ -50,7 +50,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pipelineName** | **string** | The name of the pipeline | 
+**triggerName** | **string** | The name of the trigger | 
 
 ### Other Parameters
 
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Pipeline**](Pipeline.md)
+[**Trigger**](Trigger.md)
 
 ### Authorization
 
@@ -81,9 +81,9 @@ No authorization required
 
 ## List
 
-> ListPipelineResponse List(ctx).Limit(limit).NextToken(nextToken).Execute()
+> ListTriggerResponse List(ctx).Limit(limit).NextToken(nextToken).Execute()
 
-List pipelines
+List triggers
 
 
 
@@ -105,13 +105,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PipelineApi.List(context.Background()).Limit(limit).NextToken(nextToken).Execute()
+    resp, r, err := apiClient.TriggerApi.List(context.Background()).Limit(limit).NextToken(nextToken).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PipelineApi.List``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TriggerApi.List``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `List`: ListPipelineResponse
-    fmt.Fprintf(os.Stdout, "Response from `PipelineApi.List`: %v\n", resp)
+    // response from `List`: ListTriggerResponse
+    fmt.Fprintf(os.Stdout, "Response from `TriggerApi.List`: %v\n", resp)
 }
 ```
 
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListPipelineResponse**](ListPipelineResponse.md)
+[**ListTriggerResponse**](ListTriggerResponse.md)
 
 ### Authorization
 
