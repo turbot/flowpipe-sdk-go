@@ -84,6 +84,7 @@ Class | Method | HTTP request | Description
 *PipelineApi* | [**Get**](docs/PipelineApi.md#get) | **Get** /pipeline/{pipeline_name} | Get pipeline
 *PipelineApi* | [**List**](docs/PipelineApi.md#list) | **Get** /pipeline | List pipelines
 *ProcessApi* | [**Get**](docs/ProcessApi.md#get) | **Get** /process/{process_id} | Get process
+*ProcessApi* | [**GetOutput**](docs/ProcessApi.md#getoutput) | **Get** /process/{process_id}/output | Get process output
 *ProcessApi* | [**List**](docs/ProcessApi.md#list) | **Get** /process | List processs
 *TriggerApi* | [**Get**](docs/TriggerApi.md#get) | **Get** /trigger/{trigger_name} | Get trigger
 *TriggerApi* | [**List**](docs/TriggerApi.md#list) | **Get** /trigger | List triggers
@@ -94,16 +95,25 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [CmdPipeline](docs/CmdPipeline.md)
+ - [ExecutionExecution](docs/ExecutionExecution.md)
+ - [ExecutionPipelineExecution](docs/ExecutionPipelineExecution.md)
+ - [ExecutionStepExecution](docs/ExecutionStepExecution.md)
+ - [ExecutionStepExecutionOutput](docs/ExecutionStepExecutionOutput.md)
+ - [ExecutionStepExecutionStepForEach](docs/ExecutionStepExecutionStepForEach.md)
  - [FperrErrorDetailModel](docs/FperrErrorDetailModel.md)
  - [FperrErrorModel](docs/FperrErrorModel.md)
  - [ListPipelineResponse](docs/ListPipelineResponse.md)
  - [ListProcessResponse](docs/ListProcessResponse.md)
  - [ListTriggerResponse](docs/ListTriggerResponse.md)
  - [ListVariableResponse](docs/ListVariableResponse.md)
+ - [NextStepAction](docs/NextStepAction.md)
+ - [Output](docs/Output.md)
  - [Pipeline](docs/Pipeline.md)
  - [PipelineOutput](docs/PipelineOutput.md)
  - [Process](docs/Process.md)
  - [RunPipelineResponse](docs/RunPipelineResponse.md)
+ - [StepError](docs/StepError.md)
+ - [StepForEach](docs/StepForEach.md)
  - [Trigger](docs/Trigger.md)
  - [Variable](docs/Variable.md)
 

@@ -5,13 +5,14 @@ All URIs are relative to *https://localhost/api/v0*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get**](ProcessApi.md#Get) | **Get** /process/{process_id} | Get process
+[**GetOutput**](ProcessApi.md#GetOutput) | **Get** /process/{process_id}/output | Get process output
 [**List**](ProcessApi.md#List) | **Get** /process | List processs
 
 
 
 ## Get
 
-> Process Get(ctx, processId).Execute()
+> ExecutionExecution Get(ctx, processId).Execute()
 
 Get process
 
@@ -39,7 +40,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ProcessApi.Get``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Get`: Process
+    // response from `Get`: ExecutionExecution
     fmt.Fprintf(os.Stdout, "Response from `ProcessApi.Get`: %v\n", resp)
 }
 ```
@@ -63,7 +64,77 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Process**](Process.md)
+[**ExecutionExecution**](ExecutionExecution.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetOutput
+
+> map[string]interface{} GetOutput(ctx, processId).Execute()
+
+Get process output
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/turbot/flowpipe-sdk-go"
+)
+
+func main() {
+    processId := "processId_example" // string | The name of the process
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ProcessApi.GetOutput(context.Background(), processId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ProcessApi.GetOutput``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetOutput`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `ProcessApi.GetOutput`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**processId** | **string** | The name of the process | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetOutputRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+**map[string]interface{}**
 
 ### Authorization
 

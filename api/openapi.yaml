@@ -295,7 +295,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Process'
+                $ref: '#/components/schemas/execution.Execution'
           description: OK
         "400":
           content:
@@ -334,6 +334,66 @@ paths:
                 $ref: '#/components/schemas/fperr.ErrorModel'
           description: Internal Server Error
       summary: Get process
+      tags:
+      - Process
+  /process/{process_id}/output:
+    get:
+      description: Get process output
+      operationId: process_get_output
+      parameters:
+      - description: The name of the process
+        explode: false
+        in: path
+        name: process_id
+        required: true
+        schema:
+          format: "^[a-z]{0,32}$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OutputData'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Not Found
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Internal Server Error
+      summary: Get process output
       tags:
       - Process
   /trigger:
@@ -605,6 +665,8 @@ components:
       required:
       - command
       type: object
+    Input:
+      type: object
     ListPipelineResponse:
       example:
         next_token: next_token
@@ -703,6 +765,29 @@ components:
         next_token:
           type: string
       type: object
+    NextStepAction:
+      enum:
+      - start
+      - inaccessible
+      - skip
+      type: string
+      x-enum-varnames:
+      - NextStepActionStart
+      - NextStepActionInaccessible
+      - NextStepActionSkip
+    Output:
+      properties:
+        data:
+          type: object
+        errors:
+          items:
+            $ref: '#/components/schemas/StepError'
+          type: array
+        status:
+          type: string
+      type: object
+    OutputData:
+      type: object
     Pipeline:
       example:
         outputs:
@@ -782,6 +867,40 @@ components:
         pipeline_execution_id:
           type: string
       type: object
+    StepError:
+      example:
+        pipeline: pipeline
+        pipeline_execution_id: pipeline_execution_id
+        step_execution_id: step_execution_id
+        error_code: 0
+        step: step
+        message: message
+      properties:
+        error_code:
+          type: integer
+        message:
+          type: string
+        pipeline:
+          type: string
+        pipeline_execution_id:
+          type: string
+        step:
+          type: string
+        step_execution_id:
+          type: string
+      type: object
+    StepForEach:
+      properties:
+        for_each_output:
+          $ref: '#/components/schemas/Output'
+        for_each_total_count:
+          type: integer
+        index:
+          type: integer
+      required:
+      - for_each_total_count
+      - index
+      type: object
     Trigger:
       example:
         name: name
@@ -801,6 +920,155 @@ components:
           type: string
         type:
           type: string
+      type: object
+    execution.Execution:
+      example:
+        pipeline_executions:
+          key:
+            args: "{}"
+            parent_step_execution_id: parent_step_execution_id
+            pipeline_output: "{}"
+            name: name
+            id: id
+            parent_execution_id: parent_execution_id
+            errors:
+            - pipeline: pipeline
+              pipeline_execution_id: pipeline_execution_id
+              step_execution_id: step_execution_id
+              error_code: 0
+              step: step
+              message: message
+            - pipeline: pipeline
+              pipeline_execution_id: pipeline_execution_id
+              step_execution_id: step_execution_id
+              error_code: 0
+              step: step
+              message: message
+            step_executions:
+              key:
+                output: null
+                step_for_each: null
+                input: "{}"
+                pipeline_execution_id: pipeline_execution_id
+                name: name
+                id: id
+                next_step_action: null
+                status: status
+            status: status
+        id: id
+      properties:
+        id:
+          description: Unique identifier for this execution.
+          type: string
+        pipeline_executions:
+          additionalProperties:
+            $ref: '#/components/schemas/execution.PipelineExecution'
+          description: |-
+            Pipelines triggered by the execution. Even if the pipelines are nested,
+            we maintain a flat list of all pipelines for easy lookup and querying.
+          type: object
+      type: object
+    execution.PipelineExecution:
+      example:
+        args: "{}"
+        parent_step_execution_id: parent_step_execution_id
+        pipeline_output: "{}"
+        name: name
+        id: id
+        parent_execution_id: parent_execution_id
+        errors:
+        - pipeline: pipeline
+          pipeline_execution_id: pipeline_execution_id
+          step_execution_id: step_execution_id
+          error_code: 0
+          step: step
+          message: message
+        - pipeline: pipeline
+          pipeline_execution_id: pipeline_execution_id
+          step_execution_id: step_execution_id
+          error_code: 0
+          step: step
+          message: message
+        step_executions:
+          key:
+            output: null
+            step_for_each: null
+            input: "{}"
+            pipeline_execution_id: pipeline_execution_id
+            name: name
+            id: id
+            next_step_action: null
+            status: status
+        status: status
+      properties:
+        args:
+          allOf:
+          - $ref: '#/definitions/Input'
+          description: The input to the pipeline
+          type: object
+        errors:
+          items:
+            $ref: '#/components/schemas/StepError'
+          type: array
+        id:
+          description: Unique identifier for this pipeline execution
+          type: string
+        name:
+          description: The name of the pipeline
+          type: string
+        parent_execution_id:
+          type: string
+        parent_step_execution_id:
+          description: "If this is a child pipeline, then track it's parent"
+          type: string
+        pipeline_output:
+          description: The output of the pipeline
+          properties: {}
+          type: object
+        status:
+          description: "The status of the pipeline execution: queued, planned, started,\
+            \ completed, failed"
+          type: string
+        step_executions:
+          additionalProperties:
+            $ref: '#/components/schemas/execution.StepExecution'
+          description: Steps triggered by pipelines in the execution.
+          type: object
+      type: object
+    execution.StepExecution:
+      example:
+        output: null
+        step_for_each: null
+        input: "{}"
+        pipeline_execution_id: pipeline_execution_id
+        name: name
+        id: id
+        next_step_action: null
+        status: status
+      properties:
+        id:
+          type: string
+        input:
+          allOf:
+          - $ref: '#/definitions/Input'
+          description: Input to the step
+          type: object
+        name:
+          description: The name of the step in the pipeline definition
+          type: string
+        next_step_action:
+          $ref: '#/components/schemas/NextStepAction'
+        output:
+          $ref: '#/components/schemas/execution_StepExecution_output'
+        pipeline_execution_id:
+          description: Unique identifier for this step execution
+          type: string
+        status:
+          description: "The status of the step execution: \"started\", \"finished\"\
+            , \"failed\", \"skipped\""
+          type: string
+        step_for_each:
+          $ref: '#/components/schemas/execution_StepExecution_step_for_each'
       type: object
     fperr.ErrorDetailModel:
       properties:
@@ -833,6 +1101,16 @@ components:
       - status
       - title
       - type
+      type: object
+    execution_StepExecution_output:
+      allOf:
+      - $ref: '#/definitions/Output'
+      description: Output of the step
+      type: object
+    execution_StepExecution_step_for_each:
+      allOf:
+      - $ref: '#/definitions/StepForEach'
+      description: for_each controls
       type: object
   securitySchemes:
     ApiKeyAuth:
