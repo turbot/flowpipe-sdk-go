@@ -38,5 +38,4 @@ model_process.go
 model_trigger.go
 model_variable.go
 response.go
-test/api_process_test.go
 utils.go
