@@ -4,9 +4,80 @@ All URIs are relative to *https://localhost/api/v0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**Cmd**](PipelineApi.md#Cmd) | **Post** /pipeline/{pipeline_name}/cmd | Execute a pipeline command
 [**Get**](PipelineApi.md#Get) | **Get** /pipeline/{pipeline_name} | Get pipeline
 [**List**](PipelineApi.md#List) | **Get** /pipeline | List pipelines
 
+
+
+## Cmd
+
+> RunPipelineResponse Cmd(ctx, pipelineName).Request(request).Execute()
+
+Execute a pipeline command
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/turbot/flowpipe-sdk-go"
+)
+
+func main() {
+    pipelineName := "pipelineName_example" // string | The name of the pipeline
+    request := *openapiclient.NewCmdPipeline("Command_example") // CmdPipeline | Pipeline command.
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.PipelineApi.Cmd(context.Background(), pipelineName).Request(request).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `PipelineApi.Cmd``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `Cmd`: RunPipelineResponse
+    fmt.Fprintf(os.Stdout, "Response from `PipelineApi.Cmd`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pipelineName** | **string** | The name of the pipeline | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCmdRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **request** | [**CmdPipeline**](CmdPipeline.md) | Pipeline command. | 
+
+### Return type
+
+[**RunPipelineResponse**](RunPipelineResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## Get

@@ -8,6 +8,7 @@ api_trigger.go
 api_variable.go
 client.go
 configuration.go
+docs/CmdPipeline.md
 docs/FperrErrorDetailModel.md
 docs/FperrErrorModel.md
 docs/ListPipelineResponse.md
@@ -16,9 +17,10 @@ docs/ListTriggerResponse.md
 docs/ListVariableResponse.md
 docs/Pipeline.md
 docs/PipelineApi.md
-docs/PipelineStep.md
+docs/PipelineOutput.md
 docs/Process.md
 docs/ProcessApi.md
+docs/RunPipelineResponse.md
 docs/Trigger.md
 docs/TriggerApi.md
 docs/Variable.md
@@ -26,6 +28,7 @@ docs/VariableApi.md
 git_push.sh
 go.mod
 go.sum
+model_cmd_pipeline.go
 model_fperr_error_detail_model.go
 model_fperr_error_model.go
 model_list_pipeline_response.go
@@ -33,8 +36,9 @@ model_list_process_response.go
 model_list_trigger_response.go
 model_list_variable_response.go
 model_pipeline.go
-model_pipeline_step.go
+model_pipeline_output.go
 model_process.go
+model_run_pipeline_response.go
 model_trigger.go
 model_variable.go
 response.go

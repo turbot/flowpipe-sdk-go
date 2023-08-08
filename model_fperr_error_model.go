@@ -22,6 +22,8 @@ var _ MappedNullable = &FperrErrorModel{}
 type FperrErrorModel struct {
 	Detail *string `json:"detail,omitempty"`
 	Instance string `json:"instance"`
+	// All errors are fatal unless specified
+	Retryable *bool `json:"retryable,omitempty"`
 	Status int32 `json:"status"`
 	Title string `json:"title"`
 	Type string `json:"type"`
@@ -105,6 +107,38 @@ func (o *FperrErrorModel) GetInstanceOk() (*string, bool) {
 // SetInstance sets field value
 func (o *FperrErrorModel) SetInstance(v string) {
 	o.Instance = v
+}
+
+// GetRetryable returns the Retryable field value if set, zero value otherwise.
+func (o *FperrErrorModel) GetRetryable() bool {
+	if o == nil || IsNil(o.Retryable) {
+		var ret bool
+		return ret
+	}
+	return *o.Retryable
+}
+
+// GetRetryableOk returns a tuple with the Retryable field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FperrErrorModel) GetRetryableOk() (*bool, bool) {
+	if o == nil || IsNil(o.Retryable) {
+		return nil, false
+	}
+	return o.Retryable, true
+}
+
+// HasRetryable returns a boolean if a field has been set.
+func (o *FperrErrorModel) HasRetryable() bool {
+	if o != nil && !IsNil(o.Retryable) {
+		return true
+	}
+
+	return false
+}
+
+// SetRetryable gets a reference to the given bool and assigns it to the Retryable field.
+func (o *FperrErrorModel) SetRetryable(v bool) {
+	o.Retryable = &v
 }
 
 // GetStatus returns the Status field value
@@ -225,6 +259,9 @@ func (o FperrErrorModel) ToMap() (map[string]interface{}, error) {
 		toSerialize["detail"] = o.Detail
 	}
 	toSerialize["instance"] = o.Instance
+	if !IsNil(o.Retryable) {
+		toSerialize["retryable"] = o.Retryable
+	}
 	toSerialize["status"] = o.Status
 	toSerialize["title"] = o.Title
 	toSerialize["type"] = o.Type

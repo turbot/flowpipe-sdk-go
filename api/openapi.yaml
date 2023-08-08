@@ -92,7 +92,7 @@ paths:
         name: pipeline_name
         required: true
         schema:
-          format: "^[a-z]{0,32}$"
+          format: "^[a-z_]{0,32}$"
           type: string
         style: simple
       responses:
@@ -141,6 +141,73 @@ paths:
       summary: Get pipeline
       tags:
       - Pipeline
+  /pipeline/{pipeline_name}/cmd:
+    post:
+      operationId: pipeline_cmd
+      parameters:
+      - description: The name of the pipeline
+        explode: false
+        in: path
+        name: pipeline_name
+        required: true
+        schema:
+          format: "^[a-z_]{0,32}$"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CmdPipeline'
+        description: Pipeline command.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RunPipelineResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Not Found
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fperr.ErrorModel'
+          description: Internal Server Error
+      summary: Execute a pipeline command
+      tags:
+      - Pipeline
+      x-codegen-request-body-name: request
   /process:
     get:
       description: Lists processs
@@ -527,40 +594,61 @@ paths:
       - Variable
 components:
   schemas:
-    Input:
+    CmdPipeline:
+      example:
+        command: run
+      properties:
+        command:
+          enum:
+          - run
+          type: string
+      required:
+      - command
       type: object
     ListPipelineResponse:
       example:
         next_token: next_token
         items:
-        - args: "{}"
-          output: output
-          parallel: true
+        - outputs:
+          - depends_on:
+            - depends_on
+            - depends_on
+            name: name
+            sensitive: true
+            value: "{}"
+            resolved: true
+          - depends_on:
+            - depends_on
+            - depends_on
+            name: name
+            sensitive: true
+            value: "{}"
+            resolved: true
           name: name
-          type: type
+          description: description
           steps:
-            key:
-              depends_on:
-              - depends_on
-              - depends_on
-              input_template: input_template
-              for: for
-              name: name
-              type: type
-        - args: "{}"
-          output: output
-          parallel: true
+          - "{}"
+          - "{}"
+        - outputs:
+          - depends_on:
+            - depends_on
+            - depends_on
+            name: name
+            sensitive: true
+            value: "{}"
+            resolved: true
+          - depends_on:
+            - depends_on
+            - depends_on
+            name: name
+            sensitive: true
+            value: "{}"
+            resolved: true
           name: name
-          type: type
+          description: description
           steps:
-            key:
-              depends_on:
-              - depends_on
-              - depends_on
-              input_template: input_template
-              for: for
-              name: name
-              type: type
+          - "{}"
+          - "{}"
       properties:
         items:
           items:
@@ -617,64 +705,81 @@ components:
       type: object
     Pipeline:
       example:
-        args: "{}"
-        output: output
-        parallel: true
+        outputs:
+        - depends_on:
+          - depends_on
+          - depends_on
+          name: name
+          sensitive: true
+          value: "{}"
+          resolved: true
+        - depends_on:
+          - depends_on
+          - depends_on
+          name: name
+          sensitive: true
+          value: "{}"
+          resolved: true
         name: name
-        type: type
+        description: description
         steps:
-          key:
-            depends_on:
-            - depends_on
-            - depends_on
-            input_template: input_template
-            for: for
-            name: name
-            type: type
+        - "{}"
+        - "{}"
       properties:
-        args:
-          type: object
+        description:
+          type: string
         name:
           type: string
-        output:
-          type: string
-        parallel:
-          type: boolean
+        outputs:
+          items:
+            $ref: '#/components/schemas/PipelineOutput'
+          type: array
         steps:
-          additionalProperties:
-            $ref: '#/components/schemas/PipelineStep'
-          type: object
-        type:
-          type: string
+          items:
+            type: object
+          type: array
       type: object
-    PipelineStep:
+    PipelineOutput:
       example:
         depends_on:
         - depends_on
         - depends_on
-        input_template: input_template
-        for: for
         name: name
-        type: type
+        sensitive: true
+        value: "{}"
+        resolved: true
       properties:
         depends_on:
           items:
             type: string
           type: array
-        for:
-          type: string
-        input_template:
-          type: string
         name:
           type: string
-        type:
-          type: string
+        resolved:
+          type: boolean
+        sensitive:
+          type: boolean
+        value:
+          type: object
       type: object
     Process:
       example:
         process_id: process_id
       properties:
         process_id:
+          type: string
+      type: object
+    RunPipelineResponse:
+      example:
+        execution_id: execution_id
+        pipeline_execution_id: pipeline_execution_id
+        parent_step_execution_id: parent_step_execution_id
+      properties:
+        execution_id:
+          type: string
+        parent_step_execution_id:
+          type: string
+        pipeline_execution_id:
           type: string
       type: object
     Trigger:
@@ -710,6 +815,9 @@ components:
           type: string
         instance:
           type: string
+        retryable:
+          description: All errors are fatal unless specified
+          type: boolean
         status:
           type: integer
         title:

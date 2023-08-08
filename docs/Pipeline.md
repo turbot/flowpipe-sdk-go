@@ -4,12 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Args** | Pointer to **map[string]interface{}** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**Output** | Pointer to **string** |  | [optional] 
-**Parallel** | Pointer to **bool** |  | [optional] 
-**Steps** | Pointer to [**map[string]PipelineStep**](PipelineStep.md) |  | [optional] 
-**Type** | Pointer to **string** |  | [optional] 
+**Outputs** | Pointer to [**[]PipelineOutput**](PipelineOutput.md) |  | [optional] 
+**Steps** | Pointer to **[]map[string]interface{}** |  | [optional] 
 
 ## Methods
 
@@ -30,30 +28,30 @@ NewPipelineWithDefaults instantiates a new Pipeline object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetArgs
+### GetDescription
 
-`func (o *Pipeline) GetArgs() map[string]interface{}`
+`func (o *Pipeline) GetDescription() string`
 
-GetArgs returns the Args field if non-nil, zero value otherwise.
+GetDescription returns the Description field if non-nil, zero value otherwise.
 
-### GetArgsOk
+### GetDescriptionOk
 
-`func (o *Pipeline) GetArgsOk() (*map[string]interface{}, bool)`
+`func (o *Pipeline) GetDescriptionOk() (*string, bool)`
 
-GetArgsOk returns a tuple with the Args field if it's non-nil, zero value otherwise
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetArgs
+### SetDescription
 
-`func (o *Pipeline) SetArgs(v map[string]interface{})`
+`func (o *Pipeline) SetDescription(v string)`
 
-SetArgs sets Args field to given value.
+SetDescription sets Description field to given value.
 
-### HasArgs
+### HasDescription
 
-`func (o *Pipeline) HasArgs() bool`
+`func (o *Pipeline) HasDescription() bool`
 
-HasArgs returns a boolean if a field has been set.
+HasDescription returns a boolean if a field has been set.
 
 ### GetName
 
@@ -80,72 +78,47 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### GetOutput
+### GetOutputs
 
-`func (o *Pipeline) GetOutput() string`
+`func (o *Pipeline) GetOutputs() []PipelineOutput`
 
-GetOutput returns the Output field if non-nil, zero value otherwise.
+GetOutputs returns the Outputs field if non-nil, zero value otherwise.
 
-### GetOutputOk
+### GetOutputsOk
 
-`func (o *Pipeline) GetOutputOk() (*string, bool)`
+`func (o *Pipeline) GetOutputsOk() (*[]PipelineOutput, bool)`
 
-GetOutputOk returns a tuple with the Output field if it's non-nil, zero value otherwise
+GetOutputsOk returns a tuple with the Outputs field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOutput
+### SetOutputs
 
-`func (o *Pipeline) SetOutput(v string)`
+`func (o *Pipeline) SetOutputs(v []PipelineOutput)`
 
-SetOutput sets Output field to given value.
+SetOutputs sets Outputs field to given value.
 
-### HasOutput
+### HasOutputs
 
-`func (o *Pipeline) HasOutput() bool`
+`func (o *Pipeline) HasOutputs() bool`
 
-HasOutput returns a boolean if a field has been set.
-
-### GetParallel
-
-`func (o *Pipeline) GetParallel() bool`
-
-GetParallel returns the Parallel field if non-nil, zero value otherwise.
-
-### GetParallelOk
-
-`func (o *Pipeline) GetParallelOk() (*bool, bool)`
-
-GetParallelOk returns a tuple with the Parallel field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetParallel
-
-`func (o *Pipeline) SetParallel(v bool)`
-
-SetParallel sets Parallel field to given value.
-
-### HasParallel
-
-`func (o *Pipeline) HasParallel() bool`
-
-HasParallel returns a boolean if a field has been set.
+HasOutputs returns a boolean if a field has been set.
 
 ### GetSteps
 
-`func (o *Pipeline) GetSteps() map[string]PipelineStep`
+`func (o *Pipeline) GetSteps() []map[string]interface{}`
 
 GetSteps returns the Steps field if non-nil, zero value otherwise.
 
 ### GetStepsOk
 
-`func (o *Pipeline) GetStepsOk() (*map[string]PipelineStep, bool)`
+`func (o *Pipeline) GetStepsOk() (*[]map[string]interface{}, bool)`
 
 GetStepsOk returns a tuple with the Steps field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSteps
 
-`func (o *Pipeline) SetSteps(v map[string]PipelineStep)`
+`func (o *Pipeline) SetSteps(v []map[string]interface{})`
 
 SetSteps sets Steps field to given value.
 
@@ -154,31 +127,6 @@ SetSteps sets Steps field to given value.
 `func (o *Pipeline) HasSteps() bool`
 
 HasSteps returns a boolean if a field has been set.
-
-### GetType
-
-`func (o *Pipeline) GetType() string`
-
-GetType returns the Type field if non-nil, zero value otherwise.
-
-### GetTypeOk
-
-`func (o *Pipeline) GetTypeOk() (*string, bool)`
-
-GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetType
-
-`func (o *Pipeline) SetType(v string)`
-
-SetType sets Type field to given value.
-
-### HasType
-
-`func (o *Pipeline) HasType() bool`
-
-HasType returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

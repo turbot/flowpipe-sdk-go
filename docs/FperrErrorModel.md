@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Detail** | Pointer to **string** |  | [optional] 
 **Instance** | **string** |  | 
+**Retryable** | Pointer to **bool** | All errors are fatal unless specified | [optional] 
 **Status** | **int32** |  | 
 **Title** | **string** |  | 
 **Type** | **string** |  | 
@@ -74,6 +75,31 @@ and a boolean to check if the value has been set.
 
 SetInstance sets Instance field to given value.
 
+
+### GetRetryable
+
+`func (o *FperrErrorModel) GetRetryable() bool`
+
+GetRetryable returns the Retryable field if non-nil, zero value otherwise.
+
+### GetRetryableOk
+
+`func (o *FperrErrorModel) GetRetryableOk() (*bool, bool)`
+
+GetRetryableOk returns a tuple with the Retryable field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRetryable
+
+`func (o *FperrErrorModel) SetRetryable(v bool)`
+
+SetRetryable sets Retryable field to given value.
+
+### HasRetryable
+
+`func (o *FperrErrorModel) HasRetryable() bool`
+
+HasRetryable returns a boolean if a field has been set.
 
 ### GetStatus
 

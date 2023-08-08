@@ -80,6 +80,7 @@ All URIs are relative to *https://localhost/api/v0*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*PipelineApi* | [**Cmd**](docs/PipelineApi.md#cmd) | **Post** /pipeline/{pipeline_name}/cmd | Execute a pipeline command
 *PipelineApi* | [**Get**](docs/PipelineApi.md#get) | **Get** /pipeline/{pipeline_name} | Get pipeline
 *PipelineApi* | [**List**](docs/PipelineApi.md#list) | **Get** /pipeline | List pipelines
 *ProcessApi* | [**Get**](docs/ProcessApi.md#get) | **Get** /process/{process_id} | Get process
@@ -92,6 +93,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [CmdPipeline](docs/CmdPipeline.md)
  - [FperrErrorDetailModel](docs/FperrErrorDetailModel.md)
  - [FperrErrorModel](docs/FperrErrorModel.md)
  - [ListPipelineResponse](docs/ListPipelineResponse.md)
@@ -99,8 +101,9 @@ Class | Method | HTTP request | Description
  - [ListTriggerResponse](docs/ListTriggerResponse.md)
  - [ListVariableResponse](docs/ListVariableResponse.md)
  - [Pipeline](docs/Pipeline.md)
- - [PipelineStep](docs/PipelineStep.md)
+ - [PipelineOutput](docs/PipelineOutput.md)
  - [Process](docs/Process.md)
+ - [RunPipelineResponse](docs/RunPipelineResponse.md)
  - [Trigger](docs/Trigger.md)
  - [Variable](docs/Variable.md)
 
