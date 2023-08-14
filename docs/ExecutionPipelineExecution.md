@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Args** | Pointer to **map[string]interface{}** |  | [optional] 
-**Errors** | Pointer to [**[]StepError**](StepError.md) |  | [optional] 
+**Errors** | Pointer to [**[]StepError**](StepError.md) | All errors from the step execution + any errors that can be added to the pipeline execution manually | [optional] 
 **Id** | Pointer to **string** | Unique identifier for this pipeline execution | [optional] 
 **Name** | Pointer to **string** | The name of the pipeline | [optional] 
 **ParentExecutionId** | Pointer to **string** |  | [optional] 

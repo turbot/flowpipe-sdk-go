@@ -95,13 +95,13 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [CmdPipeline](docs/CmdPipeline.md)
+ - [ErrorDetailModel](docs/ErrorDetailModel.md)
+ - [ErrorModel](docs/ErrorModel.md)
  - [ExecutionExecution](docs/ExecutionExecution.md)
  - [ExecutionPipelineExecution](docs/ExecutionPipelineExecution.md)
  - [ExecutionStepExecution](docs/ExecutionStepExecution.md)
  - [ExecutionStepExecutionOutput](docs/ExecutionStepExecutionOutput.md)
  - [ExecutionStepExecutionStepForEach](docs/ExecutionStepExecutionStepForEach.md)
- - [FperrErrorDetailModel](docs/FperrErrorDetailModel.md)
- - [FperrErrorModel](docs/FperrErrorModel.md)
  - [ListPipelineResponse](docs/ListPipelineResponse.md)
  - [ListProcessResponse](docs/ListProcessResponse.md)
  - [ListTriggerResponse](docs/ListTriggerResponse.md)

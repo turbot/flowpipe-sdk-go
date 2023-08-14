@@ -20,8 +20,9 @@ var _ MappedNullable = &Trigger{}
 
 // Trigger struct for Trigger
 type Trigger struct {
+	Args map[string]interface{} `json:"args,omitempty"`
+	Description *string `json:"description,omitempty"`
 	Name *string `json:"name,omitempty"`
-	Type *string `json:"type,omitempty"`
 }
 func (o Trigger) GetResourceType() string {
 	return "Trigger"
@@ -41,6 +42,70 @@ func NewTrigger() *Trigger {
 func NewTriggerWithDefaults() *Trigger {
 	this := Trigger{}
 	return &this
+}
+
+// GetArgs returns the Args field value if set, zero value otherwise.
+func (o *Trigger) GetArgs() map[string]interface{} {
+	if o == nil || IsNil(o.Args) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.Args
+}
+
+// GetArgsOk returns a tuple with the Args field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Trigger) GetArgsOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Args) {
+		return map[string]interface{}{}, false
+	}
+	return o.Args, true
+}
+
+// HasArgs returns a boolean if a field has been set.
+func (o *Trigger) HasArgs() bool {
+	if o != nil && !IsNil(o.Args) {
+		return true
+	}
+
+	return false
+}
+
+// SetArgs gets a reference to the given map[string]interface{} and assigns it to the Args field.
+func (o *Trigger) SetArgs(v map[string]interface{}) {
+	o.Args = v
+}
+
+// GetDescription returns the Description field value if set, zero value otherwise.
+func (o *Trigger) GetDescription() string {
+	if o == nil || IsNil(o.Description) {
+		var ret string
+		return ret
+	}
+	return *o.Description
+}
+
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Trigger) GetDescriptionOk() (*string, bool) {
+	if o == nil || IsNil(o.Description) {
+		return nil, false
+	}
+	return o.Description, true
+}
+
+// HasDescription returns a boolean if a field has been set.
+func (o *Trigger) HasDescription() bool {
+	if o != nil && !IsNil(o.Description) {
+		return true
+	}
+
+	return false
+}
+
+// SetDescription gets a reference to the given string and assigns it to the Description field.
+func (o *Trigger) SetDescription(v string) {
+	o.Description = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -75,38 +140,6 @@ func (o *Trigger) SetName(v string) {
 	o.Name = &v
 }
 
-// GetType returns the Type field value if set, zero value otherwise.
-func (o *Trigger) GetType() string {
-	if o == nil || IsNil(o.Type) {
-		var ret string
-		return ret
-	}
-	return *o.Type
-}
-
-// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Trigger) GetTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.Type) {
-		return nil, false
-	}
-	return o.Type, true
-}
-
-// HasType returns a boolean if a field has been set.
-func (o *Trigger) HasType() bool {
-	if o != nil && !IsNil(o.Type) {
-		return true
-	}
-
-	return false
-}
-
-// SetType gets a reference to the given string and assigns it to the Type field.
-func (o *Trigger) SetType(v string) {
-	o.Type = &v
-}
-
 func (o Trigger) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -117,11 +150,14 @@ func (o Trigger) MarshalJSON() ([]byte, error) {
 
 func (o Trigger) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Args) {
+		toSerialize["args"] = o.Args
+	}
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
+	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
-	}
-	if !IsNil(o.Type) {
-		toSerialize["type"] = o.Type
 	}
 	return toSerialize, nil
 }
