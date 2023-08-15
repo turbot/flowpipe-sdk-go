@@ -52,31 +52,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Unauthorized
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Forbidden
         "429":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Too Many Requests
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Internal Server Error
       summary: List pipelines
       tags:
@@ -106,37 +106,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Unauthorized
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Not Found
         "429":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Too Many Requests
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Internal Server Error
       summary: Get pipeline
       tags:
@@ -172,37 +172,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Unauthorized
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Not Found
         "429":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Too Many Requests
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Internal Server Error
       summary: Execute a pipeline command
       tags:
@@ -247,31 +247,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Unauthorized
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Forbidden
         "429":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Too Many Requests
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Internal Server Error
       summary: List processs
       tags:
@@ -301,37 +301,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Unauthorized
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Not Found
         "429":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Too Many Requests
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Internal Server Error
       summary: Get process
       tags:
@@ -361,37 +361,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Unauthorized
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Not Found
         "429":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Too Many Requests
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Internal Server Error
       summary: Get process output
       tags:
@@ -435,31 +435,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Unauthorized
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Forbidden
         "429":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Too Many Requests
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Internal Server Error
       summary: List triggers
       tags:
@@ -489,37 +489,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Unauthorized
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Not Found
         "429":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Too Many Requests
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Internal Server Error
       summary: Get trigger
       tags:
@@ -563,31 +563,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Unauthorized
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Forbidden
         "429":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Too Many Requests
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Internal Server Error
       summary: List variables
       tags:
@@ -617,37 +617,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Unauthorized
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Not Found
         "429":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Too Many Requests
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/fperr.ErrorModel'
+                $ref: '#/components/schemas/ErrorModel'
           description: Internal Server Error
       summary: Get variable
       tags:
@@ -656,14 +656,50 @@ components:
   schemas:
     CmdPipeline:
       example:
+        args: "{}"
         command: run
       properties:
+        args:
+          properties: {}
+          type: object
         command:
           enum:
           - run
           type: string
       required:
       - command
+      type: object
+    ErrorDetailModel:
+      properties:
+        location:
+          type: string
+        message:
+          type: string
+      type: object
+    ErrorModel:
+      properties:
+        detail:
+          type: string
+        instance:
+          type: string
+        retryable:
+          description: All errors are fatal unless specified
+          type: boolean
+        status:
+          type: integer
+        title:
+          type: string
+        type:
+          type: string
+        validation_errors:
+          items:
+            $ref: '#/components/schemas/ErrorDetailModel'
+          type: array
+      required:
+      - instance
+      - status
+      - title
+      - type
       type: object
     Input:
       type: object
@@ -737,10 +773,12 @@ components:
       example:
         next_token: next_token
         items:
-        - name: name
-          type: type
-        - name: name
-          type: type
+        - args: "{}"
+          name: name
+          description: description
+        - args: "{}"
+          name: name
+          description: description
       properties:
         items:
           items:
@@ -903,12 +941,15 @@ components:
       type: object
     Trigger:
       example:
+        args: "{}"
         name: name
-        type: type
+        description: description
       properties:
-        name:
+        args:
+          type: object
+        description:
           type: string
-        type:
+        name:
           type: string
       type: object
     Variable:
@@ -1007,6 +1048,8 @@ components:
           description: The input to the pipeline
           type: object
         errors:
+          description: All errors from the step execution + any errors that can be
+            added to the pipeline execution manually
           items:
             $ref: '#/components/schemas/StepError'
           type: array
@@ -1069,38 +1112,6 @@ components:
           type: string
         step_for_each:
           $ref: '#/components/schemas/execution_StepExecution_step_for_each'
-      type: object
-    fperr.ErrorDetailModel:
-      properties:
-        location:
-          type: string
-        message:
-          type: string
-      type: object
-    fperr.ErrorModel:
-      properties:
-        detail:
-          type: string
-        instance:
-          type: string
-        retryable:
-          description: All errors are fatal unless specified
-          type: boolean
-        status:
-          type: integer
-        title:
-          type: string
-        type:
-          type: string
-        validation_errors:
-          items:
-            $ref: '#/components/schemas/fperr.ErrorDetailModel'
-          type: array
-      required:
-      - instance
-      - status
-      - title
-      - type
       type: object
     execution_StepExecution_output:
       allOf:

@@ -21,6 +21,7 @@ var _ MappedNullable = &ExecutionPipelineExecution{}
 // ExecutionPipelineExecution struct for ExecutionPipelineExecution
 type ExecutionPipelineExecution struct {
 	Args map[string]interface{} `json:"args,omitempty"`
+	// All errors from the step execution + any errors that can be added to the pipeline execution manually
 	Errors []StepError `json:"errors,omitempty"`
 	// Unique identifier for this pipeline execution
 	Id *string `json:"id,omitempty"`

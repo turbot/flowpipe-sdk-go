@@ -20,6 +20,7 @@ var _ MappedNullable = &CmdPipeline{}
 
 // CmdPipeline struct for CmdPipeline
 type CmdPipeline struct {
+	Args map[string]interface{} `json:"args,omitempty"`
 	Command string `json:"command"`
 }
 func (o CmdPipeline) GetResourceType() string {
@@ -29,9 +30,13 @@ func (o CmdPipeline) GetResourceType() string {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCmdPipeline(command string) *CmdPipeline {
+func NewCmdPipeline(command string, args map[string]interface{}) *CmdPipeline {
 	this := CmdPipeline{}
 	this.Command = command
+
+	if args != nil {
+		this.Args = args
+	}
 	return &this
 }
 
@@ -41,6 +46,38 @@ func NewCmdPipeline(command string) *CmdPipeline {
 func NewCmdPipelineWithDefaults() *CmdPipeline {
 	this := CmdPipeline{}
 	return &this
+}
+
+// GetArgs returns the Args field value if set, zero value otherwise.
+func (o *CmdPipeline) GetArgs() map[string]interface{} {
+	if o == nil || IsNil(o.Args) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.Args
+}
+
+// GetArgsOk returns a tuple with the Args field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CmdPipeline) GetArgsOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Args) {
+		return map[string]interface{}{}, false
+	}
+	return o.Args, true
+}
+
+// HasArgs returns a boolean if a field has been set.
+func (o *CmdPipeline) HasArgs() bool {
+	if o != nil && !IsNil(o.Args) {
+		return true
+	}
+
+	return false
+}
+
+// SetArgs gets a reference to the given map[string]interface{} and assigns it to the Args field.
+func (o *CmdPipeline) SetArgs(v map[string]interface{}) {
+	o.Args = v
 }
 
 // GetCommand returns the Command field value
@@ -77,6 +114,9 @@ func (o CmdPipeline) MarshalJSON() ([]byte, error) {
 
 func (o CmdPipeline) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Args) {
+		toSerialize["args"] = o.Args
+	}
 	toSerialize["command"] = o.Command
 	return toSerialize, nil
 }
