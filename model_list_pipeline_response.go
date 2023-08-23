@@ -20,7 +20,7 @@ var _ MappedNullable = &ListPipelineResponse{}
 
 // ListPipelineResponse struct for ListPipelineResponse
 type ListPipelineResponse struct {
-	Items []Pipeline `json:"items,omitempty"`
+	Items []ModconfigPipeline `json:"items,omitempty"`
 	NextToken *string `json:"next_token,omitempty"`
 }
 func (o ListPipelineResponse) GetResourceType() string {
@@ -44,9 +44,9 @@ func NewListPipelineResponseWithDefaults() *ListPipelineResponse {
 }
 
 // GetItems returns the Items field value if set, zero value otherwise.
-func (o *ListPipelineResponse) GetItems() []Pipeline {
+func (o *ListPipelineResponse) GetItems() []ModconfigPipeline {
 	if o == nil || IsNil(o.Items) {
-		var ret []Pipeline
+		var ret []ModconfigPipeline
 		return ret
 	}
 	return o.Items
@@ -54,7 +54,7 @@ func (o *ListPipelineResponse) GetItems() []Pipeline {
 
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ListPipelineResponse) GetItemsOk() ([]Pipeline, bool) {
+func (o *ListPipelineResponse) GetItemsOk() ([]ModconfigPipeline, bool) {
 	if o == nil || IsNil(o.Items) {
 		return nil, false
 	}
@@ -70,8 +70,8 @@ func (o *ListPipelineResponse) HasItems() bool {
 	return false
 }
 
-// SetItems gets a reference to the given []Pipeline and assigns it to the Items field.
-func (o *ListPipelineResponse) SetItems(v []Pipeline) {
+// SetItems gets a reference to the given []ModconfigPipeline and assigns it to the Items field.
+func (o *ListPipelineResponse) SetItems(v []ModconfigPipeline) {
 	o.Items = v
 }
 

@@ -24,7 +24,7 @@ type ExecutionStepExecution struct {
 	Input map[string]interface{} `json:"input,omitempty"`
 	// The name of the step in the pipeline definition
 	Name *string `json:"name,omitempty"`
-	NextStepAction *NextStepAction `json:"next_step_action,omitempty"`
+	NextStepAction *ModconfigNextStepAction `json:"next_step_action,omitempty"`
 	Output *ExecutionStepExecutionOutput `json:"output,omitempty"`
 	// Unique identifier for this step execution
 	PipelineExecutionId *string `json:"pipeline_execution_id,omitempty"`
@@ -149,9 +149,9 @@ func (o *ExecutionStepExecution) SetName(v string) {
 }
 
 // GetNextStepAction returns the NextStepAction field value if set, zero value otherwise.
-func (o *ExecutionStepExecution) GetNextStepAction() NextStepAction {
+func (o *ExecutionStepExecution) GetNextStepAction() ModconfigNextStepAction {
 	if o == nil || IsNil(o.NextStepAction) {
-		var ret NextStepAction
+		var ret ModconfigNextStepAction
 		return ret
 	}
 	return *o.NextStepAction
@@ -159,7 +159,7 @@ func (o *ExecutionStepExecution) GetNextStepAction() NextStepAction {
 
 // GetNextStepActionOk returns a tuple with the NextStepAction field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ExecutionStepExecution) GetNextStepActionOk() (*NextStepAction, bool) {
+func (o *ExecutionStepExecution) GetNextStepActionOk() (*ModconfigNextStepAction, bool) {
 	if o == nil || IsNil(o.NextStepAction) {
 		return nil, false
 	}
@@ -175,8 +175,8 @@ func (o *ExecutionStepExecution) HasNextStepAction() bool {
 	return false
 }
 
-// SetNextStepAction gets a reference to the given NextStepAction and assigns it to the NextStepAction field.
-func (o *ExecutionStepExecution) SetNextStepAction(v NextStepAction) {
+// SetNextStepAction gets a reference to the given ModconfigNextStepAction and assigns it to the NextStepAction field.
+func (o *ExecutionStepExecution) SetNextStepAction(v ModconfigNextStepAction) {
 	o.NextStepAction = &v
 }
 

@@ -20,11 +20,11 @@ import (
 type NextStepAction string
 
 // List of NextStepAction
-const (
-	NextStepActionStart NextStepAction = "start"
-	NextStepActionInaccessible NextStepAction = "inaccessible"
-	NextStepActionSkip NextStepAction = "skip"
-)
+// const (
+// 	NextStepActionStart NextStepAction = "start"
+// 	NextStepActionInaccessible NextStepAction = "inaccessible"
+// 	NextStepActionSkip NextStepAction = "skip"
+// )
 
 // All allowed values of NextStepAction enum
 var AllowedNextStepActionEnumValues = []NextStepAction{

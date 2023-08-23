@@ -15,39 +15,39 @@ import (
 	"encoding/json"
 )
 
-// checks if the ExecutionStepExecutionStepForEach type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ExecutionStepExecutionStepForEach{}
+// checks if the ModconfigStepForEach type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ModconfigStepForEach{}
 
-// ExecutionStepExecutionStepForEach for_each controls
-type ExecutionStepExecutionStepForEach struct {
+// ModconfigStepForEach struct for ModconfigStepForEach
+type ModconfigStepForEach struct {
 	ForEachOutput *ModconfigOutput `json:"for_each_output,omitempty"`
 	ForEachTotalCount int32 `json:"for_each_total_count"`
 	Index int32 `json:"index"`
 }
-func (o ExecutionStepExecutionStepForEach) GetResourceType() string {
-	return "ExecutionStepExecutionStepForEach"
+func (o ModconfigStepForEach) GetResourceType() string {
+	return "ModconfigStepForEach"
 }
-// NewExecutionStepExecutionStepForEach instantiates a new ExecutionStepExecutionStepForEach object
+// NewModconfigStepForEach instantiates a new ModconfigStepForEach object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewExecutionStepExecutionStepForEach(forEachTotalCount int32, index int32) *ExecutionStepExecutionStepForEach {
-	this := ExecutionStepExecutionStepForEach{}
+func NewModconfigStepForEach(forEachTotalCount int32, index int32) *ModconfigStepForEach {
+	this := ModconfigStepForEach{}
 	this.ForEachTotalCount = forEachTotalCount
 	this.Index = index
 	return &this
 }
 
-// NewExecutionStepExecutionStepForEachWithDefaults instantiates a new ExecutionStepExecutionStepForEach object
+// NewModconfigStepForEachWithDefaults instantiates a new ModconfigStepForEach object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewExecutionStepExecutionStepForEachWithDefaults() *ExecutionStepExecutionStepForEach {
-	this := ExecutionStepExecutionStepForEach{}
+func NewModconfigStepForEachWithDefaults() *ModconfigStepForEach {
+	this := ModconfigStepForEach{}
 	return &this
 }
 
 // GetForEachOutput returns the ForEachOutput field value if set, zero value otherwise.
-func (o *ExecutionStepExecutionStepForEach) GetForEachOutput() ModconfigOutput {
+func (o *ModconfigStepForEach) GetForEachOutput() ModconfigOutput {
 	if o == nil || IsNil(o.ForEachOutput) {
 		var ret ModconfigOutput
 		return ret
@@ -57,7 +57,7 @@ func (o *ExecutionStepExecutionStepForEach) GetForEachOutput() ModconfigOutput {
 
 // GetForEachOutputOk returns a tuple with the ForEachOutput field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ExecutionStepExecutionStepForEach) GetForEachOutputOk() (*ModconfigOutput, bool) {
+func (o *ModconfigStepForEach) GetForEachOutputOk() (*ModconfigOutput, bool) {
 	if o == nil || IsNil(o.ForEachOutput) {
 		return nil, false
 	}
@@ -65,7 +65,7 @@ func (o *ExecutionStepExecutionStepForEach) GetForEachOutputOk() (*ModconfigOutp
 }
 
 // HasForEachOutput returns a boolean if a field has been set.
-func (o *ExecutionStepExecutionStepForEach) HasForEachOutput() bool {
+func (o *ModconfigStepForEach) HasForEachOutput() bool {
 	if o != nil && !IsNil(o.ForEachOutput) {
 		return true
 	}
@@ -74,12 +74,12 @@ func (o *ExecutionStepExecutionStepForEach) HasForEachOutput() bool {
 }
 
 // SetForEachOutput gets a reference to the given ModconfigOutput and assigns it to the ForEachOutput field.
-func (o *ExecutionStepExecutionStepForEach) SetForEachOutput(v ModconfigOutput) {
+func (o *ModconfigStepForEach) SetForEachOutput(v ModconfigOutput) {
 	o.ForEachOutput = &v
 }
 
 // GetForEachTotalCount returns the ForEachTotalCount field value
-func (o *ExecutionStepExecutionStepForEach) GetForEachTotalCount() int32 {
+func (o *ModconfigStepForEach) GetForEachTotalCount() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -90,7 +90,7 @@ func (o *ExecutionStepExecutionStepForEach) GetForEachTotalCount() int32 {
 
 // GetForEachTotalCountOk returns a tuple with the ForEachTotalCount field value
 // and a boolean to check if the value has been set.
-func (o *ExecutionStepExecutionStepForEach) GetForEachTotalCountOk() (*int32, bool) {
+func (o *ModconfigStepForEach) GetForEachTotalCountOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -98,12 +98,12 @@ func (o *ExecutionStepExecutionStepForEach) GetForEachTotalCountOk() (*int32, bo
 }
 
 // SetForEachTotalCount sets field value
-func (o *ExecutionStepExecutionStepForEach) SetForEachTotalCount(v int32) {
+func (o *ModconfigStepForEach) SetForEachTotalCount(v int32) {
 	o.ForEachTotalCount = v
 }
 
 // GetIndex returns the Index field value
-func (o *ExecutionStepExecutionStepForEach) GetIndex() int32 {
+func (o *ModconfigStepForEach) GetIndex() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -114,7 +114,7 @@ func (o *ExecutionStepExecutionStepForEach) GetIndex() int32 {
 
 // GetIndexOk returns a tuple with the Index field value
 // and a boolean to check if the value has been set.
-func (o *ExecutionStepExecutionStepForEach) GetIndexOk() (*int32, bool) {
+func (o *ModconfigStepForEach) GetIndexOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -122,11 +122,11 @@ func (o *ExecutionStepExecutionStepForEach) GetIndexOk() (*int32, bool) {
 }
 
 // SetIndex sets field value
-func (o *ExecutionStepExecutionStepForEach) SetIndex(v int32) {
+func (o *ModconfigStepForEach) SetIndex(v int32) {
 	o.Index = v
 }
 
-func (o ExecutionStepExecutionStepForEach) MarshalJSON() ([]byte, error) {
+func (o ModconfigStepForEach) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -134,7 +134,7 @@ func (o ExecutionStepExecutionStepForEach) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ExecutionStepExecutionStepForEach) ToMap() (map[string]interface{}, error) {
+func (o ModconfigStepForEach) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.ForEachOutput) {
 		toSerialize["for_each_output"] = o.ForEachOutput
@@ -144,38 +144,38 @@ func (o ExecutionStepExecutionStepForEach) ToMap() (map[string]interface{}, erro
 	return toSerialize, nil
 }
 
-type NullableExecutionStepExecutionStepForEach struct {
-	value *ExecutionStepExecutionStepForEach
+type NullableModconfigStepForEach struct {
+	value *ModconfigStepForEach
 	isSet bool
 }
 
-func (v NullableExecutionStepExecutionStepForEach) Get() *ExecutionStepExecutionStepForEach {
+func (v NullableModconfigStepForEach) Get() *ModconfigStepForEach {
 	return v.value
 }
 
-func (v *NullableExecutionStepExecutionStepForEach) Set(val *ExecutionStepExecutionStepForEach) {
+func (v *NullableModconfigStepForEach) Set(val *ModconfigStepForEach) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableExecutionStepExecutionStepForEach) IsSet() bool {
+func (v NullableModconfigStepForEach) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableExecutionStepExecutionStepForEach) Unset() {
+func (v *NullableModconfigStepForEach) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableExecutionStepExecutionStepForEach(val *ExecutionStepExecutionStepForEach) *NullableExecutionStepExecutionStepForEach {
-	return &NullableExecutionStepExecutionStepForEach{value: val, isSet: true}
+func NewNullableModconfigStepForEach(val *ModconfigStepForEach) *NullableModconfigStepForEach {
+	return &NullableModconfigStepForEach{value: val, isSet: true}
 }
 
-func (v NullableExecutionStepExecutionStepForEach) MarshalJSON() ([]byte, error) {
+func (v NullableModconfigStepForEach) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableExecutionStepExecutionStepForEach) UnmarshalJSON(src []byte) error {
+func (v *NullableModconfigStepForEach) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

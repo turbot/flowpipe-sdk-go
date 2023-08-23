@@ -22,7 +22,7 @@ var _ MappedNullable = &ExecutionPipelineExecution{}
 type ExecutionPipelineExecution struct {
 	Args map[string]interface{} `json:"args,omitempty"`
 	// All errors from the step execution + any errors that can be added to the pipeline execution manually
-	Errors []StepError `json:"errors,omitempty"`
+	Errors []ModconfigStepError `json:"errors,omitempty"`
 	// Unique identifier for this pipeline execution
 	Id *string `json:"id,omitempty"`
 	// The name of the pipeline
@@ -90,9 +90,9 @@ func (o *ExecutionPipelineExecution) SetArgs(v map[string]interface{}) {
 }
 
 // GetErrors returns the Errors field value if set, zero value otherwise.
-func (o *ExecutionPipelineExecution) GetErrors() []StepError {
+func (o *ExecutionPipelineExecution) GetErrors() []ModconfigStepError {
 	if o == nil || IsNil(o.Errors) {
-		var ret []StepError
+		var ret []ModconfigStepError
 		return ret
 	}
 	return o.Errors
@@ -100,7 +100,7 @@ func (o *ExecutionPipelineExecution) GetErrors() []StepError {
 
 // GetErrorsOk returns a tuple with the Errors field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ExecutionPipelineExecution) GetErrorsOk() ([]StepError, bool) {
+func (o *ExecutionPipelineExecution) GetErrorsOk() ([]ModconfigStepError, bool) {
 	if o == nil || IsNil(o.Errors) {
 		return nil, false
 	}
@@ -116,8 +116,8 @@ func (o *ExecutionPipelineExecution) HasErrors() bool {
 	return false
 }
 
-// SetErrors gets a reference to the given []StepError and assigns it to the Errors field.
-func (o *ExecutionPipelineExecution) SetErrors(v []StepError) {
+// SetErrors gets a reference to the given []ModconfigStepError and assigns it to the Errors field.
+func (o *ExecutionPipelineExecution) SetErrors(v []ModconfigStepError) {
 	o.Errors = v
 }
 

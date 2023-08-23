@@ -1,4 +1,4 @@
-# ExecutionStepExecutionOutput
+# ModconfigOutput
 
 ## Properties
 
@@ -10,95 +10,95 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewExecutionStepExecutionOutput
+### NewModconfigOutput
 
-`func NewExecutionStepExecutionOutput() *ExecutionStepExecutionOutput`
+`func NewModconfigOutput() *ModconfigOutput`
 
-NewExecutionStepExecutionOutput instantiates a new ExecutionStepExecutionOutput object
+NewModconfigOutput instantiates a new ModconfigOutput object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewExecutionStepExecutionOutputWithDefaults
+### NewModconfigOutputWithDefaults
 
-`func NewExecutionStepExecutionOutputWithDefaults() *ExecutionStepExecutionOutput`
+`func NewModconfigOutputWithDefaults() *ModconfigOutput`
 
-NewExecutionStepExecutionOutputWithDefaults instantiates a new ExecutionStepExecutionOutput object
+NewModconfigOutputWithDefaults instantiates a new ModconfigOutput object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetData
 
-`func (o *ExecutionStepExecutionOutput) GetData() map[string]interface{}`
+`func (o *ModconfigOutput) GetData() map[string]interface{}`
 
 GetData returns the Data field if non-nil, zero value otherwise.
 
 ### GetDataOk
 
-`func (o *ExecutionStepExecutionOutput) GetDataOk() (*map[string]interface{}, bool)`
+`func (o *ModconfigOutput) GetDataOk() (*map[string]interface{}, bool)`
 
 GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetData
 
-`func (o *ExecutionStepExecutionOutput) SetData(v map[string]interface{})`
+`func (o *ModconfigOutput) SetData(v map[string]interface{})`
 
 SetData sets Data field to given value.
 
 ### HasData
 
-`func (o *ExecutionStepExecutionOutput) HasData() bool`
+`func (o *ModconfigOutput) HasData() bool`
 
 HasData returns a boolean if a field has been set.
 
 ### GetErrors
 
-`func (o *ExecutionStepExecutionOutput) GetErrors() []ModconfigStepError`
+`func (o *ModconfigOutput) GetErrors() []ModconfigStepError`
 
 GetErrors returns the Errors field if non-nil, zero value otherwise.
 
 ### GetErrorsOk
 
-`func (o *ExecutionStepExecutionOutput) GetErrorsOk() (*[]ModconfigStepError, bool)`
+`func (o *ModconfigOutput) GetErrorsOk() (*[]ModconfigStepError, bool)`
 
 GetErrorsOk returns a tuple with the Errors field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetErrors
 
-`func (o *ExecutionStepExecutionOutput) SetErrors(v []ModconfigStepError)`
+`func (o *ModconfigOutput) SetErrors(v []ModconfigStepError)`
 
 SetErrors sets Errors field to given value.
 
 ### HasErrors
 
-`func (o *ExecutionStepExecutionOutput) HasErrors() bool`
+`func (o *ModconfigOutput) HasErrors() bool`
 
 HasErrors returns a boolean if a field has been set.
 
 ### GetStatus
 
-`func (o *ExecutionStepExecutionOutput) GetStatus() string`
+`func (o *ModconfigOutput) GetStatus() string`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *ExecutionStepExecutionOutput) GetStatusOk() (*string, bool)`
+`func (o *ModconfigOutput) GetStatusOk() (*string, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *ExecutionStepExecutionOutput) SetStatus(v string)`
+`func (o *ModconfigOutput) SetStatus(v string)`
 
 SetStatus sets Status field to given value.
 
 ### HasStatus
 
-`func (o *ExecutionStepExecutionOutput) HasStatus() bool`
+`func (o *ModconfigOutput) HasStatus() bool`
 
 HasStatus returns a boolean if a field has been set.
 

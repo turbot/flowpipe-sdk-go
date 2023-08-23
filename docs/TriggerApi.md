@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## Get
 
-> Trigger Get(ctx, triggerName).Execute()
+> FpTrigger Get(ctx, triggerName).Execute()
 
 Get trigger
 
@@ -39,7 +39,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `TriggerApi.Get``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Get`: Trigger
+    // response from `Get`: FpTrigger
     fmt.Fprintf(os.Stdout, "Response from `TriggerApi.Get`: %v\n", resp)
 }
 ```
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Trigger**](Trigger.md)
+[**FpTrigger**](FpTrigger.md)
 
 ### Authorization
 

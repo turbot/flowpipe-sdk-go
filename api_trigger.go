@@ -30,7 +30,7 @@ type TriggerApiGetRequest struct {
 	triggerName string
 }
 
-func (r TriggerApiGetRequest) Execute() (*Trigger, *http.Response, error) {
+func (r TriggerApiGetRequest) Execute() (*FpTrigger, *http.Response, error) {
 	return r.ApiService.GetExecute(r)
 }
 
@@ -52,13 +52,13 @@ func (a *TriggerApiService) Get(ctx context.Context, triggerName string) Trigger
 }
 
 // Execute executes the request
-//  @return Trigger
-func (a *TriggerApiService) GetExecute(r TriggerApiGetRequest) (*Trigger, *http.Response, error) {
+//  @return FpTrigger
+func (a *TriggerApiService) GetExecute(r TriggerApiGetRequest) (*FpTrigger, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *Trigger
+		localVarReturnValue  *FpTrigger
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TriggerApiService.Get")
@@ -113,7 +113,7 @@ func (a *TriggerApiService) GetExecute(r TriggerApiGetRequest) (*Trigger, *http.
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorModel
+			var v PcerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -124,7 +124,7 @@ func (a *TriggerApiService) GetExecute(r TriggerApiGetRequest) (*Trigger, *http.
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorModel
+			var v PcerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -135,7 +135,7 @@ func (a *TriggerApiService) GetExecute(r TriggerApiGetRequest) (*Trigger, *http.
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorModel
+			var v PcerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -146,7 +146,7 @@ func (a *TriggerApiService) GetExecute(r TriggerApiGetRequest) (*Trigger, *http.
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v ErrorModel
+			var v PcerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -157,7 +157,7 @@ func (a *TriggerApiService) GetExecute(r TriggerApiGetRequest) (*Trigger, *http.
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ErrorModel
+			var v PcerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -168,7 +168,7 @@ func (a *TriggerApiService) GetExecute(r TriggerApiGetRequest) (*Trigger, *http.
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorModel
+			var v PcerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -297,7 +297,7 @@ func (a *TriggerApiService) ListExecute(r TriggerApiListRequest) (*ListTriggerRe
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorModel
+			var v PcerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -308,7 +308,7 @@ func (a *TriggerApiService) ListExecute(r TriggerApiListRequest) (*ListTriggerRe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorModel
+			var v PcerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -319,7 +319,7 @@ func (a *TriggerApiService) ListExecute(r TriggerApiListRequest) (*ListTriggerRe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorModel
+			var v PcerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -330,7 +330,7 @@ func (a *TriggerApiService) ListExecute(r TriggerApiListRequest) (*ListTriggerRe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ErrorModel
+			var v PcerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -341,7 +341,7 @@ func (a *TriggerApiService) ListExecute(r TriggerApiListRequest) (*ListTriggerRe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorModel
+			var v PcerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

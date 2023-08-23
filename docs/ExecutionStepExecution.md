@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** |  | [optional] 
 **Input** | Pointer to **map[string]interface{}** |  | [optional] 
 **Name** | Pointer to **string** | The name of the step in the pipeline definition | [optional] 
-**NextStepAction** | Pointer to [**NextStepAction**](NextStepAction.md) |  | [optional] 
+**NextStepAction** | Pointer to [**ModconfigNextStepAction**](ModconfigNextStepAction.md) |  | [optional] 
 **Output** | Pointer to [**ExecutionStepExecutionOutput**](ExecutionStepExecutionOutput.md) |  | [optional] 
 **PipelineExecutionId** | Pointer to **string** | Unique identifier for this step execution | [optional] 
 **Status** | Pointer to **string** | The status of the step execution: \&quot;started\&quot;, \&quot;finished\&quot;, \&quot;failed\&quot;, \&quot;skipped\&quot; | [optional] 
@@ -109,20 +109,20 @@ HasName returns a boolean if a field has been set.
 
 ### GetNextStepAction
 
-`func (o *ExecutionStepExecution) GetNextStepAction() NextStepAction`
+`func (o *ExecutionStepExecution) GetNextStepAction() ModconfigNextStepAction`
 
 GetNextStepAction returns the NextStepAction field if non-nil, zero value otherwise.
 
 ### GetNextStepActionOk
 
-`func (o *ExecutionStepExecution) GetNextStepActionOk() (*NextStepAction, bool)`
+`func (o *ExecutionStepExecution) GetNextStepActionOk() (*ModconfigNextStepAction, bool)`
 
 GetNextStepActionOk returns a tuple with the NextStepAction field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNextStepAction
 
-`func (o *ExecutionStepExecution) SetNextStepAction(v NextStepAction)`
+`func (o *ExecutionStepExecution) SetNextStepAction(v ModconfigNextStepAction)`
 
 SetNextStepAction sets NextStepAction field to given value.
 

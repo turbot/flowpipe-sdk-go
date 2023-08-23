@@ -1,4 +1,4 @@
-# ExecutionStepExecutionStepForEach
+# ModconfigStepForEach
 
 ## Properties
 
@@ -10,84 +10,84 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewExecutionStepExecutionStepForEach
+### NewModconfigStepForEach
 
-`func NewExecutionStepExecutionStepForEach(forEachTotalCount int32, index int32, ) *ExecutionStepExecutionStepForEach`
+`func NewModconfigStepForEach(forEachTotalCount int32, index int32, ) *ModconfigStepForEach`
 
-NewExecutionStepExecutionStepForEach instantiates a new ExecutionStepExecutionStepForEach object
+NewModconfigStepForEach instantiates a new ModconfigStepForEach object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewExecutionStepExecutionStepForEachWithDefaults
+### NewModconfigStepForEachWithDefaults
 
-`func NewExecutionStepExecutionStepForEachWithDefaults() *ExecutionStepExecutionStepForEach`
+`func NewModconfigStepForEachWithDefaults() *ModconfigStepForEach`
 
-NewExecutionStepExecutionStepForEachWithDefaults instantiates a new ExecutionStepExecutionStepForEach object
+NewModconfigStepForEachWithDefaults instantiates a new ModconfigStepForEach object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetForEachOutput
 
-`func (o *ExecutionStepExecutionStepForEach) GetForEachOutput() ModconfigOutput`
+`func (o *ModconfigStepForEach) GetForEachOutput() ModconfigOutput`
 
 GetForEachOutput returns the ForEachOutput field if non-nil, zero value otherwise.
 
 ### GetForEachOutputOk
 
-`func (o *ExecutionStepExecutionStepForEach) GetForEachOutputOk() (*ModconfigOutput, bool)`
+`func (o *ModconfigStepForEach) GetForEachOutputOk() (*ModconfigOutput, bool)`
 
 GetForEachOutputOk returns a tuple with the ForEachOutput field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetForEachOutput
 
-`func (o *ExecutionStepExecutionStepForEach) SetForEachOutput(v ModconfigOutput)`
+`func (o *ModconfigStepForEach) SetForEachOutput(v ModconfigOutput)`
 
 SetForEachOutput sets ForEachOutput field to given value.
 
 ### HasForEachOutput
 
-`func (o *ExecutionStepExecutionStepForEach) HasForEachOutput() bool`
+`func (o *ModconfigStepForEach) HasForEachOutput() bool`
 
 HasForEachOutput returns a boolean if a field has been set.
 
 ### GetForEachTotalCount
 
-`func (o *ExecutionStepExecutionStepForEach) GetForEachTotalCount() int32`
+`func (o *ModconfigStepForEach) GetForEachTotalCount() int32`
 
 GetForEachTotalCount returns the ForEachTotalCount field if non-nil, zero value otherwise.
 
 ### GetForEachTotalCountOk
 
-`func (o *ExecutionStepExecutionStepForEach) GetForEachTotalCountOk() (*int32, bool)`
+`func (o *ModconfigStepForEach) GetForEachTotalCountOk() (*int32, bool)`
 
 GetForEachTotalCountOk returns a tuple with the ForEachTotalCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetForEachTotalCount
 
-`func (o *ExecutionStepExecutionStepForEach) SetForEachTotalCount(v int32)`
+`func (o *ModconfigStepForEach) SetForEachTotalCount(v int32)`
 
 SetForEachTotalCount sets ForEachTotalCount field to given value.
 
 
 ### GetIndex
 
-`func (o *ExecutionStepExecutionStepForEach) GetIndex() int32`
+`func (o *ModconfigStepForEach) GetIndex() int32`
 
 GetIndex returns the Index field if non-nil, zero value otherwise.
 
 ### GetIndexOk
 
-`func (o *ExecutionStepExecutionStepForEach) GetIndexOk() (*int32, bool)`
+`func (o *ModconfigStepForEach) GetIndexOk() (*int32, bool)`
 
 GetIndexOk returns a tuple with the Index field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIndex
 
-`func (o *ExecutionStepExecutionStepForEach) SetIndex(v int32)`
+`func (o *ModconfigStepForEach) SetIndex(v int32)`
 
 SetIndex sets Index field to given value.
 

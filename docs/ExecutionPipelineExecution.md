@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Args** | Pointer to **map[string]interface{}** |  | [optional] 
-**Errors** | Pointer to [**[]StepError**](StepError.md) | All errors from the step execution + any errors that can be added to the pipeline execution manually | [optional] 
+**Errors** | Pointer to [**[]ModconfigStepError**](ModconfigStepError.md) | All errors from the step execution + any errors that can be added to the pipeline execution manually | [optional] 
 **Id** | Pointer to **string** | Unique identifier for this pipeline execution | [optional] 
 **Name** | Pointer to **string** | The name of the pipeline | [optional] 
 **ParentExecutionId** | Pointer to **string** |  | [optional] 
@@ -60,20 +60,20 @@ HasArgs returns a boolean if a field has been set.
 
 ### GetErrors
 
-`func (o *ExecutionPipelineExecution) GetErrors() []StepError`
+`func (o *ExecutionPipelineExecution) GetErrors() []ModconfigStepError`
 
 GetErrors returns the Errors field if non-nil, zero value otherwise.
 
 ### GetErrorsOk
 
-`func (o *ExecutionPipelineExecution) GetErrorsOk() (*[]StepError, bool)`
+`func (o *ExecutionPipelineExecution) GetErrorsOk() (*[]ModconfigStepError, bool)`
 
 GetErrorsOk returns a tuple with the Errors field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetErrors
 
-`func (o *ExecutionPipelineExecution) SetErrors(v []StepError)`
+`func (o *ExecutionPipelineExecution) SetErrors(v []ModconfigStepError)`
 
 SetErrors sets Errors field to given value.
 

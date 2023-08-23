@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | Pointer to [**[]Trigger**](Trigger.md) |  | [optional] 
+**Items** | Pointer to [**[]FpTrigger**](FpTrigger.md) |  | [optional] 
 **NextToken** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetItems
 
-`func (o *ListTriggerResponse) GetItems() []Trigger`
+`func (o *ListTriggerResponse) GetItems() []FpTrigger`
 
 GetItems returns the Items field if non-nil, zero value otherwise.
 
 ### GetItemsOk
 
-`func (o *ListTriggerResponse) GetItemsOk() (*[]Trigger, bool)`
+`func (o *ListTriggerResponse) GetItemsOk() (*[]FpTrigger, bool)`
 
 GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItems
 
-`func (o *ListTriggerResponse) SetItems(v []Trigger)`
+`func (o *ListTriggerResponse) SetItems(v []FpTrigger)`
 
 SetItems sets Items field to given value.
 

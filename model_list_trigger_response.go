@@ -20,7 +20,7 @@ var _ MappedNullable = &ListTriggerResponse{}
 
 // ListTriggerResponse struct for ListTriggerResponse
 type ListTriggerResponse struct {
-	Items []Trigger `json:"items,omitempty"`
+	Items []FpTrigger `json:"items,omitempty"`
 	NextToken *string `json:"next_token,omitempty"`
 }
 func (o ListTriggerResponse) GetResourceType() string {
@@ -44,9 +44,9 @@ func NewListTriggerResponseWithDefaults() *ListTriggerResponse {
 }
 
 // GetItems returns the Items field value if set, zero value otherwise.
-func (o *ListTriggerResponse) GetItems() []Trigger {
+func (o *ListTriggerResponse) GetItems() []FpTrigger {
 	if o == nil || IsNil(o.Items) {
-		var ret []Trigger
+		var ret []FpTrigger
 		return ret
 	}
 	return o.Items
@@ -54,7 +54,7 @@ func (o *ListTriggerResponse) GetItems() []Trigger {
 
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ListTriggerResponse) GetItemsOk() ([]Trigger, bool) {
+func (o *ListTriggerResponse) GetItemsOk() ([]FpTrigger, bool) {
 	if o == nil || IsNil(o.Items) {
 		return nil, false
 	}
@@ -70,8 +70,8 @@ func (o *ListTriggerResponse) HasItems() bool {
 	return false
 }
 
-// SetItems gets a reference to the given []Trigger and assigns it to the Items field.
-func (o *ListTriggerResponse) SetItems(v []Trigger) {
+// SetItems gets a reference to the given []FpTrigger and assigns it to the Items field.
+func (o *ListTriggerResponse) SetItems(v []FpTrigger) {
 	o.Items = v
 }
 
