@@ -14,6 +14,7 @@ docs/ExecutionPipelineExecution.md
 docs/ExecutionStepExecution.md
 docs/ExecutionStepExecutionOutput.md
 docs/ExecutionStepExecutionStepForEach.md
+docs/FpPipeline.md
 docs/FpTrigger.md
 docs/ListPipelineResponse.md
 docs/ListProcessResponse.md
@@ -43,6 +44,7 @@ model_execution_pipeline_execution.go
 model_execution_step_execution.go
 model_execution_step_execution_output.go
 model_execution_step_execution_step_for_each.go
+model_fp_pipeline.go
 model_fp_trigger.go
 model_list_pipeline_response.go
 model_list_process_response.go

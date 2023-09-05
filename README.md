@@ -100,6 +100,7 @@ Class | Method | HTTP request | Description
  - [ExecutionStepExecution](docs/ExecutionStepExecution.md)
  - [ExecutionStepExecutionOutput](docs/ExecutionStepExecutionOutput.md)
  - [ExecutionStepExecutionStepForEach](docs/ExecutionStepExecutionStepForEach.md)
+ - [FpPipeline](docs/FpPipeline.md)
  - [FpTrigger](docs/FpTrigger.md)
  - [ListPipelineResponse](docs/ListPipelineResponse.md)
  - [ListProcessResponse](docs/ListProcessResponse.md)

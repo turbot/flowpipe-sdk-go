@@ -669,6 +669,19 @@ components:
       required:
       - command
       type: object
+    FpPipeline:
+      example:
+        mod: mod
+        name: name
+        description: description
+      properties:
+        description:
+          type: string
+        mod:
+          type: string
+        name:
+          type: string
+      type: object
     FpTrigger:
       example:
         args: "{}"
@@ -693,50 +706,16 @@ components:
       example:
         next_token: next_token
         items:
-        - outputs:
-          - depends_on:
-            - depends_on
-            - depends_on
-            name: name
-            sensitive: true
-            value: "{}"
-            resolved: true
-          - depends_on:
-            - depends_on
-            - depends_on
-            name: name
-            sensitive: true
-            value: "{}"
-            resolved: true
+        - mod: mod
           name: name
-          steps:
-          - "{}"
-          - "{}"
-          pipeline_name: pipeline_name
-        - outputs:
-          - depends_on:
-            - depends_on
-            - depends_on
-            name: name
-            sensitive: true
-            value: "{}"
-            resolved: true
-          - depends_on:
-            - depends_on
-            - depends_on
-            name: name
-            sensitive: true
-            value: "{}"
-            resolved: true
+          description: description
+        - mod: mod
           name: name
-          steps:
-          - "{}"
-          - "{}"
-          pipeline_name: pipeline_name
+          description: description
       properties:
         items:
           items:
-            $ref: '#/components/schemas/modconfig.Pipeline'
+            $ref: '#/components/schemas/FpPipeline'
           type: array
         next_token:
           type: string
