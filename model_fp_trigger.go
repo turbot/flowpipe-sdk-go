@@ -20,11 +20,11 @@ var _ MappedNullable = &FpTrigger{}
 
 // FpTrigger struct for FpTrigger
 type FpTrigger struct {
-	Args map[string]interface{} `json:"args,omitempty"`
 	Description *string `json:"description,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Pipeline *string `json:"pipeline,omitempty"`
 	Type *string `json:"type,omitempty"`
+	Url *string `json:"url,omitempty"`
 }
 func (o FpTrigger) GetResourceType() string {
 	return "FpTrigger"
@@ -44,38 +44,6 @@ func NewFpTrigger() *FpTrigger {
 func NewFpTriggerWithDefaults() *FpTrigger {
 	this := FpTrigger{}
 	return &this
-}
-
-// GetArgs returns the Args field value if set, zero value otherwise.
-func (o *FpTrigger) GetArgs() map[string]interface{} {
-	if o == nil || IsNil(o.Args) {
-		var ret map[string]interface{}
-		return ret
-	}
-	return o.Args
-}
-
-// GetArgsOk returns a tuple with the Args field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FpTrigger) GetArgsOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.Args) {
-		return map[string]interface{}{}, false
-	}
-	return o.Args, true
-}
-
-// HasArgs returns a boolean if a field has been set.
-func (o *FpTrigger) HasArgs() bool {
-	if o != nil && !IsNil(o.Args) {
-		return true
-	}
-
-	return false
-}
-
-// SetArgs gets a reference to the given map[string]interface{} and assigns it to the Args field.
-func (o *FpTrigger) SetArgs(v map[string]interface{}) {
-	o.Args = v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
@@ -206,6 +174,38 @@ func (o *FpTrigger) SetType(v string) {
 	o.Type = &v
 }
 
+// GetUrl returns the Url field value if set, zero value otherwise.
+func (o *FpTrigger) GetUrl() string {
+	if o == nil || IsNil(o.Url) {
+		var ret string
+		return ret
+	}
+	return *o.Url
+}
+
+// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpTrigger) GetUrlOk() (*string, bool) {
+	if o == nil || IsNil(o.Url) {
+		return nil, false
+	}
+	return o.Url, true
+}
+
+// HasUrl returns a boolean if a field has been set.
+func (o *FpTrigger) HasUrl() bool {
+	if o != nil && !IsNil(o.Url) {
+		return true
+	}
+
+	return false
+}
+
+// SetUrl gets a reference to the given string and assigns it to the Url field.
+func (o *FpTrigger) SetUrl(v string) {
+	o.Url = &v
+}
+
 func (o FpTrigger) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -216,9 +216,6 @@ func (o FpTrigger) MarshalJSON() ([]byte, error) {
 
 func (o FpTrigger) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Args) {
-		toSerialize["args"] = o.Args
-	}
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
@@ -230,6 +227,9 @@ func (o FpTrigger) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
+	}
+	if !IsNil(o.Url) {
+		toSerialize["url"] = o.Url
 	}
 	return toSerialize, nil
 }

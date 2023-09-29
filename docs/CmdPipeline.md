@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Args** | Pointer to **map[string]interface{}** |  | [optional] 
+**ArgsString** | Pointer to **map[string]string** |  | [optional] 
 **Command** | **string** |  | 
 
 ## Methods
@@ -50,6 +51,31 @@ SetArgs sets Args field to given value.
 `func (o *CmdPipeline) HasArgs() bool`
 
 HasArgs returns a boolean if a field has been set.
+
+### GetArgsString
+
+`func (o *CmdPipeline) GetArgsString() map[string]string`
+
+GetArgsString returns the ArgsString field if non-nil, zero value otherwise.
+
+### GetArgsStringOk
+
+`func (o *CmdPipeline) GetArgsStringOk() (*map[string]string, bool)`
+
+GetArgsStringOk returns a tuple with the ArgsString field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetArgsString
+
+`func (o *CmdPipeline) SetArgsString(v map[string]string)`
+
+SetArgsString sets ArgsString field to given value.
+
+### HasArgsString
+
+`func (o *CmdPipeline) HasArgsString() bool`
+
+HasArgsString returns a boolean if a field has been set.
 
 ### GetCommand
 

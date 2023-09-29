@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Args** | Pointer to **map[string]interface{}** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Pipeline** | Pointer to **string** |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] 
+**Url** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -28,31 +28,6 @@ will change when the set of required properties is changed
 NewFpTriggerWithDefaults instantiates a new FpTrigger object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetArgs
-
-`func (o *FpTrigger) GetArgs() map[string]interface{}`
-
-GetArgs returns the Args field if non-nil, zero value otherwise.
-
-### GetArgsOk
-
-`func (o *FpTrigger) GetArgsOk() (*map[string]interface{}, bool)`
-
-GetArgsOk returns a tuple with the Args field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetArgs
-
-`func (o *FpTrigger) SetArgs(v map[string]interface{})`
-
-SetArgs sets Args field to given value.
-
-### HasArgs
-
-`func (o *FpTrigger) HasArgs() bool`
-
-HasArgs returns a boolean if a field has been set.
 
 ### GetDescription
 
@@ -153,6 +128,31 @@ SetType sets Type field to given value.
 `func (o *FpTrigger) HasType() bool`
 
 HasType returns a boolean if a field has been set.
+
+### GetUrl
+
+`func (o *FpTrigger) GetUrl() string`
+
+GetUrl returns the Url field if non-nil, zero value otherwise.
+
+### GetUrlOk
+
+`func (o *FpTrigger) GetUrlOk() (*string, bool)`
+
+GetUrlOk returns a tuple with the Url field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUrl
+
+`func (o *FpTrigger) SetUrl(v string)`
+
+SetUrl sets Url field to given value.
+
+### HasUrl
+
+`func (o *FpTrigger) HasUrl() bool`
+
+HasUrl returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

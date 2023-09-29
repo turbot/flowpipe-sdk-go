@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## Cmd
 
-> RunPipelineResponse Cmd(ctx, pipelineName).Request(request).Execute()
+> RunPipelineResponse Cmd(ctx, pipelineName).Request(request).ExecutionMode(executionMode).Execute()
 
 Execute a pipeline command
 
@@ -31,10 +31,11 @@ import (
 func main() {
     pipelineName := "pipelineName_example" // string | The name of the pipeline
     request := *openapiclient.NewCmdPipeline("Command_example") // CmdPipeline | Pipeline command.
+    executionMode := "executionMode_example" // string | synchronous vs asynchronous (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PipelineApi.Cmd(context.Background(), pipelineName).Request(request).Execute()
+    resp, r, err := apiClient.PipelineApi.Cmd(context.Background(), pipelineName).Request(request).ExecutionMode(executionMode).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PipelineApi.Cmd``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -61,6 +62,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **request** | [**CmdPipeline**](CmdPipeline.md) | Pipeline command. | 
+ **executionMode** | **string** | synchronous vs asynchronous | 
 
 ### Return type
 
@@ -82,7 +84,7 @@ No authorization required
 
 ## Get
 
-> ModconfigPipeline Get(ctx, pipelineName).Execute()
+> FpPipeline Get(ctx, pipelineName).Execute()
 
 Get pipeline
 
@@ -110,7 +112,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `PipelineApi.Get``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Get`: ModconfigPipeline
+    // response from `Get`: FpPipeline
     fmt.Fprintf(os.Stdout, "Response from `PipelineApi.Get`: %v\n", resp)
 }
 ```
@@ -134,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModconfigPipeline**](ModconfigPipeline.md)
+[**FpPipeline**](FpPipeline.md)
 
 ### Authorization
 

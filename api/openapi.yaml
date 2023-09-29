@@ -52,31 +52,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Unauthorized
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Forbidden
         "429":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Too Many Requests
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Internal Server Error
       summary: List pipelines
       tags:
@@ -100,43 +100,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/modconfig.Pipeline'
+                $ref: '#/components/schemas/FpPipeline'
           description: OK
         "400":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Unauthorized
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Not Found
         "429":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Too Many Requests
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Internal Server Error
       summary: Get pipeline
       tags:
@@ -154,6 +154,14 @@ paths:
           format: "^[a-z_]{0,32}$"
           type: string
         style: simple
+      - description: synchronous vs asynchronous
+        explode: true
+        in: query
+        name: execution_mode
+        required: false
+        schema:
+          type: string
+        style: form
       requestBody:
         content:
           application/json:
@@ -172,37 +180,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Unauthorized
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Not Found
         "429":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Too Many Requests
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Internal Server Error
       summary: Execute a pipeline command
       tags:
@@ -247,31 +255,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Unauthorized
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Forbidden
         "429":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Too Many Requests
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Internal Server Error
       summary: List processs
       tags:
@@ -295,43 +303,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/execution.Execution'
+                $ref: '#/components/schemas/Process'
           description: OK
         "400":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Unauthorized
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Not Found
         "429":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Too Many Requests
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Internal Server Error
       summary: Get process
       tags:
@@ -355,43 +363,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/modconfig.OutputData'
+                $ref: '#/components/schemas/ProcessOutputData'
           description: OK
         "400":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Unauthorized
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Not Found
         "429":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Too Many Requests
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Internal Server Error
       summary: Get process output
       tags:
@@ -435,31 +443,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Unauthorized
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Forbidden
         "429":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Too Many Requests
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Internal Server Error
       summary: List triggers
       tags:
@@ -489,37 +497,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Unauthorized
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Not Found
         "429":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Too Many Requests
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Internal Server Error
       summary: Get trigger
       tags:
@@ -563,31 +571,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Unauthorized
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Forbidden
         "429":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Too Many Requests
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Internal Server Error
       summary: List variables
       tags:
@@ -617,37 +625,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Unauthorized
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Not Found
         "429":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Too Many Requests
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pcerr.ErrorModel'
+                $ref: '#/components/schemas/perr.ErrorModel'
           description: Internal Server Error
       summary: Get variable
       tags:
@@ -657,10 +665,16 @@ components:
     CmdPipeline:
       example:
         args: "{}"
+        args_string:
+          key: args_string
         command: run
       properties:
         args:
           properties: {}
+          type: object
+        args_string:
+          additionalProperties:
+            type: string
           type: object
         command:
           enum:
@@ -684,15 +698,12 @@ components:
       type: object
     FpTrigger:
       example:
-        args: "{}"
         pipeline: pipeline
         name: name
         description: description
         type: type
+        url: url
       properties:
-        args:
-          properties: {}
-          type: object
         description:
           type: string
         name:
@@ -700,6 +711,8 @@ components:
         pipeline:
           type: string
         type:
+          type: string
+        url:
           type: string
       type: object
     ListPipelineResponse:
@@ -738,16 +751,16 @@ components:
       example:
         next_token: next_token
         items:
-        - args: "{}"
-          pipeline: pipeline
+        - pipeline: pipeline
           name: name
           description: description
           type: type
-        - args: "{}"
-          pipeline: pipeline
+          url: url
+        - pipeline: pipeline
           name: name
           description: description
           type: type
+          url: url
       properties:
         items:
           items:
@@ -779,6 +792,17 @@ components:
         process_id:
           type: string
       type: object
+    ProcessOutputData:
+      example:
+        output: "{}"
+        process_id: process_id
+      properties:
+        output:
+          properties: {}
+          type: object
+        process_id:
+          type: string
+      type: object
     RunPipelineResponse:
       example:
         execution_id: execution_id
@@ -802,285 +826,14 @@ components:
         type:
           type: string
       type: object
-    execution.Execution:
-      example:
-        pipeline_executions:
-          key:
-            args: "{}"
-            parent_step_execution_id: parent_step_execution_id
-            pipeline_output: "{}"
-            name: name
-            id: id
-            parent_execution_id: parent_execution_id
-            errors:
-            - pipeline: pipeline
-              pipeline_execution_id: pipeline_execution_id
-              step_execution_id: step_execution_id
-              error_code: 0
-              step: step
-              message: message
-            - pipeline: pipeline
-              pipeline_execution_id: pipeline_execution_id
-              step_execution_id: step_execution_id
-              error_code: 0
-              step: step
-              message: message
-            step_executions:
-              key:
-                output: null
-                step_for_each: null
-                input: "{}"
-                pipeline_execution_id: pipeline_execution_id
-                name: name
-                id: id
-                next_step_action: null
-                status: status
-            status: status
-        id: id
-      properties:
-        id:
-          description: Unique identifier for this execution.
-          type: string
-        pipeline_executions:
-          additionalProperties:
-            $ref: '#/components/schemas/execution.PipelineExecution'
-          description: |-
-            Pipelines triggered by the execution. Even if the pipelines are nested,
-            we maintain a flat list of all pipelines for easy lookup and querying.
-          type: object
-      type: object
-    execution.PipelineExecution:
-      example:
-        args: "{}"
-        parent_step_execution_id: parent_step_execution_id
-        pipeline_output: "{}"
-        name: name
-        id: id
-        parent_execution_id: parent_execution_id
-        errors:
-        - pipeline: pipeline
-          pipeline_execution_id: pipeline_execution_id
-          step_execution_id: step_execution_id
-          error_code: 0
-          step: step
-          message: message
-        - pipeline: pipeline
-          pipeline_execution_id: pipeline_execution_id
-          step_execution_id: step_execution_id
-          error_code: 0
-          step: step
-          message: message
-        step_executions:
-          key:
-            output: null
-            step_for_each: null
-            input: "{}"
-            pipeline_execution_id: pipeline_execution_id
-            name: name
-            id: id
-            next_step_action: null
-            status: status
-        status: status
-      properties:
-        args:
-          allOf:
-          - $ref: '#/definitions/modconfig.Input'
-          description: The input to the pipeline
-          type: object
-        errors:
-          description: All errors from the step execution + any errors that can be
-            added to the pipeline execution manually
-          items:
-            $ref: '#/components/schemas/modconfig.StepError'
-          type: array
-        id:
-          description: Unique identifier for this pipeline execution
-          type: string
-        name:
-          description: The name of the pipeline
-          type: string
-        parent_execution_id:
-          type: string
-        parent_step_execution_id:
-          description: "If this is a child pipeline, then track it's parent"
-          type: string
-        pipeline_output:
-          description: The output of the pipeline
-          properties: {}
-          type: object
-        status:
-          description: "The status of the pipeline execution: queued, planned, started,\
-            \ completed, failed"
-          type: string
-        step_executions:
-          additionalProperties:
-            $ref: '#/components/schemas/execution.StepExecution'
-          description: Steps triggered by pipelines in the execution.
-          type: object
-      type: object
-    execution.StepExecution:
-      example:
-        output: null
-        step_for_each: null
-        input: "{}"
-        pipeline_execution_id: pipeline_execution_id
-        name: name
-        id: id
-        next_step_action: null
-        status: status
-      properties:
-        id:
-          type: string
-        input:
-          allOf:
-          - $ref: '#/definitions/modconfig.Input'
-          description: Input to the step
-          type: object
-        name:
-          description: The name of the step in the pipeline definition
-          type: string
-        next_step_action:
-          $ref: '#/components/schemas/modconfig.NextStepAction'
-        output:
-          $ref: '#/components/schemas/execution_StepExecution_output'
-        pipeline_execution_id:
-          description: Unique identifier for this step execution
-          type: string
-        status:
-          description: "The status of the step execution: \"started\", \"finished\"\
-            , \"failed\", \"skipped\""
-          type: string
-        step_for_each:
-          $ref: '#/components/schemas/execution_StepExecution_step_for_each'
-      type: object
-    modconfig.Input:
-      type: object
-    modconfig.NextStepAction:
-      enum:
-      - start
-      - inaccessible
-      - skip
-      type: string
-      x-enum-varnames:
-      - NextStepActionStart
-      - NextStepActionInaccessible
-      - NextStepActionSkip
-    modconfig.Output:
-      properties:
-        data:
-          type: object
-        errors:
-          items:
-            $ref: '#/components/schemas/modconfig.StepError'
-          type: array
-        status:
-          type: string
-      type: object
-    modconfig.OutputData:
-      type: object
-    modconfig.Pipeline:
-      example:
-        outputs:
-        - depends_on:
-          - depends_on
-          - depends_on
-          name: name
-          sensitive: true
-          value: "{}"
-          resolved: true
-        - depends_on:
-          - depends_on
-          - depends_on
-          name: name
-          sensitive: true
-          value: "{}"
-          resolved: true
-        name: name
-        steps:
-        - "{}"
-        - "{}"
-        pipeline_name: pipeline_name
-      properties:
-        name:
-          type: string
-        outputs:
-          items:
-            $ref: '#/components/schemas/modconfig.PipelineOutput'
-          type: array
-        pipeline_name:
-          description: "TODO: hack to serialise pipeline name because HclResourceImpl\
-            \ is not serialised"
-          type: string
-        steps:
-          items:
-            type: object
-          type: array
-      type: object
-    modconfig.PipelineOutput:
-      example:
-        depends_on:
-        - depends_on
-        - depends_on
-        name: name
-        sensitive: true
-        value: "{}"
-        resolved: true
-      properties:
-        depends_on:
-          items:
-            type: string
-          type: array
-        name:
-          type: string
-        resolved:
-          type: boolean
-        sensitive:
-          type: boolean
-        value:
-          type: object
-      type: object
-    modconfig.StepError:
-      example:
-        pipeline: pipeline
-        pipeline_execution_id: pipeline_execution_id
-        step_execution_id: step_execution_id
-        error_code: 0
-        step: step
-        message: message
-      properties:
-        error_code:
-          type: integer
-        message:
-          type: string
-        pipeline:
-          type: string
-        pipeline_execution_id:
-          type: string
-        step:
-          type: string
-        step_execution_id:
-          type: string
-      type: object
-    modconfig.StepForEach:
-      properties:
-        for_each_output:
-          $ref: '#/components/schemas/modconfig.Output'
-        for_each_total_count:
-          type: integer
-        index:
-          type: integer
-      required:
-      - for_each_total_count
-      - index
-      type: object
-    pcerr.ErrorDetailModel:
+    perr.ErrorDetailModel:
       properties:
         location:
           type: string
         message:
           type: string
       type: object
-    pcerr.ErrorModel:
+    perr.ErrorModel:
       properties:
         detail:
           type: string
@@ -1097,23 +850,13 @@ components:
           type: string
         validation_errors:
           items:
-            $ref: '#/components/schemas/pcerr.ErrorDetailModel'
+            $ref: '#/components/schemas/perr.ErrorDetailModel'
           type: array
       required:
       - instance
       - status
       - title
       - type
-      type: object
-    execution_StepExecution_output:
-      allOf:
-      - $ref: '#/definitions/modconfig.Output'
-      description: Output of the step
-      type: object
-    execution_StepExecution_step_for_each:
-      allOf:
-      - $ref: '#/definitions/modconfig.StepForEach'
-      description: for_each controls
       type: object
   securitySchemes:
     ApiKeyAuth:

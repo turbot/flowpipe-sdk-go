@@ -30,7 +30,7 @@ type ProcessApiGetRequest struct {
 	processId string
 }
 
-func (r ProcessApiGetRequest) Execute() (*ExecutionExecution, *http.Response, error) {
+func (r ProcessApiGetRequest) Execute() (*Process, *http.Response, error) {
 	return r.ApiService.GetExecute(r)
 }
 
@@ -52,13 +52,13 @@ func (a *ProcessApiService) Get(ctx context.Context, processId string) ProcessAp
 }
 
 // Execute executes the request
-//  @return ExecutionExecution
-func (a *ProcessApiService) GetExecute(r ProcessApiGetRequest) (*ExecutionExecution, *http.Response, error) {
+//  @return Process
+func (a *ProcessApiService) GetExecute(r ProcessApiGetRequest) (*Process, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ExecutionExecution
+		localVarReturnValue  *Process
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProcessApiService.Get")
@@ -113,7 +113,7 @@ func (a *ProcessApiService) GetExecute(r ProcessApiGetRequest) (*ExecutionExecut
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -124,7 +124,7 @@ func (a *ProcessApiService) GetExecute(r ProcessApiGetRequest) (*ExecutionExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -135,7 +135,7 @@ func (a *ProcessApiService) GetExecute(r ProcessApiGetRequest) (*ExecutionExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -146,7 +146,7 @@ func (a *ProcessApiService) GetExecute(r ProcessApiGetRequest) (*ExecutionExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -157,7 +157,7 @@ func (a *ProcessApiService) GetExecute(r ProcessApiGetRequest) (*ExecutionExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -168,7 +168,7 @@ func (a *ProcessApiService) GetExecute(r ProcessApiGetRequest) (*ExecutionExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -198,7 +198,7 @@ type ProcessApiGetOutputRequest struct {
 	processId string
 }
 
-func (r ProcessApiGetOutputRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ProcessApiGetOutputRequest) Execute() (*ProcessOutputData, *http.Response, error) {
 	return r.ApiService.GetOutputExecute(r)
 }
 
@@ -220,13 +220,13 @@ func (a *ProcessApiService) GetOutput(ctx context.Context, processId string) Pro
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
-func (a *ProcessApiService) GetOutputExecute(r ProcessApiGetOutputRequest) (map[string]interface{}, *http.Response, error) {
+//  @return ProcessOutputData
+func (a *ProcessApiService) GetOutputExecute(r ProcessApiGetOutputRequest) (*ProcessOutputData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  *ProcessOutputData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProcessApiService.GetOutput")
@@ -281,7 +281,7 @@ func (a *ProcessApiService) GetOutputExecute(r ProcessApiGetOutputRequest) (map[
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -292,7 +292,7 @@ func (a *ProcessApiService) GetOutputExecute(r ProcessApiGetOutputRequest) (map[
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -303,7 +303,7 @@ func (a *ProcessApiService) GetOutputExecute(r ProcessApiGetOutputRequest) (map[
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -314,7 +314,7 @@ func (a *ProcessApiService) GetOutputExecute(r ProcessApiGetOutputRequest) (map[
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -325,7 +325,7 @@ func (a *ProcessApiService) GetOutputExecute(r ProcessApiGetOutputRequest) (map[
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -336,7 +336,7 @@ func (a *ProcessApiService) GetOutputExecute(r ProcessApiGetOutputRequest) (map[
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -465,7 +465,7 @@ func (a *ProcessApiService) ListExecute(r ProcessApiListRequest) (*ListProcessRe
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -476,7 +476,7 @@ func (a *ProcessApiService) ListExecute(r ProcessApiListRequest) (*ListProcessRe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -487,7 +487,7 @@ func (a *ProcessApiService) ListExecute(r ProcessApiListRequest) (*ListProcessRe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -498,7 +498,7 @@ func (a *ProcessApiService) ListExecute(r ProcessApiListRequest) (*ListProcessRe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -509,7 +509,7 @@ func (a *ProcessApiService) ListExecute(r ProcessApiListRequest) (*ListProcessRe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

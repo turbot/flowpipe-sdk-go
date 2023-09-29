@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## Get
 
-> ExecutionExecution Get(ctx, processId).Execute()
+> Process Get(ctx, processId).Execute()
 
 Get process
 
@@ -40,7 +40,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ProcessApi.Get``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Get`: ExecutionExecution
+    // response from `Get`: Process
     fmt.Fprintf(os.Stdout, "Response from `ProcessApi.Get`: %v\n", resp)
 }
 ```
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExecutionExecution**](ExecutionExecution.md)
+[**Process**](Process.md)
 
 ### Authorization
 
@@ -82,7 +82,7 @@ No authorization required
 
 ## GetOutput
 
-> map[string]interface{} GetOutput(ctx, processId).Execute()
+> ProcessOutputData GetOutput(ctx, processId).Execute()
 
 Get process output
 
@@ -110,7 +110,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ProcessApi.GetOutput``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetOutput`: map[string]interface{}
+    // response from `GetOutput`: ProcessOutputData
     fmt.Fprintf(os.Stdout, "Response from `ProcessApi.GetOutput`: %v\n", resp)
 }
 ```
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**ProcessOutputData**](ProcessOutputData.md)
 
 ### Authorization
 

@@ -29,11 +29,18 @@ type PipelineApiCmdRequest struct {
 	ApiService *PipelineApiService
 	pipelineName string
 	request *CmdPipeline
+	executionMode *string
 }
 
 // Pipeline command.
 func (r PipelineApiCmdRequest) Request(request CmdPipeline) PipelineApiCmdRequest {
 	r.request = &request
+	return r
+}
+
+// synchronous vs asynchronous
+func (r PipelineApiCmdRequest) ExecutionMode(executionMode string) PipelineApiCmdRequest {
+	r.executionMode = &executionMode
 	return r
 }
 
@@ -81,6 +88,9 @@ func (a *PipelineApiService) CmdExecute(r PipelineApiCmdRequest) (*RunPipelineRe
 		return localVarReturnValue, nil, reportError("request is required and must be specified")
 	}
 
+	if r.executionMode != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "execution_mode", r.executionMode, "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
@@ -123,7 +133,7 @@ func (a *PipelineApiService) CmdExecute(r PipelineApiCmdRequest) (*RunPipelineRe
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -134,7 +144,7 @@ func (a *PipelineApiService) CmdExecute(r PipelineApiCmdRequest) (*RunPipelineRe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -145,7 +155,7 @@ func (a *PipelineApiService) CmdExecute(r PipelineApiCmdRequest) (*RunPipelineRe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -156,7 +166,7 @@ func (a *PipelineApiService) CmdExecute(r PipelineApiCmdRequest) (*RunPipelineRe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -167,7 +177,7 @@ func (a *PipelineApiService) CmdExecute(r PipelineApiCmdRequest) (*RunPipelineRe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -178,7 +188,7 @@ func (a *PipelineApiService) CmdExecute(r PipelineApiCmdRequest) (*RunPipelineRe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -208,7 +218,7 @@ type PipelineApiGetRequest struct {
 	pipelineName string
 }
 
-func (r PipelineApiGetRequest) Execute() (*ModconfigPipeline, *http.Response, error) {
+func (r PipelineApiGetRequest) Execute() (*FpPipeline, *http.Response, error) {
 	return r.ApiService.GetExecute(r)
 }
 
@@ -230,13 +240,13 @@ func (a *PipelineApiService) Get(ctx context.Context, pipelineName string) Pipel
 }
 
 // Execute executes the request
-//  @return ModconfigPipeline
-func (a *PipelineApiService) GetExecute(r PipelineApiGetRequest) (*ModconfigPipeline, *http.Response, error) {
+//  @return FpPipeline
+func (a *PipelineApiService) GetExecute(r PipelineApiGetRequest) (*FpPipeline, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModconfigPipeline
+		localVarReturnValue  *FpPipeline
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PipelineApiService.Get")
@@ -291,7 +301,7 @@ func (a *PipelineApiService) GetExecute(r PipelineApiGetRequest) (*ModconfigPipe
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -302,7 +312,7 @@ func (a *PipelineApiService) GetExecute(r PipelineApiGetRequest) (*ModconfigPipe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -313,7 +323,7 @@ func (a *PipelineApiService) GetExecute(r PipelineApiGetRequest) (*ModconfigPipe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -324,7 +334,7 @@ func (a *PipelineApiService) GetExecute(r PipelineApiGetRequest) (*ModconfigPipe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -335,7 +345,7 @@ func (a *PipelineApiService) GetExecute(r PipelineApiGetRequest) (*ModconfigPipe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -346,7 +356,7 @@ func (a *PipelineApiService) GetExecute(r PipelineApiGetRequest) (*ModconfigPipe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -475,7 +485,7 @@ func (a *PipelineApiService) ListExecute(r PipelineApiListRequest) (*ListPipelin
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -486,7 +496,7 @@ func (a *PipelineApiService) ListExecute(r PipelineApiListRequest) (*ListPipelin
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -497,7 +507,7 @@ func (a *PipelineApiService) ListExecute(r PipelineApiListRequest) (*ListPipelin
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -508,7 +518,7 @@ func (a *PipelineApiService) ListExecute(r PipelineApiListRequest) (*ListPipelin
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -519,7 +529,7 @@ func (a *PipelineApiService) ListExecute(r PipelineApiListRequest) (*ListPipelin
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v PcerrErrorModel
+			var v PerrErrorModel
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
