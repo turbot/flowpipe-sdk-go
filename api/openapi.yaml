@@ -174,7 +174,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RunPipelineResponse'
+                $ref: '#/components/schemas/PipelineExecutionResponse'
           description: OK
         "400":
           content:
@@ -785,6 +785,8 @@ components:
         next_token:
           type: string
       type: object
+    PipelineExecutionResponse:
+      type: object
     Process:
       example:
         process_id: process_id
@@ -801,19 +803,6 @@ components:
           properties: {}
           type: object
         process_id:
-          type: string
-      type: object
-    RunPipelineResponse:
-      example:
-        execution_id: execution_id
-        pipeline_execution_id: pipeline_execution_id
-        parent_step_execution_id: parent_step_execution_id
-      properties:
-        execution_id:
-          type: string
-        parent_step_execution_id:
-          type: string
-        pipeline_execution_id:
           type: string
       type: object
     Variable:

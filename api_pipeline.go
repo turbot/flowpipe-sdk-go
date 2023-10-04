@@ -44,7 +44,7 @@ func (r PipelineApiCmdRequest) ExecutionMode(executionMode string) PipelineApiCm
 	return r
 }
 
-func (r PipelineApiCmdRequest) Execute() (*RunPipelineResponse, *http.Response, error) {
+func (r PipelineApiCmdRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.CmdExecute(r)
 }
 
@@ -64,13 +64,13 @@ func (a *PipelineApiService) Cmd(ctx context.Context, pipelineName string) Pipel
 }
 
 // Execute executes the request
-//  @return RunPipelineResponse
-func (a *PipelineApiService) CmdExecute(r PipelineApiCmdRequest) (*RunPipelineResponse, *http.Response, error) {
+//  @return map[string]interface{}
+func (a *PipelineApiService) CmdExecute(r PipelineApiCmdRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *RunPipelineResponse
+		localVarReturnValue  map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PipelineApiService.Cmd")

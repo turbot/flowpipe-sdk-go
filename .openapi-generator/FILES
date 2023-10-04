@@ -21,7 +21,6 @@ docs/PipelineApi.md
 docs/Process.md
 docs/ProcessApi.md
 docs/ProcessOutputData.md
-docs/RunPipelineResponse.md
 docs/TriggerApi.md
 docs/Variable.md
 docs/VariableApi.md
@@ -39,7 +38,6 @@ model_perr_error_detail_model.go
 model_perr_error_model.go
 model_process.go
 model_process_output_data.go
-model_run_pipeline_response.go
 model_variable.go
 response.go
 utils.go

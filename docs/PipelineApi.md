@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## Cmd
 
-> RunPipelineResponse Cmd(ctx, pipelineName).Request(request).ExecutionMode(executionMode).Execute()
+> map[string]interface{} Cmd(ctx, pipelineName).Request(request).ExecutionMode(executionMode).Execute()
 
 Execute a pipeline command
 
@@ -40,7 +40,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `PipelineApi.Cmd``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Cmd`: RunPipelineResponse
+    // response from `Cmd`: map[string]interface{}
     fmt.Fprintf(os.Stdout, "Response from `PipelineApi.Cmd`: %v\n", resp)
 }
 ```
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RunPipelineResponse**](RunPipelineResponse.md)
+**map[string]interface{}**
 
 ### Authorization
 
