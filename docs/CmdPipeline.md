@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Args** | Pointer to **map[string]interface{}** |  | [optional] 
 **ArgsString** | Pointer to **map[string]string** |  | [optional] 
 **Command** | **string** |  | 
+**ExecutionMode** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -96,6 +97,31 @@ and a boolean to check if the value has been set.
 
 SetCommand sets Command field to given value.
 
+
+### GetExecutionMode
+
+`func (o *CmdPipeline) GetExecutionMode() string`
+
+GetExecutionMode returns the ExecutionMode field if non-nil, zero value otherwise.
+
+### GetExecutionModeOk
+
+`func (o *CmdPipeline) GetExecutionModeOk() (*string, bool)`
+
+GetExecutionModeOk returns a tuple with the ExecutionMode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExecutionMode
+
+`func (o *CmdPipeline) SetExecutionMode(v string)`
+
+SetExecutionMode sets ExecutionMode field to given value.
+
+### HasExecutionMode
+
+`func (o *CmdPipeline) HasExecutionMode() bool`
+
+HasExecutionMode returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

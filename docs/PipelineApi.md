@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## Cmd
 
-> map[string]interface{} Cmd(ctx, pipelineName).Request(request).ExecutionMode(executionMode).Execute()
+> map[string]interface{} Cmd(ctx, pipelineName).Request(request).Execute()
 
 Execute a pipeline command
 
@@ -31,11 +31,10 @@ import (
 func main() {
     pipelineName := "pipelineName_example" // string | The name of the pipeline
     request := *openapiclient.NewCmdPipeline("Command_example") // CmdPipeline | Pipeline command.
-    executionMode := "executionMode_example" // string | synchronous vs asynchronous (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PipelineApi.Cmd(context.Background(), pipelineName).Request(request).ExecutionMode(executionMode).Execute()
+    resp, r, err := apiClient.PipelineApi.Cmd(context.Background(), pipelineName).Request(request).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PipelineApi.Cmd``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -62,7 +61,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **request** | [**CmdPipeline**](CmdPipeline.md) | Pipeline command. | 
- **executionMode** | **string** | synchronous vs asynchronous | 
 
 ### Return type
 

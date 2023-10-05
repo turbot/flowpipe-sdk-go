@@ -29,18 +29,11 @@ type PipelineApiCmdRequest struct {
 	ApiService *PipelineApiService
 	pipelineName string
 	request *CmdPipeline
-	executionMode *string
 }
 
 // Pipeline command.
 func (r PipelineApiCmdRequest) Request(request CmdPipeline) PipelineApiCmdRequest {
 	r.request = &request
-	return r
-}
-
-// synchronous vs asynchronous
-func (r PipelineApiCmdRequest) ExecutionMode(executionMode string) PipelineApiCmdRequest {
-	r.executionMode = &executionMode
 	return r
 }
 
@@ -88,9 +81,6 @@ func (a *PipelineApiService) CmdExecute(r PipelineApiCmdRequest) (map[string]int
 		return localVarReturnValue, nil, reportError("request is required and must be specified")
 	}
 
-	if r.executionMode != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "execution_mode", r.executionMode, "")
-	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 

@@ -154,14 +154,6 @@ paths:
           format: "^[a-z_]{0,32}$"
           type: string
         style: simple
-      - description: synchronous vs asynchronous
-        explode: true
-        in: query
-        name: execution_mode
-        required: false
-        schema:
-          type: string
-        style: form
       requestBody:
         content:
           application/json:
@@ -667,6 +659,7 @@ components:
         args: "{}"
         args_string:
           key: args_string
+        execution_mode: synchronous
         command: run
       properties:
         args:
@@ -679,6 +672,11 @@ components:
         command:
           enum:
           - run
+          type: string
+        execution_mode:
+          enum:
+          - synchronous
+          - asynchronous
           type: string
       required:
       - command

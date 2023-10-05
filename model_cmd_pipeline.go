@@ -23,6 +23,7 @@ type CmdPipeline struct {
 	Args map[string]interface{} `json:"args,omitempty"`
 	ArgsString *map[string]string `json:"args_string,omitempty"`
 	Command string `json:"command"`
+	ExecutionMode *string `json:"execution_mode,omitempty"`
 }
 func (o CmdPipeline) GetResourceType() string {
 	return "CmdPipeline"
@@ -133,6 +134,38 @@ func (o *CmdPipeline) SetCommand(v string) {
 	o.Command = v
 }
 
+// GetExecutionMode returns the ExecutionMode field value if set, zero value otherwise.
+func (o *CmdPipeline) GetExecutionMode() string {
+	if o == nil || IsNil(o.ExecutionMode) {
+		var ret string
+		return ret
+	}
+	return *o.ExecutionMode
+}
+
+// GetExecutionModeOk returns a tuple with the ExecutionMode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CmdPipeline) GetExecutionModeOk() (*string, bool) {
+	if o == nil || IsNil(o.ExecutionMode) {
+		return nil, false
+	}
+	return o.ExecutionMode, true
+}
+
+// HasExecutionMode returns a boolean if a field has been set.
+func (o *CmdPipeline) HasExecutionMode() bool {
+	if o != nil && !IsNil(o.ExecutionMode) {
+		return true
+	}
+
+	return false
+}
+
+// SetExecutionMode gets a reference to the given string and assigns it to the ExecutionMode field.
+func (o *CmdPipeline) SetExecutionMode(v string) {
+	o.ExecutionMode = &v
+}
+
 func (o CmdPipeline) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -150,6 +183,9 @@ func (o CmdPipeline) ToMap() (map[string]interface{}, error) {
 		toSerialize["args_string"] = o.ArgsString
 	}
 	toSerialize["command"] = o.Command
+	if !IsNil(o.ExecutionMode) {
+		toSerialize["execution_mode"] = o.ExecutionMode
+	}
 	return toSerialize, nil
 }
 
