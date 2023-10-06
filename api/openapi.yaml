@@ -840,6 +840,7 @@ components:
             $ref: '#/components/schemas/perr.ErrorDetailModel'
           type: array
       required:
+      - detail
       - instance
       - status
       - title

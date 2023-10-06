@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Detail** | Pointer to **string** |  | [optional] 
+**Detail** | **string** |  | 
 **Instance** | **string** |  | 
 **Retryable** | Pointer to **bool** | All errors are fatal unless specified | [optional] 
 **Status** | **int32** |  | 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewPerrErrorModel
 
-`func NewPerrErrorModel(instance string, status int32, title string, type_ string, ) *PerrErrorModel`
+`func NewPerrErrorModel(detail string, instance string, status int32, title string, type_ string, ) *PerrErrorModel`
 
 NewPerrErrorModel instantiates a new PerrErrorModel object
 This constructor will assign default values to properties that have it defined,
@@ -50,11 +50,6 @@ and a boolean to check if the value has been set.
 
 SetDetail sets Detail field to given value.
 
-### HasDetail
-
-`func (o *PerrErrorModel) HasDetail() bool`
-
-HasDetail returns a boolean if a field has been set.
 
 ### GetInstance
 

@@ -20,7 +20,7 @@ var _ MappedNullable = &PerrErrorModel{}
 
 // PerrErrorModel struct for PerrErrorModel
 type PerrErrorModel struct {
-	Detail *string `json:"detail,omitempty"`
+	Detail string `json:"detail"`
 	Instance string `json:"instance"`
 	// All errors are fatal unless specified
 	Retryable *bool `json:"retryable,omitempty"`
@@ -36,8 +36,9 @@ func (o PerrErrorModel) GetResourceType() string {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPerrErrorModel(instance string, status int32, title string, type_ string) *PerrErrorModel {
+func NewPerrErrorModel(detail string, instance string, status int32, title string, type_ string) *PerrErrorModel {
 	this := PerrErrorModel{}
+	this.Detail = detail
 	this.Instance = instance
 	this.Status = status
 	this.Title = title
@@ -53,36 +54,28 @@ func NewPerrErrorModelWithDefaults() *PerrErrorModel {
 	return &this
 }
 
-// GetDetail returns the Detail field value if set, zero value otherwise.
+// GetDetail returns the Detail field value
 func (o *PerrErrorModel) GetDetail() string {
-	if o == nil || IsNil(o.Detail) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Detail
+
+	return o.Detail
 }
 
-// GetDetailOk returns a tuple with the Detail field value if set, nil otherwise
+// GetDetailOk returns a tuple with the Detail field value
 // and a boolean to check if the value has been set.
 func (o *PerrErrorModel) GetDetailOk() (*string, bool) {
-	if o == nil || IsNil(o.Detail) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Detail, true
+	return &o.Detail, true
 }
 
-// HasDetail returns a boolean if a field has been set.
-func (o *PerrErrorModel) HasDetail() bool {
-	if o != nil && !IsNil(o.Detail) {
-		return true
-	}
-
-	return false
-}
-
-// SetDetail gets a reference to the given string and assigns it to the Detail field.
+// SetDetail sets field value
 func (o *PerrErrorModel) SetDetail(v string) {
-	o.Detail = &v
+	o.Detail = v
 }
 
 // GetInstance returns the Instance field value
@@ -255,9 +248,7 @@ func (o PerrErrorModel) MarshalJSON() ([]byte, error) {
 
 func (o PerrErrorModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Detail) {
-		toSerialize["detail"] = o.Detail
-	}
+	toSerialize["detail"] = o.Detail
 	toSerialize["instance"] = o.Instance
 	if !IsNil(o.Retryable) {
 		toSerialize["retryable"] = o.Retryable
