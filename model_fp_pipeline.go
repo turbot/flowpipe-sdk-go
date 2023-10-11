@@ -21,8 +21,11 @@ var _ MappedNullable = &FpPipeline{}
 // FpPipeline struct for FpPipeline
 type FpPipeline struct {
 	Description *string `json:"description,omitempty"`
+	Documentation *string `json:"documentation,omitempty"`
 	Mod *string `json:"mod,omitempty"`
 	Name *string `json:"name,omitempty"`
+	Tags *map[string]string `json:"tags,omitempty"`
+	Title *string `json:"title,omitempty"`
 }
 func (o FpPipeline) GetResourceType() string {
 	return "FpPipeline"
@@ -74,6 +77,38 @@ func (o *FpPipeline) HasDescription() bool {
 // SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *FpPipeline) SetDescription(v string) {
 	o.Description = &v
+}
+
+// GetDocumentation returns the Documentation field value if set, zero value otherwise.
+func (o *FpPipeline) GetDocumentation() string {
+	if o == nil || IsNil(o.Documentation) {
+		var ret string
+		return ret
+	}
+	return *o.Documentation
+}
+
+// GetDocumentationOk returns a tuple with the Documentation field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpPipeline) GetDocumentationOk() (*string, bool) {
+	if o == nil || IsNil(o.Documentation) {
+		return nil, false
+	}
+	return o.Documentation, true
+}
+
+// HasDocumentation returns a boolean if a field has been set.
+func (o *FpPipeline) HasDocumentation() bool {
+	if o != nil && !IsNil(o.Documentation) {
+		return true
+	}
+
+	return false
+}
+
+// SetDocumentation gets a reference to the given string and assigns it to the Documentation field.
+func (o *FpPipeline) SetDocumentation(v string) {
+	o.Documentation = &v
 }
 
 // GetMod returns the Mod field value if set, zero value otherwise.
@@ -140,6 +175,70 @@ func (o *FpPipeline) SetName(v string) {
 	o.Name = &v
 }
 
+// GetTags returns the Tags field value if set, zero value otherwise.
+func (o *FpPipeline) GetTags() map[string]string {
+	if o == nil || IsNil(o.Tags) {
+		var ret map[string]string
+		return ret
+	}
+	return *o.Tags
+}
+
+// GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpPipeline) GetTagsOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.Tags) {
+		return nil, false
+	}
+	return o.Tags, true
+}
+
+// HasTags returns a boolean if a field has been set.
+func (o *FpPipeline) HasTags() bool {
+	if o != nil && !IsNil(o.Tags) {
+		return true
+	}
+
+	return false
+}
+
+// SetTags gets a reference to the given map[string]string and assigns it to the Tags field.
+func (o *FpPipeline) SetTags(v map[string]string) {
+	o.Tags = &v
+}
+
+// GetTitle returns the Title field value if set, zero value otherwise.
+func (o *FpPipeline) GetTitle() string {
+	if o == nil || IsNil(o.Title) {
+		var ret string
+		return ret
+	}
+	return *o.Title
+}
+
+// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpPipeline) GetTitleOk() (*string, bool) {
+	if o == nil || IsNil(o.Title) {
+		return nil, false
+	}
+	return o.Title, true
+}
+
+// HasTitle returns a boolean if a field has been set.
+func (o *FpPipeline) HasTitle() bool {
+	if o != nil && !IsNil(o.Title) {
+		return true
+	}
+
+	return false
+}
+
+// SetTitle gets a reference to the given string and assigns it to the Title field.
+func (o *FpPipeline) SetTitle(v string) {
+	o.Title = &v
+}
+
 func (o FpPipeline) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -153,11 +252,20 @@ func (o FpPipeline) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
+	if !IsNil(o.Documentation) {
+		toSerialize["documentation"] = o.Documentation
+	}
 	if !IsNil(o.Mod) {
 		toSerialize["mod"] = o.Mod
 	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.Tags) {
+		toSerialize["tags"] = o.Tags
+	}
+	if !IsNil(o.Title) {
+		toSerialize["title"] = o.Title
 	}
 	return toSerialize, nil
 }

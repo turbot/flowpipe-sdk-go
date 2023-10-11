@@ -5,8 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | Pointer to **string** |  | [optional] 
+**Documentation** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Pipeline** | Pointer to **string** |  | [optional] 
+**Tags** | Pointer to **map[string]string** |  | [optional] 
+**Title** | Pointer to **string** |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] 
 **Url** | Pointer to **string** |  | [optional] 
 
@@ -53,6 +56,31 @@ SetDescription sets Description field to given value.
 `func (o *FpTrigger) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
+
+### GetDocumentation
+
+`func (o *FpTrigger) GetDocumentation() string`
+
+GetDocumentation returns the Documentation field if non-nil, zero value otherwise.
+
+### GetDocumentationOk
+
+`func (o *FpTrigger) GetDocumentationOk() (*string, bool)`
+
+GetDocumentationOk returns a tuple with the Documentation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDocumentation
+
+`func (o *FpTrigger) SetDocumentation(v string)`
+
+SetDocumentation sets Documentation field to given value.
+
+### HasDocumentation
+
+`func (o *FpTrigger) HasDocumentation() bool`
+
+HasDocumentation returns a boolean if a field has been set.
 
 ### GetName
 
@@ -103,6 +131,56 @@ SetPipeline sets Pipeline field to given value.
 `func (o *FpTrigger) HasPipeline() bool`
 
 HasPipeline returns a boolean if a field has been set.
+
+### GetTags
+
+`func (o *FpTrigger) GetTags() map[string]string`
+
+GetTags returns the Tags field if non-nil, zero value otherwise.
+
+### GetTagsOk
+
+`func (o *FpTrigger) GetTagsOk() (*map[string]string, bool)`
+
+GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTags
+
+`func (o *FpTrigger) SetTags(v map[string]string)`
+
+SetTags sets Tags field to given value.
+
+### HasTags
+
+`func (o *FpTrigger) HasTags() bool`
+
+HasTags returns a boolean if a field has been set.
+
+### GetTitle
+
+`func (o *FpTrigger) GetTitle() string`
+
+GetTitle returns the Title field if non-nil, zero value otherwise.
+
+### GetTitleOk
+
+`func (o *FpTrigger) GetTitleOk() (*string, bool)`
+
+GetTitleOk returns a tuple with the Title field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTitle
+
+`func (o *FpTrigger) SetTitle(v string)`
+
+SetTitle sets Title field to given value.
+
+### HasTitle
+
+`func (o *FpTrigger) HasTitle() bool`
+
+HasTitle returns a boolean if a field has been set.
 
 ### GetType
 

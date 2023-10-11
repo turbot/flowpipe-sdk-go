@@ -684,29 +684,53 @@ components:
     FpPipeline:
       example:
         mod: mod
+        documentation: documentation
         name: name
         description: description
+        title: title
+        tags:
+          key: tags
       properties:
         description:
+          type: string
+        documentation:
           type: string
         mod:
           type: string
         name:
           type: string
+        tags:
+          additionalProperties:
+            type: string
+          type: object
+        title:
+          type: string
       type: object
     FpTrigger:
       example:
         pipeline: pipeline
+        documentation: documentation
         name: name
         description: description
+        title: title
         type: type
         url: url
+        tags:
+          key: tags
       properties:
         description:
+          type: string
+        documentation:
           type: string
         name:
           type: string
         pipeline:
+          type: string
+        tags:
+          additionalProperties:
+            type: string
+          type: object
+        title:
           type: string
         type:
           type: string
@@ -718,11 +742,19 @@ components:
         next_token: next_token
         items:
         - mod: mod
+          documentation: documentation
           name: name
           description: description
+          title: title
+          tags:
+            key: tags
         - mod: mod
+          documentation: documentation
           name: name
           description: description
+          title: title
+          tags:
+            key: tags
       properties:
         items:
           items:
@@ -752,15 +784,23 @@ components:
         next_token: next_token
         items:
         - pipeline: pipeline
+          documentation: documentation
           name: name
           description: description
+          title: title
           type: type
           url: url
+          tags:
+            key: tags
         - pipeline: pipeline
+          documentation: documentation
           name: name
           description: description
+          title: title
           type: type
           url: url
+          tags:
+            key: tags
       properties:
         items:
           items:

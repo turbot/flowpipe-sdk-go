@@ -21,8 +21,11 @@ var _ MappedNullable = &FpTrigger{}
 // FpTrigger struct for FpTrigger
 type FpTrigger struct {
 	Description *string `json:"description,omitempty"`
+	Documentation *string `json:"documentation,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Pipeline *string `json:"pipeline,omitempty"`
+	Tags *map[string]string `json:"tags,omitempty"`
+	Title *string `json:"title,omitempty"`
 	Type *string `json:"type,omitempty"`
 	Url *string `json:"url,omitempty"`
 }
@@ -76,6 +79,38 @@ func (o *FpTrigger) HasDescription() bool {
 // SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *FpTrigger) SetDescription(v string) {
 	o.Description = &v
+}
+
+// GetDocumentation returns the Documentation field value if set, zero value otherwise.
+func (o *FpTrigger) GetDocumentation() string {
+	if o == nil || IsNil(o.Documentation) {
+		var ret string
+		return ret
+	}
+	return *o.Documentation
+}
+
+// GetDocumentationOk returns a tuple with the Documentation field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpTrigger) GetDocumentationOk() (*string, bool) {
+	if o == nil || IsNil(o.Documentation) {
+		return nil, false
+	}
+	return o.Documentation, true
+}
+
+// HasDocumentation returns a boolean if a field has been set.
+func (o *FpTrigger) HasDocumentation() bool {
+	if o != nil && !IsNil(o.Documentation) {
+		return true
+	}
+
+	return false
+}
+
+// SetDocumentation gets a reference to the given string and assigns it to the Documentation field.
+func (o *FpTrigger) SetDocumentation(v string) {
+	o.Documentation = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -140,6 +175,70 @@ func (o *FpTrigger) HasPipeline() bool {
 // SetPipeline gets a reference to the given string and assigns it to the Pipeline field.
 func (o *FpTrigger) SetPipeline(v string) {
 	o.Pipeline = &v
+}
+
+// GetTags returns the Tags field value if set, zero value otherwise.
+func (o *FpTrigger) GetTags() map[string]string {
+	if o == nil || IsNil(o.Tags) {
+		var ret map[string]string
+		return ret
+	}
+	return *o.Tags
+}
+
+// GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpTrigger) GetTagsOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.Tags) {
+		return nil, false
+	}
+	return o.Tags, true
+}
+
+// HasTags returns a boolean if a field has been set.
+func (o *FpTrigger) HasTags() bool {
+	if o != nil && !IsNil(o.Tags) {
+		return true
+	}
+
+	return false
+}
+
+// SetTags gets a reference to the given map[string]string and assigns it to the Tags field.
+func (o *FpTrigger) SetTags(v map[string]string) {
+	o.Tags = &v
+}
+
+// GetTitle returns the Title field value if set, zero value otherwise.
+func (o *FpTrigger) GetTitle() string {
+	if o == nil || IsNil(o.Title) {
+		var ret string
+		return ret
+	}
+	return *o.Title
+}
+
+// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpTrigger) GetTitleOk() (*string, bool) {
+	if o == nil || IsNil(o.Title) {
+		return nil, false
+	}
+	return o.Title, true
+}
+
+// HasTitle returns a boolean if a field has been set.
+func (o *FpTrigger) HasTitle() bool {
+	if o != nil && !IsNil(o.Title) {
+		return true
+	}
+
+	return false
+}
+
+// SetTitle gets a reference to the given string and assigns it to the Title field.
+func (o *FpTrigger) SetTitle(v string) {
+	o.Title = &v
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
@@ -219,11 +318,20 @@ func (o FpTrigger) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
+	if !IsNil(o.Documentation) {
+		toSerialize["documentation"] = o.Documentation
+	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
 	if !IsNil(o.Pipeline) {
 		toSerialize["pipeline"] = o.Pipeline
+	}
+	if !IsNil(o.Tags) {
+		toSerialize["tags"] = o.Tags
+	}
+	if !IsNil(o.Title) {
+		toSerialize["title"] = o.Title
 	}
 	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
