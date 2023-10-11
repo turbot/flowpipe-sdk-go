@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Detail** | **string** |  | 
+**Detail** | **string** | If we don&#39;t have required it comes out as pointer and there is a bug in the formatter | 
 **Instance** | **string** |  | 
 **Retryable** | Pointer to **bool** | All errors are fatal unless specified | [optional] 
 **Status** | **int32** |  | 

@@ -85,6 +85,7 @@ Class | Method | HTTP request | Description
 *PipelineApi* | [**List**](docs/PipelineApi.md#list) | **Get** /pipeline | List pipelines
 *ProcessApi* | [**Get**](docs/ProcessApi.md#get) | **Get** /process/{process_id} | Get process
 *ProcessApi* | [**GetOutput**](docs/ProcessApi.md#getoutput) | **Get** /process/{process_id}/output | Get process output
+*ProcessApi* | [**GetSnapshot**](docs/ProcessApi.md#getsnapshot) | **Get** /process/:process_id/log/process.sps | Get process snapshot
 *ProcessApi* | [**List**](docs/ProcessApi.md#list) | **Get** /process | List processs
 *TriggerApi* | [**Get**](docs/TriggerApi.md#get) | **Get** /trigger/{trigger_name} | Get trigger
 *TriggerApi* | [**List**](docs/TriggerApi.md#list) | **Get** /trigger | List triggers
@@ -95,12 +96,20 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [CmdPipeline](docs/CmdPipeline.md)
- - [FpPipeline](docs/FpPipeline.md)
+ - [ExecutionSnapshot](docs/ExecutionSnapshot.md)
+ - [ExecutionSnapshotLayout](docs/ExecutionSnapshotLayout.md)
+ - [ExecutionSnapshotPanel](docs/ExecutionSnapshotPanel.md)
+ - [ExecutionSnapshotPanelData](docs/ExecutionSnapshotPanelData.md)
+ - [ExecutionSnapshotPanelDataColumn](docs/ExecutionSnapshotPanelDataColumn.md)
  - [FpTrigger](docs/FpTrigger.md)
+ - [GetPipelineResponse](docs/GetPipelineResponse.md)
  - [ListPipelineResponse](docs/ListPipelineResponse.md)
+ - [ListPipelineResponseItem](docs/ListPipelineResponseItem.md)
  - [ListProcessResponse](docs/ListProcessResponse.md)
  - [ListTriggerResponse](docs/ListTriggerResponse.md)
  - [ListVariableResponse](docs/ListVariableResponse.md)
+ - [ModconfigPipelineOutput](docs/ModconfigPipelineOutput.md)
+ - [ModconfigPipelineParam](docs/ModconfigPipelineParam.md)
  - [PerrErrorDetailModel](docs/PerrErrorDetailModel.md)
  - [PerrErrorModel](docs/PerrErrorModel.md)
  - [Process](docs/Process.md)

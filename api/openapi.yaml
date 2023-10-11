@@ -100,7 +100,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FpPipeline'
+                $ref: '#/components/schemas/GetPipelineResponse'
           description: OK
         "400":
           content:
@@ -274,6 +274,66 @@ paths:
                 $ref: '#/components/schemas/perr.ErrorModel'
           description: Internal Server Error
       summary: List processs
+      tags:
+      - Process
+  /process/:process_id/log/process.sps:
+    get:
+      description: Get process snapshot
+      operationId: process_get_snapshot
+      parameters:
+      - description: The id of the process
+        explode: false
+        in: path
+        name: process_id
+        required: true
+        schema:
+          format: "^[a-z]{0,32}$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/execution.Snapshot'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Not Found
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Internal Server Error
+      summary: Get process snapshot
       tags:
       - Process
   /process/{process_id}:
@@ -681,36 +741,94 @@ components:
       required:
       - command
       type: object
-    FpPipeline:
-      example:
-        mod: mod
-        name: name
-        description: description
-      properties:
-        description:
-          type: string
-        mod:
-          type: string
-        name:
-          type: string
-      type: object
     FpTrigger:
       example:
         pipeline: pipeline
+        documentation: documentation
         name: name
         description: description
+        title: title
         type: type
         url: url
+        tags:
+          key: tags
       properties:
         description:
+          type: string
+        documentation:
           type: string
         name:
           type: string
         pipeline:
           type: string
+        tags:
+          additionalProperties:
+            type: string
+          type: object
+        title:
+          type: string
         type:
           type: string
         url:
+          type: string
+      type: object
+    GetPipelineResponse:
+      example:
+        outputs:
+        - depends_on:
+          - depends_on
+          - depends_on
+          name: name
+          sensitive: true
+          value: "{}"
+          resolved: true
+        - depends_on:
+          - depends_on
+          - depends_on
+          name: name
+          sensitive: true
+          value: "{}"
+          resolved: true
+        mod: mod
+        documentation: documentation
+        name: name
+        description: description
+        params:
+          key:
+            name: name
+            description: description
+        title: title
+        steps:
+        - "{}"
+        - "{}"
+        tags:
+          key: tags
+      properties:
+        description:
+          type: string
+        documentation:
+          type: string
+        mod:
+          type: string
+        name:
+          type: string
+        outputs:
+          items:
+            $ref: '#/components/schemas/modconfig.PipelineOutput'
+          type: array
+        params:
+          additionalProperties:
+            $ref: '#/components/schemas/modconfig.PipelineParam'
+          type: object
+        steps:
+          items:
+            type: object
+          type: array
+        tags:
+          additionalProperties:
+            type: string
+          type: object
+        title:
           type: string
       type: object
     ListPipelineResponse:
@@ -718,25 +836,62 @@ components:
         next_token: next_token
         items:
         - mod: mod
+          documentation: documentation
           name: name
           description: description
+          title: title
+          tags:
+            key: tags
         - mod: mod
+          documentation: documentation
           name: name
           description: description
+          title: title
+          tags:
+            key: tags
       properties:
         items:
           items:
-            $ref: '#/components/schemas/FpPipeline'
+            $ref: '#/components/schemas/ListPipelineResponseItem'
           type: array
         next_token:
+          type: string
+      type: object
+    ListPipelineResponseItem:
+      example:
+        mod: mod
+        documentation: documentation
+        name: name
+        description: description
+        title: title
+        tags:
+          key: tags
+      properties:
+        description:
+          type: string
+        documentation:
+          type: string
+        mod:
+          type: string
+        name:
+          type: string
+        tags:
+          additionalProperties:
+            type: string
+          type: object
+        title:
           type: string
       type: object
     ListProcessResponse:
       example:
         next_token: next_token
         items:
-        - process_id: process_id
-        - process_id: process_id
+        - pipeline: pipeline
+          execution_id: execution_id
+          status: status
+        - pipeline: pipeline
+          execution_id: execution_id
+          status: status
       properties:
         items:
           items:
@@ -750,15 +905,23 @@ components:
         next_token: next_token
         items:
         - pipeline: pipeline
+          documentation: documentation
           name: name
           description: description
+          title: title
           type: type
           url: url
+          tags:
+            key: tags
         - pipeline: pipeline
+          documentation: documentation
           name: name
           description: description
+          title: title
           type: type
           url: url
+          tags:
+            key: tags
       properties:
         items:
           items:
@@ -787,9 +950,15 @@ components:
       type: object
     Process:
       example:
-        process_id: process_id
+        pipeline: pipeline
+        execution_id: execution_id
+        status: status
       properties:
-        process_id:
+        execution_id:
+          type: string
+        pipeline:
+          type: string
+        status:
           type: string
       type: object
     ProcessOutputData:
@@ -813,6 +982,172 @@ components:
         type:
           type: string
       type: object
+    execution.Snapshot:
+      example:
+        layout:
+          children:
+          - null
+          - null
+          panel_type: panel_type
+          name: name
+        schema_version: schema_version
+        start_time: start_time
+        panels:
+          key:
+            display_type: display_type
+            data:
+              columns:
+              - data_type: data_type
+                name: name
+              - data_type: data_type
+                name: name
+              rows:
+              - null
+              - null
+            panel_type: panel_type
+            name: name
+            width: 0
+            title: title
+            dashboard: dashboard
+            properties: "{}"
+            status: status
+        end_time: end_time
+      properties:
+        end_time:
+          type: string
+        layout:
+          $ref: '#/components/schemas/execution.SnapshotLayout'
+        panels:
+          additionalProperties:
+            $ref: '#/components/schemas/execution.SnapshotPanel'
+          type: object
+        schema_version:
+          type: string
+        start_time:
+          type: string
+      type: object
+    execution.SnapshotLayout:
+      example:
+        children:
+        - null
+        - null
+        panel_type: panel_type
+        name: name
+      properties:
+        children:
+          items:
+            $ref: '#/components/schemas/execution.SnapshotLayout'
+          type: array
+        name:
+          type: string
+        panel_type:
+          type: string
+      type: object
+    execution.SnapshotPanel:
+      example:
+        display_type: display_type
+        data:
+          columns:
+          - data_type: data_type
+            name: name
+          - data_type: data_type
+            name: name
+          rows:
+          - null
+          - null
+        panel_type: panel_type
+        name: name
+        width: 0
+        title: title
+        dashboard: dashboard
+        properties: "{}"
+        status: status
+      properties:
+        dashboard:
+          type: string
+        data:
+          $ref: '#/components/schemas/execution.SnapshotPanelData'
+        display_type:
+          type: string
+        name:
+          type: string
+        panel_type:
+          type: string
+        properties:
+          properties: {}
+          type: object
+        status:
+          type: string
+        title:
+          type: string
+        width:
+          type: integer
+      type: object
+    execution.SnapshotPanelData:
+      example:
+        columns:
+        - data_type: data_type
+          name: name
+        - data_type: data_type
+          name: name
+        rows:
+        - null
+        - null
+      properties:
+        columns:
+          items:
+            $ref: '#/components/schemas/execution.SnapshotPanelDataColumn'
+          type: array
+        rows:
+          items:
+            $ref: '#/components/schemas/execution.SnapshotPanelDataRow'
+          type: array
+      type: object
+    execution.SnapshotPanelDataColumn:
+      example:
+        data_type: data_type
+        name: name
+      properties:
+        data_type:
+          type: string
+        name:
+          type: string
+      type: object
+    execution.SnapshotPanelDataRow:
+      type: object
+    modconfig.PipelineOutput:
+      example:
+        depends_on:
+        - depends_on
+        - depends_on
+        name: name
+        sensitive: true
+        value: "{}"
+        resolved: true
+      properties:
+        depends_on:
+          items:
+            type: string
+          type: array
+        name:
+          type: string
+        resolved:
+          type: boolean
+        sensitive:
+          type: boolean
+        value:
+          type: object
+      type: object
+    modconfig.PipelineParam:
+      example:
+        name: name
+        description: description
+      properties:
+        description:
+          type: string
+        name:
+          type: string
+      type: object
     perr.ErrorDetailModel:
       properties:
         location:
@@ -823,6 +1158,8 @@ components:
     perr.ErrorModel:
       properties:
         detail:
+          description: If we don't have required it comes out as pointer and there
+            is a bug in the formatter
           type: string
         instance:
           type: string

@@ -20,6 +20,7 @@ var _ MappedNullable = &PerrErrorModel{}
 
 // PerrErrorModel struct for PerrErrorModel
 type PerrErrorModel struct {
+	// If we don't have required it comes out as pointer and there is a bug in the formatter
 	Detail string `json:"detail"`
 	Instance string `json:"instance"`
 	// All errors are fatal unless specified

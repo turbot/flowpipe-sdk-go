@@ -15,11 +15,11 @@ import (
 	"encoding/json"
 )
 
-// checks if the FpPipeline type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &FpPipeline{}
+// checks if the ListPipelineResponseItem type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ListPipelineResponseItem{}
 
-// FpPipeline struct for FpPipeline
-type FpPipeline struct {
+// ListPipelineResponseItem struct for ListPipelineResponseItem
+type ListPipelineResponseItem struct {
 	Description *string `json:"description,omitempty"`
 	Documentation *string `json:"documentation,omitempty"`
 	Mod *string `json:"mod,omitempty"`
@@ -27,28 +27,28 @@ type FpPipeline struct {
 	Tags *map[string]string `json:"tags,omitempty"`
 	Title *string `json:"title,omitempty"`
 }
-func (o FpPipeline) GetResourceType() string {
-	return "FpPipeline"
+func (o ListPipelineResponseItem) GetResourceType() string {
+	return "ListPipelineResponseItem"
 }
-// NewFpPipeline instantiates a new FpPipeline object
+// NewListPipelineResponseItem instantiates a new ListPipelineResponseItem object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFpPipeline() *FpPipeline {
-	this := FpPipeline{}
+func NewListPipelineResponseItem() *ListPipelineResponseItem {
+	this := ListPipelineResponseItem{}
 	return &this
 }
 
-// NewFpPipelineWithDefaults instantiates a new FpPipeline object
+// NewListPipelineResponseItemWithDefaults instantiates a new ListPipelineResponseItem object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewFpPipelineWithDefaults() *FpPipeline {
-	this := FpPipeline{}
+func NewListPipelineResponseItemWithDefaults() *ListPipelineResponseItem {
+	this := ListPipelineResponseItem{}
 	return &this
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
-func (o *FpPipeline) GetDescription() string {
+func (o *ListPipelineResponseItem) GetDescription() string {
 	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
@@ -58,7 +58,7 @@ func (o *FpPipeline) GetDescription() string {
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FpPipeline) GetDescriptionOk() (*string, bool) {
+func (o *ListPipelineResponseItem) GetDescriptionOk() (*string, bool) {
 	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
@@ -66,7 +66,7 @@ func (o *FpPipeline) GetDescriptionOk() (*string, bool) {
 }
 
 // HasDescription returns a boolean if a field has been set.
-func (o *FpPipeline) HasDescription() bool {
+func (o *ListPipelineResponseItem) HasDescription() bool {
 	if o != nil && !IsNil(o.Description) {
 		return true
 	}
@@ -75,12 +75,12 @@ func (o *FpPipeline) HasDescription() bool {
 }
 
 // SetDescription gets a reference to the given string and assigns it to the Description field.
-func (o *FpPipeline) SetDescription(v string) {
+func (o *ListPipelineResponseItem) SetDescription(v string) {
 	o.Description = &v
 }
 
 // GetDocumentation returns the Documentation field value if set, zero value otherwise.
-func (o *FpPipeline) GetDocumentation() string {
+func (o *ListPipelineResponseItem) GetDocumentation() string {
 	if o == nil || IsNil(o.Documentation) {
 		var ret string
 		return ret
@@ -90,7 +90,7 @@ func (o *FpPipeline) GetDocumentation() string {
 
 // GetDocumentationOk returns a tuple with the Documentation field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FpPipeline) GetDocumentationOk() (*string, bool) {
+func (o *ListPipelineResponseItem) GetDocumentationOk() (*string, bool) {
 	if o == nil || IsNil(o.Documentation) {
 		return nil, false
 	}
@@ -98,7 +98,7 @@ func (o *FpPipeline) GetDocumentationOk() (*string, bool) {
 }
 
 // HasDocumentation returns a boolean if a field has been set.
-func (o *FpPipeline) HasDocumentation() bool {
+func (o *ListPipelineResponseItem) HasDocumentation() bool {
 	if o != nil && !IsNil(o.Documentation) {
 		return true
 	}
@@ -107,12 +107,12 @@ func (o *FpPipeline) HasDocumentation() bool {
 }
 
 // SetDocumentation gets a reference to the given string and assigns it to the Documentation field.
-func (o *FpPipeline) SetDocumentation(v string) {
+func (o *ListPipelineResponseItem) SetDocumentation(v string) {
 	o.Documentation = &v
 }
 
 // GetMod returns the Mod field value if set, zero value otherwise.
-func (o *FpPipeline) GetMod() string {
+func (o *ListPipelineResponseItem) GetMod() string {
 	if o == nil || IsNil(o.Mod) {
 		var ret string
 		return ret
@@ -122,7 +122,7 @@ func (o *FpPipeline) GetMod() string {
 
 // GetModOk returns a tuple with the Mod field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FpPipeline) GetModOk() (*string, bool) {
+func (o *ListPipelineResponseItem) GetModOk() (*string, bool) {
 	if o == nil || IsNil(o.Mod) {
 		return nil, false
 	}
@@ -130,7 +130,7 @@ func (o *FpPipeline) GetModOk() (*string, bool) {
 }
 
 // HasMod returns a boolean if a field has been set.
-func (o *FpPipeline) HasMod() bool {
+func (o *ListPipelineResponseItem) HasMod() bool {
 	if o != nil && !IsNil(o.Mod) {
 		return true
 	}
@@ -139,12 +139,12 @@ func (o *FpPipeline) HasMod() bool {
 }
 
 // SetMod gets a reference to the given string and assigns it to the Mod field.
-func (o *FpPipeline) SetMod(v string) {
+func (o *ListPipelineResponseItem) SetMod(v string) {
 	o.Mod = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
-func (o *FpPipeline) GetName() string {
+func (o *ListPipelineResponseItem) GetName() string {
 	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
@@ -154,7 +154,7 @@ func (o *FpPipeline) GetName() string {
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FpPipeline) GetNameOk() (*string, bool) {
+func (o *ListPipelineResponseItem) GetNameOk() (*string, bool) {
 	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
@@ -162,7 +162,7 @@ func (o *FpPipeline) GetNameOk() (*string, bool) {
 }
 
 // HasName returns a boolean if a field has been set.
-func (o *FpPipeline) HasName() bool {
+func (o *ListPipelineResponseItem) HasName() bool {
 	if o != nil && !IsNil(o.Name) {
 		return true
 	}
@@ -171,12 +171,12 @@ func (o *FpPipeline) HasName() bool {
 }
 
 // SetName gets a reference to the given string and assigns it to the Name field.
-func (o *FpPipeline) SetName(v string) {
+func (o *ListPipelineResponseItem) SetName(v string) {
 	o.Name = &v
 }
 
 // GetTags returns the Tags field value if set, zero value otherwise.
-func (o *FpPipeline) GetTags() map[string]string {
+func (o *ListPipelineResponseItem) GetTags() map[string]string {
 	if o == nil || IsNil(o.Tags) {
 		var ret map[string]string
 		return ret
@@ -186,7 +186,7 @@ func (o *FpPipeline) GetTags() map[string]string {
 
 // GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FpPipeline) GetTagsOk() (*map[string]string, bool) {
+func (o *ListPipelineResponseItem) GetTagsOk() (*map[string]string, bool) {
 	if o == nil || IsNil(o.Tags) {
 		return nil, false
 	}
@@ -194,7 +194,7 @@ func (o *FpPipeline) GetTagsOk() (*map[string]string, bool) {
 }
 
 // HasTags returns a boolean if a field has been set.
-func (o *FpPipeline) HasTags() bool {
+func (o *ListPipelineResponseItem) HasTags() bool {
 	if o != nil && !IsNil(o.Tags) {
 		return true
 	}
@@ -203,12 +203,12 @@ func (o *FpPipeline) HasTags() bool {
 }
 
 // SetTags gets a reference to the given map[string]string and assigns it to the Tags field.
-func (o *FpPipeline) SetTags(v map[string]string) {
+func (o *ListPipelineResponseItem) SetTags(v map[string]string) {
 	o.Tags = &v
 }
 
 // GetTitle returns the Title field value if set, zero value otherwise.
-func (o *FpPipeline) GetTitle() string {
+func (o *ListPipelineResponseItem) GetTitle() string {
 	if o == nil || IsNil(o.Title) {
 		var ret string
 		return ret
@@ -218,7 +218,7 @@ func (o *FpPipeline) GetTitle() string {
 
 // GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FpPipeline) GetTitleOk() (*string, bool) {
+func (o *ListPipelineResponseItem) GetTitleOk() (*string, bool) {
 	if o == nil || IsNil(o.Title) {
 		return nil, false
 	}
@@ -226,7 +226,7 @@ func (o *FpPipeline) GetTitleOk() (*string, bool) {
 }
 
 // HasTitle returns a boolean if a field has been set.
-func (o *FpPipeline) HasTitle() bool {
+func (o *ListPipelineResponseItem) HasTitle() bool {
 	if o != nil && !IsNil(o.Title) {
 		return true
 	}
@@ -235,11 +235,11 @@ func (o *FpPipeline) HasTitle() bool {
 }
 
 // SetTitle gets a reference to the given string and assigns it to the Title field.
-func (o *FpPipeline) SetTitle(v string) {
+func (o *ListPipelineResponseItem) SetTitle(v string) {
 	o.Title = &v
 }
 
-func (o FpPipeline) MarshalJSON() ([]byte, error) {
+func (o ListPipelineResponseItem) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -247,7 +247,7 @@ func (o FpPipeline) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o FpPipeline) ToMap() (map[string]interface{}, error) {
+func (o ListPipelineResponseItem) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
@@ -270,38 +270,38 @@ func (o FpPipeline) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableFpPipeline struct {
-	value *FpPipeline
+type NullableListPipelineResponseItem struct {
+	value *ListPipelineResponseItem
 	isSet bool
 }
 
-func (v NullableFpPipeline) Get() *FpPipeline {
+func (v NullableListPipelineResponseItem) Get() *ListPipelineResponseItem {
 	return v.value
 }
 
-func (v *NullableFpPipeline) Set(val *FpPipeline) {
+func (v *NullableListPipelineResponseItem) Set(val *ListPipelineResponseItem) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableFpPipeline) IsSet() bool {
+func (v NullableListPipelineResponseItem) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableFpPipeline) Unset() {
+func (v *NullableListPipelineResponseItem) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableFpPipeline(val *FpPipeline) *NullableFpPipeline {
-	return &NullableFpPipeline{value: val, isSet: true}
+func NewNullableListPipelineResponseItem(val *ListPipelineResponseItem) *NullableListPipelineResponseItem {
+	return &NullableListPipelineResponseItem{value: val, isSet: true}
 }
 
-func (v NullableFpPipeline) MarshalJSON() ([]byte, error) {
+func (v NullableListPipelineResponseItem) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableFpPipeline) UnmarshalJSON(src []byte) error {
+func (v *NullableListPipelineResponseItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
