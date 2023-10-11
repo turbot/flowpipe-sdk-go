@@ -769,8 +769,10 @@ components:
         items:
         - pipeline: pipeline
           execution_id: execution_id
+          status: status
         - pipeline: pipeline
           execution_id: execution_id
+          status: status
       properties:
         items:
           items:
@@ -831,10 +833,13 @@ components:
       example:
         pipeline: pipeline
         execution_id: execution_id
+        status: status
       properties:
         execution_id:
           type: string
         pipeline:
+          type: string
+        status:
           type: string
       type: object
     ProcessOutputData:

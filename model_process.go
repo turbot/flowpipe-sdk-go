@@ -22,6 +22,7 @@ var _ MappedNullable = &Process{}
 type Process struct {
 	ExecutionId *string `json:"execution_id,omitempty"`
 	Pipeline *string `json:"pipeline,omitempty"`
+	Status *string `json:"status,omitempty"`
 }
 func (o Process) GetResourceType() string {
 	return "Process"
@@ -107,6 +108,38 @@ func (o *Process) SetPipeline(v string) {
 	o.Pipeline = &v
 }
 
+// GetStatus returns the Status field value if set, zero value otherwise.
+func (o *Process) GetStatus() string {
+	if o == nil || IsNil(o.Status) {
+		var ret string
+		return ret
+	}
+	return *o.Status
+}
+
+// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Process) GetStatusOk() (*string, bool) {
+	if o == nil || IsNil(o.Status) {
+		return nil, false
+	}
+	return o.Status, true
+}
+
+// HasStatus returns a boolean if a field has been set.
+func (o *Process) HasStatus() bool {
+	if o != nil && !IsNil(o.Status) {
+		return true
+	}
+
+	return false
+}
+
+// SetStatus gets a reference to the given string and assigns it to the Status field.
+func (o *Process) SetStatus(v string) {
+	o.Status = &v
+}
+
 func (o Process) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -122,6 +155,9 @@ func (o Process) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Pipeline) {
 		toSerialize["pipeline"] = o.Pipeline
+	}
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
 	}
 	return toSerialize, nil
 }
