@@ -735,8 +735,10 @@ components:
       example:
         next_token: next_token
         items:
-        - process_id: process_id
-        - process_id: process_id
+        - pipeline: pipeline
+          execution_id: execution_id
+        - pipeline: pipeline
+          execution_id: execution_id
       properties:
         items:
           items:
@@ -787,9 +789,12 @@ components:
       type: object
     Process:
       example:
-        process_id: process_id
+        pipeline: pipeline
+        execution_id: execution_id
       properties:
-        process_id:
+        execution_id:
+          type: string
+        pipeline:
           type: string
       type: object
     ProcessOutputData:
@@ -823,6 +828,8 @@ components:
     perr.ErrorModel:
       properties:
         detail:
+          description: If we don't have required it comes out as pointer and there
+            is a bug in the formatter
           type: string
         instance:
           type: string

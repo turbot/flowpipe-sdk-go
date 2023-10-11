@@ -20,7 +20,8 @@ var _ MappedNullable = &Process{}
 
 // Process struct for Process
 type Process struct {
-	ProcessId *string `json:"process_id,omitempty"`
+	ExecutionId *string `json:"execution_id,omitempty"`
+	Pipeline *string `json:"pipeline,omitempty"`
 }
 func (o Process) GetResourceType() string {
 	return "Process"
@@ -42,36 +43,68 @@ func NewProcessWithDefaults() *Process {
 	return &this
 }
 
-// GetProcessId returns the ProcessId field value if set, zero value otherwise.
-func (o *Process) GetProcessId() string {
-	if o == nil || IsNil(o.ProcessId) {
+// GetExecutionId returns the ExecutionId field value if set, zero value otherwise.
+func (o *Process) GetExecutionId() string {
+	if o == nil || IsNil(o.ExecutionId) {
 		var ret string
 		return ret
 	}
-	return *o.ProcessId
+	return *o.ExecutionId
 }
 
-// GetProcessIdOk returns a tuple with the ProcessId field value if set, nil otherwise
+// GetExecutionIdOk returns a tuple with the ExecutionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Process) GetProcessIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ProcessId) {
+func (o *Process) GetExecutionIdOk() (*string, bool) {
+	if o == nil || IsNil(o.ExecutionId) {
 		return nil, false
 	}
-	return o.ProcessId, true
+	return o.ExecutionId, true
 }
 
-// HasProcessId returns a boolean if a field has been set.
-func (o *Process) HasProcessId() bool {
-	if o != nil && !IsNil(o.ProcessId) {
+// HasExecutionId returns a boolean if a field has been set.
+func (o *Process) HasExecutionId() bool {
+	if o != nil && !IsNil(o.ExecutionId) {
 		return true
 	}
 
 	return false
 }
 
-// SetProcessId gets a reference to the given string and assigns it to the ProcessId field.
-func (o *Process) SetProcessId(v string) {
-	o.ProcessId = &v
+// SetExecutionId gets a reference to the given string and assigns it to the ExecutionId field.
+func (o *Process) SetExecutionId(v string) {
+	o.ExecutionId = &v
+}
+
+// GetPipeline returns the Pipeline field value if set, zero value otherwise.
+func (o *Process) GetPipeline() string {
+	if o == nil || IsNil(o.Pipeline) {
+		var ret string
+		return ret
+	}
+	return *o.Pipeline
+}
+
+// GetPipelineOk returns a tuple with the Pipeline field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Process) GetPipelineOk() (*string, bool) {
+	if o == nil || IsNil(o.Pipeline) {
+		return nil, false
+	}
+	return o.Pipeline, true
+}
+
+// HasPipeline returns a boolean if a field has been set.
+func (o *Process) HasPipeline() bool {
+	if o != nil && !IsNil(o.Pipeline) {
+		return true
+	}
+
+	return false
+}
+
+// SetPipeline gets a reference to the given string and assigns it to the Pipeline field.
+func (o *Process) SetPipeline(v string) {
+	o.Pipeline = &v
 }
 
 func (o Process) MarshalJSON() ([]byte, error) {
@@ -84,8 +117,11 @@ func (o Process) MarshalJSON() ([]byte, error) {
 
 func (o Process) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ProcessId) {
-		toSerialize["process_id"] = o.ProcessId
+	if !IsNil(o.ExecutionId) {
+		toSerialize["execution_id"] = o.ExecutionId
+	}
+	if !IsNil(o.Pipeline) {
+		toSerialize["pipeline"] = o.Pipeline
 	}
 	return toSerialize, nil
 }
