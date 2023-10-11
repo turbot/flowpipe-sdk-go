@@ -100,7 +100,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/modconfig.Pipeline'
+                $ref: '#/components/schemas/GetPipelineResponse'
           description: OK
         "400":
           content:
@@ -274,66 +274,6 @@ paths:
                 $ref: '#/components/schemas/perr.ErrorModel'
           description: Internal Server Error
       summary: List processs
-      tags:
-      - Process
-  /process/:process_id/log/process.jsonl:
-    get:
-      description: Get process logs
-      operationId: process_get_log
-      parameters:
-      - description: The id of the process
-        explode: false
-        in: path
-        name: process_id
-        required: true
-        schema:
-          format: "^[a-z]{0,32}$"
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProcessEventLog'
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/perr.ErrorModel'
-          description: Bad Request
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/perr.ErrorModel'
-          description: Unauthorized
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/perr.ErrorModel'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/perr.ErrorModel'
-          description: Not Found
-        "429":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/perr.ErrorModel'
-          description: Too Many Requests
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/perr.ErrorModel'
-          description: Internal Server Error
-      summary: Get process logs
       tags:
       - Process
   /process/:process_id/log/process.sps:
@@ -801,31 +741,6 @@ components:
       required:
       - command
       type: object
-    FpPipeline:
-      example:
-        mod: mod
-        documentation: documentation
-        name: name
-        description: description
-        title: title
-        tags:
-          key: tags
-      properties:
-        description:
-          type: string
-        documentation:
-          type: string
-        mod:
-          type: string
-        name:
-          type: string
-        tags:
-          additionalProperties:
-            type: string
-          type: object
-        title:
-          type: string
-      type: object
     FpTrigger:
       example:
         pipeline: pipeline
@@ -857,6 +772,65 @@ components:
         url:
           type: string
       type: object
+    GetPipelineResponse:
+      example:
+        outputs:
+        - depends_on:
+          - depends_on
+          - depends_on
+          name: name
+          sensitive: true
+          value: "{}"
+          resolved: true
+        - depends_on:
+          - depends_on
+          - depends_on
+          name: name
+          sensitive: true
+          value: "{}"
+          resolved: true
+        mod: mod
+        documentation: documentation
+        name: name
+        description: description
+        params:
+          key:
+            name: name
+            description: description
+        title: title
+        steps:
+        - "{}"
+        - "{}"
+        tags:
+          key: tags
+      properties:
+        description:
+          type: string
+        documentation:
+          type: string
+        mod:
+          type: string
+        name:
+          type: string
+        outputs:
+          items:
+            $ref: '#/components/schemas/modconfig.PipelineOutput'
+          type: array
+        params:
+          additionalProperties:
+            $ref: '#/components/schemas/modconfig.PipelineParam'
+          type: object
+        steps:
+          items:
+            type: object
+          type: array
+        tags:
+          additionalProperties:
+            type: string
+          type: object
+        title:
+          type: string
+      type: object
     ListPipelineResponse:
       example:
         next_token: next_token
@@ -878,9 +852,34 @@ components:
       properties:
         items:
           items:
-            $ref: '#/components/schemas/FpPipeline'
+            $ref: '#/components/schemas/ListPipelineResponseItem'
           type: array
         next_token:
+          type: string
+      type: object
+    ListPipelineResponseItem:
+      example:
+        mod: mod
+        documentation: documentation
+        name: name
+        description: description
+        title: title
+        tags:
+          key: tags
+      properties:
+        description:
+          type: string
+        documentation:
+          type: string
+        mod:
+          type: string
+        name:
+          type: string
+        tags:
+          additionalProperties:
+            type: string
+          type: object
+        title:
           type: string
       type: object
     ListProcessResponse:
@@ -960,23 +959,6 @@ components:
         pipeline:
           type: string
         status:
-          type: string
-      type: object
-    ProcessEventLog:
-      example:
-        event_type: event_type
-        payload:
-        - 0
-        - 0
-        ts: ts
-      properties:
-        event_type:
-          type: string
-        payload:
-          items:
-            type: integer
-          type: array
-        ts:
           type: string
       type: object
     ProcessOutputData:
@@ -1133,44 +1115,6 @@ components:
       type: object
     execution.SnapshotPanelDataRow:
       type: object
-    modconfig.Pipeline:
-      example:
-        outputs:
-        - depends_on:
-          - depends_on
-          - depends_on
-          name: name
-          sensitive: true
-          value: "{}"
-          resolved: true
-        - depends_on:
-          - depends_on
-          - depends_on
-          name: name
-          sensitive: true
-          value: "{}"
-          resolved: true
-        name: name
-        steps:
-        - "{}"
-        - "{}"
-        pipeline_name: pipeline_name
-      properties:
-        name:
-          type: string
-        outputs:
-          items:
-            $ref: '#/components/schemas/modconfig.PipelineOutput'
-          type: array
-        pipeline_name:
-          description: "TODO: hack to serialise pipeline name because HclResourceImpl\
-            \ is not serialised"
-          type: string
-        steps:
-          items:
-            type: object
-          type: array
-      type: object
     modconfig.PipelineOutput:
       example:
         depends_on:
@@ -1193,6 +1137,16 @@ components:
           type: boolean
         value:
           type: object
+      type: object
+    modconfig.PipelineParam:
+      example:
+        name: name
+        description: description
+      properties:
+        description:
+          type: string
+        name:
+          type: string
       type: object
     perr.ErrorDetailModel:
       properties:

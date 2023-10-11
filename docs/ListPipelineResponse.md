@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | Pointer to [**[]FpPipeline**](FpPipeline.md) |  | [optional] 
+**Items** | Pointer to [**[]ListPipelineResponseItem**](ListPipelineResponseItem.md) |  | [optional] 
 **NextToken** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetItems
 
-`func (o *ListPipelineResponse) GetItems() []FpPipeline`
+`func (o *ListPipelineResponse) GetItems() []ListPipelineResponseItem`
 
 GetItems returns the Items field if non-nil, zero value otherwise.
 
 ### GetItemsOk
 
-`func (o *ListPipelineResponse) GetItemsOk() (*[]FpPipeline, bool)`
+`func (o *ListPipelineResponse) GetItemsOk() (*[]ListPipelineResponseItem, bool)`
 
 GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItems
 
-`func (o *ListPipelineResponse) SetItems(v []FpPipeline)`
+`func (o *ListPipelineResponse) SetItems(v []ListPipelineResponseItem)`
 
 SetItems sets Items field to given value.
 
