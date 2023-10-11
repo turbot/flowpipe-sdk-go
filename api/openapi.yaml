@@ -100,7 +100,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FpPipeline'
+                $ref: '#/components/schemas/modconfig.Pipeline'
           description: OK
         "400":
           content:
@@ -817,6 +817,67 @@ components:
           type: string
         type:
           type: string
+      type: object
+    modconfig.Pipeline:
+      example:
+        outputs:
+        - depends_on:
+          - depends_on
+          - depends_on
+          name: name
+          sensitive: true
+          value: "{}"
+          resolved: true
+        - depends_on:
+          - depends_on
+          - depends_on
+          name: name
+          sensitive: true
+          value: "{}"
+          resolved: true
+        name: name
+        steps:
+        - "{}"
+        - "{}"
+        pipeline_name: pipeline_name
+      properties:
+        name:
+          type: string
+        outputs:
+          items:
+            $ref: '#/components/schemas/modconfig.PipelineOutput'
+          type: array
+        pipeline_name:
+          description: "TODO: hack to serialise pipeline name because HclResourceImpl\
+            \ is not serialised"
+          type: string
+        steps:
+          items:
+            type: object
+          type: array
+      type: object
+    modconfig.PipelineOutput:
+      example:
+        depends_on:
+        - depends_on
+        - depends_on
+        name: name
+        sensitive: true
+        value: "{}"
+        resolved: true
+      properties:
+        depends_on:
+          items:
+            type: string
+          type: array
+        name:
+          type: string
+        resolved:
+          type: boolean
+        sensitive:
+          type: boolean
+        value:
+          type: object
       type: object
     perr.ErrorDetailModel:
       properties:

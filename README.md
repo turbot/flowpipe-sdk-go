@@ -101,6 +101,8 @@ Class | Method | HTTP request | Description
  - [ListProcessResponse](docs/ListProcessResponse.md)
  - [ListTriggerResponse](docs/ListTriggerResponse.md)
  - [ListVariableResponse](docs/ListVariableResponse.md)
+ - [ModconfigPipeline](docs/ModconfigPipeline.md)
+ - [ModconfigPipelineOutput](docs/ModconfigPipelineOutput.md)
  - [PerrErrorDetailModel](docs/PerrErrorDetailModel.md)
  - [PerrErrorModel](docs/PerrErrorModel.md)
  - [Process](docs/Process.md)

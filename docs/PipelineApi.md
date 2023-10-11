@@ -82,7 +82,7 @@ No authorization required
 
 ## Get
 
-> FpPipeline Get(ctx, pipelineName).Execute()
+> ModconfigPipeline Get(ctx, pipelineName).Execute()
 
 Get pipeline
 
@@ -110,7 +110,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `PipelineApi.Get``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Get`: FpPipeline
+    // response from `Get`: ModconfigPipeline
     fmt.Fprintf(os.Stdout, "Response from `PipelineApi.Get`: %v\n", resp)
 }
 ```
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FpPipeline**](FpPipeline.md)
+[**ModconfigPipeline**](ModconfigPipeline.md)
 
 ### Authorization
 
