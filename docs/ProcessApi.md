@@ -5,7 +5,9 @@ All URIs are relative to *https://localhost/api/v0*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get**](ProcessApi.md#Get) | **Get** /process/{process_id} | Get process
+[**GetLog**](ProcessApi.md#GetLog) | **Get** /process/:process_id/log/process.jsonl | Get process logs
 [**GetOutput**](ProcessApi.md#GetOutput) | **Get** /process/{process_id}/output | Get process output
+[**GetSnapshot**](ProcessApi.md#GetSnapshot) | **Get** /process/:process_id/log/process.sps | Get process snapshot
 [**List**](ProcessApi.md#List) | **Get** /process | List processs
 
 
@@ -80,6 +82,76 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## GetLog
+
+> ProcessEventLog GetLog(ctx, processId).Execute()
+
+Get process logs
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/turbot/flowpipe-sdk-go"
+)
+
+func main() {
+    processId := "processId_example" // string | The id of the process
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ProcessApi.GetLog(context.Background(), processId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ProcessApi.GetLog``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetLog`: ProcessEventLog
+    fmt.Fprintf(os.Stdout, "Response from `ProcessApi.GetLog`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**processId** | **string** | The id of the process | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetLogRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**ProcessEventLog**](ProcessEventLog.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetOutput
 
 > ProcessOutputData GetOutput(ctx, processId).Execute()
@@ -135,6 +207,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ProcessOutputData**](ProcessOutputData.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetSnapshot
+
+> ExecutionSnapshot GetSnapshot(ctx, processId).Execute()
+
+Get process snapshot
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/turbot/flowpipe-sdk-go"
+)
+
+func main() {
+    processId := "processId_example" // string | The id of the process
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ProcessApi.GetSnapshot(context.Background(), processId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ProcessApi.GetSnapshot``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetSnapshot`: ExecutionSnapshot
+    fmt.Fprintf(os.Stdout, "Response from `ProcessApi.GetSnapshot`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**processId** | **string** | The id of the process | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetSnapshotRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**ExecutionSnapshot**](ExecutionSnapshot.md)
 
 ### Authorization
 

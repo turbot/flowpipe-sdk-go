@@ -276,6 +276,126 @@ paths:
       summary: List processs
       tags:
       - Process
+  /process/:process_id/log/process.jsonl:
+    get:
+      description: Get process logs
+      operationId: process_get_log
+      parameters:
+      - description: The id of the process
+        explode: false
+        in: path
+        name: process_id
+        required: true
+        schema:
+          format: "^[a-z]{0,32}$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessEventLog'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Not Found
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Internal Server Error
+      summary: Get process logs
+      tags:
+      - Process
+  /process/:process_id/log/process.sps:
+    get:
+      description: Get process snapshot
+      operationId: process_get_snapshot
+      parameters:
+      - description: The id of the process
+        explode: false
+        in: path
+        name: process_id
+        required: true
+        schema:
+          format: "^[a-z]{0,32}$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/execution.Snapshot'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Not Found
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Internal Server Error
+      summary: Get process snapshot
+      tags:
+      - Process
   /process/{process_id}:
     get:
       description: Get process
@@ -842,6 +962,23 @@ components:
         status:
           type: string
       type: object
+    ProcessEventLog:
+      example:
+        event_type: event_type
+        payload:
+        - 0
+        - 0
+        ts: ts
+      properties:
+        event_type:
+          type: string
+        payload:
+          items:
+            type: integer
+          type: array
+        ts:
+          type: string
+      type: object
     ProcessOutputData:
       example:
         output: "{}"
@@ -862,6 +999,139 @@ components:
           type: string
         type:
           type: string
+      type: object
+    execution.Snapshot:
+      example:
+        layout:
+          children:
+          - null
+          - null
+          panel_type: panel_type
+          name: name
+        schema_version: schema_version
+        start_time: start_time
+        panels:
+          key:
+            display_type: display_type
+            data:
+              columns:
+              - data_type: data_type
+                name: name
+              - data_type: data_type
+                name: name
+              rows:
+              - null
+              - null
+            panel_type: panel_type
+            name: name
+            width: 0
+            title: title
+            dashboard: dashboard
+            properties: "{}"
+            status: status
+        end_time: end_time
+      properties:
+        end_time:
+          type: string
+        layout:
+          $ref: '#/components/schemas/execution.SnapshotLayout'
+        panels:
+          additionalProperties:
+            $ref: '#/components/schemas/execution.SnapshotPanel'
+          type: object
+        schema_version:
+          type: string
+        start_time:
+          type: string
+      type: object
+    execution.SnapshotLayout:
+      example:
+        children:
+        - null
+        - null
+        panel_type: panel_type
+        name: name
+      properties:
+        children:
+          items:
+            $ref: '#/components/schemas/execution.SnapshotLayout'
+          type: array
+        name:
+          type: string
+        panel_type:
+          type: string
+      type: object
+    execution.SnapshotPanel:
+      example:
+        display_type: display_type
+        data:
+          columns:
+          - data_type: data_type
+            name: name
+          - data_type: data_type
+            name: name
+          rows:
+          - null
+          - null
+        panel_type: panel_type
+        name: name
+        width: 0
+        title: title
+        dashboard: dashboard
+        properties: "{}"
+        status: status
+      properties:
+        dashboard:
+          type: string
+        data:
+          $ref: '#/components/schemas/execution.SnapshotPanelData'
+        display_type:
+          type: string
+        name:
+          type: string
+        panel_type:
+          type: string
+        properties:
+          properties: {}
+          type: object
+        status:
+          type: string
+        title:
+          type: string
+        width:
+          type: integer
+      type: object
+    execution.SnapshotPanelData:
+      example:
+        columns:
+        - data_type: data_type
+          name: name
+        - data_type: data_type
+          name: name
+        rows:
+        - null
+        - null
+      properties:
+        columns:
+          items:
+            $ref: '#/components/schemas/execution.SnapshotPanelDataColumn'
+          type: array
+        rows:
+          items:
+            $ref: '#/components/schemas/execution.SnapshotPanelDataRow'
+          type: array
+      type: object
+    execution.SnapshotPanelDataColumn:
+      example:
+        data_type: data_type
+        name: name
+      properties:
+        data_type:
+          type: string
+        name:
+          type: string
+      type: object
+    execution.SnapshotPanelDataRow:
       type: object
     modconfig.Pipeline:
       example:

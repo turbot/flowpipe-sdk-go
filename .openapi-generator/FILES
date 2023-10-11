@@ -9,6 +9,11 @@ api_variable.go
 client.go
 configuration.go
 docs/CmdPipeline.md
+docs/ExecutionSnapshot.md
+docs/ExecutionSnapshotLayout.md
+docs/ExecutionSnapshotPanel.md
+docs/ExecutionSnapshotPanelData.md
+docs/ExecutionSnapshotPanelDataColumn.md
 docs/FpPipeline.md
 docs/FpTrigger.md
 docs/ListPipelineResponse.md
@@ -22,6 +27,7 @@ docs/PerrErrorModel.md
 docs/PipelineApi.md
 docs/Process.md
 docs/ProcessApi.md
+docs/ProcessEventLog.md
 docs/ProcessOutputData.md
 docs/TriggerApi.md
 docs/Variable.md
@@ -30,6 +36,11 @@ git_push.sh
 go.mod
 go.sum
 model_cmd_pipeline.go
+model_execution_snapshot.go
+model_execution_snapshot_layout.go
+model_execution_snapshot_panel.go
+model_execution_snapshot_panel_data.go
+model_execution_snapshot_panel_data_column.go
 model_fp_pipeline.go
 model_fp_trigger.go
 model_list_pipeline_response.go
@@ -41,6 +52,7 @@ model_modconfig_pipeline_output.go
 model_perr_error_detail_model.go
 model_perr_error_model.go
 model_process.go
+model_process_event_log.go
 model_process_output_data.go
 model_variable.go
 response.go
