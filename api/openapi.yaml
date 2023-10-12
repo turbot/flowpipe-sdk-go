@@ -799,6 +799,7 @@ components:
           key:
             name: name
             description: description
+            optional: true
         title: title
         steps:
         - "{}"
@@ -1147,11 +1148,14 @@ components:
       example:
         name: name
         description: description
+        optional: true
       properties:
         description:
           type: string
         name:
           type: string
+        optional:
+          type: boolean
       type: object
     perr.ErrorDetailModel:
       properties:
