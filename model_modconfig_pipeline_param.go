@@ -22,6 +22,7 @@ var _ MappedNullable = &ModconfigPipelineParam{}
 type ModconfigPipelineParam struct {
 	Description *string `json:"description,omitempty"`
 	Name *string `json:"name,omitempty"`
+	Optional *bool `json:"optional,omitempty"`
 }
 func (o ModconfigPipelineParam) GetResourceType() string {
 	return "ModconfigPipelineParam"
@@ -107,6 +108,38 @@ func (o *ModconfigPipelineParam) SetName(v string) {
 	o.Name = &v
 }
 
+// GetOptional returns the Optional field value if set, zero value otherwise.
+func (o *ModconfigPipelineParam) GetOptional() bool {
+	if o == nil || IsNil(o.Optional) {
+		var ret bool
+		return ret
+	}
+	return *o.Optional
+}
+
+// GetOptionalOk returns a tuple with the Optional field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModconfigPipelineParam) GetOptionalOk() (*bool, bool) {
+	if o == nil || IsNil(o.Optional) {
+		return nil, false
+	}
+	return o.Optional, true
+}
+
+// HasOptional returns a boolean if a field has been set.
+func (o *ModconfigPipelineParam) HasOptional() bool {
+	if o != nil && !IsNil(o.Optional) {
+		return true
+	}
+
+	return false
+}
+
+// SetOptional gets a reference to the given bool and assigns it to the Optional field.
+func (o *ModconfigPipelineParam) SetOptional(v bool) {
+	o.Optional = &v
+}
+
 func (o ModconfigPipelineParam) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -122,6 +155,9 @@ func (o ModconfigPipelineParam) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.Optional) {
+		toSerialize["optional"] = o.Optional
 	}
 	return toSerialize, nil
 }
