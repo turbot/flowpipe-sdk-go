@@ -741,6 +741,25 @@ components:
       required:
       - command
       type: object
+    FpPipelineParam:
+      example:
+        default: default
+        name: name
+        description: description
+        optional: true
+        type: type
+      properties:
+        default:
+          type: string
+        description:
+          type: string
+        name:
+          type: string
+        optional:
+          type: boolean
+        type:
+          type: string
+      type: object
     FpTrigger:
       example:
         pipeline: pipeline
@@ -796,10 +815,16 @@ components:
         name: name
         description: description
         params:
-          key:
-            name: name
-            description: description
-            optional: true
+        - default: default
+          name: name
+          description: description
+          optional: true
+          type: type
+        - default: default
+          name: name
+          description: description
+          optional: true
+          type: type
         title: title
         steps:
         - "{}"
@@ -820,9 +845,9 @@ components:
             $ref: '#/components/schemas/modconfig.PipelineOutput'
           type: array
         params:
-          additionalProperties:
-            $ref: '#/components/schemas/modconfig.PipelineParam'
-          type: object
+          items:
+            $ref: '#/components/schemas/FpPipelineParam'
+          type: array
         steps:
           items:
             type: object
@@ -1143,19 +1168,6 @@ components:
           type: boolean
         value:
           type: object
-      type: object
-    modconfig.PipelineParam:
-      example:
-        name: name
-        description: description
-        optional: true
-      properties:
-        description:
-          type: string
-        name:
-          type: string
-        optional:
-          type: boolean
       type: object
     perr.ErrorDetailModel:
       properties:

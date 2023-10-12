@@ -14,6 +14,7 @@ docs/ExecutionSnapshotLayout.md
 docs/ExecutionSnapshotPanel.md
 docs/ExecutionSnapshotPanelData.md
 docs/ExecutionSnapshotPanelDataColumn.md
+docs/FpPipelineParam.md
 docs/FpTrigger.md
 docs/GetPipelineResponse.md
 docs/ListPipelineResponse.md
@@ -22,7 +23,6 @@ docs/ListProcessResponse.md
 docs/ListTriggerResponse.md
 docs/ListVariableResponse.md
 docs/ModconfigPipelineOutput.md
-docs/ModconfigPipelineParam.md
 docs/PerrErrorDetailModel.md
 docs/PerrErrorModel.md
 docs/PipelineApi.md
@@ -41,6 +41,7 @@ model_execution_snapshot_layout.go
 model_execution_snapshot_panel.go
 model_execution_snapshot_panel_data.go
 model_execution_snapshot_panel_data_column.go
+model_fp_pipeline_param.go
 model_fp_trigger.go
 model_get_pipeline_response.go
 model_list_pipeline_response.go
@@ -49,7 +50,6 @@ model_list_process_response.go
 model_list_trigger_response.go
 model_list_variable_response.go
 model_modconfig_pipeline_output.go
-model_modconfig_pipeline_param.go
 model_perr_error_detail_model.go
 model_perr_error_model.go
 model_process.go

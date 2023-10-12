@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Mod** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Outputs** | Pointer to [**[]ModconfigPipelineOutput**](ModconfigPipelineOutput.md) |  | [optional] 
-**Params** | Pointer to [**map[string]ModconfigPipelineParam**](ModconfigPipelineParam.md) |  | [optional] 
+**Params** | Pointer to [**[]FpPipelineParam**](FpPipelineParam.md) |  | [optional] 
 **Steps** | Pointer to **[]map[string]interface{}** |  | [optional] 
 **Tags** | Pointer to **map[string]string** |  | [optional] 
 **Title** | Pointer to **string** |  | [optional] 
@@ -160,20 +160,20 @@ HasOutputs returns a boolean if a field has been set.
 
 ### GetParams
 
-`func (o *GetPipelineResponse) GetParams() map[string]ModconfigPipelineParam`
+`func (o *GetPipelineResponse) GetParams() []FpPipelineParam`
 
 GetParams returns the Params field if non-nil, zero value otherwise.
 
 ### GetParamsOk
 
-`func (o *GetPipelineResponse) GetParamsOk() (*map[string]ModconfigPipelineParam, bool)`
+`func (o *GetPipelineResponse) GetParamsOk() (*[]FpPipelineParam, bool)`
 
 GetParamsOk returns a tuple with the Params field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetParams
 
-`func (o *GetPipelineResponse) SetParams(v map[string]ModconfigPipelineParam)`
+`func (o *GetPipelineResponse) SetParams(v []FpPipelineParam)`
 
 SetParams sets Params field to given value.
 
