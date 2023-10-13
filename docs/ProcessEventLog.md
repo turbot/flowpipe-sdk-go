@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EventType** | Pointer to **string** |  | [optional] 
-**Payload** | Pointer to **[]int32** |  | [optional] 
+**Payload** | Pointer to **string** | Setting the type as string for now, as the CLI need to print the payload | [optional] 
 **Ts** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -54,20 +54,20 @@ HasEventType returns a boolean if a field has been set.
 
 ### GetPayload
 
-`func (o *ProcessEventLog) GetPayload() []int32`
+`func (o *ProcessEventLog) GetPayload() string`
 
 GetPayload returns the Payload field if non-nil, zero value otherwise.
 
 ### GetPayloadOk
 
-`func (o *ProcessEventLog) GetPayloadOk() (*[]int32, bool)`
+`func (o *ProcessEventLog) GetPayloadOk() (*string, bool)`
 
 GetPayloadOk returns a tuple with the Payload field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPayload
 
-`func (o *ProcessEventLog) SetPayload(v []int32)`
+`func (o *ProcessEventLog) SetPayload(v string)`
 
 SetPayload sets Payload field to given value.
 
