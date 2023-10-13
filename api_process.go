@@ -234,7 +234,7 @@ func (a *ProcessApiService) GetLogExecute(r ProcessApiGetLogRequest) (*ListProce
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/process/:process_id/log/process.json"
+	localVarPath := localBasePath + "/process/{process_id}/log/process.json"
 	localVarPath = strings.Replace(localVarPath, "{"+"process_id"+"}", url.PathEscape(parameterValueToString(r.processId, "processId")), -1)
 
 	localVarHeaderParams := make(map[string]string)

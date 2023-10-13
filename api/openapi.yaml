@@ -276,66 +276,6 @@ paths:
       summary: List processs
       tags:
       - Process
-  /process/:process_id/log/process.json:
-    get:
-      description: Get process log
-      operationId: process_get_log
-      parameters:
-      - description: The id of the process
-        explode: false
-        in: path
-        name: process_id
-        required: true
-        schema:
-          format: "^[a-z]{0,32}$"
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ListProcessLogJSONResponse'
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/perr.ErrorModel'
-          description: Bad Request
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/perr.ErrorModel'
-          description: Unauthorized
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/perr.ErrorModel'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/perr.ErrorModel'
-          description: Not Found
-        "429":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/perr.ErrorModel'
-          description: Too Many Requests
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/perr.ErrorModel'
-          description: Internal Server Error
-      summary: Get process log
-      tags:
-      - Process
   /process/:process_id/log/process.sps:
     get:
       description: Get process snapshot
@@ -454,6 +394,66 @@ paths:
                 $ref: '#/components/schemas/perr.ErrorModel'
           description: Internal Server Error
       summary: Get process
+      tags:
+      - Process
+  /process/{process_id}/log/process.json:
+    get:
+      description: Get process log
+      operationId: process_get_log
+      parameters:
+      - description: The id of the process
+        explode: false
+        in: path
+        name: process_id
+        required: true
+        schema:
+          format: "^[a-z]{0,32}$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListProcessLogJSONResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Not Found
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Internal Server Error
+      summary: Get process log
       tags:
       - Process
   /process/{process_id}/output:

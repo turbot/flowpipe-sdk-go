@@ -5,7 +5,7 @@ All URIs are relative to *https://localhost/api/v0*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get**](ProcessApi.md#Get) | **Get** /process/{process_id} | Get process
-[**GetLog**](ProcessApi.md#GetLog) | **Get** /process/:process_id/log/process.json | Get process log
+[**GetLog**](ProcessApi.md#GetLog) | **Get** /process/{process_id}/log/process.json | Get process log
 [**GetOutput**](ProcessApi.md#GetOutput) | **Get** /process/{process_id}/output | Get process output
 [**GetSnapshot**](ProcessApi.md#GetSnapshot) | **Get** /process/:process_id/log/process.sps | Get process snapshot
 [**List**](ProcessApi.md#List) | **Get** /process | List processs
