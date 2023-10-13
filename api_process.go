@@ -198,7 +198,7 @@ type ProcessApiGetLogRequest struct {
 	processId string
 }
 
-func (r ProcessApiGetLogRequest) Execute() (*ProcessEventLog, *http.Response, error) {
+func (r ProcessApiGetLogRequest) Execute() (*ListProcessLogJSONResponse, *http.Response, error) {
 	return r.ApiService.GetLogExecute(r)
 }
 
@@ -220,13 +220,13 @@ func (a *ProcessApiService) GetLog(ctx context.Context, processId string) Proces
 }
 
 // Execute executes the request
-//  @return ProcessEventLog
-func (a *ProcessApiService) GetLogExecute(r ProcessApiGetLogRequest) (*ProcessEventLog, *http.Response, error) {
+//  @return ListProcessLogJSONResponse
+func (a *ProcessApiService) GetLogExecute(r ProcessApiGetLogRequest) (*ListProcessLogJSONResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ProcessEventLog
+		localVarReturnValue  *ListProcessLogJSONResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProcessApiService.GetLog")

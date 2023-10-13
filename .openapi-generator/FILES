@@ -19,6 +19,7 @@ docs/FpTrigger.md
 docs/GetPipelineResponse.md
 docs/ListPipelineResponse.md
 docs/ListPipelineResponseItem.md
+docs/ListProcessLogJSONResponse.md
 docs/ListProcessResponse.md
 docs/ListTriggerResponse.md
 docs/ListVariableResponse.md
@@ -47,6 +48,7 @@ model_fp_trigger.go
 model_get_pipeline_response.go
 model_list_pipeline_response.go
 model_list_pipeline_response_item.go
+model_list_process_log_json_response.go
 model_list_process_response.go
 model_list_trigger_response.go
 model_list_variable_response.go

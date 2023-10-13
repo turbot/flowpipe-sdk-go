@@ -84,7 +84,7 @@ No authorization required
 
 ## GetLog
 
-> ProcessEventLog GetLog(ctx, processId).Execute()
+> ListProcessLogJSONResponse GetLog(ctx, processId).Execute()
 
 Get process log
 
@@ -112,7 +112,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ProcessApi.GetLog``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetLog`: ProcessEventLog
+    // response from `GetLog`: ListProcessLogJSONResponse
     fmt.Fprintf(os.Stdout, "Response from `ProcessApi.GetLog`: %v\n", resp)
 }
 ```
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProcessEventLog**](ProcessEventLog.md)
+[**ListProcessLogJSONResponse**](ListProcessLogJSONResponse.md)
 
 ### Authorization
 

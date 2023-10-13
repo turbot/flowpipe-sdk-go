@@ -107,6 +107,7 @@ Class | Method | HTTP request | Description
  - [GetPipelineResponse](docs/GetPipelineResponse.md)
  - [ListPipelineResponse](docs/ListPipelineResponse.md)
  - [ListPipelineResponseItem](docs/ListPipelineResponseItem.md)
+ - [ListProcessLogJSONResponse](docs/ListProcessLogJSONResponse.md)
  - [ListProcessResponse](docs/ListProcessResponse.md)
  - [ListTriggerResponse](docs/ListTriggerResponse.md)
  - [ListVariableResponse](docs/ListVariableResponse.md)

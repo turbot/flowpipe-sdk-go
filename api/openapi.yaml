@@ -295,7 +295,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ProcessEventLog'
+                $ref: '#/components/schemas/ListProcessLogJSONResponse'
           description: OK
         "400":
           content:
@@ -968,6 +968,24 @@ components:
             type: string
           type: object
         title:
+          type: string
+      type: object
+    ListProcessLogJSONResponse:
+      example:
+        next_token: next_token
+        items:
+        - event_type: event_type
+          payload: payload
+          ts: ts
+        - event_type: event_type
+          payload: payload
+          ts: ts
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/ProcessEventLog'
+          type: array
+        next_token:
           type: string
       type: object
     ListProcessResponse:
