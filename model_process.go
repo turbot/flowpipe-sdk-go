@@ -20,6 +20,7 @@ var _ MappedNullable = &Process{}
 
 // Process struct for Process
 type Process struct {
+	CreatedAt *string `json:"created_at,omitempty"`
 	ExecutionId *string `json:"execution_id,omitempty"`
 	Pipeline *string `json:"pipeline,omitempty"`
 	Status *string `json:"status,omitempty"`
@@ -42,6 +43,38 @@ func NewProcess() *Process {
 func NewProcessWithDefaults() *Process {
 	this := Process{}
 	return &this
+}
+
+// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
+func (o *Process) GetCreatedAt() string {
+	if o == nil || IsNil(o.CreatedAt) {
+		var ret string
+		return ret
+	}
+	return *o.CreatedAt
+}
+
+// GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Process) GetCreatedAtOk() (*string, bool) {
+	if o == nil || IsNil(o.CreatedAt) {
+		return nil, false
+	}
+	return o.CreatedAt, true
+}
+
+// HasCreatedAt returns a boolean if a field has been set.
+func (o *Process) HasCreatedAt() bool {
+	if o != nil && !IsNil(o.CreatedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
+func (o *Process) SetCreatedAt(v string) {
+	o.CreatedAt = &v
 }
 
 // GetExecutionId returns the ExecutionId field value if set, zero value otherwise.
@@ -150,6 +183,9 @@ func (o Process) MarshalJSON() ([]byte, error) {
 
 func (o Process) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.CreatedAt) {
+		toSerialize["created_at"] = o.CreatedAt
+	}
 	if !IsNil(o.ExecutionId) {
 		toSerialize["execution_id"] = o.ExecutionId
 	}

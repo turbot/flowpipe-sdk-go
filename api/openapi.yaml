@@ -994,9 +994,11 @@ components:
         items:
         - pipeline: pipeline
           execution_id: execution_id
+          created_at: created_at
           status: status
         - pipeline: pipeline
           execution_id: execution_id
+          created_at: created_at
           status: status
       properties:
         items:
@@ -1058,8 +1060,11 @@ components:
       example:
         pipeline: pipeline
         execution_id: execution_id
+        created_at: created_at
         status: status
       properties:
+        created_at:
+          type: string
         execution_id:
           type: string
         pipeline:
