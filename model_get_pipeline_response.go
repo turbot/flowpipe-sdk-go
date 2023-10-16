@@ -25,7 +25,7 @@ type GetPipelineResponse struct {
 	Mod *string `json:"mod,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Outputs []ModconfigPipelineOutput `json:"outputs,omitempty"`
-	Params *map[string]ModconfigPipelineParam `json:"params,omitempty"`
+	Params []FpPipelineParam `json:"params,omitempty"`
 	Steps []map[string]interface{} `json:"steps,omitempty"`
 	Tags *map[string]string `json:"tags,omitempty"`
 	Title *string `json:"title,omitempty"`
@@ -211,17 +211,17 @@ func (o *GetPipelineResponse) SetOutputs(v []ModconfigPipelineOutput) {
 }
 
 // GetParams returns the Params field value if set, zero value otherwise.
-func (o *GetPipelineResponse) GetParams() map[string]ModconfigPipelineParam {
+func (o *GetPipelineResponse) GetParams() []FpPipelineParam {
 	if o == nil || IsNil(o.Params) {
-		var ret map[string]ModconfigPipelineParam
+		var ret []FpPipelineParam
 		return ret
 	}
-	return *o.Params
+	return o.Params
 }
 
 // GetParamsOk returns a tuple with the Params field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetPipelineResponse) GetParamsOk() (*map[string]ModconfigPipelineParam, bool) {
+func (o *GetPipelineResponse) GetParamsOk() ([]FpPipelineParam, bool) {
 	if o == nil || IsNil(o.Params) {
 		return nil, false
 	}
@@ -237,9 +237,9 @@ func (o *GetPipelineResponse) HasParams() bool {
 	return false
 }
 
-// SetParams gets a reference to the given map[string]ModconfigPipelineParam and assigns it to the Params field.
-func (o *GetPipelineResponse) SetParams(v map[string]ModconfigPipelineParam) {
-	o.Params = &v
+// SetParams gets a reference to the given []FpPipelineParam and assigns it to the Params field.
+func (o *GetPipelineResponse) SetParams(v []FpPipelineParam) {
+	o.Params = v
 }
 
 // GetSteps returns the Steps field value if set, zero value otherwise.

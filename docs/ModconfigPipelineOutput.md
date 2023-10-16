@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DependsOn** | Pointer to **[]string** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Resolved** | Pointer to **bool** |  | [optional] 
 **Sensitive** | Pointer to **bool** |  | [optional] 
@@ -53,6 +54,31 @@ SetDependsOn sets DependsOn field to given value.
 `func (o *ModconfigPipelineOutput) HasDependsOn() bool`
 
 HasDependsOn returns a boolean if a field has been set.
+
+### GetDescription
+
+`func (o *ModconfigPipelineOutput) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *ModconfigPipelineOutput) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *ModconfigPipelineOutput) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *ModconfigPipelineOutput) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
 
 ### GetName
 

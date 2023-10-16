@@ -84,6 +84,7 @@ Class | Method | HTTP request | Description
 *PipelineApi* | [**Get**](docs/PipelineApi.md#get) | **Get** /pipeline/{pipeline_name} | Get pipeline
 *PipelineApi* | [**List**](docs/PipelineApi.md#list) | **Get** /pipeline | List pipelines
 *ProcessApi* | [**Get**](docs/ProcessApi.md#get) | **Get** /process/{process_id} | Get process
+*ProcessApi* | [**GetLog**](docs/ProcessApi.md#getlog) | **Get** /process/{process_id}/log/process.json | Get process log
 *ProcessApi* | [**GetOutput**](docs/ProcessApi.md#getoutput) | **Get** /process/{process_id}/output | Get process output
 *ProcessApi* | [**GetSnapshot**](docs/ProcessApi.md#getsnapshot) | **Get** /process/:process_id/log/process.sps | Get process snapshot
 *ProcessApi* | [**List**](docs/ProcessApi.md#list) | **Get** /process | List processs
@@ -101,18 +102,20 @@ Class | Method | HTTP request | Description
  - [ExecutionSnapshotPanel](docs/ExecutionSnapshotPanel.md)
  - [ExecutionSnapshotPanelData](docs/ExecutionSnapshotPanelData.md)
  - [ExecutionSnapshotPanelDataColumn](docs/ExecutionSnapshotPanelDataColumn.md)
+ - [FpPipelineParam](docs/FpPipelineParam.md)
  - [FpTrigger](docs/FpTrigger.md)
  - [GetPipelineResponse](docs/GetPipelineResponse.md)
  - [ListPipelineResponse](docs/ListPipelineResponse.md)
  - [ListPipelineResponseItem](docs/ListPipelineResponseItem.md)
+ - [ListProcessLogJSONResponse](docs/ListProcessLogJSONResponse.md)
  - [ListProcessResponse](docs/ListProcessResponse.md)
  - [ListTriggerResponse](docs/ListTriggerResponse.md)
  - [ListVariableResponse](docs/ListVariableResponse.md)
  - [ModconfigPipelineOutput](docs/ModconfigPipelineOutput.md)
- - [ModconfigPipelineParam](docs/ModconfigPipelineParam.md)
  - [PerrErrorDetailModel](docs/PerrErrorDetailModel.md)
  - [PerrErrorModel](docs/PerrErrorModel.md)
  - [Process](docs/Process.md)
+ - [ProcessEventLog](docs/ProcessEventLog.md)
  - [ProcessOutputData](docs/ProcessOutputData.md)
  - [Variable](docs/Variable.md)
 

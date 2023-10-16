@@ -21,7 +21,8 @@ var _ MappedNullable = &ProcessEventLog{}
 // ProcessEventLog struct for ProcessEventLog
 type ProcessEventLog struct {
 	EventType *string `json:"event_type,omitempty"`
-	Payload []int32 `json:"payload,omitempty"`
+	// Setting the type as string for now, as the CLI need to print the payload
+	Payload *string `json:"payload,omitempty"`
 	Ts *string `json:"ts,omitempty"`
 }
 func (o ProcessEventLog) GetResourceType() string {
@@ -77,17 +78,17 @@ func (o *ProcessEventLog) SetEventType(v string) {
 }
 
 // GetPayload returns the Payload field value if set, zero value otherwise.
-func (o *ProcessEventLog) GetPayload() []int32 {
+func (o *ProcessEventLog) GetPayload() string {
 	if o == nil || IsNil(o.Payload) {
-		var ret []int32
+		var ret string
 		return ret
 	}
-	return o.Payload
+	return *o.Payload
 }
 
 // GetPayloadOk returns a tuple with the Payload field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProcessEventLog) GetPayloadOk() ([]int32, bool) {
+func (o *ProcessEventLog) GetPayloadOk() (*string, bool) {
 	if o == nil || IsNil(o.Payload) {
 		return nil, false
 	}
@@ -103,9 +104,9 @@ func (o *ProcessEventLog) HasPayload() bool {
 	return false
 }
 
-// SetPayload gets a reference to the given []int32 and assigns it to the Payload field.
-func (o *ProcessEventLog) SetPayload(v []int32) {
-	o.Payload = v
+// SetPayload gets a reference to the given string and assigns it to the Payload field.
+func (o *ProcessEventLog) SetPayload(v string) {
+	o.Payload = &v
 }
 
 // GetTs returns the Ts field value if set, zero value otherwise.

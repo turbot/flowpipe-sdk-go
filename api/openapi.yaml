@@ -396,6 +396,66 @@ paths:
       summary: Get process
       tags:
       - Process
+  /process/{process_id}/log/process.json:
+    get:
+      description: Get process log
+      operationId: process_get_log
+      parameters:
+      - description: The id of the process
+        explode: false
+        in: path
+        name: process_id
+        required: true
+        schema:
+          format: "^[a-z]{0,32}$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListProcessLogJSONResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Not Found
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Internal Server Error
+      summary: Get process log
+      tags:
+      - Process
   /process/{process_id}/output:
     get:
       description: Get process output
@@ -741,6 +801,25 @@ components:
       required:
       - command
       type: object
+    FpPipelineParam:
+      example:
+        default: default
+        name: name
+        description: description
+        optional: true
+        type: type
+      properties:
+        default:
+          type: string
+        description:
+          type: string
+        name:
+          type: string
+        optional:
+          type: boolean
+        type:
+          type: string
+      type: object
     FpTrigger:
       example:
         pipeline: pipeline
@@ -779,6 +858,7 @@ components:
           - depends_on
           - depends_on
           name: name
+          description: description
           sensitive: true
           value: "{}"
           resolved: true
@@ -786,6 +866,7 @@ components:
           - depends_on
           - depends_on
           name: name
+          description: description
           sensitive: true
           value: "{}"
           resolved: true
@@ -794,10 +875,16 @@ components:
         name: name
         description: description
         params:
-          key:
-            name: name
-            description: description
-            optional: true
+        - default: default
+          name: name
+          description: description
+          optional: true
+          type: type
+        - default: default
+          name: name
+          description: description
+          optional: true
+          type: type
         title: title
         steps:
         - "{}"
@@ -818,9 +905,9 @@ components:
             $ref: '#/components/schemas/modconfig.PipelineOutput'
           type: array
         params:
-          additionalProperties:
-            $ref: '#/components/schemas/modconfig.PipelineParam'
-          type: object
+          items:
+            $ref: '#/components/schemas/FpPipelineParam'
+          type: array
         steps:
           items:
             type: object
@@ -883,15 +970,35 @@ components:
         title:
           type: string
       type: object
+    ListProcessLogJSONResponse:
+      example:
+        next_token: next_token
+        items:
+        - event_type: event_type
+          payload: payload
+          ts: ts
+        - event_type: event_type
+          payload: payload
+          ts: ts
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/ProcessEventLog'
+          type: array
+        next_token:
+          type: string
+      type: object
     ListProcessResponse:
       example:
         next_token: next_token
         items:
         - pipeline: pipeline
           execution_id: execution_id
+          created_at: created_at
           status: status
         - pipeline: pipeline
           execution_id: execution_id
+          created_at: created_at
           status: status
       properties:
         items:
@@ -953,13 +1060,31 @@ components:
       example:
         pipeline: pipeline
         execution_id: execution_id
+        created_at: created_at
         status: status
       properties:
+        created_at:
+          type: string
         execution_id:
           type: string
         pipeline:
           type: string
         status:
+          type: string
+      type: object
+    ProcessEventLog:
+      example:
+        event_type: event_type
+        payload: payload
+        ts: ts
+      properties:
+        event_type:
+          type: string
+        payload:
+          description: "Setting the type as string for now, as the CLI need to print\
+            \ the payload"
+          type: string
+        ts:
           type: string
       type: object
     ProcessOutputData:
@@ -1122,6 +1247,7 @@ components:
         - depends_on
         - depends_on
         name: name
+        description: description
         sensitive: true
         value: "{}"
         resolved: true
@@ -1130,6 +1256,8 @@ components:
           items:
             type: string
           type: array
+        description:
+          type: string
         name:
           type: string
         resolved:
@@ -1138,19 +1266,6 @@ components:
           type: boolean
         value:
           type: object
-      type: object
-    modconfig.PipelineParam:
-      example:
-        name: name
-        description: description
-        optional: true
-      properties:
-        description:
-          type: string
-        name:
-          type: string
-        optional:
-          type: boolean
       type: object
     perr.ErrorDetailModel:
       properties:

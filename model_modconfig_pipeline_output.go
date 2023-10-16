@@ -21,6 +21,7 @@ var _ MappedNullable = &ModconfigPipelineOutput{}
 // ModconfigPipelineOutput struct for ModconfigPipelineOutput
 type ModconfigPipelineOutput struct {
 	DependsOn []string `json:"depends_on,omitempty"`
+	Description *string `json:"description,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Resolved *bool `json:"resolved,omitempty"`
 	Sensitive *bool `json:"sensitive,omitempty"`
@@ -76,6 +77,38 @@ func (o *ModconfigPipelineOutput) HasDependsOn() bool {
 // SetDependsOn gets a reference to the given []string and assigns it to the DependsOn field.
 func (o *ModconfigPipelineOutput) SetDependsOn(v []string) {
 	o.DependsOn = v
+}
+
+// GetDescription returns the Description field value if set, zero value otherwise.
+func (o *ModconfigPipelineOutput) GetDescription() string {
+	if o == nil || IsNil(o.Description) {
+		var ret string
+		return ret
+	}
+	return *o.Description
+}
+
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModconfigPipelineOutput) GetDescriptionOk() (*string, bool) {
+	if o == nil || IsNil(o.Description) {
+		return nil, false
+	}
+	return o.Description, true
+}
+
+// HasDescription returns a boolean if a field has been set.
+func (o *ModconfigPipelineOutput) HasDescription() bool {
+	if o != nil && !IsNil(o.Description) {
+		return true
+	}
+
+	return false
+}
+
+// SetDescription gets a reference to the given string and assigns it to the Description field.
+func (o *ModconfigPipelineOutput) SetDescription(v string) {
+	o.Description = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -218,6 +251,9 @@ func (o ModconfigPipelineOutput) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.DependsOn) {
 		toSerialize["depends_on"] = o.DependsOn
+	}
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
 	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
