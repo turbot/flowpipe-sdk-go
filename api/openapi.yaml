@@ -780,6 +780,7 @@ components:
         args_string:
           key: args_string
         execution_mode: synchronous
+        wait_retry: 0
         command: run
       properties:
         args:
@@ -798,6 +799,8 @@ components:
           - synchronous
           - asynchronous
           type: string
+        wait_retry:
+          type: integer
       required:
       - command
       type: object
@@ -1282,9 +1285,6 @@ components:
           type: string
         instance:
           type: string
-        retryable:
-          description: All errors are fatal unless specified
-          type: boolean
         status:
           type: integer
         title:

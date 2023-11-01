@@ -24,6 +24,7 @@ type CmdPipeline struct {
 	ArgsString *map[string]string `json:"args_string,omitempty"`
 	Command string `json:"command"`
 	ExecutionMode *string `json:"execution_mode,omitempty"`
+	WaitRetry *int32 `json:"wait_retry,omitempty"`
 }
 func (o CmdPipeline) GetResourceType() string {
 	return "CmdPipeline"
@@ -166,6 +167,38 @@ func (o *CmdPipeline) SetExecutionMode(v string) {
 	o.ExecutionMode = &v
 }
 
+// GetWaitRetry returns the WaitRetry field value if set, zero value otherwise.
+func (o *CmdPipeline) GetWaitRetry() int32 {
+	if o == nil || IsNil(o.WaitRetry) {
+		var ret int32
+		return ret
+	}
+	return *o.WaitRetry
+}
+
+// GetWaitRetryOk returns a tuple with the WaitRetry field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CmdPipeline) GetWaitRetryOk() (*int32, bool) {
+	if o == nil || IsNil(o.WaitRetry) {
+		return nil, false
+	}
+	return o.WaitRetry, true
+}
+
+// HasWaitRetry returns a boolean if a field has been set.
+func (o *CmdPipeline) HasWaitRetry() bool {
+	if o != nil && !IsNil(o.WaitRetry) {
+		return true
+	}
+
+	return false
+}
+
+// SetWaitRetry gets a reference to the given int32 and assigns it to the WaitRetry field.
+func (o *CmdPipeline) SetWaitRetry(v int32) {
+	o.WaitRetry = &v
+}
+
 func (o CmdPipeline) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -185,6 +218,9 @@ func (o CmdPipeline) ToMap() (map[string]interface{}, error) {
 	toSerialize["command"] = o.Command
 	if !IsNil(o.ExecutionMode) {
 		toSerialize["execution_mode"] = o.ExecutionMode
+	}
+	if !IsNil(o.WaitRetry) {
+		toSerialize["wait_retry"] = o.WaitRetry
 	}
 	return toSerialize, nil
 }

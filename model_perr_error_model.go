@@ -23,8 +23,6 @@ type PerrErrorModel struct {
 	// If we don't have required it comes out as pointer and there is a bug in the formatter
 	Detail string `json:"detail"`
 	Instance string `json:"instance"`
-	// All errors are fatal unless specified
-	Retryable *bool `json:"retryable,omitempty"`
 	Status int32 `json:"status"`
 	Title string `json:"title"`
 	Type string `json:"type"`
@@ -101,38 +99,6 @@ func (o *PerrErrorModel) GetInstanceOk() (*string, bool) {
 // SetInstance sets field value
 func (o *PerrErrorModel) SetInstance(v string) {
 	o.Instance = v
-}
-
-// GetRetryable returns the Retryable field value if set, zero value otherwise.
-func (o *PerrErrorModel) GetRetryable() bool {
-	if o == nil || IsNil(o.Retryable) {
-		var ret bool
-		return ret
-	}
-	return *o.Retryable
-}
-
-// GetRetryableOk returns a tuple with the Retryable field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PerrErrorModel) GetRetryableOk() (*bool, bool) {
-	if o == nil || IsNil(o.Retryable) {
-		return nil, false
-	}
-	return o.Retryable, true
-}
-
-// HasRetryable returns a boolean if a field has been set.
-func (o *PerrErrorModel) HasRetryable() bool {
-	if o != nil && !IsNil(o.Retryable) {
-		return true
-	}
-
-	return false
-}
-
-// SetRetryable gets a reference to the given bool and assigns it to the Retryable field.
-func (o *PerrErrorModel) SetRetryable(v bool) {
-	o.Retryable = &v
 }
 
 // GetStatus returns the Status field value
@@ -251,9 +217,6 @@ func (o PerrErrorModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["detail"] = o.Detail
 	toSerialize["instance"] = o.Instance
-	if !IsNil(o.Retryable) {
-		toSerialize["retryable"] = o.Retryable
-	}
 	toSerialize["status"] = o.Status
 	toSerialize["title"] = o.Title
 	toSerialize["type"] = o.Type
