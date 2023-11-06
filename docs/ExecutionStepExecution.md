@@ -4,14 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**EndTime** | Pointer to **string** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
 **Input** | Pointer to **map[string]interface{}** |  | [optional] 
 **Name** | Pointer to **string** | The name of the step in the pipeline definition | [optional] 
 **NextStepAction** | Pointer to [**ModconfigNextStepAction**](ModconfigNextStepAction.md) |  | [optional] 
 **Output** | Pointer to [**ExecutionStepExecutionOutput**](ExecutionStepExecutionOutput.md) |  | [optional] 
 **PipelineExecutionId** | Pointer to **string** | Unique identifier for this step execution | [optional] 
+**StartTime** | Pointer to **string** |  | [optional] 
 **Status** | Pointer to **string** | The status of the step execution: \&quot;started\&quot;, \&quot;finished\&quot;, \&quot;failed\&quot;, \&quot;skipped\&quot; | [optional] 
 **StepForEach** | Pointer to [**ExecutionStepExecutionStepForEach**](ExecutionStepExecutionStepForEach.md) |  | [optional] 
+**StepLoop** | Pointer to [**ModconfigStepLoop**](ModconfigStepLoop.md) |  | [optional] 
+**StepOutput** | Pointer to **map[string]interface{}** | The output from the Step&#39;s output block: output \&quot;foo\&quot; {    value &#x3D; &lt;xxx&gt;  } | [optional] 
 
 ## Methods
 
@@ -31,6 +35,31 @@ will change when the set of required properties is changed
 NewExecutionStepExecutionWithDefaults instantiates a new ExecutionStepExecution object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetEndTime
+
+`func (o *ExecutionStepExecution) GetEndTime() string`
+
+GetEndTime returns the EndTime field if non-nil, zero value otherwise.
+
+### GetEndTimeOk
+
+`func (o *ExecutionStepExecution) GetEndTimeOk() (*string, bool)`
+
+GetEndTimeOk returns a tuple with the EndTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEndTime
+
+`func (o *ExecutionStepExecution) SetEndTime(v string)`
+
+SetEndTime sets EndTime field to given value.
+
+### HasEndTime
+
+`func (o *ExecutionStepExecution) HasEndTime() bool`
+
+HasEndTime returns a boolean if a field has been set.
 
 ### GetId
 
@@ -182,6 +211,31 @@ SetPipelineExecutionId sets PipelineExecutionId field to given value.
 
 HasPipelineExecutionId returns a boolean if a field has been set.
 
+### GetStartTime
+
+`func (o *ExecutionStepExecution) GetStartTime() string`
+
+GetStartTime returns the StartTime field if non-nil, zero value otherwise.
+
+### GetStartTimeOk
+
+`func (o *ExecutionStepExecution) GetStartTimeOk() (*string, bool)`
+
+GetStartTimeOk returns a tuple with the StartTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStartTime
+
+`func (o *ExecutionStepExecution) SetStartTime(v string)`
+
+SetStartTime sets StartTime field to given value.
+
+### HasStartTime
+
+`func (o *ExecutionStepExecution) HasStartTime() bool`
+
+HasStartTime returns a boolean if a field has been set.
+
 ### GetStatus
 
 `func (o *ExecutionStepExecution) GetStatus() string`
@@ -231,6 +285,56 @@ SetStepForEach sets StepForEach field to given value.
 `func (o *ExecutionStepExecution) HasStepForEach() bool`
 
 HasStepForEach returns a boolean if a field has been set.
+
+### GetStepLoop
+
+`func (o *ExecutionStepExecution) GetStepLoop() ModconfigStepLoop`
+
+GetStepLoop returns the StepLoop field if non-nil, zero value otherwise.
+
+### GetStepLoopOk
+
+`func (o *ExecutionStepExecution) GetStepLoopOk() (*ModconfigStepLoop, bool)`
+
+GetStepLoopOk returns a tuple with the StepLoop field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStepLoop
+
+`func (o *ExecutionStepExecution) SetStepLoop(v ModconfigStepLoop)`
+
+SetStepLoop sets StepLoop field to given value.
+
+### HasStepLoop
+
+`func (o *ExecutionStepExecution) HasStepLoop() bool`
+
+HasStepLoop returns a boolean if a field has been set.
+
+### GetStepOutput
+
+`func (o *ExecutionStepExecution) GetStepOutput() map[string]interface{}`
+
+GetStepOutput returns the StepOutput field if non-nil, zero value otherwise.
+
+### GetStepOutputOk
+
+`func (o *ExecutionStepExecution) GetStepOutputOk() (*map[string]interface{}, bool)`
+
+GetStepOutputOk returns a tuple with the StepOutput field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStepOutput
+
+`func (o *ExecutionStepExecution) SetStepOutput(v map[string]interface{})`
+
+SetStepOutput sets StepOutput field to given value.
+
+### HasStepOutput
+
+`func (o *ExecutionStepExecution) HasStepOutput() bool`
+
+HasStepOutput returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

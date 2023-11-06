@@ -4,15 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ForEachOutput** | Pointer to [**ModconfigOutput**](ModconfigOutput.md) |  | [optional] 
-**ForEachTotalCount** | **int32** |  | 
-**Index** | **int32** |  | 
+**Each** | Pointer to **map[string]interface{}** |  | [optional] 
+**Key** | **string** |  | 
+**Output** | Pointer to [**ModconfigOutput**](ModconfigOutput.md) |  | [optional] 
+**TotalCount** | **int32** |  | 
 
 ## Methods
 
 ### NewModconfigStepForEach
 
-`func NewModconfigStepForEach(forEachTotalCount int32, index int32, ) *ModconfigStepForEach`
+`func NewModconfigStepForEach(key string, totalCount int32, ) *ModconfigStepForEach`
 
 NewModconfigStepForEach instantiates a new ModconfigStepForEach object
 This constructor will assign default values to properties that have it defined,
@@ -27,69 +28,94 @@ NewModconfigStepForEachWithDefaults instantiates a new ModconfigStepForEach obje
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetForEachOutput
+### GetEach
 
-`func (o *ModconfigStepForEach) GetForEachOutput() ModconfigOutput`
+`func (o *ModconfigStepForEach) GetEach() map[string]interface{}`
 
-GetForEachOutput returns the ForEachOutput field if non-nil, zero value otherwise.
+GetEach returns the Each field if non-nil, zero value otherwise.
 
-### GetForEachOutputOk
+### GetEachOk
 
-`func (o *ModconfigStepForEach) GetForEachOutputOk() (*ModconfigOutput, bool)`
+`func (o *ModconfigStepForEach) GetEachOk() (*map[string]interface{}, bool)`
 
-GetForEachOutputOk returns a tuple with the ForEachOutput field if it's non-nil, zero value otherwise
+GetEachOk returns a tuple with the Each field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetForEachOutput
+### SetEach
 
-`func (o *ModconfigStepForEach) SetForEachOutput(v ModconfigOutput)`
+`func (o *ModconfigStepForEach) SetEach(v map[string]interface{})`
 
-SetForEachOutput sets ForEachOutput field to given value.
+SetEach sets Each field to given value.
 
-### HasForEachOutput
+### HasEach
 
-`func (o *ModconfigStepForEach) HasForEachOutput() bool`
+`func (o *ModconfigStepForEach) HasEach() bool`
 
-HasForEachOutput returns a boolean if a field has been set.
+HasEach returns a boolean if a field has been set.
 
-### GetForEachTotalCount
+### GetKey
 
-`func (o *ModconfigStepForEach) GetForEachTotalCount() int32`
+`func (o *ModconfigStepForEach) GetKey() string`
 
-GetForEachTotalCount returns the ForEachTotalCount field if non-nil, zero value otherwise.
+GetKey returns the Key field if non-nil, zero value otherwise.
 
-### GetForEachTotalCountOk
+### GetKeyOk
 
-`func (o *ModconfigStepForEach) GetForEachTotalCountOk() (*int32, bool)`
+`func (o *ModconfigStepForEach) GetKeyOk() (*string, bool)`
 
-GetForEachTotalCountOk returns a tuple with the ForEachTotalCount field if it's non-nil, zero value otherwise
+GetKeyOk returns a tuple with the Key field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetForEachTotalCount
+### SetKey
 
-`func (o *ModconfigStepForEach) SetForEachTotalCount(v int32)`
+`func (o *ModconfigStepForEach) SetKey(v string)`
 
-SetForEachTotalCount sets ForEachTotalCount field to given value.
+SetKey sets Key field to given value.
 
 
-### GetIndex
+### GetOutput
 
-`func (o *ModconfigStepForEach) GetIndex() int32`
+`func (o *ModconfigStepForEach) GetOutput() ModconfigOutput`
 
-GetIndex returns the Index field if non-nil, zero value otherwise.
+GetOutput returns the Output field if non-nil, zero value otherwise.
 
-### GetIndexOk
+### GetOutputOk
 
-`func (o *ModconfigStepForEach) GetIndexOk() (*int32, bool)`
+`func (o *ModconfigStepForEach) GetOutputOk() (*ModconfigOutput, bool)`
 
-GetIndexOk returns a tuple with the Index field if it's non-nil, zero value otherwise
+GetOutputOk returns a tuple with the Output field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetIndex
+### SetOutput
 
-`func (o *ModconfigStepForEach) SetIndex(v int32)`
+`func (o *ModconfigStepForEach) SetOutput(v ModconfigOutput)`
 
-SetIndex sets Index field to given value.
+SetOutput sets Output field to given value.
+
+### HasOutput
+
+`func (o *ModconfigStepForEach) HasOutput() bool`
+
+HasOutput returns a boolean if a field has been set.
+
+### GetTotalCount
+
+`func (o *ModconfigStepForEach) GetTotalCount() int32`
+
+GetTotalCount returns the TotalCount field if non-nil, zero value otherwise.
+
+### GetTotalCountOk
+
+`func (o *ModconfigStepForEach) GetTotalCountOk() (*int32, bool)`
+
+GetTotalCountOk returns a tuple with the TotalCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalCount
+
+`func (o *ModconfigStepForEach) SetTotalCount(v int32)`
+
+SetTotalCount sets TotalCount field to given value.
 
 
 

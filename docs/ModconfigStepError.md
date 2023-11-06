@@ -4,8 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ErrorCode** | Pointer to **int32** |  | [optional] 
-**Message** | Pointer to **string** |  | [optional] 
+**Error** | Pointer to [**PerrErrorModel**](PerrErrorModel.md) |  | [optional] 
 **Pipeline** | Pointer to **string** |  | [optional] 
 **PipelineExecutionId** | Pointer to **string** |  | [optional] 
 **Step** | Pointer to **string** |  | [optional] 
@@ -30,55 +29,30 @@ NewModconfigStepErrorWithDefaults instantiates a new ModconfigStepError object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetErrorCode
+### GetError
 
-`func (o *ModconfigStepError) GetErrorCode() int32`
+`func (o *ModconfigStepError) GetError() PerrErrorModel`
 
-GetErrorCode returns the ErrorCode field if non-nil, zero value otherwise.
+GetError returns the Error field if non-nil, zero value otherwise.
 
-### GetErrorCodeOk
+### GetErrorOk
 
-`func (o *ModconfigStepError) GetErrorCodeOk() (*int32, bool)`
+`func (o *ModconfigStepError) GetErrorOk() (*PerrErrorModel, bool)`
 
-GetErrorCodeOk returns a tuple with the ErrorCode field if it's non-nil, zero value otherwise
+GetErrorOk returns a tuple with the Error field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetErrorCode
+### SetError
 
-`func (o *ModconfigStepError) SetErrorCode(v int32)`
+`func (o *ModconfigStepError) SetError(v PerrErrorModel)`
 
-SetErrorCode sets ErrorCode field to given value.
+SetError sets Error field to given value.
 
-### HasErrorCode
+### HasError
 
-`func (o *ModconfigStepError) HasErrorCode() bool`
+`func (o *ModconfigStepError) HasError() bool`
 
-HasErrorCode returns a boolean if a field has been set.
-
-### GetMessage
-
-`func (o *ModconfigStepError) GetMessage() string`
-
-GetMessage returns the Message field if non-nil, zero value otherwise.
-
-### GetMessageOk
-
-`func (o *ModconfigStepError) GetMessageOk() (*string, bool)`
-
-GetMessageOk returns a tuple with the Message field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMessage
-
-`func (o *ModconfigStepError) SetMessage(v string)`
-
-SetMessage sets Message field to given value.
-
-### HasMessage
-
-`func (o *ModconfigStepError) HasMessage() bool`
-
-HasMessage returns a boolean if a field has been set.
+HasError returns a boolean if a field has been set.
 
 ### GetPipeline
 

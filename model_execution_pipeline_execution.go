@@ -21,6 +21,7 @@ var _ MappedNullable = &ExecutionPipelineExecution{}
 // ExecutionPipelineExecution struct for ExecutionPipelineExecution
 type ExecutionPipelineExecution struct {
 	Args map[string]interface{} `json:"args,omitempty"`
+	EndTime *string `json:"end_time,omitempty"`
 	// All errors from the step execution + any errors that can be added to the pipeline execution manually
 	Errors []ModconfigStepError `json:"errors,omitempty"`
 	// Unique identifier for this pipeline execution
@@ -32,10 +33,11 @@ type ExecutionPipelineExecution struct {
 	ParentStepExecutionId *string `json:"parent_step_execution_id,omitempty"`
 	// The output of the pipeline
 	PipelineOutput map[string]interface{} `json:"pipeline_output,omitempty"`
+	StartTime *string `json:"start_time,omitempty"`
 	// The status of the pipeline execution: queued, planned, started, completed, failed
 	Status *string `json:"status,omitempty"`
-	// Steps triggered by pipelines in the execution.
-	StepExecutions *map[string]ExecutionStepExecution `json:"step_executions,omitempty"`
+	// Status of each step on a per-step index basis. Used to determine if dependencies have been met etc. Note that each step may have multiple executions, the status of which are not tracked here. dependencies have been met, etc.  The Step Status used to be per-step, however the addition of for_each means that we now need to expand this tracking to include the \"index\" of the step  for_each have 2 type of results: list or map, however in Flowpipe they are both treated as a map, the list is simply a map that the key happens to be a string of \"0\", \"1\", \"2\"    The data structure of StepStatus is as follow:   {    \"echo.echo\": {     \"0\": {      xyz     },     \"1\": {      xyz     }    },    \"http.one\": {     \"foo\": {      zzz     },     \"bar\": {      yyy     }    }   }    echo.echo has a for_each which is a list, so the key is the index of the list    http.one has a for_each which is a map, so the key is the key of the map    LOOP    Since we added loop, the data structure can get rather complicated. A loop is simply another map which the key is   \"0\", \"1\", \"2\". So in a way like for_each that has a list result.    If the step has a loop and for_each the data is nested twice, i.e.: [\"0\"][\"1\"]   *
+	StepStatus *map[string]map[string]ExecutionStepStatus `json:"step_status,omitempty"`
 }
 func (o ExecutionPipelineExecution) GetResourceType() string {
 	return "ExecutionPipelineExecution"
@@ -87,6 +89,38 @@ func (o *ExecutionPipelineExecution) HasArgs() bool {
 // SetArgs gets a reference to the given map[string]interface{} and assigns it to the Args field.
 func (o *ExecutionPipelineExecution) SetArgs(v map[string]interface{}) {
 	o.Args = v
+}
+
+// GetEndTime returns the EndTime field value if set, zero value otherwise.
+func (o *ExecutionPipelineExecution) GetEndTime() string {
+	if o == nil || IsNil(o.EndTime) {
+		var ret string
+		return ret
+	}
+	return *o.EndTime
+}
+
+// GetEndTimeOk returns a tuple with the EndTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ExecutionPipelineExecution) GetEndTimeOk() (*string, bool) {
+	if o == nil || IsNil(o.EndTime) {
+		return nil, false
+	}
+	return o.EndTime, true
+}
+
+// HasEndTime returns a boolean if a field has been set.
+func (o *ExecutionPipelineExecution) HasEndTime() bool {
+	if o != nil && !IsNil(o.EndTime) {
+		return true
+	}
+
+	return false
+}
+
+// SetEndTime gets a reference to the given string and assigns it to the EndTime field.
+func (o *ExecutionPipelineExecution) SetEndTime(v string) {
+	o.EndTime = &v
 }
 
 // GetErrors returns the Errors field value if set, zero value otherwise.
@@ -281,6 +315,38 @@ func (o *ExecutionPipelineExecution) SetPipelineOutput(v map[string]interface{})
 	o.PipelineOutput = v
 }
 
+// GetStartTime returns the StartTime field value if set, zero value otherwise.
+func (o *ExecutionPipelineExecution) GetStartTime() string {
+	if o == nil || IsNil(o.StartTime) {
+		var ret string
+		return ret
+	}
+	return *o.StartTime
+}
+
+// GetStartTimeOk returns a tuple with the StartTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ExecutionPipelineExecution) GetStartTimeOk() (*string, bool) {
+	if o == nil || IsNil(o.StartTime) {
+		return nil, false
+	}
+	return o.StartTime, true
+}
+
+// HasStartTime returns a boolean if a field has been set.
+func (o *ExecutionPipelineExecution) HasStartTime() bool {
+	if o != nil && !IsNil(o.StartTime) {
+		return true
+	}
+
+	return false
+}
+
+// SetStartTime gets a reference to the given string and assigns it to the StartTime field.
+func (o *ExecutionPipelineExecution) SetStartTime(v string) {
+	o.StartTime = &v
+}
+
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *ExecutionPipelineExecution) GetStatus() string {
 	if o == nil || IsNil(o.Status) {
@@ -313,36 +379,36 @@ func (o *ExecutionPipelineExecution) SetStatus(v string) {
 	o.Status = &v
 }
 
-// GetStepExecutions returns the StepExecutions field value if set, zero value otherwise.
-func (o *ExecutionPipelineExecution) GetStepExecutions() map[string]ExecutionStepExecution {
-	if o == nil || IsNil(o.StepExecutions) {
-		var ret map[string]ExecutionStepExecution
+// GetStepStatus returns the StepStatus field value if set, zero value otherwise.
+func (o *ExecutionPipelineExecution) GetStepStatus() map[string]map[string]ExecutionStepStatus {
+	if o == nil || IsNil(o.StepStatus) {
+		var ret map[string]map[string]ExecutionStepStatus
 		return ret
 	}
-	return *o.StepExecutions
+	return *o.StepStatus
 }
 
-// GetStepExecutionsOk returns a tuple with the StepExecutions field value if set, nil otherwise
+// GetStepStatusOk returns a tuple with the StepStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ExecutionPipelineExecution) GetStepExecutionsOk() (*map[string]ExecutionStepExecution, bool) {
-	if o == nil || IsNil(o.StepExecutions) {
+func (o *ExecutionPipelineExecution) GetStepStatusOk() (*map[string]map[string]ExecutionStepStatus, bool) {
+	if o == nil || IsNil(o.StepStatus) {
 		return nil, false
 	}
-	return o.StepExecutions, true
+	return o.StepStatus, true
 }
 
-// HasStepExecutions returns a boolean if a field has been set.
-func (o *ExecutionPipelineExecution) HasStepExecutions() bool {
-	if o != nil && !IsNil(o.StepExecutions) {
+// HasStepStatus returns a boolean if a field has been set.
+func (o *ExecutionPipelineExecution) HasStepStatus() bool {
+	if o != nil && !IsNil(o.StepStatus) {
 		return true
 	}
 
 	return false
 }
 
-// SetStepExecutions gets a reference to the given map[string]ExecutionStepExecution and assigns it to the StepExecutions field.
-func (o *ExecutionPipelineExecution) SetStepExecutions(v map[string]ExecutionStepExecution) {
-	o.StepExecutions = &v
+// SetStepStatus gets a reference to the given map[string]map[string]ExecutionStepStatus and assigns it to the StepStatus field.
+func (o *ExecutionPipelineExecution) SetStepStatus(v map[string]map[string]ExecutionStepStatus) {
+	o.StepStatus = &v
 }
 
 func (o ExecutionPipelineExecution) MarshalJSON() ([]byte, error) {
@@ -357,6 +423,9 @@ func (o ExecutionPipelineExecution) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Args) {
 		toSerialize["args"] = o.Args
+	}
+	if !IsNil(o.EndTime) {
+		toSerialize["end_time"] = o.EndTime
 	}
 	if !IsNil(o.Errors) {
 		toSerialize["errors"] = o.Errors
@@ -376,11 +445,14 @@ func (o ExecutionPipelineExecution) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.PipelineOutput) {
 		toSerialize["pipeline_output"] = o.PipelineOutput
 	}
+	if !IsNil(o.StartTime) {
+		toSerialize["start_time"] = o.StartTime
+	}
 	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status
 	}
-	if !IsNil(o.StepExecutions) {
-		toSerialize["step_executions"] = o.StepExecutions
+	if !IsNil(o.StepStatus) {
+		toSerialize["step_status"] = o.StepStatus
 	}
 	return toSerialize, nil
 }
