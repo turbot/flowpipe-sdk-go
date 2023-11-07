@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Default** | Pointer to **string** |  | [optional] 
+**Default** | Pointer to **map[string]interface{}** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Optional** | Pointer to **bool** |  | [optional] 
@@ -31,20 +31,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDefault
 
-`func (o *FpPipelineParam) GetDefault() string`
+`func (o *FpPipelineParam) GetDefault() map[string]interface{}`
 
 GetDefault returns the Default field if non-nil, zero value otherwise.
 
 ### GetDefaultOk
 
-`func (o *FpPipelineParam) GetDefaultOk() (*string, bool)`
+`func (o *FpPipelineParam) GetDefaultOk() (*map[string]interface{}, bool)`
 
 GetDefaultOk returns a tuple with the Default field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefault
 
-`func (o *FpPipelineParam) SetDefault(v string)`
+`func (o *FpPipelineParam) SetDefault(v map[string]interface{})`
 
 SetDefault sets Default field to given value.
 

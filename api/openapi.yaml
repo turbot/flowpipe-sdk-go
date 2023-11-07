@@ -806,14 +806,14 @@ components:
       type: object
     FpPipelineParam:
       example:
-        default: default
+        default: "{}"
         name: name
         description: description
         optional: true
         type: type
       properties:
         default:
-          type: string
+          type: object
         description:
           type: string
         name:
@@ -878,12 +878,12 @@ components:
         name: name
         description: description
         params:
-        - default: default
+        - default: "{}"
           name: name
           description: description
           optional: true
           type: type
-        - default: default
+        - default: "{}"
           name: name
           description: description
           optional: true

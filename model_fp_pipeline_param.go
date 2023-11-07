@@ -20,7 +20,7 @@ var _ MappedNullable = &FpPipelineParam{}
 
 // FpPipelineParam struct for FpPipelineParam
 type FpPipelineParam struct {
-	Default *string `json:"default,omitempty"`
+	Default map[string]interface{} `json:"default,omitempty"`
 	Description *string `json:"description,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Optional *bool `json:"optional,omitempty"`
@@ -47,19 +47,19 @@ func NewFpPipelineParamWithDefaults() *FpPipelineParam {
 }
 
 // GetDefault returns the Default field value if set, zero value otherwise.
-func (o *FpPipelineParam) GetDefault() string {
+func (o *FpPipelineParam) GetDefault() map[string]interface{} {
 	if o == nil || IsNil(o.Default) {
-		var ret string
+		var ret map[string]interface{}
 		return ret
 	}
-	return *o.Default
+	return o.Default
 }
 
 // GetDefaultOk returns a tuple with the Default field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FpPipelineParam) GetDefaultOk() (*string, bool) {
+func (o *FpPipelineParam) GetDefaultOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Default) {
-		return nil, false
+		return map[string]interface{}{}, false
 	}
 	return o.Default, true
 }
@@ -73,9 +73,9 @@ func (o *FpPipelineParam) HasDefault() bool {
 	return false
 }
 
-// SetDefault gets a reference to the given string and assigns it to the Default field.
-func (o *FpPipelineParam) SetDefault(v string) {
-	o.Default = &v
+// SetDefault gets a reference to the given map[string]interface{} and assigns it to the Default field.
+func (o *FpPipelineParam) SetDefault(v map[string]interface{}) {
+	o.Default = v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
