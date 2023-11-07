@@ -18,7 +18,7 @@ import (
 // checks if the ExecutionStepExecutionOutput type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ExecutionStepExecutionOutput{}
 
-// ExecutionStepExecutionOutput Output of the step
+// ExecutionStepExecutionOutput Native/primitive output of the step
 type ExecutionStepExecutionOutput struct {
 	Data map[string]interface{} `json:"data,omitempty"`
 	Errors []ModconfigStepError `json:"errors,omitempty"`

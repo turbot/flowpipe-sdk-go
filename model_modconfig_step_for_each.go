@@ -20,9 +20,10 @@ var _ MappedNullable = &ModconfigStepForEach{}
 
 // ModconfigStepForEach struct for ModconfigStepForEach
 type ModconfigStepForEach struct {
-	ForEachOutput *ModconfigOutput `json:"for_each_output,omitempty"`
-	ForEachTotalCount int32 `json:"for_each_total_count"`
-	Index int32 `json:"index"`
+	Each map[string]interface{} `json:"each,omitempty"`
+	Key string `json:"key"`
+	Output *ModconfigOutput `json:"output,omitempty"`
+	TotalCount int32 `json:"total_count"`
 }
 func (o ModconfigStepForEach) GetResourceType() string {
 	return "ModconfigStepForEach"
@@ -31,10 +32,10 @@ func (o ModconfigStepForEach) GetResourceType() string {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModconfigStepForEach(forEachTotalCount int32, index int32) *ModconfigStepForEach {
+func NewModconfigStepForEach(key string, totalCount int32) *ModconfigStepForEach {
 	this := ModconfigStepForEach{}
-	this.ForEachTotalCount = forEachTotalCount
-	this.Index = index
+	this.Key = key
+	this.TotalCount = totalCount
 	return &this
 }
 
@@ -46,84 +47,116 @@ func NewModconfigStepForEachWithDefaults() *ModconfigStepForEach {
 	return &this
 }
 
-// GetForEachOutput returns the ForEachOutput field value if set, zero value otherwise.
-func (o *ModconfigStepForEach) GetForEachOutput() ModconfigOutput {
-	if o == nil || IsNil(o.ForEachOutput) {
-		var ret ModconfigOutput
+// GetEach returns the Each field value if set, zero value otherwise.
+func (o *ModconfigStepForEach) GetEach() map[string]interface{} {
+	if o == nil || IsNil(o.Each) {
+		var ret map[string]interface{}
 		return ret
 	}
-	return *o.ForEachOutput
+	return o.Each
 }
 
-// GetForEachOutputOk returns a tuple with the ForEachOutput field value if set, nil otherwise
+// GetEachOk returns a tuple with the Each field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModconfigStepForEach) GetForEachOutputOk() (*ModconfigOutput, bool) {
-	if o == nil || IsNil(o.ForEachOutput) {
-		return nil, false
+func (o *ModconfigStepForEach) GetEachOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Each) {
+		return map[string]interface{}{}, false
 	}
-	return o.ForEachOutput, true
+	return o.Each, true
 }
 
-// HasForEachOutput returns a boolean if a field has been set.
-func (o *ModconfigStepForEach) HasForEachOutput() bool {
-	if o != nil && !IsNil(o.ForEachOutput) {
+// HasEach returns a boolean if a field has been set.
+func (o *ModconfigStepForEach) HasEach() bool {
+	if o != nil && !IsNil(o.Each) {
 		return true
 	}
 
 	return false
 }
 
-// SetForEachOutput gets a reference to the given ModconfigOutput and assigns it to the ForEachOutput field.
-func (o *ModconfigStepForEach) SetForEachOutput(v ModconfigOutput) {
-	o.ForEachOutput = &v
+// SetEach gets a reference to the given map[string]interface{} and assigns it to the Each field.
+func (o *ModconfigStepForEach) SetEach(v map[string]interface{}) {
+	o.Each = v
 }
 
-// GetForEachTotalCount returns the ForEachTotalCount field value
-func (o *ModconfigStepForEach) GetForEachTotalCount() int32 {
+// GetKey returns the Key field value
+func (o *ModconfigStepForEach) GetKey() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Key
+}
+
+// GetKeyOk returns a tuple with the Key field value
+// and a boolean to check if the value has been set.
+func (o *ModconfigStepForEach) GetKeyOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Key, true
+}
+
+// SetKey sets field value
+func (o *ModconfigStepForEach) SetKey(v string) {
+	o.Key = v
+}
+
+// GetOutput returns the Output field value if set, zero value otherwise.
+func (o *ModconfigStepForEach) GetOutput() ModconfigOutput {
+	if o == nil || IsNil(o.Output) {
+		var ret ModconfigOutput
+		return ret
+	}
+	return *o.Output
+}
+
+// GetOutputOk returns a tuple with the Output field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModconfigStepForEach) GetOutputOk() (*ModconfigOutput, bool) {
+	if o == nil || IsNil(o.Output) {
+		return nil, false
+	}
+	return o.Output, true
+}
+
+// HasOutput returns a boolean if a field has been set.
+func (o *ModconfigStepForEach) HasOutput() bool {
+	if o != nil && !IsNil(o.Output) {
+		return true
+	}
+
+	return false
+}
+
+// SetOutput gets a reference to the given ModconfigOutput and assigns it to the Output field.
+func (o *ModconfigStepForEach) SetOutput(v ModconfigOutput) {
+	o.Output = &v
+}
+
+// GetTotalCount returns the TotalCount field value
+func (o *ModconfigStepForEach) GetTotalCount() int32 {
 	if o == nil {
 		var ret int32
 		return ret
 	}
 
-	return o.ForEachTotalCount
+	return o.TotalCount
 }
 
-// GetForEachTotalCountOk returns a tuple with the ForEachTotalCount field value
+// GetTotalCountOk returns a tuple with the TotalCount field value
 // and a boolean to check if the value has been set.
-func (o *ModconfigStepForEach) GetForEachTotalCountOk() (*int32, bool) {
+func (o *ModconfigStepForEach) GetTotalCountOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ForEachTotalCount, true
+	return &o.TotalCount, true
 }
 
-// SetForEachTotalCount sets field value
-func (o *ModconfigStepForEach) SetForEachTotalCount(v int32) {
-	o.ForEachTotalCount = v
-}
-
-// GetIndex returns the Index field value
-func (o *ModconfigStepForEach) GetIndex() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.Index
-}
-
-// GetIndexOk returns a tuple with the Index field value
-// and a boolean to check if the value has been set.
-func (o *ModconfigStepForEach) GetIndexOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Index, true
-}
-
-// SetIndex sets field value
-func (o *ModconfigStepForEach) SetIndex(v int32) {
-	o.Index = v
+// SetTotalCount sets field value
+func (o *ModconfigStepForEach) SetTotalCount(v int32) {
+	o.TotalCount = v
 }
 
 func (o ModconfigStepForEach) MarshalJSON() ([]byte, error) {
@@ -136,11 +169,14 @@ func (o ModconfigStepForEach) MarshalJSON() ([]byte, error) {
 
 func (o ModconfigStepForEach) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ForEachOutput) {
-		toSerialize["for_each_output"] = o.ForEachOutput
+	if !IsNil(o.Each) {
+		toSerialize["each"] = o.Each
 	}
-	toSerialize["for_each_total_count"] = o.ForEachTotalCount
-	toSerialize["index"] = o.Index
+	toSerialize["key"] = o.Key
+	if !IsNil(o.Output) {
+		toSerialize["output"] = o.Output
+	}
+	toSerialize["total_count"] = o.TotalCount
 	return toSerialize, nil
 }
 

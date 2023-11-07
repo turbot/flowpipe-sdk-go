@@ -84,6 +84,7 @@ Class | Method | HTTP request | Description
 *PipelineApi* | [**Get**](docs/PipelineApi.md#get) | **Get** /pipeline/{pipeline_name} | Get pipeline
 *PipelineApi* | [**List**](docs/PipelineApi.md#list) | **Get** /pipeline | List pipelines
 *ProcessApi* | [**Get**](docs/ProcessApi.md#get) | **Get** /process/{process_id} | Get process
+*ProcessApi* | [**GetExecution**](docs/ProcessApi.md#getexecution) | **Get** /process/{process_id}/execution | Get process execution
 *ProcessApi* | [**GetLog**](docs/ProcessApi.md#getlog) | **Get** /process/{process_id}/log/process.json | Get process log
 *ProcessApi* | [**GetOutput**](docs/ProcessApi.md#getoutput) | **Get** /process/{process_id}/output | Get process output
 *ProcessApi* | [**GetSnapshot**](docs/ProcessApi.md#getsnapshot) | **Get** /process/:process_id/log/process.sps | Get process snapshot
@@ -97,11 +98,17 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [CmdPipeline](docs/CmdPipeline.md)
+ - [ExecutionExecution](docs/ExecutionExecution.md)
+ - [ExecutionPipelineExecution](docs/ExecutionPipelineExecution.md)
  - [ExecutionSnapshot](docs/ExecutionSnapshot.md)
  - [ExecutionSnapshotLayout](docs/ExecutionSnapshotLayout.md)
  - [ExecutionSnapshotPanel](docs/ExecutionSnapshotPanel.md)
  - [ExecutionSnapshotPanelData](docs/ExecutionSnapshotPanelData.md)
  - [ExecutionSnapshotPanelDataColumn](docs/ExecutionSnapshotPanelDataColumn.md)
+ - [ExecutionStepExecution](docs/ExecutionStepExecution.md)
+ - [ExecutionStepExecutionOutput](docs/ExecutionStepExecutionOutput.md)
+ - [ExecutionStepExecutionStepForEach](docs/ExecutionStepExecutionStepForEach.md)
+ - [ExecutionStepStatus](docs/ExecutionStepStatus.md)
  - [FpPipelineParam](docs/FpPipelineParam.md)
  - [FpTrigger](docs/FpTrigger.md)
  - [GetPipelineResponse](docs/GetPipelineResponse.md)
@@ -111,7 +118,12 @@ Class | Method | HTTP request | Description
  - [ListProcessResponse](docs/ListProcessResponse.md)
  - [ListTriggerResponse](docs/ListTriggerResponse.md)
  - [ListVariableResponse](docs/ListVariableResponse.md)
+ - [ModconfigNextStepAction](docs/ModconfigNextStepAction.md)
+ - [ModconfigOutput](docs/ModconfigOutput.md)
  - [ModconfigPipelineOutput](docs/ModconfigPipelineOutput.md)
+ - [ModconfigStepError](docs/ModconfigStepError.md)
+ - [ModconfigStepForEach](docs/ModconfigStepForEach.md)
+ - [ModconfigStepLoop](docs/ModconfigStepLoop.md)
  - [PerrErrorDetailModel](docs/PerrErrorDetailModel.md)
  - [PerrErrorModel](docs/PerrErrorModel.md)
  - [Process](docs/Process.md)

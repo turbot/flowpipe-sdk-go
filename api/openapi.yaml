@@ -396,6 +396,66 @@ paths:
       summary: Get process
       tags:
       - Process
+  /process/{process_id}/execution:
+    get:
+      description: Get process execution
+      operationId: process_get_execution
+      parameters:
+      - description: The name of the process
+        explode: false
+        in: path
+        name: process_id
+        required: true
+        schema:
+          format: "^[a-z]{0,32}$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/execution.Execution'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Not Found
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Internal Server Error
+      summary: Get process execution
+      tags:
+      - Process
   /process/{process_id}/log/process.json:
     get:
       description: Get process log
@@ -1111,6 +1171,255 @@ components:
         type:
           type: string
       type: object
+    execution.Execution:
+      example:
+        pipeline_executions:
+          key:
+            args: "{}"
+            start_time: start_time
+            step_status:
+              key:
+                key:
+                  loop_hold: true
+                  queued:
+                    key: true
+                  finished:
+                    key: true
+                  initializing: true
+                  started:
+                    key: true
+                  failed:
+                    key: true
+                  step_executions:
+                  - output: null
+                    step_for_each: null
+                    step_loop:
+                      input: "{}"
+                      loop_completed: true
+                      index: 6
+                    input: "{}"
+                    pipeline_execution_id: pipeline_execution_id
+                    start_time: start_time
+                    end_time: end_time
+                    name: name
+                    id: id
+                    next_step_action: null
+                    step_output: "{}"
+                    status: status
+                  - output: null
+                    step_for_each: null
+                    step_loop:
+                      input: "{}"
+                      loop_completed: true
+                      index: 6
+                    input: "{}"
+                    pipeline_execution_id: pipeline_execution_id
+                    start_time: start_time
+                    end_time: end_time
+                    name: name
+                    id: id
+                    next_step_action: null
+                    step_output: "{}"
+                    status: status
+            parent_step_execution_id: parent_step_execution_id
+            pipeline_output: "{}"
+            end_time: end_time
+            name: name
+            id: id
+            parent_execution_id: parent_execution_id
+            errors:
+            - pipeline: pipeline
+              pipeline_execution_id: pipeline_execution_id
+              step_execution_id: step_execution_id
+              step: step
+              error:
+                instance: instance
+                validation_errors:
+                - location: location
+                  message: message
+                - location: location
+                  message: message
+                detail: detail
+                title: title
+                type: type
+                status: 0
+            - pipeline: pipeline
+              pipeline_execution_id: pipeline_execution_id
+              step_execution_id: step_execution_id
+              step: step
+              error:
+                instance: instance
+                validation_errors:
+                - location: location
+                  message: message
+                - location: location
+                  message: message
+                detail: detail
+                title: title
+                type: type
+                status: 0
+            status: status
+        id: id
+      properties:
+        id:
+          description: Unique identifier for this execution.
+          type: string
+        pipeline_executions:
+          additionalProperties:
+            $ref: '#/components/schemas/execution.PipelineExecution'
+          description: |-
+            Pipelines triggered by the execution. Even if the pipelines are nested,
+            we maintain a flat list of all pipelines for easy lookup and querying.
+          type: object
+      type: object
+    execution.PipelineExecution:
+      example:
+        args: "{}"
+        start_time: start_time
+        step_status:
+          key:
+            key:
+              loop_hold: true
+              queued:
+                key: true
+              finished:
+                key: true
+              initializing: true
+              started:
+                key: true
+              failed:
+                key: true
+              step_executions:
+              - output: null
+                step_for_each: null
+                step_loop:
+                  input: "{}"
+                  loop_completed: true
+                  index: 6
+                input: "{}"
+                pipeline_execution_id: pipeline_execution_id
+                start_time: start_time
+                end_time: end_time
+                name: name
+                id: id
+                next_step_action: null
+                step_output: "{}"
+                status: status
+              - output: null
+                step_for_each: null
+                step_loop:
+                  input: "{}"
+                  loop_completed: true
+                  index: 6
+                input: "{}"
+                pipeline_execution_id: pipeline_execution_id
+                start_time: start_time
+                end_time: end_time
+                name: name
+                id: id
+                next_step_action: null
+                step_output: "{}"
+                status: status
+        parent_step_execution_id: parent_step_execution_id
+        pipeline_output: "{}"
+        end_time: end_time
+        name: name
+        id: id
+        parent_execution_id: parent_execution_id
+        errors:
+        - pipeline: pipeline
+          pipeline_execution_id: pipeline_execution_id
+          step_execution_id: step_execution_id
+          step: step
+          error:
+            instance: instance
+            validation_errors:
+            - location: location
+              message: message
+            - location: location
+              message: message
+            detail: detail
+            title: title
+            type: type
+            status: 0
+        - pipeline: pipeline
+          pipeline_execution_id: pipeline_execution_id
+          step_execution_id: step_execution_id
+          step: step
+          error:
+            instance: instance
+            validation_errors:
+            - location: location
+              message: message
+            - location: location
+              message: message
+            detail: detail
+            title: title
+            type: type
+            status: 0
+        status: status
+      properties:
+        args:
+          allOf:
+          - $ref: '#/definitions/modconfig.Input'
+          description: The input to the pipeline
+          type: object
+        end_time:
+          type: string
+        errors:
+          description: All errors from the step execution + any errors that can be
+            added to the pipeline execution manually
+          items:
+            $ref: '#/components/schemas/modconfig.StepError'
+          type: array
+        id:
+          description: Unique identifier for this pipeline execution
+          type: string
+        name:
+          description: The name of the pipeline
+          type: string
+        parent_execution_id:
+          type: string
+        parent_step_execution_id:
+          description: "If this is a child pipeline, then track it's parent"
+          type: string
+        pipeline_output:
+          description: The output of the pipeline
+          properties: {}
+          type: object
+        start_time:
+          type: string
+        status:
+          description: "The status of the pipeline execution: queued, planned, started,\
+            \ completed, failed"
+          type: string
+        step_status:
+          additionalProperties:
+            additionalProperties:
+              $ref: '#/components/schemas/execution.StepStatus'
+            type: object
+          description: "Status of each step on a per-step index basis. Used to determine\
+            \ if dependencies\nhave been met etc. Note that each step may have multiple\
+            \ executions, the status\nof which are not tracked here.\ndependencies\
+            \ have been met, etc.\n\nThe Step Status used to be per-step, however\
+            \ the addition of for_each means that we now need to expand this\ntracking\
+            \ to include the \"index\" of the step\n\nfor_each have 2 type of results:\
+            \ list or map, however in Flowpipe they are both treated as a map,\nthe\
+            \ list is simply a map that the key happens to be a string of \"0\", \"\
+            1\", \"2\"\n\n\t\tThe data structure of StepStatus is as follow:\n\t\t\
+            {\n\t\t\t\"echo.echo\": {\n\t\t\t\t\"0\": {\n\t\t\t\t\txyz\n\t\t\t\t},\n\
+            \t\t\t\t\"1\": {\n\t\t\t\t\txyz\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"http.one\"\
+            : {\n\t\t\t\t\"foo\": {\n\t\t\t\t\tzzz\n\t\t\t\t},\n\t\t\t\t\"bar\": {\n\
+            \t\t\t\t\tyyy\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\techo.echo has a for_each\
+            \ which is a list, so the key is the index of the list\n\n\t\thttp.one\
+            \ has a for_each which is a map, so the key is the key of the map\n\n\t\
+            \tLOOP\n\n\t\tSince we added loop, the data structure can get rather complicated.\
+            \ A loop is simply another map which the key is\n\t\t\"0\", \"1\", \"\
+            2\". So in a way like for_each that has a list result.\n\n\t\tIf the step\
+            \ has a loop and for_each the data is nested twice, i.e.: [\"0\"][\"1\"\
+            ]\n\t\t*"
+          type: object
+      type: object
     execution.Snapshot:
       example:
         layout:
@@ -1244,6 +1553,166 @@ components:
       type: object
     execution.SnapshotPanelDataRow:
       type: object
+    execution.StepExecution:
+      example:
+        output: null
+        step_for_each: null
+        step_loop:
+          input: "{}"
+          loop_completed: true
+          index: 6
+        input: "{}"
+        pipeline_execution_id: pipeline_execution_id
+        start_time: start_time
+        end_time: end_time
+        name: name
+        id: id
+        next_step_action: null
+        step_output: "{}"
+        status: status
+      properties:
+        end_time:
+          type: string
+        id:
+          type: string
+        input:
+          allOf:
+          - $ref: '#/definitions/modconfig.Input'
+          description: Input to the step
+          type: object
+        name:
+          description: The name of the step in the pipeline definition
+          type: string
+        next_step_action:
+          $ref: '#/components/schemas/modconfig.NextStepAction'
+        output:
+          $ref: '#/components/schemas/execution_StepExecution_output'
+        pipeline_execution_id:
+          description: Unique identifier for this step execution
+          type: string
+        start_time:
+          type: string
+        status:
+          description: "The status of the step execution: \"started\", \"finished\"\
+            , \"failed\", \"skipped\""
+          type: string
+        step_for_each:
+          $ref: '#/components/schemas/execution_StepExecution_step_for_each'
+        step_loop:
+          $ref: '#/components/schemas/modconfig.StepLoop'
+        step_output:
+          description: "The output from the Step's output block:\noutput \"foo\" {\n\
+            \   value = <xxx>\n\t}"
+          properties: {}
+          type: object
+      type: object
+    execution.StepStatus:
+      example:
+        loop_hold: true
+        queued:
+          key: true
+        finished:
+          key: true
+        initializing: true
+        started:
+          key: true
+        failed:
+          key: true
+        step_executions:
+        - output: null
+          step_for_each: null
+          step_loop:
+            input: "{}"
+            loop_completed: true
+            index: 6
+          input: "{}"
+          pipeline_execution_id: pipeline_execution_id
+          start_time: start_time
+          end_time: end_time
+          name: name
+          id: id
+          next_step_action: null
+          step_output: "{}"
+          status: status
+        - output: null
+          step_for_each: null
+          step_loop:
+            input: "{}"
+            loop_completed: true
+            index: 6
+          input: "{}"
+          pipeline_execution_id: pipeline_execution_id
+          start_time: start_time
+          end_time: end_time
+          name: name
+          id: id
+          next_step_action: null
+          step_output: "{}"
+          status: status
+      properties:
+        failed:
+          additionalProperties:
+            type: boolean
+          description: Step executions that are failed.
+          type: object
+        finished:
+          additionalProperties:
+            type: boolean
+          description: Step executions that are finished.
+          type: object
+        initializing:
+          description: |-
+            When the step is initializing it doesn't yet have any executions.
+            We track it as initializing until the first execution is queued.
+          type: boolean
+        loop_hold:
+          description: Indicate that step is in a loop so we don't mark it as finished
+          type: boolean
+        queued:
+          additionalProperties:
+            type: boolean
+          description: Step executions that are queued.
+          type: object
+        started:
+          additionalProperties:
+            type: boolean
+          description: Step executions that are started.
+          type: object
+        step_executions:
+          description: |-
+            There's the step execution in execution, this is the same but in a list for a given step status
+            The element in this slice should point to the same element in the StepExecutions map (in PipelineExecution)
+          items:
+            $ref: '#/components/schemas/execution.StepExecution'
+          type: array
+      type: object
+    json.SimpleJSONValue:
+      type: object
+    modconfig.Input:
+      type: object
+    modconfig.NextStepAction:
+      enum:
+      - start
+      - inaccessible
+      - skip
+      type: string
+      x-enum-varnames:
+      - NextStepActionStart
+      - NextStepActionInaccessible
+      - NextStepActionSkip
+    modconfig.Output:
+      properties:
+        data:
+          type: object
+        errors:
+          items:
+            $ref: '#/components/schemas/modconfig.StepError'
+          type: array
+        status:
+          type: string
+      type: object
+    modconfig.OutputData:
+      type: object
     modconfig.PipelineOutput:
       example:
         depends_on:
@@ -1270,7 +1739,68 @@ components:
         value:
           type: object
       type: object
+    modconfig.StepError:
+      example:
+        pipeline: pipeline
+        pipeline_execution_id: pipeline_execution_id
+        step_execution_id: step_execution_id
+        step: step
+        error:
+          instance: instance
+          validation_errors:
+          - location: location
+            message: message
+          - location: location
+            message: message
+          detail: detail
+          title: title
+          type: type
+          status: 0
+      properties:
+        error:
+          $ref: '#/components/schemas/perr.ErrorModel'
+        pipeline:
+          type: string
+        pipeline_execution_id:
+          type: string
+        step:
+          type: string
+        step_execution_id:
+          type: string
+      type: object
+    modconfig.StepForEach:
+      properties:
+        each:
+          type: object
+        key:
+          type: string
+        output:
+          $ref: '#/components/schemas/modconfig.Output'
+        total_count:
+          type: integer
+      required:
+      - key
+      - total_count
+      type: object
+    modconfig.StepLoop:
+      example:
+        input: "{}"
+        loop_completed: true
+        index: 6
+      properties:
+        index:
+          type: integer
+        input:
+          type: object
+        loop_completed:
+          type: boolean
+      required:
+      - index
+      type: object
     perr.ErrorDetailModel:
+      example:
+        location: location
+        message: message
       properties:
         location:
           type: string
@@ -1278,6 +1808,17 @@ components:
           type: string
       type: object
     perr.ErrorModel:
+      example:
+        instance: instance
+        validation_errors:
+        - location: location
+          message: message
+        - location: location
+          message: message
+        detail: detail
+        title: title
+        type: type
+        status: 0
       properties:
         detail:
           description: If we don't have required it comes out as pointer and there
@@ -1301,6 +1842,16 @@ components:
       - status
       - title
       - type
+      type: object
+    execution_StepExecution_output:
+      allOf:
+      - $ref: '#/definitions/modconfig.Output'
+      description: Native/primitive output of the step
+      type: object
+    execution_StepExecution_step_for_each:
+      allOf:
+      - $ref: '#/definitions/modconfig.StepForEach'
+      description: for_each controls
       type: object
   securitySchemes:
     ApiKeyAuth:

@@ -5,6 +5,7 @@ All URIs are relative to *https://localhost/api/v0*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get**](ProcessApi.md#Get) | **Get** /process/{process_id} | Get process
+[**GetExecution**](ProcessApi.md#GetExecution) | **Get** /process/{process_id}/execution | Get process execution
 [**GetLog**](ProcessApi.md#GetLog) | **Get** /process/{process_id}/log/process.json | Get process log
 [**GetOutput**](ProcessApi.md#GetOutput) | **Get** /process/{process_id}/output | Get process output
 [**GetSnapshot**](ProcessApi.md#GetSnapshot) | **Get** /process/:process_id/log/process.sps | Get process snapshot
@@ -67,6 +68,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Process**](Process.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetExecution
+
+> ExecutionExecution GetExecution(ctx, processId).Execute()
+
+Get process execution
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/turbot/flowpipe-sdk-go"
+)
+
+func main() {
+    processId := "processId_example" // string | The name of the process
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ProcessApi.GetExecution(context.Background(), processId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ProcessApi.GetExecution``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetExecution`: ExecutionExecution
+    fmt.Fprintf(os.Stdout, "Response from `ProcessApi.GetExecution`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**processId** | **string** | The name of the process | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetExecutionRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**ExecutionExecution**](ExecutionExecution.md)
 
 ### Authorization
 

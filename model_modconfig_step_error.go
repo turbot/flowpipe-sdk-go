@@ -20,8 +20,7 @@ var _ MappedNullable = &ModconfigStepError{}
 
 // ModconfigStepError struct for ModconfigStepError
 type ModconfigStepError struct {
-	ErrorCode *int32 `json:"error_code,omitempty"`
-	Message *string `json:"message,omitempty"`
+	Error *PerrErrorModel `json:"error,omitempty"`
 	Pipeline *string `json:"pipeline,omitempty"`
 	PipelineExecutionId *string `json:"pipeline_execution_id,omitempty"`
 	Step *string `json:"step,omitempty"`
@@ -47,68 +46,36 @@ func NewModconfigStepErrorWithDefaults() *ModconfigStepError {
 	return &this
 }
 
-// GetErrorCode returns the ErrorCode field value if set, zero value otherwise.
-func (o *ModconfigStepError) GetErrorCode() int32 {
-	if o == nil || IsNil(o.ErrorCode) {
-		var ret int32
+// GetError returns the Error field value if set, zero value otherwise.
+func (o *ModconfigStepError) GetError() PerrErrorModel {
+	if o == nil || IsNil(o.Error) {
+		var ret PerrErrorModel
 		return ret
 	}
-	return *o.ErrorCode
+	return *o.Error
 }
 
-// GetErrorCodeOk returns a tuple with the ErrorCode field value if set, nil otherwise
+// GetErrorOk returns a tuple with the Error field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModconfigStepError) GetErrorCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.ErrorCode) {
+func (o *ModconfigStepError) GetErrorOk() (*PerrErrorModel, bool) {
+	if o == nil || IsNil(o.Error) {
 		return nil, false
 	}
-	return o.ErrorCode, true
+	return o.Error, true
 }
 
-// HasErrorCode returns a boolean if a field has been set.
-func (o *ModconfigStepError) HasErrorCode() bool {
-	if o != nil && !IsNil(o.ErrorCode) {
+// HasError returns a boolean if a field has been set.
+func (o *ModconfigStepError) HasError() bool {
+	if o != nil && !IsNil(o.Error) {
 		return true
 	}
 
 	return false
 }
 
-// SetErrorCode gets a reference to the given int32 and assigns it to the ErrorCode field.
-func (o *ModconfigStepError) SetErrorCode(v int32) {
-	o.ErrorCode = &v
-}
-
-// GetMessage returns the Message field value if set, zero value otherwise.
-func (o *ModconfigStepError) GetMessage() string {
-	if o == nil || IsNil(o.Message) {
-		var ret string
-		return ret
-	}
-	return *o.Message
-}
-
-// GetMessageOk returns a tuple with the Message field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ModconfigStepError) GetMessageOk() (*string, bool) {
-	if o == nil || IsNil(o.Message) {
-		return nil, false
-	}
-	return o.Message, true
-}
-
-// HasMessage returns a boolean if a field has been set.
-func (o *ModconfigStepError) HasMessage() bool {
-	if o != nil && !IsNil(o.Message) {
-		return true
-	}
-
-	return false
-}
-
-// SetMessage gets a reference to the given string and assigns it to the Message field.
-func (o *ModconfigStepError) SetMessage(v string) {
-	o.Message = &v
+// SetError gets a reference to the given PerrErrorModel and assigns it to the Error field.
+func (o *ModconfigStepError) SetError(v PerrErrorModel) {
+	o.Error = &v
 }
 
 // GetPipeline returns the Pipeline field value if set, zero value otherwise.
@@ -249,11 +216,8 @@ func (o ModconfigStepError) MarshalJSON() ([]byte, error) {
 
 func (o ModconfigStepError) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ErrorCode) {
-		toSerialize["error_code"] = o.ErrorCode
-	}
-	if !IsNil(o.Message) {
-		toSerialize["message"] = o.Message
+	if !IsNil(o.Error) {
+		toSerialize["error"] = o.Error
 	}
 	if !IsNil(o.Pipeline) {
 		toSerialize["pipeline"] = o.Pipeline

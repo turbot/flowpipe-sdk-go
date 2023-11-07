@@ -20,6 +20,7 @@ var _ MappedNullable = &ExecutionStepExecution{}
 
 // ExecutionStepExecution struct for ExecutionStepExecution
 type ExecutionStepExecution struct {
+	EndTime *string `json:"end_time,omitempty"`
 	Id *string `json:"id,omitempty"`
 	Input map[string]interface{} `json:"input,omitempty"`
 	// The name of the step in the pipeline definition
@@ -28,9 +29,13 @@ type ExecutionStepExecution struct {
 	Output *ExecutionStepExecutionOutput `json:"output,omitempty"`
 	// Unique identifier for this step execution
 	PipelineExecutionId *string `json:"pipeline_execution_id,omitempty"`
+	StartTime *string `json:"start_time,omitempty"`
 	// The status of the step execution: \"started\", \"finished\", \"failed\", \"skipped\"
 	Status *string `json:"status,omitempty"`
 	StepForEach *ExecutionStepExecutionStepForEach `json:"step_for_each,omitempty"`
+	StepLoop *ModconfigStepLoop `json:"step_loop,omitempty"`
+	// The output from the Step's output block: output \"foo\" {    value = <xxx>  }
+	StepOutput map[string]interface{} `json:"step_output,omitempty"`
 }
 func (o ExecutionStepExecution) GetResourceType() string {
 	return "ExecutionStepExecution"
@@ -50,6 +55,38 @@ func NewExecutionStepExecution() *ExecutionStepExecution {
 func NewExecutionStepExecutionWithDefaults() *ExecutionStepExecution {
 	this := ExecutionStepExecution{}
 	return &this
+}
+
+// GetEndTime returns the EndTime field value if set, zero value otherwise.
+func (o *ExecutionStepExecution) GetEndTime() string {
+	if o == nil || IsNil(o.EndTime) {
+		var ret string
+		return ret
+	}
+	return *o.EndTime
+}
+
+// GetEndTimeOk returns a tuple with the EndTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ExecutionStepExecution) GetEndTimeOk() (*string, bool) {
+	if o == nil || IsNil(o.EndTime) {
+		return nil, false
+	}
+	return o.EndTime, true
+}
+
+// HasEndTime returns a boolean if a field has been set.
+func (o *ExecutionStepExecution) HasEndTime() bool {
+	if o != nil && !IsNil(o.EndTime) {
+		return true
+	}
+
+	return false
+}
+
+// SetEndTime gets a reference to the given string and assigns it to the EndTime field.
+func (o *ExecutionStepExecution) SetEndTime(v string) {
+	o.EndTime = &v
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
@@ -244,6 +281,38 @@ func (o *ExecutionStepExecution) SetPipelineExecutionId(v string) {
 	o.PipelineExecutionId = &v
 }
 
+// GetStartTime returns the StartTime field value if set, zero value otherwise.
+func (o *ExecutionStepExecution) GetStartTime() string {
+	if o == nil || IsNil(o.StartTime) {
+		var ret string
+		return ret
+	}
+	return *o.StartTime
+}
+
+// GetStartTimeOk returns a tuple with the StartTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ExecutionStepExecution) GetStartTimeOk() (*string, bool) {
+	if o == nil || IsNil(o.StartTime) {
+		return nil, false
+	}
+	return o.StartTime, true
+}
+
+// HasStartTime returns a boolean if a field has been set.
+func (o *ExecutionStepExecution) HasStartTime() bool {
+	if o != nil && !IsNil(o.StartTime) {
+		return true
+	}
+
+	return false
+}
+
+// SetStartTime gets a reference to the given string and assigns it to the StartTime field.
+func (o *ExecutionStepExecution) SetStartTime(v string) {
+	o.StartTime = &v
+}
+
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *ExecutionStepExecution) GetStatus() string {
 	if o == nil || IsNil(o.Status) {
@@ -308,6 +377,70 @@ func (o *ExecutionStepExecution) SetStepForEach(v ExecutionStepExecutionStepForE
 	o.StepForEach = &v
 }
 
+// GetStepLoop returns the StepLoop field value if set, zero value otherwise.
+func (o *ExecutionStepExecution) GetStepLoop() ModconfigStepLoop {
+	if o == nil || IsNil(o.StepLoop) {
+		var ret ModconfigStepLoop
+		return ret
+	}
+	return *o.StepLoop
+}
+
+// GetStepLoopOk returns a tuple with the StepLoop field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ExecutionStepExecution) GetStepLoopOk() (*ModconfigStepLoop, bool) {
+	if o == nil || IsNil(o.StepLoop) {
+		return nil, false
+	}
+	return o.StepLoop, true
+}
+
+// HasStepLoop returns a boolean if a field has been set.
+func (o *ExecutionStepExecution) HasStepLoop() bool {
+	if o != nil && !IsNil(o.StepLoop) {
+		return true
+	}
+
+	return false
+}
+
+// SetStepLoop gets a reference to the given ModconfigStepLoop and assigns it to the StepLoop field.
+func (o *ExecutionStepExecution) SetStepLoop(v ModconfigStepLoop) {
+	o.StepLoop = &v
+}
+
+// GetStepOutput returns the StepOutput field value if set, zero value otherwise.
+func (o *ExecutionStepExecution) GetStepOutput() map[string]interface{} {
+	if o == nil || IsNil(o.StepOutput) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.StepOutput
+}
+
+// GetStepOutputOk returns a tuple with the StepOutput field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ExecutionStepExecution) GetStepOutputOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.StepOutput) {
+		return map[string]interface{}{}, false
+	}
+	return o.StepOutput, true
+}
+
+// HasStepOutput returns a boolean if a field has been set.
+func (o *ExecutionStepExecution) HasStepOutput() bool {
+	if o != nil && !IsNil(o.StepOutput) {
+		return true
+	}
+
+	return false
+}
+
+// SetStepOutput gets a reference to the given map[string]interface{} and assigns it to the StepOutput field.
+func (o *ExecutionStepExecution) SetStepOutput(v map[string]interface{}) {
+	o.StepOutput = v
+}
+
 func (o ExecutionStepExecution) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -318,6 +451,9 @@ func (o ExecutionStepExecution) MarshalJSON() ([]byte, error) {
 
 func (o ExecutionStepExecution) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.EndTime) {
+		toSerialize["end_time"] = o.EndTime
+	}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
@@ -336,11 +472,20 @@ func (o ExecutionStepExecution) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.PipelineExecutionId) {
 		toSerialize["pipeline_execution_id"] = o.PipelineExecutionId
 	}
+	if !IsNil(o.StartTime) {
+		toSerialize["start_time"] = o.StartTime
+	}
 	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status
 	}
 	if !IsNil(o.StepForEach) {
 		toSerialize["step_for_each"] = o.StepForEach
+	}
+	if !IsNil(o.StepLoop) {
+		toSerialize["step_loop"] = o.StepLoop
+	}
+	if !IsNil(o.StepOutput) {
+		toSerialize["step_output"] = o.StepOutput
 	}
 	return toSerialize, nil
 }
