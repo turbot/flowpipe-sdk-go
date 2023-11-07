@@ -1686,8 +1686,6 @@ components:
             $ref: '#/components/schemas/execution.StepExecution'
           type: array
       type: object
-    json.SimpleJSONValue:
-      type: object
     modconfig.Input:
       type: object
     modconfig.NextStepAction:
@@ -1771,7 +1769,7 @@ components:
     modconfig.StepForEach:
       properties:
         each:
-          type: object
+          type: string
         key:
           type: string
         output:

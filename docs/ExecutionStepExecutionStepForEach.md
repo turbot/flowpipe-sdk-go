@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Each** | Pointer to **map[string]interface{}** |  | [optional] 
+**Each** | Pointer to **string** |  | [optional] 
 **Key** | **string** |  | 
 **Output** | Pointer to [**ModconfigOutput**](ModconfigOutput.md) |  | [optional] 
 **TotalCount** | **int32** |  | 
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetEach
 
-`func (o *ExecutionStepExecutionStepForEach) GetEach() map[string]interface{}`
+`func (o *ExecutionStepExecutionStepForEach) GetEach() string`
 
 GetEach returns the Each field if non-nil, zero value otherwise.
 
 ### GetEachOk
 
-`func (o *ExecutionStepExecutionStepForEach) GetEachOk() (*map[string]interface{}, bool)`
+`func (o *ExecutionStepExecutionStepForEach) GetEachOk() (*string, bool)`
 
 GetEachOk returns a tuple with the Each field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEach
 
-`func (o *ExecutionStepExecutionStepForEach) SetEach(v map[string]interface{})`
+`func (o *ExecutionStepExecutionStepForEach) SetEach(v string)`
 
 SetEach sets Each field to given value.
 
