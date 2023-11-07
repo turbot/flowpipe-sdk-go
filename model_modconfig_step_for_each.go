@@ -20,7 +20,7 @@ var _ MappedNullable = &ModconfigStepForEach{}
 
 // ModconfigStepForEach struct for ModconfigStepForEach
 type ModconfigStepForEach struct {
-	Each map[string]interface{} `json:"each,omitempty"`
+	Each *string `json:"each,omitempty"`
 	Key string `json:"key"`
 	Output *ModconfigOutput `json:"output,omitempty"`
 	TotalCount int32 `json:"total_count"`
@@ -48,19 +48,19 @@ func NewModconfigStepForEachWithDefaults() *ModconfigStepForEach {
 }
 
 // GetEach returns the Each field value if set, zero value otherwise.
-func (o *ModconfigStepForEach) GetEach() map[string]interface{} {
+func (o *ModconfigStepForEach) GetEach() string {
 	if o == nil || IsNil(o.Each) {
-		var ret map[string]interface{}
+		var ret string
 		return ret
 	}
-	return o.Each
+	return *o.Each
 }
 
 // GetEachOk returns a tuple with the Each field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModconfigStepForEach) GetEachOk() (map[string]interface{}, bool) {
+func (o *ModconfigStepForEach) GetEachOk() (*string, bool) {
 	if o == nil || IsNil(o.Each) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.Each, true
 }
@@ -74,9 +74,9 @@ func (o *ModconfigStepForEach) HasEach() bool {
 	return false
 }
 
-// SetEach gets a reference to the given map[string]interface{} and assigns it to the Each field.
-func (o *ModconfigStepForEach) SetEach(v map[string]interface{}) {
-	o.Each = v
+// SetEach gets a reference to the given string and assigns it to the Each field.
+func (o *ModconfigStepForEach) SetEach(v string) {
+	o.Each = &v
 }
 
 // GetKey returns the Key field value
