@@ -124,6 +124,7 @@ Class | Method | HTTP request | Description
  - [ModconfigStepError](docs/ModconfigStepError.md)
  - [ModconfigStepForEach](docs/ModconfigStepForEach.md)
  - [ModconfigStepLoop](docs/ModconfigStepLoop.md)
+ - [ModconfigStepRetry](docs/ModconfigStepRetry.md)
  - [PerrErrorDetailModel](docs/PerrErrorDetailModel.md)
  - [PerrErrorModel](docs/PerrErrorModel.md)
  - [Process](docs/Process.md)

@@ -36,6 +36,7 @@ type ExecutionStepExecution struct {
 	StepLoop *ModconfigStepLoop `json:"step_loop,omitempty"`
 	// The output from the Step's output block: output \"foo\" {    value = <xxx>  }
 	StepOutput map[string]interface{} `json:"step_output,omitempty"`
+	StepRetry *ModconfigStepRetry `json:"step_retry,omitempty"`
 }
 func (o ExecutionStepExecution) GetResourceType() string {
 	return "ExecutionStepExecution"
@@ -441,6 +442,38 @@ func (o *ExecutionStepExecution) SetStepOutput(v map[string]interface{}) {
 	o.StepOutput = v
 }
 
+// GetStepRetry returns the StepRetry field value if set, zero value otherwise.
+func (o *ExecutionStepExecution) GetStepRetry() ModconfigStepRetry {
+	if o == nil || IsNil(o.StepRetry) {
+		var ret ModconfigStepRetry
+		return ret
+	}
+	return *o.StepRetry
+}
+
+// GetStepRetryOk returns a tuple with the StepRetry field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ExecutionStepExecution) GetStepRetryOk() (*ModconfigStepRetry, bool) {
+	if o == nil || IsNil(o.StepRetry) {
+		return nil, false
+	}
+	return o.StepRetry, true
+}
+
+// HasStepRetry returns a boolean if a field has been set.
+func (o *ExecutionStepExecution) HasStepRetry() bool {
+	if o != nil && !IsNil(o.StepRetry) {
+		return true
+	}
+
+	return false
+}
+
+// SetStepRetry gets a reference to the given ModconfigStepRetry and assigns it to the StepRetry field.
+func (o *ExecutionStepExecution) SetStepRetry(v ModconfigStepRetry) {
+	o.StepRetry = &v
+}
+
 func (o ExecutionStepExecution) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -486,6 +519,9 @@ func (o ExecutionStepExecution) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.StepOutput) {
 		toSerialize["step_output"] = o.StepOutput
+	}
+	if !IsNil(o.StepRetry) {
+		toSerialize["step_retry"] = o.StepRetry
 	}
 	return toSerialize, nil
 }

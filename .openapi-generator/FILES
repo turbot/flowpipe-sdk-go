@@ -35,6 +35,7 @@ docs/ModconfigPipelineOutput.md
 docs/ModconfigStepError.md
 docs/ModconfigStepForEach.md
 docs/ModconfigStepLoop.md
+docs/ModconfigStepRetry.md
 docs/PerrErrorDetailModel.md
 docs/PerrErrorModel.md
 docs/PipelineApi.md
@@ -75,6 +76,7 @@ model_modconfig_pipeline_output.go
 model_modconfig_step_error.go
 model_modconfig_step_for_each.go
 model_modconfig_step_loop.go
+model_modconfig_step_retry.go
 model_perr_error_detail_model.go
 model_perr_error_model.go
 model_process.go

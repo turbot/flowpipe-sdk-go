@@ -20,14 +20,17 @@ var _ MappedNullable = &ExecutionStepStatus{}
 
 // ExecutionStepStatus struct for ExecutionStepStatus
 type ExecutionStepStatus struct {
+	// Indicates that a step is in retry loop so we don't mark it as failed
+	ErrorHold *bool `json:"error_hold,omitempty"`
 	// Step executions that are failed.
 	Failed *map[string]bool `json:"failed,omitempty"`
 	// Step executions that are finished.
 	Finished *map[string]bool `json:"finished,omitempty"`
 	// When the step is initializing it doesn't yet have any executions. We track it as initializing until the first execution is queued.
 	Initializing *bool `json:"initializing,omitempty"`
-	// Indicate that step is in a loop so we don't mark it as finished
+	// Both LoopHold and ErrorHold must be resolved **before** the \"finish\" event is called, i.e. it needs to be calculated at the end of \"step start command\" and \"step pipeline finish\" command.  It can't be calculated at the \"finish\" event because it's already too late. If the planner see that it has an finish event without either a LoopHold or ErrorHold, it will mark the step as completed or failed  Indicates that step is in a loop so we don't mark it as finished
 	LoopHold *bool `json:"loop_hold,omitempty"`
+	OverralState *string `json:"overral_state,omitempty"`
 	// Step executions that are queued.
 	Queued *map[string]bool `json:"queued,omitempty"`
 	// Step executions that are started.
@@ -53,6 +56,38 @@ func NewExecutionStepStatus() *ExecutionStepStatus {
 func NewExecutionStepStatusWithDefaults() *ExecutionStepStatus {
 	this := ExecutionStepStatus{}
 	return &this
+}
+
+// GetErrorHold returns the ErrorHold field value if set, zero value otherwise.
+func (o *ExecutionStepStatus) GetErrorHold() bool {
+	if o == nil || IsNil(o.ErrorHold) {
+		var ret bool
+		return ret
+	}
+	return *o.ErrorHold
+}
+
+// GetErrorHoldOk returns a tuple with the ErrorHold field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ExecutionStepStatus) GetErrorHoldOk() (*bool, bool) {
+	if o == nil || IsNil(o.ErrorHold) {
+		return nil, false
+	}
+	return o.ErrorHold, true
+}
+
+// HasErrorHold returns a boolean if a field has been set.
+func (o *ExecutionStepStatus) HasErrorHold() bool {
+	if o != nil && !IsNil(o.ErrorHold) {
+		return true
+	}
+
+	return false
+}
+
+// SetErrorHold gets a reference to the given bool and assigns it to the ErrorHold field.
+func (o *ExecutionStepStatus) SetErrorHold(v bool) {
+	o.ErrorHold = &v
 }
 
 // GetFailed returns the Failed field value if set, zero value otherwise.
@@ -183,6 +218,38 @@ func (o *ExecutionStepStatus) SetLoopHold(v bool) {
 	o.LoopHold = &v
 }
 
+// GetOverralState returns the OverralState field value if set, zero value otherwise.
+func (o *ExecutionStepStatus) GetOverralState() string {
+	if o == nil || IsNil(o.OverralState) {
+		var ret string
+		return ret
+	}
+	return *o.OverralState
+}
+
+// GetOverralStateOk returns a tuple with the OverralState field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ExecutionStepStatus) GetOverralStateOk() (*string, bool) {
+	if o == nil || IsNil(o.OverralState) {
+		return nil, false
+	}
+	return o.OverralState, true
+}
+
+// HasOverralState returns a boolean if a field has been set.
+func (o *ExecutionStepStatus) HasOverralState() bool {
+	if o != nil && !IsNil(o.OverralState) {
+		return true
+	}
+
+	return false
+}
+
+// SetOverralState gets a reference to the given string and assigns it to the OverralState field.
+func (o *ExecutionStepStatus) SetOverralState(v string) {
+	o.OverralState = &v
+}
+
 // GetQueued returns the Queued field value if set, zero value otherwise.
 func (o *ExecutionStepStatus) GetQueued() map[string]bool {
 	if o == nil || IsNil(o.Queued) {
@@ -289,6 +356,9 @@ func (o ExecutionStepStatus) MarshalJSON() ([]byte, error) {
 
 func (o ExecutionStepStatus) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ErrorHold) {
+		toSerialize["error_hold"] = o.ErrorHold
+	}
 	if !IsNil(o.Failed) {
 		toSerialize["failed"] = o.Failed
 	}
@@ -300,6 +370,9 @@ func (o ExecutionStepStatus) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.LoopHold) {
 		toSerialize["loop_hold"] = o.LoopHold
+	}
+	if !IsNil(o.OverralState) {
+		toSerialize["overral_state"] = o.OverralState
 	}
 	if !IsNil(o.Queued) {
 		toSerialize["queued"] = o.Queued

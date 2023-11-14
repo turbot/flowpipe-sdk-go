@@ -20,7 +20,7 @@ var _ MappedNullable = &ExecutionStepExecutionStepForEach{}
 
 // ExecutionStepExecutionStepForEach for_each controls
 type ExecutionStepExecutionStepForEach struct {
-	Each *string `json:"each,omitempty"`
+	ForEachStep *bool `json:"for_each_step,omitempty"`
 	Key string `json:"key"`
 	Output *ModconfigOutput `json:"output,omitempty"`
 	TotalCount int32 `json:"total_count"`
@@ -47,36 +47,36 @@ func NewExecutionStepExecutionStepForEachWithDefaults() *ExecutionStepExecutionS
 	return &this
 }
 
-// GetEach returns the Each field value if set, zero value otherwise.
-func (o *ExecutionStepExecutionStepForEach) GetEach() string {
-	if o == nil || IsNil(o.Each) {
-		var ret string
+// GetForEachStep returns the ForEachStep field value if set, zero value otherwise.
+func (o *ExecutionStepExecutionStepForEach) GetForEachStep() bool {
+	if o == nil || IsNil(o.ForEachStep) {
+		var ret bool
 		return ret
 	}
-	return *o.Each
+	return *o.ForEachStep
 }
 
-// GetEachOk returns a tuple with the Each field value if set, nil otherwise
+// GetForEachStepOk returns a tuple with the ForEachStep field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ExecutionStepExecutionStepForEach) GetEachOk() (*string, bool) {
-	if o == nil || IsNil(o.Each) {
+func (o *ExecutionStepExecutionStepForEach) GetForEachStepOk() (*bool, bool) {
+	if o == nil || IsNil(o.ForEachStep) {
 		return nil, false
 	}
-	return o.Each, true
+	return o.ForEachStep, true
 }
 
-// HasEach returns a boolean if a field has been set.
-func (o *ExecutionStepExecutionStepForEach) HasEach() bool {
-	if o != nil && !IsNil(o.Each) {
+// HasForEachStep returns a boolean if a field has been set.
+func (o *ExecutionStepExecutionStepForEach) HasForEachStep() bool {
+	if o != nil && !IsNil(o.ForEachStep) {
 		return true
 	}
 
 	return false
 }
 
-// SetEach gets a reference to the given string and assigns it to the Each field.
-func (o *ExecutionStepExecutionStepForEach) SetEach(v string) {
-	o.Each = &v
+// SetForEachStep gets a reference to the given bool and assigns it to the ForEachStep field.
+func (o *ExecutionStepExecutionStepForEach) SetForEachStep(v bool) {
+	o.ForEachStep = &v
 }
 
 // GetKey returns the Key field value
@@ -169,8 +169,8 @@ func (o ExecutionStepExecutionStepForEach) MarshalJSON() ([]byte, error) {
 
 func (o ExecutionStepExecutionStepForEach) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Each) {
-		toSerialize["each"] = o.Each
+	if !IsNil(o.ForEachStep) {
+		toSerialize["for_each_step"] = o.ForEachStep
 	}
 	toSerialize["key"] = o.Key
 	if !IsNil(o.Output) {

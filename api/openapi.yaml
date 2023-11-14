@@ -836,7 +836,8 @@ components:
   schemas:
     CmdPipeline:
       example:
-        args: "{}"
+        args:
+          key: ""
         args_string:
           key: args_string
         execution_mode: synchronous
@@ -844,7 +845,7 @@ components:
         command: run
       properties:
         args:
-          properties: {}
+          additionalProperties: true
           type: object
         args_string:
           additionalProperties:
@@ -1118,6 +1119,7 @@ components:
           type: string
       type: object
     PipelineExecutionResponse:
+      additionalProperties: true
       type: object
     Process:
       example:
@@ -1152,11 +1154,12 @@ components:
       type: object
     ProcessOutputData:
       example:
-        output: "{}"
+        output:
+          key: ""
         process_id: process_id
       properties:
         output:
-          properties: {}
+          additionalProperties: true
           type: object
         process_id:
           type: string
@@ -1181,6 +1184,7 @@ components:
               key:
                 key:
                   loop_hold: true
+                  error_hold: true
                   queued:
                     key: true
                   finished:
@@ -1191,38 +1195,54 @@ components:
                   failed:
                     key: true
                   step_executions:
-                  - output: null
+                  - pipeline_execution_id: pipeline_execution_id
+                    end_time: end_time
+                    output: null
                     step_for_each: null
                     step_loop:
-                      input: "{}"
+                      input:
+                        key: ""
                       loop_completed: true
                       index: 6
                     input: "{}"
-                    pipeline_execution_id: pipeline_execution_id
                     start_time: start_time
-                    end_time: end_time
+                    step_retry:
+                      input:
+                        key: ""
+                      index: 1
+                      retry_completed: true
                     name: name
                     id: id
                     next_step_action: null
-                    step_output: "{}"
+                    step_output:
+                      key: ""
                     status: status
-                  - output: null
+                  - pipeline_execution_id: pipeline_execution_id
+                    end_time: end_time
+                    output: null
                     step_for_each: null
                     step_loop:
-                      input: "{}"
+                      input:
+                        key: ""
                       loop_completed: true
                       index: 6
                     input: "{}"
-                    pipeline_execution_id: pipeline_execution_id
                     start_time: start_time
-                    end_time: end_time
+                    step_retry:
+                      input:
+                        key: ""
+                      index: 1
+                      retry_completed: true
                     name: name
                     id: id
                     next_step_action: null
-                    step_output: "{}"
+                    step_output:
+                      key: ""
                     status: status
+                  overral_state: overral_state
             parent_step_execution_id: parent_step_execution_id
-            pipeline_output: "{}"
+            pipeline_output:
+              key: ""
             end_time: end_time
             name: name
             id: id
@@ -1280,6 +1300,7 @@ components:
           key:
             key:
               loop_hold: true
+              error_hold: true
               queued:
                 key: true
               finished:
@@ -1290,38 +1311,54 @@ components:
               failed:
                 key: true
               step_executions:
-              - output: null
+              - pipeline_execution_id: pipeline_execution_id
+                end_time: end_time
+                output: null
                 step_for_each: null
                 step_loop:
-                  input: "{}"
+                  input:
+                    key: ""
                   loop_completed: true
                   index: 6
                 input: "{}"
-                pipeline_execution_id: pipeline_execution_id
                 start_time: start_time
-                end_time: end_time
+                step_retry:
+                  input:
+                    key: ""
+                  index: 1
+                  retry_completed: true
                 name: name
                 id: id
                 next_step_action: null
-                step_output: "{}"
+                step_output:
+                  key: ""
                 status: status
-              - output: null
+              - pipeline_execution_id: pipeline_execution_id
+                end_time: end_time
+                output: null
                 step_for_each: null
                 step_loop:
-                  input: "{}"
+                  input:
+                    key: ""
                   loop_completed: true
                   index: 6
                 input: "{}"
-                pipeline_execution_id: pipeline_execution_id
                 start_time: start_time
-                end_time: end_time
+                step_retry:
+                  input:
+                    key: ""
+                  index: 1
+                  retry_completed: true
                 name: name
                 id: id
                 next_step_action: null
-                step_output: "{}"
+                step_output:
+                  key: ""
                 status: status
+              overral_state: overral_state
         parent_step_execution_id: parent_step_execution_id
-        pipeline_output: "{}"
+        pipeline_output:
+          key: ""
         end_time: end_time
         name: name
         id: id
@@ -1361,7 +1398,7 @@ components:
       properties:
         args:
           allOf:
-          - $ref: '#/definitions/modconfig.Input'
+          - $ref: '#/components/schemas/modconfig.Input'
           description: The input to the pipeline
           type: object
         end_time:
@@ -1384,8 +1421,8 @@ components:
           description: "If this is a child pipeline, then track it's parent"
           type: string
         pipeline_output:
+          additionalProperties: true
           description: The output of the pipeline
-          properties: {}
           type: object
         start_time:
           type: string
@@ -1413,11 +1450,8 @@ components:
             \t\t\t\t\tyyy\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\techo.echo has a for_each\
             \ which is a list, so the key is the index of the list\n\n\t\thttp.one\
             \ has a for_each which is a map, so the key is the key of the map\n\n\t\
-            \tLOOP\n\n\t\tSince we added loop, the data structure can get rather complicated.\
-            \ A loop is simply another map which the key is\n\t\t\"0\", \"1\", \"\
-            2\". So in a way like for_each that has a list result.\n\n\t\tIf the step\
-            \ has a loop and for_each the data is nested twice, i.e.: [\"0\"][\"1\"\
-            ]\n\t\t*"
+            \tLOOP\n\n\t\tLoop will be recorded in StepStatus.StepExecution, it's\
+            \ an array\n\t\t*"
           type: object
       type: object
     execution.Snapshot:
@@ -1447,7 +1481,8 @@ components:
             width: 0
             title: title
             dashboard: dashboard
-            properties: "{}"
+            properties:
+              key: ""
             status: status
         end_time: end_time
       properties:
@@ -1498,7 +1533,8 @@ components:
         width: 0
         title: title
         dashboard: dashboard
-        properties: "{}"
+        properties:
+          key: ""
         status: status
       properties:
         dashboard:
@@ -1512,7 +1548,7 @@ components:
         panel_type:
           type: string
         properties:
-          properties: {}
+          additionalProperties: true
           type: object
         status:
           type: string
@@ -1552,23 +1588,31 @@ components:
           type: string
       type: object
     execution.SnapshotPanelDataRow:
+      additionalProperties: true
       type: object
     execution.StepExecution:
       example:
+        pipeline_execution_id: pipeline_execution_id
+        end_time: end_time
         output: null
         step_for_each: null
         step_loop:
-          input: "{}"
+          input:
+            key: ""
           loop_completed: true
           index: 6
         input: "{}"
-        pipeline_execution_id: pipeline_execution_id
         start_time: start_time
-        end_time: end_time
+        step_retry:
+          input:
+            key: ""
+          index: 1
+          retry_completed: true
         name: name
         id: id
         next_step_action: null
-        step_output: "{}"
+        step_output:
+          key: ""
         status: status
       properties:
         end_time:
@@ -1577,7 +1621,7 @@ components:
           type: string
         input:
           allOf:
-          - $ref: '#/definitions/modconfig.Input'
+          - $ref: '#/components/schemas/modconfig.Input'
           description: Input to the step
           type: object
         name:
@@ -1601,14 +1645,17 @@ components:
         step_loop:
           $ref: '#/components/schemas/modconfig.StepLoop'
         step_output:
+          additionalProperties: true
           description: "The output from the Step's output block:\noutput \"foo\" {\n\
             \   value = <xxx>\n\t}"
-          properties: {}
           type: object
+        step_retry:
+          $ref: '#/components/schemas/modconfig.StepRetry'
       type: object
     execution.StepStatus:
       example:
         loop_hold: true
+        error_hold: true
         queued:
           key: true
         finished:
@@ -1619,37 +1666,56 @@ components:
         failed:
           key: true
         step_executions:
-        - output: null
+        - pipeline_execution_id: pipeline_execution_id
+          end_time: end_time
+          output: null
           step_for_each: null
           step_loop:
-            input: "{}"
+            input:
+              key: ""
             loop_completed: true
             index: 6
           input: "{}"
-          pipeline_execution_id: pipeline_execution_id
           start_time: start_time
-          end_time: end_time
+          step_retry:
+            input:
+              key: ""
+            index: 1
+            retry_completed: true
           name: name
           id: id
           next_step_action: null
-          step_output: "{}"
+          step_output:
+            key: ""
           status: status
-        - output: null
+        - pipeline_execution_id: pipeline_execution_id
+          end_time: end_time
+          output: null
           step_for_each: null
           step_loop:
-            input: "{}"
+            input:
+              key: ""
             loop_completed: true
             index: 6
           input: "{}"
-          pipeline_execution_id: pipeline_execution_id
           start_time: start_time
-          end_time: end_time
+          step_retry:
+            input:
+              key: ""
+            index: 1
+            retry_completed: true
           name: name
           id: id
           next_step_action: null
-          step_output: "{}"
+          step_output:
+            key: ""
           status: status
+        overral_state: overral_state
       properties:
+        error_hold:
+          description: Indicates that a step is in retry loop so we don't mark it
+            as failed
+          type: boolean
         failed:
           additionalProperties:
             type: boolean
@@ -1666,8 +1732,17 @@ components:
             We track it as initializing until the first execution is queued.
           type: boolean
         loop_hold:
-          description: Indicate that step is in a loop so we don't mark it as finished
+          description: |-
+            Both LoopHold and ErrorHold must be resolved **before** the "finish" event is called, i.e. it needs to be calculated at the
+            end of "step start command" and "step pipeline finish" command.
+
+            It can't be calculated at the "finish" event because it's already too late. If the planner see that it has an finish
+            event without either a LoopHold or ErrorHold, it will mark the step as completed or failed
+
+            Indicates that step is in a loop so we don't mark it as finished
           type: boolean
+        overral_state:
+          type: string
         queued:
           additionalProperties:
             type: boolean
@@ -1687,6 +1762,7 @@ components:
           type: array
       type: object
     modconfig.Input:
+      additionalProperties: true
       type: object
     modconfig.NextStepAction:
       enum:
@@ -1701,6 +1777,7 @@ components:
     modconfig.Output:
       properties:
         data:
+          additionalProperties: true
           type: object
         errors:
           items:
@@ -1710,6 +1787,7 @@ components:
           type: string
       type: object
     modconfig.OutputData:
+      additionalProperties: true
       type: object
     modconfig.PipelineOutput:
       example:
@@ -1768,8 +1846,8 @@ components:
       type: object
     modconfig.StepForEach:
       properties:
-        each:
-          type: string
+        for_each_step:
+          type: boolean
         key:
           type: string
         output:
@@ -1782,15 +1860,34 @@ components:
       type: object
     modconfig.StepLoop:
       example:
-        input: "{}"
+        input:
+          key: ""
         loop_completed: true
         index: 6
       properties:
         index:
           type: integer
         input:
+          additionalProperties: true
           type: object
         loop_completed:
+          type: boolean
+      required:
+      - index
+      type: object
+    modconfig.StepRetry:
+      example:
+        input:
+          key: ""
+        index: 1
+        retry_completed: true
+      properties:
+        index:
+          type: integer
+        input:
+          additionalProperties: true
+          type: object
+        retry_completed:
           type: boolean
       required:
       - index
@@ -1843,12 +1940,12 @@ components:
       type: object
     execution_StepExecution_output:
       allOf:
-      - $ref: '#/definitions/modconfig.Output'
+      - $ref: '#/components/schemas/modconfig.Output'
       description: Native/primitive output of the step
       type: object
     execution_StepExecution_step_for_each:
       allOf:
-      - $ref: '#/definitions/modconfig.StepForEach'
+      - $ref: '#/components/schemas/modconfig.StepForEach'
       description: for_each controls
       type: object
   securitySchemes:
@@ -1856,3 +1953,4 @@ components:
       in: header
       name: Authorization
       type: apiKey
+x-original-swagger-version: "2.0"
