@@ -20,7 +20,7 @@ var _ MappedNullable = &ModconfigStepForEach{}
 
 // ModconfigStepForEach struct for ModconfigStepForEach
 type ModconfigStepForEach struct {
-	Each *string `json:"each,omitempty"`
+	ForEachStep *bool `json:"for_each_step,omitempty"`
 	Key string `json:"key"`
 	Output *ModconfigOutput `json:"output,omitempty"`
 	TotalCount int32 `json:"total_count"`
@@ -47,36 +47,36 @@ func NewModconfigStepForEachWithDefaults() *ModconfigStepForEach {
 	return &this
 }
 
-// GetEach returns the Each field value if set, zero value otherwise.
-func (o *ModconfigStepForEach) GetEach() string {
-	if o == nil || IsNil(o.Each) {
-		var ret string
+// GetForEachStep returns the ForEachStep field value if set, zero value otherwise.
+func (o *ModconfigStepForEach) GetForEachStep() bool {
+	if o == nil || IsNil(o.ForEachStep) {
+		var ret bool
 		return ret
 	}
-	return *o.Each
+	return *o.ForEachStep
 }
 
-// GetEachOk returns a tuple with the Each field value if set, nil otherwise
+// GetForEachStepOk returns a tuple with the ForEachStep field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModconfigStepForEach) GetEachOk() (*string, bool) {
-	if o == nil || IsNil(o.Each) {
+func (o *ModconfigStepForEach) GetForEachStepOk() (*bool, bool) {
+	if o == nil || IsNil(o.ForEachStep) {
 		return nil, false
 	}
-	return o.Each, true
+	return o.ForEachStep, true
 }
 
-// HasEach returns a boolean if a field has been set.
-func (o *ModconfigStepForEach) HasEach() bool {
-	if o != nil && !IsNil(o.Each) {
+// HasForEachStep returns a boolean if a field has been set.
+func (o *ModconfigStepForEach) HasForEachStep() bool {
+	if o != nil && !IsNil(o.ForEachStep) {
 		return true
 	}
 
 	return false
 }
 
-// SetEach gets a reference to the given string and assigns it to the Each field.
-func (o *ModconfigStepForEach) SetEach(v string) {
-	o.Each = &v
+// SetForEachStep gets a reference to the given bool and assigns it to the ForEachStep field.
+func (o *ModconfigStepForEach) SetForEachStep(v bool) {
+	o.ForEachStep = &v
 }
 
 // GetKey returns the Key field value
@@ -169,8 +169,8 @@ func (o ModconfigStepForEach) MarshalJSON() ([]byte, error) {
 
 func (o ModconfigStepForEach) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Each) {
-		toSerialize["each"] = o.Each
+	if !IsNil(o.ForEachStep) {
+		toSerialize["for_each_step"] = o.ForEachStep
 	}
 	toSerialize["key"] = o.Key
 	if !IsNil(o.Output) {

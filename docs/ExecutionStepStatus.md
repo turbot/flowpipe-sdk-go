@@ -4,10 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ErrorHold** | Pointer to **bool** | Indicates that a step is in retry loop so we don&#39;t mark it as failed | [optional] 
 **Failed** | Pointer to **map[string]bool** | Step executions that are failed. | [optional] 
 **Finished** | Pointer to **map[string]bool** | Step executions that are finished. | [optional] 
 **Initializing** | Pointer to **bool** | When the step is initializing it doesn&#39;t yet have any executions. We track it as initializing until the first execution is queued. | [optional] 
-**LoopHold** | Pointer to **bool** | Indicate that step is in a loop so we don&#39;t mark it as finished | [optional] 
+**LoopHold** | Pointer to **bool** | Both LoopHold and ErrorHold must be resolved **before** the \&quot;finish\&quot; event is called, i.e. it needs to be calculated at the end of \&quot;step start command\&quot; and \&quot;step pipeline finish\&quot; command.  It can&#39;t be calculated at the \&quot;finish\&quot; event because it&#39;s already too late. If the planner see that it has an finish event without either a LoopHold or ErrorHold, it will mark the step as completed or failed  Indicates that step is in a loop so we don&#39;t mark it as finished | [optional] 
+**OverralState** | Pointer to **string** |  | [optional] 
 **Queued** | Pointer to **map[string]bool** | Step executions that are queued. | [optional] 
 **Started** | Pointer to **map[string]bool** | Step executions that are started. | [optional] 
 **StepExecutions** | Pointer to [**[]ExecutionStepExecution**](ExecutionStepExecution.md) | There&#39;s the step execution in execution, this is the same but in a list for a given step status The element in this slice should point to the same element in the StepExecutions map (in PipelineExecution) | [optional] 
@@ -30,6 +32,31 @@ will change when the set of required properties is changed
 NewExecutionStepStatusWithDefaults instantiates a new ExecutionStepStatus object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetErrorHold
+
+`func (o *ExecutionStepStatus) GetErrorHold() bool`
+
+GetErrorHold returns the ErrorHold field if non-nil, zero value otherwise.
+
+### GetErrorHoldOk
+
+`func (o *ExecutionStepStatus) GetErrorHoldOk() (*bool, bool)`
+
+GetErrorHoldOk returns a tuple with the ErrorHold field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetErrorHold
+
+`func (o *ExecutionStepStatus) SetErrorHold(v bool)`
+
+SetErrorHold sets ErrorHold field to given value.
+
+### HasErrorHold
+
+`func (o *ExecutionStepStatus) HasErrorHold() bool`
+
+HasErrorHold returns a boolean if a field has been set.
 
 ### GetFailed
 
@@ -130,6 +157,31 @@ SetLoopHold sets LoopHold field to given value.
 `func (o *ExecutionStepStatus) HasLoopHold() bool`
 
 HasLoopHold returns a boolean if a field has been set.
+
+### GetOverralState
+
+`func (o *ExecutionStepStatus) GetOverralState() string`
+
+GetOverralState returns the OverralState field if non-nil, zero value otherwise.
+
+### GetOverralStateOk
+
+`func (o *ExecutionStepStatus) GetOverralStateOk() (*string, bool)`
+
+GetOverralStateOk returns a tuple with the OverralState field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOverralState
+
+`func (o *ExecutionStepStatus) SetOverralState(v string)`
+
+SetOverralState sets OverralState field to given value.
+
+### HasOverralState
+
+`func (o *ExecutionStepStatus) HasOverralState() bool`
+
+HasOverralState returns a boolean if a field has been set.
 
 ### GetQueued
 

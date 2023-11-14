@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **StepForEach** | Pointer to [**ExecutionStepExecutionStepForEach**](ExecutionStepExecutionStepForEach.md) |  | [optional] 
 **StepLoop** | Pointer to [**ModconfigStepLoop**](ModconfigStepLoop.md) |  | [optional] 
 **StepOutput** | Pointer to **map[string]interface{}** | The output from the Step&#39;s output block: output \&quot;foo\&quot; {    value &#x3D; &lt;xxx&gt;  } | [optional] 
+**StepRetry** | Pointer to [**ModconfigStepRetry**](ModconfigStepRetry.md) |  | [optional] 
 
 ## Methods
 
@@ -335,6 +336,31 @@ SetStepOutput sets StepOutput field to given value.
 `func (o *ExecutionStepExecution) HasStepOutput() bool`
 
 HasStepOutput returns a boolean if a field has been set.
+
+### GetStepRetry
+
+`func (o *ExecutionStepExecution) GetStepRetry() ModconfigStepRetry`
+
+GetStepRetry returns the StepRetry field if non-nil, zero value otherwise.
+
+### GetStepRetryOk
+
+`func (o *ExecutionStepExecution) GetStepRetryOk() (*ModconfigStepRetry, bool)`
+
+GetStepRetryOk returns a tuple with the StepRetry field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStepRetry
+
+`func (o *ExecutionStepExecution) SetStepRetry(v ModconfigStepRetry)`
+
+SetStepRetry sets StepRetry field to given value.
+
+### HasStepRetry
+
+`func (o *ExecutionStepExecution) HasStepRetry() bool`
+
+HasStepRetry returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

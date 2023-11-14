@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Each** | Pointer to **string** |  | [optional] 
+**ForEachStep** | Pointer to **bool** |  | [optional] 
 **Key** | **string** |  | 
 **Output** | Pointer to [**ModconfigOutput**](ModconfigOutput.md) |  | [optional] 
 **TotalCount** | **int32** |  | 
@@ -28,30 +28,30 @@ NewModconfigStepForEachWithDefaults instantiates a new ModconfigStepForEach obje
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetEach
+### GetForEachStep
 
-`func (o *ModconfigStepForEach) GetEach() string`
+`func (o *ModconfigStepForEach) GetForEachStep() bool`
 
-GetEach returns the Each field if non-nil, zero value otherwise.
+GetForEachStep returns the ForEachStep field if non-nil, zero value otherwise.
 
-### GetEachOk
+### GetForEachStepOk
 
-`func (o *ModconfigStepForEach) GetEachOk() (*string, bool)`
+`func (o *ModconfigStepForEach) GetForEachStepOk() (*bool, bool)`
 
-GetEachOk returns a tuple with the Each field if it's non-nil, zero value otherwise
+GetForEachStepOk returns a tuple with the ForEachStep field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetEach
+### SetForEachStep
 
-`func (o *ModconfigStepForEach) SetEach(v string)`
+`func (o *ModconfigStepForEach) SetForEachStep(v bool)`
 
-SetEach sets Each field to given value.
+SetForEachStep sets ForEachStep field to given value.
 
-### HasEach
+### HasForEachStep
 
-`func (o *ModconfigStepForEach) HasEach() bool`
+`func (o *ModconfigStepForEach) HasForEachStep() bool`
 
-HasEach returns a boolean if a field has been set.
+HasForEachStep returns a boolean if a field has been set.
 
 ### GetKey
 
