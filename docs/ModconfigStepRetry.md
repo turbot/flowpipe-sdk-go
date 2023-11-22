@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Index** | **int32** |  | 
+**Count** | **int32** |  | 
 **Input** | Pointer to **map[string]interface{}** |  | [optional] 
 **RetryCompleted** | Pointer to **bool** |  | [optional] 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewModconfigStepRetry
 
-`func NewModconfigStepRetry(index int32, ) *ModconfigStepRetry`
+`func NewModconfigStepRetry(count int32, ) *ModconfigStepRetry`
 
 NewModconfigStepRetry instantiates a new ModconfigStepRetry object
 This constructor will assign default values to properties that have it defined,
@@ -27,24 +27,24 @@ NewModconfigStepRetryWithDefaults instantiates a new ModconfigStepRetry object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetIndex
+### GetCount
 
-`func (o *ModconfigStepRetry) GetIndex() int32`
+`func (o *ModconfigStepRetry) GetCount() int32`
 
-GetIndex returns the Index field if non-nil, zero value otherwise.
+GetCount returns the Count field if non-nil, zero value otherwise.
 
-### GetIndexOk
+### GetCountOk
 
-`func (o *ModconfigStepRetry) GetIndexOk() (*int32, bool)`
+`func (o *ModconfigStepRetry) GetCountOk() (*int32, bool)`
 
-GetIndexOk returns a tuple with the Index field if it's non-nil, zero value otherwise
+GetCountOk returns a tuple with the Count field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetIndex
+### SetCount
 
-`func (o *ModconfigStepRetry) SetIndex(v int32)`
+`func (o *ModconfigStepRetry) SetCount(v int32)`
 
-SetIndex sets Index field to given value.
+SetCount sets Count field to given value.
 
 
 ### GetInput

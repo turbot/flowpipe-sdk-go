@@ -8,6 +8,9 @@ Name | Type | Description | Notes
 **Documentation** | Pointer to **string** |  | [optional] 
 **Mod** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
+**Outputs** | Pointer to [**[]ModconfigPipelineOutput**](ModconfigPipelineOutput.md) |  | [optional] 
+**Params** | Pointer to [**[]FpPipelineParam**](FpPipelineParam.md) |  | [optional] 
+**Steps** | Pointer to **[]map[string]interface{}** |  | [optional] 
 **Tags** | Pointer to **map[string]string** |  | [optional] 
 **Title** | Pointer to **string** |  | [optional] 
 
@@ -129,6 +132,81 @@ SetName sets Name field to given value.
 `func (o *FpPipeline) HasName() bool`
 
 HasName returns a boolean if a field has been set.
+
+### GetOutputs
+
+`func (o *FpPipeline) GetOutputs() []ModconfigPipelineOutput`
+
+GetOutputs returns the Outputs field if non-nil, zero value otherwise.
+
+### GetOutputsOk
+
+`func (o *FpPipeline) GetOutputsOk() (*[]ModconfigPipelineOutput, bool)`
+
+GetOutputsOk returns a tuple with the Outputs field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOutputs
+
+`func (o *FpPipeline) SetOutputs(v []ModconfigPipelineOutput)`
+
+SetOutputs sets Outputs field to given value.
+
+### HasOutputs
+
+`func (o *FpPipeline) HasOutputs() bool`
+
+HasOutputs returns a boolean if a field has been set.
+
+### GetParams
+
+`func (o *FpPipeline) GetParams() []FpPipelineParam`
+
+GetParams returns the Params field if non-nil, zero value otherwise.
+
+### GetParamsOk
+
+`func (o *FpPipeline) GetParamsOk() (*[]FpPipelineParam, bool)`
+
+GetParamsOk returns a tuple with the Params field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetParams
+
+`func (o *FpPipeline) SetParams(v []FpPipelineParam)`
+
+SetParams sets Params field to given value.
+
+### HasParams
+
+`func (o *FpPipeline) HasParams() bool`
+
+HasParams returns a boolean if a field has been set.
+
+### GetSteps
+
+`func (o *FpPipeline) GetSteps() []map[string]interface{}`
+
+GetSteps returns the Steps field if non-nil, zero value otherwise.
+
+### GetStepsOk
+
+`func (o *FpPipeline) GetStepsOk() (*[]map[string]interface{}, bool)`
+
+GetStepsOk returns a tuple with the Steps field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSteps
+
+`func (o *FpPipeline) SetSteps(v []map[string]interface{})`
+
+SetSteps sets Steps field to given value.
+
+### HasSteps
+
+`func (o *FpPipeline) HasSteps() bool`
+
+HasSteps returns a boolean if a field has been set.
 
 ### GetTags
 
