@@ -24,6 +24,9 @@ type FpPipeline struct {
 	Documentation *string `json:"documentation,omitempty"`
 	Mod *string `json:"mod,omitempty"`
 	Name *string `json:"name,omitempty"`
+	Outputs []ModconfigPipelineOutput `json:"outputs,omitempty"`
+	Params []FpPipelineParam `json:"params,omitempty"`
+	Steps []map[string]interface{} `json:"steps,omitempty"`
 	Tags *map[string]string `json:"tags,omitempty"`
 	Title *string `json:"title,omitempty"`
 }
@@ -175,6 +178,102 @@ func (o *FpPipeline) SetName(v string) {
 	o.Name = &v
 }
 
+// GetOutputs returns the Outputs field value if set, zero value otherwise.
+func (o *FpPipeline) GetOutputs() []ModconfigPipelineOutput {
+	if o == nil || IsNil(o.Outputs) {
+		var ret []ModconfigPipelineOutput
+		return ret
+	}
+	return o.Outputs
+}
+
+// GetOutputsOk returns a tuple with the Outputs field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpPipeline) GetOutputsOk() ([]ModconfigPipelineOutput, bool) {
+	if o == nil || IsNil(o.Outputs) {
+		return nil, false
+	}
+	return o.Outputs, true
+}
+
+// HasOutputs returns a boolean if a field has been set.
+func (o *FpPipeline) HasOutputs() bool {
+	if o != nil && !IsNil(o.Outputs) {
+		return true
+	}
+
+	return false
+}
+
+// SetOutputs gets a reference to the given []ModconfigPipelineOutput and assigns it to the Outputs field.
+func (o *FpPipeline) SetOutputs(v []ModconfigPipelineOutput) {
+	o.Outputs = v
+}
+
+// GetParams returns the Params field value if set, zero value otherwise.
+func (o *FpPipeline) GetParams() []FpPipelineParam {
+	if o == nil || IsNil(o.Params) {
+		var ret []FpPipelineParam
+		return ret
+	}
+	return o.Params
+}
+
+// GetParamsOk returns a tuple with the Params field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpPipeline) GetParamsOk() ([]FpPipelineParam, bool) {
+	if o == nil || IsNil(o.Params) {
+		return nil, false
+	}
+	return o.Params, true
+}
+
+// HasParams returns a boolean if a field has been set.
+func (o *FpPipeline) HasParams() bool {
+	if o != nil && !IsNil(o.Params) {
+		return true
+	}
+
+	return false
+}
+
+// SetParams gets a reference to the given []FpPipelineParam and assigns it to the Params field.
+func (o *FpPipeline) SetParams(v []FpPipelineParam) {
+	o.Params = v
+}
+
+// GetSteps returns the Steps field value if set, zero value otherwise.
+func (o *FpPipeline) GetSteps() []map[string]interface{} {
+	if o == nil || IsNil(o.Steps) {
+		var ret []map[string]interface{}
+		return ret
+	}
+	return o.Steps
+}
+
+// GetStepsOk returns a tuple with the Steps field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpPipeline) GetStepsOk() ([]map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Steps) {
+		return nil, false
+	}
+	return o.Steps, true
+}
+
+// HasSteps returns a boolean if a field has been set.
+func (o *FpPipeline) HasSteps() bool {
+	if o != nil && !IsNil(o.Steps) {
+		return true
+	}
+
+	return false
+}
+
+// SetSteps gets a reference to the given []map[string]interface{} and assigns it to the Steps field.
+func (o *FpPipeline) SetSteps(v []map[string]interface{}) {
+	o.Steps = v
+}
+
 // GetTags returns the Tags field value if set, zero value otherwise.
 func (o *FpPipeline) GetTags() map[string]string {
 	if o == nil || IsNil(o.Tags) {
@@ -260,6 +359,15 @@ func (o FpPipeline) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.Outputs) {
+		toSerialize["outputs"] = o.Outputs
+	}
+	if !IsNil(o.Params) {
+		toSerialize["params"] = o.Params
+	}
+	if !IsNil(o.Steps) {
+		toSerialize["steps"] = o.Steps
 	}
 	if !IsNil(o.Tags) {
 		toSerialize["tags"] = o.Tags

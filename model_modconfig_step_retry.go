@@ -20,7 +20,7 @@ var _ MappedNullable = &ModconfigStepRetry{}
 
 // ModconfigStepRetry struct for ModconfigStepRetry
 type ModconfigStepRetry struct {
-	Index int32 `json:"index"`
+	Count int32 `json:"count"`
 	Input map[string]interface{} `json:"input,omitempty"`
 	RetryCompleted *bool `json:"retry_completed,omitempty"`
 }
@@ -31,9 +31,9 @@ func (o ModconfigStepRetry) GetResourceType() string {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModconfigStepRetry(index int32) *ModconfigStepRetry {
+func NewModconfigStepRetry(count int32) *ModconfigStepRetry {
 	this := ModconfigStepRetry{}
-	this.Index = index
+	this.Count = count
 	return &this
 }
 
@@ -45,28 +45,28 @@ func NewModconfigStepRetryWithDefaults() *ModconfigStepRetry {
 	return &this
 }
 
-// GetIndex returns the Index field value
-func (o *ModconfigStepRetry) GetIndex() int32 {
+// GetCount returns the Count field value
+func (o *ModconfigStepRetry) GetCount() int32 {
 	if o == nil {
 		var ret int32
 		return ret
 	}
 
-	return o.Index
+	return o.Count
 }
 
-// GetIndexOk returns a tuple with the Index field value
+// GetCountOk returns a tuple with the Count field value
 // and a boolean to check if the value has been set.
-func (o *ModconfigStepRetry) GetIndexOk() (*int32, bool) {
+func (o *ModconfigStepRetry) GetCountOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Index, true
+	return &o.Count, true
 }
 
-// SetIndex sets field value
-func (o *ModconfigStepRetry) SetIndex(v int32) {
-	o.Index = v
+// SetCount sets field value
+func (o *ModconfigStepRetry) SetCount(v int32) {
+	o.Count = v
 }
 
 // GetInput returns the Input field value if set, zero value otherwise.
@@ -143,7 +143,7 @@ func (o ModconfigStepRetry) MarshalJSON() ([]byte, error) {
 
 func (o ModconfigStepRetry) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["index"] = o.Index
+	toSerialize["count"] = o.Count
 	if !IsNil(o.Input) {
 		toSerialize["input"] = o.Input
 	}

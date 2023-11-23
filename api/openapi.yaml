@@ -100,7 +100,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetPipelineResponse'
+                $ref: '#/components/schemas/FpPipeline'
           description: OK
         "400":
           content:
@@ -865,57 +865,7 @@ components:
       required:
       - command
       type: object
-    FpPipelineParam:
-      example:
-        default: "{}"
-        name: name
-        description: description
-        optional: true
-        type: type
-      properties:
-        default:
-          type: object
-        description:
-          type: string
-        name:
-          type: string
-        optional:
-          type: boolean
-        type:
-          type: string
-      type: object
-    FpTrigger:
-      example:
-        pipeline: pipeline
-        documentation: documentation
-        name: name
-        description: description
-        title: title
-        type: type
-        url: url
-        tags:
-          key: tags
-      properties:
-        description:
-          type: string
-        documentation:
-          type: string
-        name:
-          type: string
-        pipeline:
-          type: string
-        tags:
-          additionalProperties:
-            type: string
-          type: object
-        title:
-          type: string
-        type:
-          type: string
-        url:
-          type: string
-      type: object
-    GetPipelineResponse:
+    FpPipeline:
       example:
         outputs:
         - depends_on:
@@ -983,39 +933,34 @@ components:
         title:
           type: string
       type: object
-    ListPipelineResponse:
+    FpPipelineParam:
       example:
-        next_token: next_token
-        items:
-        - mod: mod
-          documentation: documentation
-          name: name
-          description: description
-          title: title
-          tags:
-            key: tags
-        - mod: mod
-          documentation: documentation
-          name: name
-          description: description
-          title: title
-          tags:
-            key: tags
+        default: "{}"
+        name: name
+        description: description
+        optional: true
+        type: type
       properties:
-        items:
-          items:
-            $ref: '#/components/schemas/ListPipelineResponseItem'
-          type: array
-        next_token:
+        default:
+          type: object
+        description:
+          type: string
+        name:
+          type: string
+        optional:
+          type: boolean
+        type:
           type: string
       type: object
-    ListPipelineResponseItem:
+    FpTrigger:
       example:
-        mod: mod
+        pipeline: pipeline
         documentation: documentation
         name: name
         description: description
         title: title
+        type: type
+        url: url
         tags:
           key: tags
       properties:
@@ -1023,15 +968,107 @@ components:
           type: string
         documentation:
           type: string
-        mod:
-          type: string
         name:
+          type: string
+        pipeline:
           type: string
         tags:
           additionalProperties:
             type: string
           type: object
         title:
+          type: string
+        type:
+          type: string
+        url:
+          type: string
+      type: object
+    ListPipelineResponse:
+      example:
+        next_token: next_token
+        items:
+        - outputs:
+          - depends_on:
+            - depends_on
+            - depends_on
+            name: name
+            description: description
+            sensitive: true
+            value: "{}"
+            resolved: true
+          - depends_on:
+            - depends_on
+            - depends_on
+            name: name
+            description: description
+            sensitive: true
+            value: "{}"
+            resolved: true
+          mod: mod
+          documentation: documentation
+          name: name
+          description: description
+          params:
+          - default: "{}"
+            name: name
+            description: description
+            optional: true
+            type: type
+          - default: "{}"
+            name: name
+            description: description
+            optional: true
+            type: type
+          title: title
+          steps:
+          - "{}"
+          - "{}"
+          tags:
+            key: tags
+        - outputs:
+          - depends_on:
+            - depends_on
+            - depends_on
+            name: name
+            description: description
+            sensitive: true
+            value: "{}"
+            resolved: true
+          - depends_on:
+            - depends_on
+            - depends_on
+            name: name
+            description: description
+            sensitive: true
+            value: "{}"
+            resolved: true
+          mod: mod
+          documentation: documentation
+          name: name
+          description: description
+          params:
+          - default: "{}"
+            name: name
+            description: description
+            optional: true
+            type: type
+          - default: "{}"
+            name: name
+            description: description
+            optional: true
+            type: type
+          title: title
+          steps:
+          - "{}"
+          - "{}"
+          tags:
+            key: tags
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/FpPipeline'
+          type: array
+        next_token:
           type: string
       type: object
     ListProcessLogJSONResponse:
@@ -1209,7 +1246,7 @@ components:
                     step_retry:
                       input:
                         key: ""
-                      index: 1
+                      count: 1
                       retry_completed: true
                     name: name
                     id: id
@@ -1231,7 +1268,7 @@ components:
                     step_retry:
                       input:
                         key: ""
-                      index: 1
+                      count: 1
                       retry_completed: true
                     name: name
                     id: id
@@ -1325,7 +1362,7 @@ components:
                 step_retry:
                   input:
                     key: ""
-                  index: 1
+                  count: 1
                   retry_completed: true
                 name: name
                 id: id
@@ -1347,7 +1384,7 @@ components:
                 step_retry:
                   input:
                     key: ""
-                  index: 1
+                  count: 1
                   retry_completed: true
                 name: name
                 id: id
@@ -1606,7 +1643,7 @@ components:
         step_retry:
           input:
             key: ""
-          index: 1
+          count: 1
           retry_completed: true
         name: name
         id: id
@@ -1680,7 +1717,7 @@ components:
           step_retry:
             input:
               key: ""
-            index: 1
+            count: 1
             retry_completed: true
           name: name
           id: id
@@ -1702,7 +1739,7 @@ components:
           step_retry:
             input:
               key: ""
-            index: 1
+            count: 1
             retry_completed: true
           name: name
           id: id
@@ -1879,10 +1916,10 @@ components:
       example:
         input:
           key: ""
-        index: 1
+        count: 1
         retry_completed: true
       properties:
-        index:
+        count:
           type: integer
         input:
           additionalProperties: true
@@ -1890,7 +1927,7 @@ components:
         retry_completed:
           type: boolean
       required:
-      - index
+      - count
       type: object
     perr.ErrorDetailModel:
       example:

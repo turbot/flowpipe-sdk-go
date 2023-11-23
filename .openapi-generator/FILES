@@ -20,11 +20,10 @@ docs/ExecutionStepExecution.md
 docs/ExecutionStepExecutionOutput.md
 docs/ExecutionStepExecutionStepForEach.md
 docs/ExecutionStepStatus.md
+docs/FpPipeline.md
 docs/FpPipelineParam.md
 docs/FpTrigger.md
-docs/GetPipelineResponse.md
 docs/ListPipelineResponse.md
-docs/ListPipelineResponseItem.md
 docs/ListProcessLogJSONResponse.md
 docs/ListProcessResponse.md
 docs/ListTriggerResponse.md
@@ -61,11 +60,10 @@ model_execution_step_execution.go
 model_execution_step_execution_output.go
 model_execution_step_execution_step_for_each.go
 model_execution_step_status.go
+model_fp_pipeline.go
 model_fp_pipeline_param.go
 model_fp_trigger.go
-model_get_pipeline_response.go
 model_list_pipeline_response.go
-model_list_pipeline_response_item.go
 model_list_process_log_json_response.go
 model_list_process_response.go
 model_list_trigger_response.go

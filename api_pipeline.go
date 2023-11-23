@@ -208,7 +208,7 @@ type PipelineApiGetRequest struct {
 	pipelineName string
 }
 
-func (r PipelineApiGetRequest) Execute() (*GetPipelineResponse, *http.Response, error) {
+func (r PipelineApiGetRequest) Execute() (*FpPipeline, *http.Response, error) {
 	return r.ApiService.GetExecute(r)
 }
 
@@ -230,13 +230,13 @@ func (a *PipelineApiService) Get(ctx context.Context, pipelineName string) Pipel
 }
 
 // Execute executes the request
-//  @return GetPipelineResponse
-func (a *PipelineApiService) GetExecute(r PipelineApiGetRequest) (*GetPipelineResponse, *http.Response, error) {
+//  @return FpPipeline
+func (a *PipelineApiService) GetExecute(r PipelineApiGetRequest) (*FpPipeline, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetPipelineResponse
+		localVarReturnValue  *FpPipeline
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PipelineApiService.Get")
