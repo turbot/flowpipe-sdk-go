@@ -20,8 +20,11 @@ var _ MappedNullable = &Variable{}
 
 // Variable struct for Variable
 type Variable struct {
+	Default map[string]interface{} `json:"default,omitempty"`
+	Description *string `json:"description,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Type *string `json:"type,omitempty"`
+	Value map[string]interface{} `json:"value,omitempty"`
 }
 func (o Variable) GetResourceType() string {
 	return "Variable"
@@ -41,6 +44,70 @@ func NewVariable() *Variable {
 func NewVariableWithDefaults() *Variable {
 	this := Variable{}
 	return &this
+}
+
+// GetDefault returns the Default field value if set, zero value otherwise.
+func (o *Variable) GetDefault() map[string]interface{} {
+	if o == nil || IsNil(o.Default) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.Default
+}
+
+// GetDefaultOk returns a tuple with the Default field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Variable) GetDefaultOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Default) {
+		return map[string]interface{}{}, false
+	}
+	return o.Default, true
+}
+
+// HasDefault returns a boolean if a field has been set.
+func (o *Variable) HasDefault() bool {
+	if o != nil && !IsNil(o.Default) {
+		return true
+	}
+
+	return false
+}
+
+// SetDefault gets a reference to the given map[string]interface{} and assigns it to the Default field.
+func (o *Variable) SetDefault(v map[string]interface{}) {
+	o.Default = v
+}
+
+// GetDescription returns the Description field value if set, zero value otherwise.
+func (o *Variable) GetDescription() string {
+	if o == nil || IsNil(o.Description) {
+		var ret string
+		return ret
+	}
+	return *o.Description
+}
+
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Variable) GetDescriptionOk() (*string, bool) {
+	if o == nil || IsNil(o.Description) {
+		return nil, false
+	}
+	return o.Description, true
+}
+
+// HasDescription returns a boolean if a field has been set.
+func (o *Variable) HasDescription() bool {
+	if o != nil && !IsNil(o.Description) {
+		return true
+	}
+
+	return false
+}
+
+// SetDescription gets a reference to the given string and assigns it to the Description field.
+func (o *Variable) SetDescription(v string) {
+	o.Description = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -107,6 +174,38 @@ func (o *Variable) SetType(v string) {
 	o.Type = &v
 }
 
+// GetValue returns the Value field value if set, zero value otherwise.
+func (o *Variable) GetValue() map[string]interface{} {
+	if o == nil || IsNil(o.Value) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.Value
+}
+
+// GetValueOk returns a tuple with the Value field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Variable) GetValueOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Value) {
+		return map[string]interface{}{}, false
+	}
+	return o.Value, true
+}
+
+// HasValue returns a boolean if a field has been set.
+func (o *Variable) HasValue() bool {
+	if o != nil && !IsNil(o.Value) {
+		return true
+	}
+
+	return false
+}
+
+// SetValue gets a reference to the given map[string]interface{} and assigns it to the Value field.
+func (o *Variable) SetValue(v map[string]interface{}) {
+	o.Value = v
+}
+
 func (o Variable) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -117,11 +216,20 @@ func (o Variable) MarshalJSON() ([]byte, error) {
 
 func (o Variable) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Default) {
+		toSerialize["default"] = o.Default
+	}
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
+	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
 	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
+	}
+	if !IsNil(o.Value) {
+		toSerialize["value"] = o.Value
 	}
 	return toSerialize, nil
 }

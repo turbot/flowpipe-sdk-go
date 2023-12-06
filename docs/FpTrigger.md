@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Documentation** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Pipeline** | Pointer to **string** |  | [optional] 
+**Schedule** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to **map[string]string** |  | [optional] 
 **Title** | Pointer to **string** |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] 
@@ -131,6 +132,31 @@ SetPipeline sets Pipeline field to given value.
 `func (o *FpTrigger) HasPipeline() bool`
 
 HasPipeline returns a boolean if a field has been set.
+
+### GetSchedule
+
+`func (o *FpTrigger) GetSchedule() string`
+
+GetSchedule returns the Schedule field if non-nil, zero value otherwise.
+
+### GetScheduleOk
+
+`func (o *FpTrigger) GetScheduleOk() (*string, bool)`
+
+GetScheduleOk returns a tuple with the Schedule field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSchedule
+
+`func (o *FpTrigger) SetSchedule(v string)`
+
+SetSchedule sets Schedule field to given value.
+
+### HasSchedule
+
+`func (o *FpTrigger) HasSchedule() bool`
+
+HasSchedule returns a boolean if a field has been set.
 
 ### GetTags
 

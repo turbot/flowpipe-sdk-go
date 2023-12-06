@@ -13,6 +13,66 @@ info:
 servers:
 - url: https://localhost/api/v0
 paths:
+  /mod/{mod_name}:
+    get:
+      description: Get mod
+      operationId: mod_get
+      parameters:
+      - description: The name of the mod
+        explode: false
+        in: path
+        name: mod_name
+        required: true
+        schema:
+          format: "^[a-z]{0,32}$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Mod'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Not Found
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Internal Server Error
+      summary: Get mod
+      tags:
+      - Mod
   /pipeline:
     get:
       description: Lists pipelines
@@ -873,7 +933,6 @@ components:
           - depends_on
           name: name
           description: description
-          sensitive: true
           value: "{}"
           resolved: true
         - depends_on:
@@ -881,7 +940,6 @@ components:
           - depends_on
           name: name
           description: description
-          sensitive: true
           value: "{}"
           resolved: true
         mod: mod
@@ -955,6 +1013,7 @@ components:
     FpTrigger:
       example:
         pipeline: pipeline
+        schedule: schedule
         documentation: documentation
         name: name
         description: description
@@ -971,6 +1030,8 @@ components:
         name:
           type: string
         pipeline:
+          type: string
+        schedule:
           type: string
         tags:
           additionalProperties:
@@ -993,7 +1054,6 @@ components:
             - depends_on
             name: name
             description: description
-            sensitive: true
             value: "{}"
             resolved: true
           - depends_on:
@@ -1001,7 +1061,6 @@ components:
             - depends_on
             name: name
             description: description
-            sensitive: true
             value: "{}"
             resolved: true
           mod: mod
@@ -1031,7 +1090,6 @@ components:
             - depends_on
             name: name
             description: description
-            sensitive: true
             value: "{}"
             resolved: true
           - depends_on:
@@ -1039,7 +1097,6 @@ components:
             - depends_on
             name: name
             description: description
-            sensitive: true
             value: "{}"
             resolved: true
           mod: mod
@@ -1114,6 +1171,7 @@ components:
         next_token: next_token
         items:
         - pipeline: pipeline
+          schedule: schedule
           documentation: documentation
           name: name
           description: description
@@ -1123,6 +1181,7 @@ components:
           tags:
             key: tags
         - pipeline: pipeline
+          schedule: schedule
           documentation: documentation
           name: name
           description: description
@@ -1143,16 +1202,65 @@ components:
       example:
         next_token: next_token
         items:
-        - name: name
+        - default: "{}"
+          name: name
+          description: description
           type: type
-        - name: name
+          value: "{}"
+        - default: "{}"
+          name: name
+          description: description
           type: type
+          value: "{}"
       properties:
         items:
           items:
             $ref: '#/components/schemas/Variable'
           type: array
         next_token:
+          type: string
+      type: object
+    Mod:
+      example:
+        color: color
+        documentation: documentation
+        name: name
+        description: description
+        categories:
+        - categories
+        - categories
+        title: title
+        opengraph:
+          description: description
+          title: title
+      properties:
+        categories:
+          items:
+            type: string
+          type: array
+        color:
+          type: string
+        description:
+          type: string
+        documentation:
+          type: string
+        name:
+          type: string
+        opengraph:
+          $ref: '#/components/schemas/OpenGraph'
+        title:
+          type: string
+      type: object
+    OpenGraph:
+      example:
+        description: description
+        title: title
+      properties:
+        description:
+          description: "The opengraph description (og:description) of the mod, for\
+            \ use in social media applications"
+          type: string
+        title:
           type: string
       type: object
     PipelineExecutionResponse:
@@ -1203,13 +1311,22 @@ components:
       type: object
     Variable:
       example:
+        default: "{}"
         name: name
+        description: description
         type: type
+        value: "{}"
       properties:
+        default:
+          type: object
+        description:
+          type: string
         name:
           type: string
         type:
           type: string
+        value:
+          type: object
       type: object
     execution.Execution:
       example:
@@ -1833,7 +1950,6 @@ components:
         - depends_on
         name: name
         description: description
-        sensitive: true
         value: "{}"
         resolved: true
       properties:
@@ -1846,8 +1962,6 @@ components:
         name:
           type: string
         resolved:
-          type: boolean
-        sensitive:
           type: boolean
         value:
           type: object

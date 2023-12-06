@@ -24,6 +24,7 @@ type FpTrigger struct {
 	Documentation *string `json:"documentation,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Pipeline *string `json:"pipeline,omitempty"`
+	Schedule *string `json:"schedule,omitempty"`
 	Tags *map[string]string `json:"tags,omitempty"`
 	Title *string `json:"title,omitempty"`
 	Type *string `json:"type,omitempty"`
@@ -177,6 +178,38 @@ func (o *FpTrigger) SetPipeline(v string) {
 	o.Pipeline = &v
 }
 
+// GetSchedule returns the Schedule field value if set, zero value otherwise.
+func (o *FpTrigger) GetSchedule() string {
+	if o == nil || IsNil(o.Schedule) {
+		var ret string
+		return ret
+	}
+	return *o.Schedule
+}
+
+// GetScheduleOk returns a tuple with the Schedule field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpTrigger) GetScheduleOk() (*string, bool) {
+	if o == nil || IsNil(o.Schedule) {
+		return nil, false
+	}
+	return o.Schedule, true
+}
+
+// HasSchedule returns a boolean if a field has been set.
+func (o *FpTrigger) HasSchedule() bool {
+	if o != nil && !IsNil(o.Schedule) {
+		return true
+	}
+
+	return false
+}
+
+// SetSchedule gets a reference to the given string and assigns it to the Schedule field.
+func (o *FpTrigger) SetSchedule(v string) {
+	o.Schedule = &v
+}
+
 // GetTags returns the Tags field value if set, zero value otherwise.
 func (o *FpTrigger) GetTags() map[string]string {
 	if o == nil || IsNil(o.Tags) {
@@ -326,6 +359,9 @@ func (o FpTrigger) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Pipeline) {
 		toSerialize["pipeline"] = o.Pipeline
+	}
+	if !IsNil(o.Schedule) {
+		toSerialize["schedule"] = o.Schedule
 	}
 	if !IsNil(o.Tags) {
 		toSerialize["tags"] = o.Tags

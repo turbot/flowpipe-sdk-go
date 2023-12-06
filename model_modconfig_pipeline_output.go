@@ -24,7 +24,6 @@ type ModconfigPipelineOutput struct {
 	Description *string `json:"description,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Resolved *bool `json:"resolved,omitempty"`
-	Sensitive *bool `json:"sensitive,omitempty"`
 	Value map[string]interface{} `json:"value,omitempty"`
 }
 func (o ModconfigPipelineOutput) GetResourceType() string {
@@ -175,38 +174,6 @@ func (o *ModconfigPipelineOutput) SetResolved(v bool) {
 	o.Resolved = &v
 }
 
-// GetSensitive returns the Sensitive field value if set, zero value otherwise.
-func (o *ModconfigPipelineOutput) GetSensitive() bool {
-	if o == nil || IsNil(o.Sensitive) {
-		var ret bool
-		return ret
-	}
-	return *o.Sensitive
-}
-
-// GetSensitiveOk returns a tuple with the Sensitive field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ModconfigPipelineOutput) GetSensitiveOk() (*bool, bool) {
-	if o == nil || IsNil(o.Sensitive) {
-		return nil, false
-	}
-	return o.Sensitive, true
-}
-
-// HasSensitive returns a boolean if a field has been set.
-func (o *ModconfigPipelineOutput) HasSensitive() bool {
-	if o != nil && !IsNil(o.Sensitive) {
-		return true
-	}
-
-	return false
-}
-
-// SetSensitive gets a reference to the given bool and assigns it to the Sensitive field.
-func (o *ModconfigPipelineOutput) SetSensitive(v bool) {
-	o.Sensitive = &v
-}
-
 // GetValue returns the Value field value if set, zero value otherwise.
 func (o *ModconfigPipelineOutput) GetValue() map[string]interface{} {
 	if o == nil || IsNil(o.Value) {
@@ -260,9 +227,6 @@ func (o ModconfigPipelineOutput) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Resolved) {
 		toSerialize["resolved"] = o.Resolved
-	}
-	if !IsNil(o.Sensitive) {
-		toSerialize["sensitive"] = o.Sensitive
 	}
 	if !IsNil(o.Value) {
 		toSerialize["value"] = o.Value

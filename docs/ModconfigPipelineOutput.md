@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Resolved** | Pointer to **bool** |  | [optional] 
-**Sensitive** | Pointer to **bool** |  | [optional] 
 **Value** | Pointer to **map[string]interface{}** |  | [optional] 
 
 ## Methods
@@ -129,31 +128,6 @@ SetResolved sets Resolved field to given value.
 `func (o *ModconfigPipelineOutput) HasResolved() bool`
 
 HasResolved returns a boolean if a field has been set.
-
-### GetSensitive
-
-`func (o *ModconfigPipelineOutput) GetSensitive() bool`
-
-GetSensitive returns the Sensitive field if non-nil, zero value otherwise.
-
-### GetSensitiveOk
-
-`func (o *ModconfigPipelineOutput) GetSensitiveOk() (*bool, bool)`
-
-GetSensitiveOk returns a tuple with the Sensitive field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSensitive
-
-`func (o *ModconfigPipelineOutput) SetSensitive(v bool)`
-
-SetSensitive sets Sensitive field to given value.
-
-### HasSensitive
-
-`func (o *ModconfigPipelineOutput) HasSensitive() bool`
-
-HasSensitive returns a boolean if a field has been set.
 
 ### GetValue
 
