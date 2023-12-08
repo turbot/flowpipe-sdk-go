@@ -26,6 +26,7 @@ type Mod struct {
 	Documentation *string `json:"documentation,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Opengraph *OpenGraph `json:"opengraph,omitempty"`
+	Require *Require `json:"require,omitempty"`
 	Title *string `json:"title,omitempty"`
 }
 func (o Mod) GetResourceType() string {
@@ -240,6 +241,38 @@ func (o *Mod) SetOpengraph(v OpenGraph) {
 	o.Opengraph = &v
 }
 
+// GetRequire returns the Require field value if set, zero value otherwise.
+func (o *Mod) GetRequire() Require {
+	if o == nil || IsNil(o.Require) {
+		var ret Require
+		return ret
+	}
+	return *o.Require
+}
+
+// GetRequireOk returns a tuple with the Require field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Mod) GetRequireOk() (*Require, bool) {
+	if o == nil || IsNil(o.Require) {
+		return nil, false
+	}
+	return o.Require, true
+}
+
+// HasRequire returns a boolean if a field has been set.
+func (o *Mod) HasRequire() bool {
+	if o != nil && !IsNil(o.Require) {
+		return true
+	}
+
+	return false
+}
+
+// SetRequire gets a reference to the given Require and assigns it to the Require field.
+func (o *Mod) SetRequire(v Require) {
+	o.Require = &v
+}
+
 // GetTitle returns the Title field value if set, zero value otherwise.
 func (o *Mod) GetTitle() string {
 	if o == nil || IsNil(o.Title) {
@@ -299,6 +332,9 @@ func (o Mod) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Opengraph) {
 		toSerialize["opengraph"] = o.Opengraph
+	}
+	if !IsNil(o.Require) {
+		toSerialize["require"] = o.Require
 	}
 	if !IsNil(o.Title) {
 		toSerialize["title"] = o.Title

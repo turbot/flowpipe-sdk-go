@@ -22,6 +22,7 @@ var _ MappedNullable = &ExecutionStepExecutionOutput{}
 type ExecutionStepExecutionOutput struct {
 	Data map[string]interface{} `json:"data,omitempty"`
 	Errors []ModconfigStepError `json:"errors,omitempty"`
+	FailureMode *string `json:"failure_mode,omitempty"`
 	Status *string `json:"status,omitempty"`
 }
 func (o ExecutionStepExecutionOutput) GetResourceType() string {
@@ -108,6 +109,38 @@ func (o *ExecutionStepExecutionOutput) SetErrors(v []ModconfigStepError) {
 	o.Errors = v
 }
 
+// GetFailureMode returns the FailureMode field value if set, zero value otherwise.
+func (o *ExecutionStepExecutionOutput) GetFailureMode() string {
+	if o == nil || IsNil(o.FailureMode) {
+		var ret string
+		return ret
+	}
+	return *o.FailureMode
+}
+
+// GetFailureModeOk returns a tuple with the FailureMode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ExecutionStepExecutionOutput) GetFailureModeOk() (*string, bool) {
+	if o == nil || IsNil(o.FailureMode) {
+		return nil, false
+	}
+	return o.FailureMode, true
+}
+
+// HasFailureMode returns a boolean if a field has been set.
+func (o *ExecutionStepExecutionOutput) HasFailureMode() bool {
+	if o != nil && !IsNil(o.FailureMode) {
+		return true
+	}
+
+	return false
+}
+
+// SetFailureMode gets a reference to the given string and assigns it to the FailureMode field.
+func (o *ExecutionStepExecutionOutput) SetFailureMode(v string) {
+	o.FailureMode = &v
+}
+
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *ExecutionStepExecutionOutput) GetStatus() string {
 	if o == nil || IsNil(o.Status) {
@@ -155,6 +188,9 @@ func (o ExecutionStepExecutionOutput) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Errors) {
 		toSerialize["errors"] = o.Errors
+	}
+	if !IsNil(o.FailureMode) {
+		toSerialize["failure_mode"] = o.FailureMode
 	}
 	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status

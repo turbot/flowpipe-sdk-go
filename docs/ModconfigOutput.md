@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Data** | Pointer to **map[string]interface{}** |  | [optional] 
 **Errors** | Pointer to [**[]ModconfigStepError**](ModconfigStepError.md) |  | [optional] 
+**FailureMode** | Pointer to **string** |  | [optional] 
 **Status** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -76,6 +77,31 @@ SetErrors sets Errors field to given value.
 `func (o *ModconfigOutput) HasErrors() bool`
 
 HasErrors returns a boolean if a field has been set.
+
+### GetFailureMode
+
+`func (o *ModconfigOutput) GetFailureMode() string`
+
+GetFailureMode returns the FailureMode field if non-nil, zero value otherwise.
+
+### GetFailureModeOk
+
+`func (o *ModconfigOutput) GetFailureModeOk() (*string, bool)`
+
+GetFailureModeOk returns a tuple with the FailureMode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFailureMode
+
+`func (o *ModconfigOutput) SetFailureMode(v string)`
+
+SetFailureMode sets FailureMode field to given value.
+
+### HasFailureMode
+
+`func (o *ModconfigOutput) HasFailureMode() bool`
+
+HasFailureMode returns a boolean if a field has been set.
 
 ### GetStatus
 

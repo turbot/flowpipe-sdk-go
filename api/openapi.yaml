@@ -201,9 +201,9 @@ paths:
       summary: Get pipeline
       tags:
       - Pipeline
-  /pipeline/{pipeline_name}/cmd:
+  /pipeline/{pipeline_name}/command:
     post:
-      operationId: pipeline_cmd
+      operationId: pipeline_command
       parameters:
       - description: The name of the pipeline
         explode: false
@@ -925,6 +925,13 @@ components:
       required:
       - command
       type: object
+    FlowpipeRequire:
+      example:
+        min_version: min_version
+      properties:
+        min_version:
+          type: string
+      type: object
     FpPipeline:
       example:
         outputs:
@@ -1226,6 +1233,14 @@ components:
         documentation: documentation
         name: name
         description: description
+        require:
+          mods:
+          - name: name
+            version: version
+          - name: name
+            version: version
+          flowpipe:
+            min_version: min_version
         categories:
         - categories
         - categories
@@ -1248,7 +1263,20 @@ components:
           type: string
         opengraph:
           $ref: '#/components/schemas/OpenGraph'
+        require:
+          $ref: '#/components/schemas/Require'
         title:
+          type: string
+      type: object
+    ModVersionConstraint:
+      example:
+        name: name
+        version: version
+      properties:
+        name:
+          description: "the fully qualified mod name, e.g. github.com/turbot/mod1"
+          type: string
+        version:
           type: string
       type: object
     OpenGraph:
@@ -1308,6 +1336,23 @@ components:
           type: object
         process_id:
           type: string
+      type: object
+    Require:
+      example:
+        mods:
+        - name: name
+          version: version
+        - name: name
+          version: version
+        flowpipe:
+          min_version: min_version
+      properties:
+        flowpipe:
+          $ref: '#/components/schemas/FlowpipeRequire'
+        mods:
+          items:
+            $ref: '#/components/schemas/ModVersionConstraint'
+          type: array
       type: object
     Variable:
       example:
@@ -1937,6 +1982,8 @@ components:
           items:
             $ref: '#/components/schemas/modconfig.StepError'
           type: array
+        failure_mode:
+          type: string
         status:
           type: string
       type: object

@@ -24,7 +24,7 @@ import (
 // PipelineApiService PipelineApi service
 type PipelineApiService service
 
-type PipelineApiCmdRequest struct {
+type PipelineApiCommandRequest struct {
 	ctx context.Context
 	ApiService *PipelineApiService
 	pipelineName string
@@ -32,24 +32,24 @@ type PipelineApiCmdRequest struct {
 }
 
 // Pipeline command.
-func (r PipelineApiCmdRequest) Request(request CmdPipeline) PipelineApiCmdRequest {
+func (r PipelineApiCommandRequest) Request(request CmdPipeline) PipelineApiCommandRequest {
 	r.request = &request
 	return r
 }
 
-func (r PipelineApiCmdRequest) Execute() (map[string]interface{}, *http.Response, error) {
-	return r.ApiService.CmdExecute(r)
+func (r PipelineApiCommandRequest) Execute() (map[string]interface{}, *http.Response, error) {
+	return r.ApiService.CommandExecute(r)
 }
 
 /*
-Cmd Execute a pipeline command
+Command Execute a pipeline command
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pipelineName The name of the pipeline
- @return PipelineApiCmdRequest
+ @return PipelineApiCommandRequest
 */
-func (a *PipelineApiService) Cmd(ctx context.Context, pipelineName string) PipelineApiCmdRequest {
-	return PipelineApiCmdRequest{
+func (a *PipelineApiService) Command(ctx context.Context, pipelineName string) PipelineApiCommandRequest {
+	return PipelineApiCommandRequest{
 		ApiService: a,
 		ctx: ctx,
 		pipelineName: pipelineName,
@@ -58,7 +58,7 @@ func (a *PipelineApiService) Cmd(ctx context.Context, pipelineName string) Pipel
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *PipelineApiService) CmdExecute(r PipelineApiCmdRequest) (map[string]interface{}, *http.Response, error) {
+func (a *PipelineApiService) CommandExecute(r PipelineApiCommandRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -66,12 +66,12 @@ func (a *PipelineApiService) CmdExecute(r PipelineApiCmdRequest) (map[string]int
 		localVarReturnValue  map[string]interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PipelineApiService.Cmd")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PipelineApiService.Command")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pipeline/{pipeline_name}/cmd"
+	localVarPath := localBasePath + "/pipeline/{pipeline_name}/command"
 	localVarPath = strings.Replace(localVarPath, "{"+"pipeline_name"+"}", url.PathEscape(parameterValueToString(r.pipelineName, "pipelineName")), -1)
 
 	localVarHeaderParams := make(map[string]string)
