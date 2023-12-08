@@ -4,15 +4,15 @@ All URIs are relative to *https://localhost/api/v0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Cmd**](PipelineApi.md#Cmd) | **Post** /pipeline/{pipeline_name}/cmd | Execute a pipeline command
+[**Command**](PipelineApi.md#Command) | **Post** /pipeline/{pipeline_name}/command | Execute a pipeline command
 [**Get**](PipelineApi.md#Get) | **Get** /pipeline/{pipeline_name} | Get pipeline
 [**List**](PipelineApi.md#List) | **Get** /pipeline | List pipelines
 
 
 
-## Cmd
+## Command
 
-> map[string]interface{} Cmd(ctx, pipelineName).Request(request).Execute()
+> map[string]interface{} Command(ctx, pipelineName).Request(request).Execute()
 
 Execute a pipeline command
 
@@ -34,13 +34,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PipelineApi.Cmd(context.Background(), pipelineName).Request(request).Execute()
+    resp, r, err := apiClient.PipelineApi.Command(context.Background(), pipelineName).Request(request).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PipelineApi.Cmd``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PipelineApi.Command``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Cmd`: map[string]interface{}
-    fmt.Fprintf(os.Stdout, "Response from `PipelineApi.Cmd`: %v\n", resp)
+    // response from `Command`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `PipelineApi.Command`: %v\n", resp)
 }
 ```
 
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCmdRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCommandRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

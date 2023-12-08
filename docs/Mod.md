@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Documentation** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Opengraph** | Pointer to [**OpenGraph**](OpenGraph.md) |  | [optional] 
+**Require** | Pointer to [**Require**](Require.md) |  | [optional] 
 **Title** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -180,6 +181,31 @@ SetOpengraph sets Opengraph field to given value.
 `func (o *Mod) HasOpengraph() bool`
 
 HasOpengraph returns a boolean if a field has been set.
+
+### GetRequire
+
+`func (o *Mod) GetRequire() Require`
+
+GetRequire returns the Require field if non-nil, zero value otherwise.
+
+### GetRequireOk
+
+`func (o *Mod) GetRequireOk() (*Require, bool)`
+
+GetRequireOk returns a tuple with the Require field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequire
+
+`func (o *Mod) SetRequire(v Require)`
+
+SetRequire sets Require field to given value.
+
+### HasRequire
+
+`func (o *Mod) HasRequire() bool`
+
+HasRequire returns a boolean if a field has been set.
 
 ### GetTitle
 

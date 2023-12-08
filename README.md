@@ -81,7 +81,7 @@ All URIs are relative to *https://localhost/api/v0*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ModApi* | [**Get**](docs/ModApi.md#get) | **Get** /mod/{mod_name} | Get mod
-*PipelineApi* | [**Cmd**](docs/PipelineApi.md#cmd) | **Post** /pipeline/{pipeline_name}/cmd | Execute a pipeline command
+*PipelineApi* | [**Command**](docs/PipelineApi.md#command) | **Post** /pipeline/{pipeline_name}/command | Execute a pipeline command
 *PipelineApi* | [**Get**](docs/PipelineApi.md#get) | **Get** /pipeline/{pipeline_name} | Get pipeline
 *PipelineApi* | [**List**](docs/PipelineApi.md#list) | **Get** /pipeline | List pipelines
 *ProcessApi* | [**Get**](docs/ProcessApi.md#get) | **Get** /process/{process_id} | Get process
@@ -110,6 +110,7 @@ Class | Method | HTTP request | Description
  - [ExecutionStepExecutionOutput](docs/ExecutionStepExecutionOutput.md)
  - [ExecutionStepExecutionStepForEach](docs/ExecutionStepExecutionStepForEach.md)
  - [ExecutionStepStatus](docs/ExecutionStepStatus.md)
+ - [FlowpipeRequire](docs/FlowpipeRequire.md)
  - [FpPipeline](docs/FpPipeline.md)
  - [FpPipelineParam](docs/FpPipelineParam.md)
  - [FpTrigger](docs/FpTrigger.md)
@@ -119,6 +120,7 @@ Class | Method | HTTP request | Description
  - [ListTriggerResponse](docs/ListTriggerResponse.md)
  - [ListVariableResponse](docs/ListVariableResponse.md)
  - [Mod](docs/Mod.md)
+ - [ModVersionConstraint](docs/ModVersionConstraint.md)
  - [ModconfigNextStepAction](docs/ModconfigNextStepAction.md)
  - [ModconfigOutput](docs/ModconfigOutput.md)
  - [ModconfigPipelineOutput](docs/ModconfigPipelineOutput.md)
@@ -132,6 +134,7 @@ Class | Method | HTTP request | Description
  - [Process](docs/Process.md)
  - [ProcessEventLog](docs/ProcessEventLog.md)
  - [ProcessOutputData](docs/ProcessOutputData.md)
+ - [Require](docs/Require.md)
  - [Variable](docs/Variable.md)
 
 
