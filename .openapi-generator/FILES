@@ -12,11 +12,6 @@ configuration.go
 docs/CmdPipeline.md
 docs/ExecutionExecution.md
 docs/ExecutionPipelineExecution.md
-docs/ExecutionSnapshot.md
-docs/ExecutionSnapshotLayout.md
-docs/ExecutionSnapshotPanel.md
-docs/ExecutionSnapshotPanelData.md
-docs/ExecutionSnapshotPanelDataColumn.md
 docs/ExecutionStepExecution.md
 docs/ExecutionStepExecutionOutput.md
 docs/ExecutionStepExecutionStepForEach.md
@@ -47,7 +42,6 @@ docs/PipelineApi.md
 docs/Process.md
 docs/ProcessApi.md
 docs/ProcessEventLog.md
-docs/ProcessOutputData.md
 docs/Require.md
 docs/TriggerApi.md
 docs/Variable.md
@@ -58,11 +52,6 @@ go.sum
 model_cmd_pipeline.go
 model_execution_execution.go
 model_execution_pipeline_execution.go
-model_execution_snapshot.go
-model_execution_snapshot_layout.go
-model_execution_snapshot_panel.go
-model_execution_snapshot_panel_data.go
-model_execution_snapshot_panel_data_column.go
 model_execution_step_execution.go
 model_execution_step_execution_output.go
 model_execution_step_execution_step_for_each.go
@@ -90,7 +79,6 @@ model_perr_error_detail_model.go
 model_perr_error_model.go
 model_process.go
 model_process_event_log.go
-model_process_output_data.go
 model_require.go
 model_variable.go
 response.go

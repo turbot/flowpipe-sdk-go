@@ -87,8 +87,6 @@ Class | Method | HTTP request | Description
 *ProcessApi* | [**Get**](docs/ProcessApi.md#get) | **Get** /process/{process_id} | Get process
 *ProcessApi* | [**GetExecution**](docs/ProcessApi.md#getexecution) | **Get** /process/{process_id}/execution | Get process execution
 *ProcessApi* | [**GetLog**](docs/ProcessApi.md#getlog) | **Get** /process/{process_id}/log/process.json | Get process log
-*ProcessApi* | [**GetOutput**](docs/ProcessApi.md#getoutput) | **Get** /process/{process_id}/output | Get process output
-*ProcessApi* | [**GetSnapshot**](docs/ProcessApi.md#getsnapshot) | **Get** /process/:process_id/log/process.sps | Get process snapshot
 *ProcessApi* | [**List**](docs/ProcessApi.md#list) | **Get** /process | List processs
 *TriggerApi* | [**Get**](docs/TriggerApi.md#get) | **Get** /trigger/{trigger_name} | Get trigger
 *TriggerApi* | [**List**](docs/TriggerApi.md#list) | **Get** /trigger | List triggers
@@ -101,11 +99,6 @@ Class | Method | HTTP request | Description
  - [CmdPipeline](docs/CmdPipeline.md)
  - [ExecutionExecution](docs/ExecutionExecution.md)
  - [ExecutionPipelineExecution](docs/ExecutionPipelineExecution.md)
- - [ExecutionSnapshot](docs/ExecutionSnapshot.md)
- - [ExecutionSnapshotLayout](docs/ExecutionSnapshotLayout.md)
- - [ExecutionSnapshotPanel](docs/ExecutionSnapshotPanel.md)
- - [ExecutionSnapshotPanelData](docs/ExecutionSnapshotPanelData.md)
- - [ExecutionSnapshotPanelDataColumn](docs/ExecutionSnapshotPanelDataColumn.md)
  - [ExecutionStepExecution](docs/ExecutionStepExecution.md)
  - [ExecutionStepExecutionOutput](docs/ExecutionStepExecutionOutput.md)
  - [ExecutionStepExecutionStepForEach](docs/ExecutionStepExecutionStepForEach.md)
@@ -133,7 +126,6 @@ Class | Method | HTTP request | Description
  - [PerrErrorModel](docs/PerrErrorModel.md)
  - [Process](docs/Process.md)
  - [ProcessEventLog](docs/ProcessEventLog.md)
- - [ProcessOutputData](docs/ProcessOutputData.md)
  - [Require](docs/Require.md)
  - [Variable](docs/Variable.md)
 
