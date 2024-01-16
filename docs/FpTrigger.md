@@ -6,9 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | Pointer to **string** |  | [optional] 
 **Documentation** | Pointer to **string** |  | [optional] 
+**EndLineNumber** | Pointer to **int32** |  | [optional] 
+**FileName** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**Pipeline** | Pointer to **string** |  | [optional] 
+**Pipelines** | Pointer to [**[]FpTriggerPipeline**](FpTriggerPipeline.md) |  | [optional] 
 **Schedule** | Pointer to **string** |  | [optional] 
+**StartLineNumber** | Pointer to **int32** |  | [optional] 
 **Tags** | Pointer to **map[string]string** |  | [optional] 
 **Title** | Pointer to **string** |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] 
@@ -83,6 +86,56 @@ SetDocumentation sets Documentation field to given value.
 
 HasDocumentation returns a boolean if a field has been set.
 
+### GetEndLineNumber
+
+`func (o *FpTrigger) GetEndLineNumber() int32`
+
+GetEndLineNumber returns the EndLineNumber field if non-nil, zero value otherwise.
+
+### GetEndLineNumberOk
+
+`func (o *FpTrigger) GetEndLineNumberOk() (*int32, bool)`
+
+GetEndLineNumberOk returns a tuple with the EndLineNumber field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEndLineNumber
+
+`func (o *FpTrigger) SetEndLineNumber(v int32)`
+
+SetEndLineNumber sets EndLineNumber field to given value.
+
+### HasEndLineNumber
+
+`func (o *FpTrigger) HasEndLineNumber() bool`
+
+HasEndLineNumber returns a boolean if a field has been set.
+
+### GetFileName
+
+`func (o *FpTrigger) GetFileName() string`
+
+GetFileName returns the FileName field if non-nil, zero value otherwise.
+
+### GetFileNameOk
+
+`func (o *FpTrigger) GetFileNameOk() (*string, bool)`
+
+GetFileNameOk returns a tuple with the FileName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFileName
+
+`func (o *FpTrigger) SetFileName(v string)`
+
+SetFileName sets FileName field to given value.
+
+### HasFileName
+
+`func (o *FpTrigger) HasFileName() bool`
+
+HasFileName returns a boolean if a field has been set.
+
 ### GetName
 
 `func (o *FpTrigger) GetName() string`
@@ -108,30 +161,30 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### GetPipeline
+### GetPipelines
 
-`func (o *FpTrigger) GetPipeline() string`
+`func (o *FpTrigger) GetPipelines() []FpTriggerPipeline`
 
-GetPipeline returns the Pipeline field if non-nil, zero value otherwise.
+GetPipelines returns the Pipelines field if non-nil, zero value otherwise.
 
-### GetPipelineOk
+### GetPipelinesOk
 
-`func (o *FpTrigger) GetPipelineOk() (*string, bool)`
+`func (o *FpTrigger) GetPipelinesOk() (*[]FpTriggerPipeline, bool)`
 
-GetPipelineOk returns a tuple with the Pipeline field if it's non-nil, zero value otherwise
+GetPipelinesOk returns a tuple with the Pipelines field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPipeline
+### SetPipelines
 
-`func (o *FpTrigger) SetPipeline(v string)`
+`func (o *FpTrigger) SetPipelines(v []FpTriggerPipeline)`
 
-SetPipeline sets Pipeline field to given value.
+SetPipelines sets Pipelines field to given value.
 
-### HasPipeline
+### HasPipelines
 
-`func (o *FpTrigger) HasPipeline() bool`
+`func (o *FpTrigger) HasPipelines() bool`
 
-HasPipeline returns a boolean if a field has been set.
+HasPipelines returns a boolean if a field has been set.
 
 ### GetSchedule
 
@@ -157,6 +210,31 @@ SetSchedule sets Schedule field to given value.
 `func (o *FpTrigger) HasSchedule() bool`
 
 HasSchedule returns a boolean if a field has been set.
+
+### GetStartLineNumber
+
+`func (o *FpTrigger) GetStartLineNumber() int32`
+
+GetStartLineNumber returns the StartLineNumber field if non-nil, zero value otherwise.
+
+### GetStartLineNumberOk
+
+`func (o *FpTrigger) GetStartLineNumberOk() (*int32, bool)`
+
+GetStartLineNumberOk returns a tuple with the StartLineNumber field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStartLineNumber
+
+`func (o *FpTrigger) SetStartLineNumber(v int32)`
+
+SetStartLineNumber sets StartLineNumber field to given value.
+
+### HasStartLineNumber
+
+`func (o *FpTrigger) HasStartLineNumber() bool`
+
+HasStartLineNumber returns a boolean if a field has been set.
 
 ### GetTags
 

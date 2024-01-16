@@ -22,9 +22,12 @@ var _ MappedNullable = &FpTrigger{}
 type FpTrigger struct {
 	Description *string `json:"description,omitempty"`
 	Documentation *string `json:"documentation,omitempty"`
+	EndLineNumber *int32 `json:"end_line_number,omitempty"`
+	FileName *string `json:"file_name,omitempty"`
 	Name *string `json:"name,omitempty"`
-	Pipeline *string `json:"pipeline,omitempty"`
+	Pipelines []FpTriggerPipeline `json:"pipelines,omitempty"`
 	Schedule *string `json:"schedule,omitempty"`
+	StartLineNumber *int32 `json:"start_line_number,omitempty"`
 	Tags *map[string]string `json:"tags,omitempty"`
 	Title *string `json:"title,omitempty"`
 	Type *string `json:"type,omitempty"`
@@ -114,6 +117,70 @@ func (o *FpTrigger) SetDocumentation(v string) {
 	o.Documentation = &v
 }
 
+// GetEndLineNumber returns the EndLineNumber field value if set, zero value otherwise.
+func (o *FpTrigger) GetEndLineNumber() int32 {
+	if o == nil || IsNil(o.EndLineNumber) {
+		var ret int32
+		return ret
+	}
+	return *o.EndLineNumber
+}
+
+// GetEndLineNumberOk returns a tuple with the EndLineNumber field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpTrigger) GetEndLineNumberOk() (*int32, bool) {
+	if o == nil || IsNil(o.EndLineNumber) {
+		return nil, false
+	}
+	return o.EndLineNumber, true
+}
+
+// HasEndLineNumber returns a boolean if a field has been set.
+func (o *FpTrigger) HasEndLineNumber() bool {
+	if o != nil && !IsNil(o.EndLineNumber) {
+		return true
+	}
+
+	return false
+}
+
+// SetEndLineNumber gets a reference to the given int32 and assigns it to the EndLineNumber field.
+func (o *FpTrigger) SetEndLineNumber(v int32) {
+	o.EndLineNumber = &v
+}
+
+// GetFileName returns the FileName field value if set, zero value otherwise.
+func (o *FpTrigger) GetFileName() string {
+	if o == nil || IsNil(o.FileName) {
+		var ret string
+		return ret
+	}
+	return *o.FileName
+}
+
+// GetFileNameOk returns a tuple with the FileName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpTrigger) GetFileNameOk() (*string, bool) {
+	if o == nil || IsNil(o.FileName) {
+		return nil, false
+	}
+	return o.FileName, true
+}
+
+// HasFileName returns a boolean if a field has been set.
+func (o *FpTrigger) HasFileName() bool {
+	if o != nil && !IsNil(o.FileName) {
+		return true
+	}
+
+	return false
+}
+
+// SetFileName gets a reference to the given string and assigns it to the FileName field.
+func (o *FpTrigger) SetFileName(v string) {
+	o.FileName = &v
+}
+
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *FpTrigger) GetName() string {
 	if o == nil || IsNil(o.Name) {
@@ -146,36 +213,36 @@ func (o *FpTrigger) SetName(v string) {
 	o.Name = &v
 }
 
-// GetPipeline returns the Pipeline field value if set, zero value otherwise.
-func (o *FpTrigger) GetPipeline() string {
-	if o == nil || IsNil(o.Pipeline) {
-		var ret string
+// GetPipelines returns the Pipelines field value if set, zero value otherwise.
+func (o *FpTrigger) GetPipelines() []FpTriggerPipeline {
+	if o == nil || IsNil(o.Pipelines) {
+		var ret []FpTriggerPipeline
 		return ret
 	}
-	return *o.Pipeline
+	return o.Pipelines
 }
 
-// GetPipelineOk returns a tuple with the Pipeline field value if set, nil otherwise
+// GetPipelinesOk returns a tuple with the Pipelines field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FpTrigger) GetPipelineOk() (*string, bool) {
-	if o == nil || IsNil(o.Pipeline) {
+func (o *FpTrigger) GetPipelinesOk() ([]FpTriggerPipeline, bool) {
+	if o == nil || IsNil(o.Pipelines) {
 		return nil, false
 	}
-	return o.Pipeline, true
+	return o.Pipelines, true
 }
 
-// HasPipeline returns a boolean if a field has been set.
-func (o *FpTrigger) HasPipeline() bool {
-	if o != nil && !IsNil(o.Pipeline) {
+// HasPipelines returns a boolean if a field has been set.
+func (o *FpTrigger) HasPipelines() bool {
+	if o != nil && !IsNil(o.Pipelines) {
 		return true
 	}
 
 	return false
 }
 
-// SetPipeline gets a reference to the given string and assigns it to the Pipeline field.
-func (o *FpTrigger) SetPipeline(v string) {
-	o.Pipeline = &v
+// SetPipelines gets a reference to the given []FpTriggerPipeline and assigns it to the Pipelines field.
+func (o *FpTrigger) SetPipelines(v []FpTriggerPipeline) {
+	o.Pipelines = v
 }
 
 // GetSchedule returns the Schedule field value if set, zero value otherwise.
@@ -208,6 +275,38 @@ func (o *FpTrigger) HasSchedule() bool {
 // SetSchedule gets a reference to the given string and assigns it to the Schedule field.
 func (o *FpTrigger) SetSchedule(v string) {
 	o.Schedule = &v
+}
+
+// GetStartLineNumber returns the StartLineNumber field value if set, zero value otherwise.
+func (o *FpTrigger) GetStartLineNumber() int32 {
+	if o == nil || IsNil(o.StartLineNumber) {
+		var ret int32
+		return ret
+	}
+	return *o.StartLineNumber
+}
+
+// GetStartLineNumberOk returns a tuple with the StartLineNumber field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpTrigger) GetStartLineNumberOk() (*int32, bool) {
+	if o == nil || IsNil(o.StartLineNumber) {
+		return nil, false
+	}
+	return o.StartLineNumber, true
+}
+
+// HasStartLineNumber returns a boolean if a field has been set.
+func (o *FpTrigger) HasStartLineNumber() bool {
+	if o != nil && !IsNil(o.StartLineNumber) {
+		return true
+	}
+
+	return false
+}
+
+// SetStartLineNumber gets a reference to the given int32 and assigns it to the StartLineNumber field.
+func (o *FpTrigger) SetStartLineNumber(v int32) {
+	o.StartLineNumber = &v
 }
 
 // GetTags returns the Tags field value if set, zero value otherwise.
@@ -354,14 +453,23 @@ func (o FpTrigger) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Documentation) {
 		toSerialize["documentation"] = o.Documentation
 	}
+	if !IsNil(o.EndLineNumber) {
+		toSerialize["end_line_number"] = o.EndLineNumber
+	}
+	if !IsNil(o.FileName) {
+		toSerialize["file_name"] = o.FileName
+	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if !IsNil(o.Pipeline) {
-		toSerialize["pipeline"] = o.Pipeline
+	if !IsNil(o.Pipelines) {
+		toSerialize["pipelines"] = o.Pipelines
 	}
 	if !IsNil(o.Schedule) {
 		toSerialize["schedule"] = o.Schedule
+	}
+	if !IsNil(o.StartLineNumber) {
+		toSerialize["start_line_number"] = o.StartLineNumber
 	}
 	if !IsNil(o.Tags) {
 		toSerialize["tags"] = o.Tags

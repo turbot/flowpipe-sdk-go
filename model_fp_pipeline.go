@@ -22,10 +22,13 @@ var _ MappedNullable = &FpPipeline{}
 type FpPipeline struct {
 	Description *string `json:"description,omitempty"`
 	Documentation *string `json:"documentation,omitempty"`
+	EndLineNumber *int32 `json:"end_line_number,omitempty"`
+	FileName *string `json:"file_name,omitempty"`
 	Mod *string `json:"mod,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Outputs []ModconfigPipelineOutput `json:"outputs,omitempty"`
 	Params []FpPipelineParam `json:"params,omitempty"`
+	StartLineNumber *int32 `json:"start_line_number,omitempty"`
 	Steps []map[string]interface{} `json:"steps,omitempty"`
 	Tags *map[string]string `json:"tags,omitempty"`
 	Title *string `json:"title,omitempty"`
@@ -112,6 +115,70 @@ func (o *FpPipeline) HasDocumentation() bool {
 // SetDocumentation gets a reference to the given string and assigns it to the Documentation field.
 func (o *FpPipeline) SetDocumentation(v string) {
 	o.Documentation = &v
+}
+
+// GetEndLineNumber returns the EndLineNumber field value if set, zero value otherwise.
+func (o *FpPipeline) GetEndLineNumber() int32 {
+	if o == nil || IsNil(o.EndLineNumber) {
+		var ret int32
+		return ret
+	}
+	return *o.EndLineNumber
+}
+
+// GetEndLineNumberOk returns a tuple with the EndLineNumber field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpPipeline) GetEndLineNumberOk() (*int32, bool) {
+	if o == nil || IsNil(o.EndLineNumber) {
+		return nil, false
+	}
+	return o.EndLineNumber, true
+}
+
+// HasEndLineNumber returns a boolean if a field has been set.
+func (o *FpPipeline) HasEndLineNumber() bool {
+	if o != nil && !IsNil(o.EndLineNumber) {
+		return true
+	}
+
+	return false
+}
+
+// SetEndLineNumber gets a reference to the given int32 and assigns it to the EndLineNumber field.
+func (o *FpPipeline) SetEndLineNumber(v int32) {
+	o.EndLineNumber = &v
+}
+
+// GetFileName returns the FileName field value if set, zero value otherwise.
+func (o *FpPipeline) GetFileName() string {
+	if o == nil || IsNil(o.FileName) {
+		var ret string
+		return ret
+	}
+	return *o.FileName
+}
+
+// GetFileNameOk returns a tuple with the FileName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpPipeline) GetFileNameOk() (*string, bool) {
+	if o == nil || IsNil(o.FileName) {
+		return nil, false
+	}
+	return o.FileName, true
+}
+
+// HasFileName returns a boolean if a field has been set.
+func (o *FpPipeline) HasFileName() bool {
+	if o != nil && !IsNil(o.FileName) {
+		return true
+	}
+
+	return false
+}
+
+// SetFileName gets a reference to the given string and assigns it to the FileName field.
+func (o *FpPipeline) SetFileName(v string) {
+	o.FileName = &v
 }
 
 // GetMod returns the Mod field value if set, zero value otherwise.
@@ -242,6 +309,38 @@ func (o *FpPipeline) SetParams(v []FpPipelineParam) {
 	o.Params = v
 }
 
+// GetStartLineNumber returns the StartLineNumber field value if set, zero value otherwise.
+func (o *FpPipeline) GetStartLineNumber() int32 {
+	if o == nil || IsNil(o.StartLineNumber) {
+		var ret int32
+		return ret
+	}
+	return *o.StartLineNumber
+}
+
+// GetStartLineNumberOk returns a tuple with the StartLineNumber field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpPipeline) GetStartLineNumberOk() (*int32, bool) {
+	if o == nil || IsNil(o.StartLineNumber) {
+		return nil, false
+	}
+	return o.StartLineNumber, true
+}
+
+// HasStartLineNumber returns a boolean if a field has been set.
+func (o *FpPipeline) HasStartLineNumber() bool {
+	if o != nil && !IsNil(o.StartLineNumber) {
+		return true
+	}
+
+	return false
+}
+
+// SetStartLineNumber gets a reference to the given int32 and assigns it to the StartLineNumber field.
+func (o *FpPipeline) SetStartLineNumber(v int32) {
+	o.StartLineNumber = &v
+}
+
 // GetSteps returns the Steps field value if set, zero value otherwise.
 func (o *FpPipeline) GetSteps() []map[string]interface{} {
 	if o == nil || IsNil(o.Steps) {
@@ -354,6 +453,12 @@ func (o FpPipeline) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Documentation) {
 		toSerialize["documentation"] = o.Documentation
 	}
+	if !IsNil(o.EndLineNumber) {
+		toSerialize["end_line_number"] = o.EndLineNumber
+	}
+	if !IsNil(o.FileName) {
+		toSerialize["file_name"] = o.FileName
+	}
 	if !IsNil(o.Mod) {
 		toSerialize["mod"] = o.Mod
 	}
@@ -365,6 +470,9 @@ func (o FpPipeline) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Params) {
 		toSerialize["params"] = o.Params
+	}
+	if !IsNil(o.StartLineNumber) {
+		toSerialize["start_line_number"] = o.StartLineNumber
 	}
 	if !IsNil(o.Steps) {
 		toSerialize["steps"] = o.Steps
