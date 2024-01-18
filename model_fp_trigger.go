@@ -22,10 +22,12 @@ var _ MappedNullable = &FpTrigger{}
 type FpTrigger struct {
 	Description *string `json:"description,omitempty"`
 	Documentation *string `json:"documentation,omitempty"`
+	Enabled *bool `json:"enabled,omitempty"`
 	EndLineNumber *int32 `json:"end_line_number,omitempty"`
 	FileName *string `json:"file_name,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Pipelines []FpTriggerPipeline `json:"pipelines,omitempty"`
+	Query *string `json:"query,omitempty"`
 	Schedule *string `json:"schedule,omitempty"`
 	StartLineNumber *int32 `json:"start_line_number,omitempty"`
 	Tags *map[string]string `json:"tags,omitempty"`
@@ -115,6 +117,38 @@ func (o *FpTrigger) HasDocumentation() bool {
 // SetDocumentation gets a reference to the given string and assigns it to the Documentation field.
 func (o *FpTrigger) SetDocumentation(v string) {
 	o.Documentation = &v
+}
+
+// GetEnabled returns the Enabled field value if set, zero value otherwise.
+func (o *FpTrigger) GetEnabled() bool {
+	if o == nil || IsNil(o.Enabled) {
+		var ret bool
+		return ret
+	}
+	return *o.Enabled
+}
+
+// GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpTrigger) GetEnabledOk() (*bool, bool) {
+	if o == nil || IsNil(o.Enabled) {
+		return nil, false
+	}
+	return o.Enabled, true
+}
+
+// HasEnabled returns a boolean if a field has been set.
+func (o *FpTrigger) HasEnabled() bool {
+	if o != nil && !IsNil(o.Enabled) {
+		return true
+	}
+
+	return false
+}
+
+// SetEnabled gets a reference to the given bool and assigns it to the Enabled field.
+func (o *FpTrigger) SetEnabled(v bool) {
+	o.Enabled = &v
 }
 
 // GetEndLineNumber returns the EndLineNumber field value if set, zero value otherwise.
@@ -243,6 +277,38 @@ func (o *FpTrigger) HasPipelines() bool {
 // SetPipelines gets a reference to the given []FpTriggerPipeline and assigns it to the Pipelines field.
 func (o *FpTrigger) SetPipelines(v []FpTriggerPipeline) {
 	o.Pipelines = v
+}
+
+// GetQuery returns the Query field value if set, zero value otherwise.
+func (o *FpTrigger) GetQuery() string {
+	if o == nil || IsNil(o.Query) {
+		var ret string
+		return ret
+	}
+	return *o.Query
+}
+
+// GetQueryOk returns a tuple with the Query field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpTrigger) GetQueryOk() (*string, bool) {
+	if o == nil || IsNil(o.Query) {
+		return nil, false
+	}
+	return o.Query, true
+}
+
+// HasQuery returns a boolean if a field has been set.
+func (o *FpTrigger) HasQuery() bool {
+	if o != nil && !IsNil(o.Query) {
+		return true
+	}
+
+	return false
+}
+
+// SetQuery gets a reference to the given string and assigns it to the Query field.
+func (o *FpTrigger) SetQuery(v string) {
+	o.Query = &v
 }
 
 // GetSchedule returns the Schedule field value if set, zero value otherwise.
@@ -453,6 +519,9 @@ func (o FpTrigger) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Documentation) {
 		toSerialize["documentation"] = o.Documentation
 	}
+	if !IsNil(o.Enabled) {
+		toSerialize["enabled"] = o.Enabled
+	}
 	if !IsNil(o.EndLineNumber) {
 		toSerialize["end_line_number"] = o.EndLineNumber
 	}
@@ -464,6 +533,9 @@ func (o FpTrigger) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Pipelines) {
 		toSerialize["pipelines"] = o.Pipelines
+	}
+	if !IsNil(o.Query) {
+		toSerialize["query"] = o.Query
 	}
 	if !IsNil(o.Schedule) {
 		toSerialize["schedule"] = o.Schedule

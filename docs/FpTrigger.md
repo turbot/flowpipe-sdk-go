@@ -6,10 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | Pointer to **string** |  | [optional] 
 **Documentation** | Pointer to **string** |  | [optional] 
+**Enabled** | Pointer to **bool** |  | [optional] 
 **EndLineNumber** | Pointer to **int32** |  | [optional] 
 **FileName** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Pipelines** | Pointer to [**[]FpTriggerPipeline**](FpTriggerPipeline.md) |  | [optional] 
+**Query** | Pointer to **string** |  | [optional] 
 **Schedule** | Pointer to **string** |  | [optional] 
 **StartLineNumber** | Pointer to **int32** |  | [optional] 
 **Tags** | Pointer to **map[string]string** |  | [optional] 
@@ -85,6 +87,31 @@ SetDocumentation sets Documentation field to given value.
 `func (o *FpTrigger) HasDocumentation() bool`
 
 HasDocumentation returns a boolean if a field has been set.
+
+### GetEnabled
+
+`func (o *FpTrigger) GetEnabled() bool`
+
+GetEnabled returns the Enabled field if non-nil, zero value otherwise.
+
+### GetEnabledOk
+
+`func (o *FpTrigger) GetEnabledOk() (*bool, bool)`
+
+GetEnabledOk returns a tuple with the Enabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnabled
+
+`func (o *FpTrigger) SetEnabled(v bool)`
+
+SetEnabled sets Enabled field to given value.
+
+### HasEnabled
+
+`func (o *FpTrigger) HasEnabled() bool`
+
+HasEnabled returns a boolean if a field has been set.
 
 ### GetEndLineNumber
 
@@ -185,6 +212,31 @@ SetPipelines sets Pipelines field to given value.
 `func (o *FpTrigger) HasPipelines() bool`
 
 HasPipelines returns a boolean if a field has been set.
+
+### GetQuery
+
+`func (o *FpTrigger) GetQuery() string`
+
+GetQuery returns the Query field if non-nil, zero value otherwise.
+
+### GetQueryOk
+
+`func (o *FpTrigger) GetQueryOk() (*string, bool)`
+
+GetQueryOk returns a tuple with the Query field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetQuery
+
+`func (o *FpTrigger) SetQuery(v string)`
+
+SetQuery sets Query field to given value.
+
+### HasQuery
+
+`func (o *FpTrigger) HasQuery() bool`
+
+HasQuery returns a boolean if a field has been set.
 
 ### GetSchedule
 

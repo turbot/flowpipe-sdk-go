@@ -908,28 +908,32 @@ components:
       type: object
     FpTrigger:
       example:
+        file_name: file_name
+        documentation: documentation
+        query: query
+        description: description
+        end_line_number: 0
+        start_line_number: 6
+        title: title
+        type: type
+        enabled: true
+        url: url
+        tags:
+          key: tags
         schedule: schedule
         pipelines:
         - pipeline: pipeline
           capture_group: capture_group
         - pipeline: pipeline
           capture_group: capture_group
-        file_name: file_name
-        documentation: documentation
         name: name
-        description: description
-        end_line_number: 0
-        start_line_number: 6
-        title: title
-        type: type
-        url: url
-        tags:
-          key: tags
       properties:
         description:
           type: string
         documentation:
           type: string
+        enabled:
+          type: boolean
         end_line_number:
           type: integer
         file_name:
@@ -940,6 +944,8 @@ components:
           items:
             $ref: '#/components/schemas/FpTriggerPipeline'
           type: array
+        query:
+          type: string
         schedule:
           type: string
         start_line_number:
@@ -1097,40 +1103,44 @@ components:
       example:
         next_token: next_token
         items:
-        - schedule: schedule
-          pipelines:
-          - pipeline: pipeline
-            capture_group: capture_group
-          - pipeline: pipeline
-            capture_group: capture_group
-          file_name: file_name
+        - file_name: file_name
           documentation: documentation
-          name: name
+          query: query
           description: description
           end_line_number: 0
           start_line_number: 6
           title: title
           type: type
+          enabled: true
           url: url
           tags:
             key: tags
-        - schedule: schedule
+          schedule: schedule
           pipelines:
           - pipeline: pipeline
             capture_group: capture_group
           - pipeline: pipeline
             capture_group: capture_group
-          file_name: file_name
-          documentation: documentation
           name: name
+        - file_name: file_name
+          documentation: documentation
+          query: query
           description: description
           end_line_number: 0
           start_line_number: 6
           title: title
           type: type
+          enabled: true
           url: url
           tags:
             key: tags
+          schedule: schedule
+          pipelines:
+          - pipeline: pipeline
+            capture_group: capture_group
+          - pipeline: pipeline
+            capture_group: capture_group
+          name: name
       properties:
         items:
           items:
