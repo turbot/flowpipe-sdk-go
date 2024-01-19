@@ -107,6 +107,7 @@ Class | Method | HTTP request | Description
  - [FpPipeline](docs/FpPipeline.md)
  - [FpPipelineParam](docs/FpPipelineParam.md)
  - [FpTrigger](docs/FpTrigger.md)
+ - [FpTriggerPipeline](docs/FpTriggerPipeline.md)
  - [ListPipelineResponse](docs/ListPipelineResponse.md)
  - [ListProcessLogJSONResponse](docs/ListProcessLogJSONResponse.md)
  - [ListProcessResponse](docs/ListProcessResponse.md)

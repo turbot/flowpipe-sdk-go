@@ -20,6 +20,7 @@ docs/FlowpipeRequire.md
 docs/FpPipeline.md
 docs/FpPipelineParam.md
 docs/FpTrigger.md
+docs/FpTriggerPipeline.md
 docs/ListPipelineResponse.md
 docs/ListProcessLogJSONResponse.md
 docs/ListProcessResponse.md
@@ -60,6 +61,7 @@ model_flowpipe_require.go
 model_fp_pipeline.go
 model_fp_pipeline_param.go
 model_fp_trigger.go
+model_fp_trigger_pipeline.go
 model_list_pipeline_response.go
 model_list_process_log_json_response.go
 model_list_process_response.go

@@ -830,9 +830,11 @@ components:
           value: "{}"
           resolved: true
         mod: mod
+        file_name: file_name
         documentation: documentation
         name: name
         description: description
+        end_line_number: 0
         params:
         - default: "{}"
           name: name
@@ -844,6 +846,7 @@ components:
           description: description
           optional: true
           type: type
+        start_line_number: 6
         title: title
         steps:
         - "{}"
@@ -854,6 +857,10 @@ components:
         description:
           type: string
         documentation:
+          type: string
+        end_line_number:
+          type: integer
+        file_name:
           type: string
         mod:
           type: string
@@ -867,6 +874,8 @@ components:
           items:
             $ref: '#/components/schemas/FpPipelineParam'
           type: array
+        start_line_number:
+          type: integer
         steps:
           items:
             type: object
@@ -899,27 +908,48 @@ components:
       type: object
     FpTrigger:
       example:
-        pipeline: pipeline
-        schedule: schedule
+        file_name: file_name
         documentation: documentation
-        name: name
+        query: query
         description: description
+        end_line_number: 0
+        start_line_number: 6
         title: title
         type: type
+        enabled: true
         url: url
         tags:
           key: tags
+        schedule: schedule
+        pipelines:
+        - pipeline: pipeline
+          capture_group: capture_group
+        - pipeline: pipeline
+          capture_group: capture_group
+        name: name
       properties:
         description:
           type: string
         documentation:
           type: string
+        enabled:
+          type: boolean
+        end_line_number:
+          type: integer
+        file_name:
+          type: string
         name:
           type: string
-        pipeline:
+        pipelines:
+          items:
+            $ref: '#/components/schemas/FpTriggerPipeline'
+          type: array
+        query:
           type: string
         schedule:
           type: string
+        start_line_number:
+          type: integer
         tags:
           additionalProperties:
             type: string
@@ -929,6 +959,16 @@ components:
         type:
           type: string
         url:
+          type: string
+      type: object
+    FpTriggerPipeline:
+      example:
+        pipeline: pipeline
+        capture_group: capture_group
+      properties:
+        capture_group:
+          type: string
+        pipeline:
           type: string
       type: object
     ListPipelineResponse:
@@ -951,9 +991,11 @@ components:
             value: "{}"
             resolved: true
           mod: mod
+          file_name: file_name
           documentation: documentation
           name: name
           description: description
+          end_line_number: 0
           params:
           - default: "{}"
             name: name
@@ -965,6 +1007,7 @@ components:
             description: description
             optional: true
             type: type
+          start_line_number: 6
           title: title
           steps:
           - "{}"
@@ -987,9 +1030,11 @@ components:
             value: "{}"
             resolved: true
           mod: mod
+          file_name: file_name
           documentation: documentation
           name: name
           description: description
+          end_line_number: 0
           params:
           - default: "{}"
             name: name
@@ -1001,6 +1046,7 @@ components:
             description: description
             optional: true
             type: type
+          start_line_number: 6
           title: title
           steps:
           - "{}"
@@ -1057,26 +1103,44 @@ components:
       example:
         next_token: next_token
         items:
-        - pipeline: pipeline
-          schedule: schedule
+        - file_name: file_name
           documentation: documentation
-          name: name
+          query: query
           description: description
+          end_line_number: 0
+          start_line_number: 6
           title: title
           type: type
+          enabled: true
           url: url
           tags:
             key: tags
-        - pipeline: pipeline
           schedule: schedule
-          documentation: documentation
+          pipelines:
+          - pipeline: pipeline
+            capture_group: capture_group
+          - pipeline: pipeline
+            capture_group: capture_group
           name: name
+        - file_name: file_name
+          documentation: documentation
+          query: query
           description: description
+          end_line_number: 0
+          start_line_number: 6
           title: title
           type: type
+          enabled: true
           url: url
           tags:
             key: tags
+          schedule: schedule
+          pipelines:
+          - pipeline: pipeline
+            capture_group: capture_group
+          - pipeline: pipeline
+            capture_group: capture_group
+          name: name
       properties:
         items:
           items:
