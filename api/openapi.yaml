@@ -832,7 +832,6 @@ components:
         mod: mod
         file_name: file_name
         documentation: documentation
-        name: name
         description: description
         end_line_number: 0
         params:
@@ -853,6 +852,8 @@ components:
         - "{}"
         tags:
           key: tags
+        root_mod: root_mod
+        name: name
       properties:
         description:
           type: string
@@ -874,6 +875,8 @@ components:
           items:
             $ref: '#/components/schemas/FpPipelineParam'
           type: array
+        root_mod:
+          type: string
         start_line_number:
           type: integer
         steps:
@@ -993,7 +996,6 @@ components:
           mod: mod
           file_name: file_name
           documentation: documentation
-          name: name
           description: description
           end_line_number: 0
           params:
@@ -1014,6 +1016,8 @@ components:
           - "{}"
           tags:
             key: tags
+          root_mod: root_mod
+          name: name
         - outputs:
           - depends_on:
             - depends_on
@@ -1032,7 +1036,6 @@ components:
           mod: mod
           file_name: file_name
           documentation: documentation
-          name: name
           description: description
           end_line_number: 0
           params:
@@ -1053,6 +1056,8 @@ components:
           - "{}"
           tags:
             key: tags
+          root_mod: root_mod
+          name: name
       properties:
         items:
           items:

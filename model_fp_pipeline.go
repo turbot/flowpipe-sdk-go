@@ -28,6 +28,7 @@ type FpPipeline struct {
 	Name *string `json:"name,omitempty"`
 	Outputs []ModconfigPipelineOutput `json:"outputs,omitempty"`
 	Params []FpPipelineParam `json:"params,omitempty"`
+	RootMod *string `json:"root_mod,omitempty"`
 	StartLineNumber *int32 `json:"start_line_number,omitempty"`
 	Steps []map[string]interface{} `json:"steps,omitempty"`
 	Tags *map[string]string `json:"tags,omitempty"`
@@ -309,6 +310,38 @@ func (o *FpPipeline) SetParams(v []FpPipelineParam) {
 	o.Params = v
 }
 
+// GetRootMod returns the RootMod field value if set, zero value otherwise.
+func (o *FpPipeline) GetRootMod() string {
+	if o == nil || IsNil(o.RootMod) {
+		var ret string
+		return ret
+	}
+	return *o.RootMod
+}
+
+// GetRootModOk returns a tuple with the RootMod field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpPipeline) GetRootModOk() (*string, bool) {
+	if o == nil || IsNil(o.RootMod) {
+		return nil, false
+	}
+	return o.RootMod, true
+}
+
+// HasRootMod returns a boolean if a field has been set.
+func (o *FpPipeline) HasRootMod() bool {
+	if o != nil && !IsNil(o.RootMod) {
+		return true
+	}
+
+	return false
+}
+
+// SetRootMod gets a reference to the given string and assigns it to the RootMod field.
+func (o *FpPipeline) SetRootMod(v string) {
+	o.RootMod = &v
+}
+
 // GetStartLineNumber returns the StartLineNumber field value if set, zero value otherwise.
 func (o *FpPipeline) GetStartLineNumber() int32 {
 	if o == nil || IsNil(o.StartLineNumber) {
@@ -470,6 +503,9 @@ func (o FpPipeline) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Params) {
 		toSerialize["params"] = o.Params
+	}
+	if !IsNil(o.RootMod) {
+		toSerialize["root_mod"] = o.RootMod
 	}
 	if !IsNil(o.StartLineNumber) {
 		toSerialize["start_line_number"] = o.StartLineNumber

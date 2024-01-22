@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** |  | [optional] 
 **Outputs** | Pointer to [**[]ModconfigPipelineOutput**](ModconfigPipelineOutput.md) |  | [optional] 
 **Params** | Pointer to [**[]FpPipelineParam**](FpPipelineParam.md) |  | [optional] 
+**RootMod** | Pointer to **string** |  | [optional] 
 **StartLineNumber** | Pointer to **int32** |  | [optional] 
 **Steps** | Pointer to **[]map[string]interface{}** |  | [optional] 
 **Tags** | Pointer to **map[string]string** |  | [optional] 
@@ -235,6 +236,31 @@ SetParams sets Params field to given value.
 `func (o *FpPipeline) HasParams() bool`
 
 HasParams returns a boolean if a field has been set.
+
+### GetRootMod
+
+`func (o *FpPipeline) GetRootMod() string`
+
+GetRootMod returns the RootMod field if non-nil, zero value otherwise.
+
+### GetRootModOk
+
+`func (o *FpPipeline) GetRootModOk() (*string, bool)`
+
+GetRootModOk returns a tuple with the RootMod field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRootMod
+
+`func (o *FpPipeline) SetRootMod(v string)`
+
+SetRootMod sets RootMod field to given value.
+
+### HasRootMod
+
+`func (o *FpPipeline) HasRootMod() bool`
+
+HasRootMod returns a boolean if a field has been set.
 
 ### GetStartLineNumber
 
