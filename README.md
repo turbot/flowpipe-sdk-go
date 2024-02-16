@@ -80,7 +80,11 @@ All URIs are relative to *https://localhost/api/v0*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*IntegrationApi* | [**Get**](docs/IntegrationApi.md#get) | **Get** /integration/{integration_name} | Get integration
+*IntegrationApi* | [**List**](docs/IntegrationApi.md#list) | **Get** /integration | List integrations
 *ModApi* | [**Get**](docs/ModApi.md#get) | **Get** /mod/{mod_name} | Get mod
+*NotifierApi* | [**Get**](docs/NotifierApi.md#get) | **Get** /notifier/{notifier_name} | Get notifier
+*NotifierApi* | [**List**](docs/NotifierApi.md#list) | **Get** /notifier | List notifiers
 *PipelineApi* | [**Command**](docs/PipelineApi.md#command) | **Post** /pipeline/{pipeline_name}/command | Execute a pipeline command
 *PipelineApi* | [**Get**](docs/PipelineApi.md#get) | **Get** /pipeline/{pipeline_name} | Get pipeline
 *PipelineApi* | [**List**](docs/PipelineApi.md#list) | **Get** /pipeline | List pipelines
@@ -104,10 +108,14 @@ Class | Method | HTTP request | Description
  - [ExecutionStepExecutionStepForEach](docs/ExecutionStepExecutionStepForEach.md)
  - [ExecutionStepStatus](docs/ExecutionStepStatus.md)
  - [FlowpipeRequire](docs/FlowpipeRequire.md)
+ - [FpIntegration](docs/FpIntegration.md)
+ - [FpNotifier](docs/FpNotifier.md)
  - [FpPipeline](docs/FpPipeline.md)
  - [FpPipelineParam](docs/FpPipelineParam.md)
  - [FpTrigger](docs/FpTrigger.md)
  - [FpTriggerPipeline](docs/FpTriggerPipeline.md)
+ - [ListIntegrationResponse](docs/ListIntegrationResponse.md)
+ - [ListNotifierResponse](docs/ListNotifierResponse.md)
  - [ListPipelineResponse](docs/ListPipelineResponse.md)
  - [ListProcessLogJSONResponse](docs/ListProcessLogJSONResponse.md)
  - [ListProcessResponse](docs/ListProcessResponse.md)

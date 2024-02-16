@@ -13,6 +13,134 @@ info:
 servers:
 - url: https://localhost/api/v0
 paths:
+  /integration:
+    get:
+      description: Lists integrations
+      operationId: integration_list
+      parameters:
+      - description: "The max number of items to fetch per page of data, subject to\
+          \ a min and max of 1 and 100 respectively. If not specified will default\
+          \ to 25."
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 25
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: "When list results are truncated, next_token will be returned,\
+          \ which is a cursor to fetch the next page of data. Pass next_token to the\
+          \ subsequent list request to fetch the next page of data."
+        explode: true
+        in: query
+        name: next_token
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListIntegrationResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Forbidden
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Internal Server Error
+      summary: List integrations
+      tags:
+      - Integration
+  /integration/{integration_name}:
+    get:
+      description: Get integration
+      operationId: integration_get
+      parameters:
+      - description: The name of the integration
+        explode: false
+        in: path
+        name: integration_name
+        required: true
+        schema:
+          format: "^[a-z_]{0,32}$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FpIntegration'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Not Found
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Internal Server Error
+      summary: Get integration
+      tags:
+      - Integration
   /mod/{mod_name}:
     get:
       description: Get mod
@@ -73,6 +201,133 @@ paths:
       summary: Get mod
       tags:
       - Mod
+  /notifier:
+    get:
+      description: Lists notifiers
+      operationId: notifier_list
+      parameters:
+      - description: "The max number of items to fetch per page of data, subject to\
+          \ a min and max of 1 and 100 respectively. If not specified will default\
+          \ to 25."
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 25
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: "When list results are truncated, next_token will be returned,\
+          \ which is a cursor to fetch the next page of data. Pass next_token to the\
+          \ subsequent list request to fetch the next page of data."
+        explode: true
+        in: query
+        name: next_token
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListNotifierResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Forbidden
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Internal Server Error
+      summary: List notifiers
+      tags:
+      - Notifier
+  /notifier/{notifier_name}:
+    get:
+      description: Get notifier
+      operationId: notifier_get
+      parameters:
+      - description: Notifier name
+        explode: false
+        in: path
+        name: notifier_name
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FpNotifier'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Not Found
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Internal Server Error
+      summary: Get notifier
+      tags:
+      - Notifier
   /pipeline:
     get:
       description: Lists pipelines
@@ -812,6 +1067,65 @@ components:
         min_version:
           type: string
       type: object
+    FpIntegration:
+      example:
+        file_name: file_name
+        root_mod: root_mod
+        documentation: documentation
+        name: name
+        description: description
+        end_line_number: 0
+        start_line_number: 6
+        title: title
+        type: type
+      properties:
+        description:
+          type: string
+        documentation:
+          type: string
+        end_line_number:
+          type: integer
+        file_name:
+          type: string
+        name:
+          type: string
+        root_mod:
+          type: string
+        start_line_number:
+          type: integer
+        title:
+          type: string
+        type:
+          type: string
+      type: object
+    FpNotifier:
+      example:
+        file_name: file_name
+        root_mod: root_mod
+        documentation: documentation
+        name: name
+        description: description
+        end_line_number: 0
+        start_line_number: 6
+        title: title
+      properties:
+        description:
+          type: string
+        documentation:
+          type: string
+        end_line_number:
+          type: integer
+        file_name:
+          type: string
+        name:
+          type: string
+        root_mod:
+          type: string
+        start_line_number:
+          type: integer
+        title:
+          type: string
+      type: object
     FpPipeline:
       example:
         outputs:
@@ -972,6 +1286,64 @@ components:
         capture_group:
           type: string
         pipeline:
+          type: string
+      type: object
+    ListIntegrationResponse:
+      example:
+        next_token: next_token
+        items:
+        - file_name: file_name
+          root_mod: root_mod
+          documentation: documentation
+          name: name
+          description: description
+          end_line_number: 0
+          start_line_number: 6
+          title: title
+          type: type
+        - file_name: file_name
+          root_mod: root_mod
+          documentation: documentation
+          name: name
+          description: description
+          end_line_number: 0
+          start_line_number: 6
+          title: title
+          type: type
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/FpIntegration'
+          type: array
+        next_token:
+          type: string
+      type: object
+    ListNotifierResponse:
+      example:
+        next_token: next_token
+        items:
+        - file_name: file_name
+          root_mod: root_mod
+          documentation: documentation
+          name: name
+          description: description
+          end_line_number: 0
+          start_line_number: 6
+          title: title
+        - file_name: file_name
+          root_mod: root_mod
+          documentation: documentation
+          name: name
+          description: description
+          end_line_number: 0
+          start_line_number: 6
+          title: title
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/FpNotifier'
+          type: array
+        next_token:
           type: string
       type: object
     ListPipelineResponse:
