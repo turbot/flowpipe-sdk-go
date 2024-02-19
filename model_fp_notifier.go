@@ -25,7 +25,6 @@ type FpNotifier struct {
 	EndLineNumber *int32 `json:"end_line_number,omitempty"`
 	FileName *string `json:"file_name,omitempty"`
 	Name *string `json:"name,omitempty"`
-	RootMod *string `json:"root_mod,omitempty"`
 	StartLineNumber *int32 `json:"start_line_number,omitempty"`
 	Title *string `json:"title,omitempty"`
 }
@@ -209,38 +208,6 @@ func (o *FpNotifier) SetName(v string) {
 	o.Name = &v
 }
 
-// GetRootMod returns the RootMod field value if set, zero value otherwise.
-func (o *FpNotifier) GetRootMod() string {
-	if o == nil || IsNil(o.RootMod) {
-		var ret string
-		return ret
-	}
-	return *o.RootMod
-}
-
-// GetRootModOk returns a tuple with the RootMod field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FpNotifier) GetRootModOk() (*string, bool) {
-	if o == nil || IsNil(o.RootMod) {
-		return nil, false
-	}
-	return o.RootMod, true
-}
-
-// HasRootMod returns a boolean if a field has been set.
-func (o *FpNotifier) HasRootMod() bool {
-	if o != nil && !IsNil(o.RootMod) {
-		return true
-	}
-
-	return false
-}
-
-// SetRootMod gets a reference to the given string and assigns it to the RootMod field.
-func (o *FpNotifier) SetRootMod(v string) {
-	o.RootMod = &v
-}
-
 // GetStartLineNumber returns the StartLineNumber field value if set, zero value otherwise.
 func (o *FpNotifier) GetStartLineNumber() int32 {
 	if o == nil || IsNil(o.StartLineNumber) {
@@ -329,9 +296,6 @@ func (o FpNotifier) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
-	}
-	if !IsNil(o.RootMod) {
-		toSerialize["root_mod"] = o.RootMod
 	}
 	if !IsNil(o.StartLineNumber) {
 		toSerialize["start_line_number"] = o.StartLineNumber

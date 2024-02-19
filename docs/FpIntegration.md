@@ -9,10 +9,10 @@ Name | Type | Description | Notes
 **EndLineNumber** | Pointer to **int32** |  | [optional] 
 **FileName** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**RootMod** | Pointer to **string** |  | [optional] 
 **StartLineNumber** | Pointer to **int32** |  | [optional] 
 **Title** | Pointer to **string** |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] 
+**Url** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -158,31 +158,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### GetRootMod
-
-`func (o *FpIntegration) GetRootMod() string`
-
-GetRootMod returns the RootMod field if non-nil, zero value otherwise.
-
-### GetRootModOk
-
-`func (o *FpIntegration) GetRootModOk() (*string, bool)`
-
-GetRootModOk returns a tuple with the RootMod field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRootMod
-
-`func (o *FpIntegration) SetRootMod(v string)`
-
-SetRootMod sets RootMod field to given value.
-
-### HasRootMod
-
-`func (o *FpIntegration) HasRootMod() bool`
-
-HasRootMod returns a boolean if a field has been set.
-
 ### GetStartLineNumber
 
 `func (o *FpIntegration) GetStartLineNumber() int32`
@@ -257,6 +232,31 @@ SetType sets Type field to given value.
 `func (o *FpIntegration) HasType() bool`
 
 HasType returns a boolean if a field has been set.
+
+### GetUrl
+
+`func (o *FpIntegration) GetUrl() string`
+
+GetUrl returns the Url field if non-nil, zero value otherwise.
+
+### GetUrlOk
+
+`func (o *FpIntegration) GetUrlOk() (*string, bool)`
+
+GetUrlOk returns a tuple with the Url field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUrl
+
+`func (o *FpIntegration) SetUrl(v string)`
+
+SetUrl sets Url field to given value.
+
+### HasUrl
+
+`func (o *FpIntegration) HasUrl() bool`
+
+HasUrl returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -1070,7 +1070,6 @@ components:
     FpIntegration:
       example:
         file_name: file_name
-        root_mod: root_mod
         documentation: documentation
         name: name
         description: description
@@ -1078,6 +1077,7 @@ components:
         start_line_number: 6
         title: title
         type: type
+        url: url
       properties:
         description:
           type: string
@@ -1089,19 +1089,18 @@ components:
           type: string
         name:
           type: string
-        root_mod:
-          type: string
         start_line_number:
           type: integer
         title:
           type: string
         type:
           type: string
+        url:
+          type: string
       type: object
     FpNotifier:
       example:
         file_name: file_name
-        root_mod: root_mod
         documentation: documentation
         name: name
         description: description
@@ -1118,8 +1117,6 @@ components:
         file_name:
           type: string
         name:
-          type: string
-        root_mod:
           type: string
         start_line_number:
           type: integer
@@ -1293,7 +1290,6 @@ components:
         next_token: next_token
         items:
         - file_name: file_name
-          root_mod: root_mod
           documentation: documentation
           name: name
           description: description
@@ -1301,8 +1297,8 @@ components:
           start_line_number: 6
           title: title
           type: type
+          url: url
         - file_name: file_name
-          root_mod: root_mod
           documentation: documentation
           name: name
           description: description
@@ -1310,6 +1306,7 @@ components:
           start_line_number: 6
           title: title
           type: type
+          url: url
       properties:
         items:
           items:
@@ -1323,7 +1320,6 @@ components:
         next_token: next_token
         items:
         - file_name: file_name
-          root_mod: root_mod
           documentation: documentation
           name: name
           description: description
@@ -1331,7 +1327,6 @@ components:
           start_line_number: 6
           title: title
         - file_name: file_name
-          root_mod: root_mod
           documentation: documentation
           name: name
           description: description

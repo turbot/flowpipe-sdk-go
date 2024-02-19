@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **EndLineNumber** | Pointer to **int32** |  | [optional] 
 **FileName** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**RootMod** | Pointer to **string** |  | [optional] 
 **StartLineNumber** | Pointer to **int32** |  | [optional] 
 **Title** | Pointer to **string** |  | [optional] 
 
@@ -156,31 +155,6 @@ SetName sets Name field to given value.
 `func (o *FpNotifier) HasName() bool`
 
 HasName returns a boolean if a field has been set.
-
-### GetRootMod
-
-`func (o *FpNotifier) GetRootMod() string`
-
-GetRootMod returns the RootMod field if non-nil, zero value otherwise.
-
-### GetRootModOk
-
-`func (o *FpNotifier) GetRootModOk() (*string, bool)`
-
-GetRootModOk returns a tuple with the RootMod field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRootMod
-
-`func (o *FpNotifier) SetRootMod(v string)`
-
-SetRootMod sets RootMod field to given value.
-
-### HasRootMod
-
-`func (o *FpNotifier) HasRootMod() bool`
-
-HasRootMod returns a boolean if a field has been set.
 
 ### GetStartLineNumber
 

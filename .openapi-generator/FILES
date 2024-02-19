@@ -96,6 +96,4 @@ model_process_event_log.go
 model_require.go
 model_variable.go
 response.go
-test/api_integration_test.go
-test/api_notifier_test.go
 utils.go

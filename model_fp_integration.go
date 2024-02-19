@@ -25,10 +25,10 @@ type FpIntegration struct {
 	EndLineNumber *int32 `json:"end_line_number,omitempty"`
 	FileName *string `json:"file_name,omitempty"`
 	Name *string `json:"name,omitempty"`
-	RootMod *string `json:"root_mod,omitempty"`
 	StartLineNumber *int32 `json:"start_line_number,omitempty"`
 	Title *string `json:"title,omitempty"`
 	Type *string `json:"type,omitempty"`
+	Url *string `json:"url,omitempty"`
 }
 func (o FpIntegration) GetResourceType() string {
 	return "FpIntegration"
@@ -210,38 +210,6 @@ func (o *FpIntegration) SetName(v string) {
 	o.Name = &v
 }
 
-// GetRootMod returns the RootMod field value if set, zero value otherwise.
-func (o *FpIntegration) GetRootMod() string {
-	if o == nil || IsNil(o.RootMod) {
-		var ret string
-		return ret
-	}
-	return *o.RootMod
-}
-
-// GetRootModOk returns a tuple with the RootMod field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FpIntegration) GetRootModOk() (*string, bool) {
-	if o == nil || IsNil(o.RootMod) {
-		return nil, false
-	}
-	return o.RootMod, true
-}
-
-// HasRootMod returns a boolean if a field has been set.
-func (o *FpIntegration) HasRootMod() bool {
-	if o != nil && !IsNil(o.RootMod) {
-		return true
-	}
-
-	return false
-}
-
-// SetRootMod gets a reference to the given string and assigns it to the RootMod field.
-func (o *FpIntegration) SetRootMod(v string) {
-	o.RootMod = &v
-}
-
 // GetStartLineNumber returns the StartLineNumber field value if set, zero value otherwise.
 func (o *FpIntegration) GetStartLineNumber() int32 {
 	if o == nil || IsNil(o.StartLineNumber) {
@@ -338,6 +306,38 @@ func (o *FpIntegration) SetType(v string) {
 	o.Type = &v
 }
 
+// GetUrl returns the Url field value if set, zero value otherwise.
+func (o *FpIntegration) GetUrl() string {
+	if o == nil || IsNil(o.Url) {
+		var ret string
+		return ret
+	}
+	return *o.Url
+}
+
+// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpIntegration) GetUrlOk() (*string, bool) {
+	if o == nil || IsNil(o.Url) {
+		return nil, false
+	}
+	return o.Url, true
+}
+
+// HasUrl returns a boolean if a field has been set.
+func (o *FpIntegration) HasUrl() bool {
+	if o != nil && !IsNil(o.Url) {
+		return true
+	}
+
+	return false
+}
+
+// SetUrl gets a reference to the given string and assigns it to the Url field.
+func (o *FpIntegration) SetUrl(v string) {
+	o.Url = &v
+}
+
 func (o FpIntegration) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -363,9 +363,6 @@ func (o FpIntegration) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if !IsNil(o.RootMod) {
-		toSerialize["root_mod"] = o.RootMod
-	}
 	if !IsNil(o.StartLineNumber) {
 		toSerialize["start_line_number"] = o.StartLineNumber
 	}
@@ -374,6 +371,9 @@ func (o FpIntegration) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
+	}
+	if !IsNil(o.Url) {
+		toSerialize["url"] = o.Url
 	}
 	return toSerialize, nil
 }
