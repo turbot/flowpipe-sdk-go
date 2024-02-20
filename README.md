@@ -110,6 +110,7 @@ Class | Method | HTTP request | Description
  - [FlowpipeRequire](docs/FlowpipeRequire.md)
  - [FpIntegration](docs/FpIntegration.md)
  - [FpNotifier](docs/FpNotifier.md)
+ - [FpNotify](docs/FpNotify.md)
  - [FpPipeline](docs/FpPipeline.md)
  - [FpPipelineParam](docs/FpPipelineParam.md)
  - [FpTrigger](docs/FpTrigger.md)

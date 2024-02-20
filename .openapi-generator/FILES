@@ -21,6 +21,7 @@ docs/ExecutionStepStatus.md
 docs/FlowpipeRequire.md
 docs/FpIntegration.md
 docs/FpNotifier.md
+docs/FpNotify.md
 docs/FpPipeline.md
 docs/FpPipelineParam.md
 docs/FpTrigger.md
@@ -68,6 +69,7 @@ model_execution_step_status.go
 model_flowpipe_require.go
 model_fp_integration.go
 model_fp_notifier.go
+model_fp_notify.go
 model_fp_pipeline.go
 model_fp_pipeline_param.go
 model_fp_trigger.go

@@ -1078,6 +1078,8 @@ components:
         title: title
         type: type
         url: url
+        tags:
+          key: tags
       properties:
         description:
           type: string
@@ -1091,6 +1093,10 @@ components:
           type: string
         start_line_number:
           type: integer
+        tags:
+          additionalProperties:
+            type: string
+          type: object
         title:
           type: string
         type:
@@ -1104,9 +1110,40 @@ components:
         documentation: documentation
         name: name
         description: description
+        notifies:
+        - cc:
+          - cc
+          - cc
+          bcc:
+          - bcc
+          - bcc
+          subject: subject
+          channel: channel
+          integration: integration
+          description: description
+          to:
+          - to
+          - to
+          title: title
+        - cc:
+          - cc
+          - cc
+          bcc:
+          - bcc
+          - bcc
+          subject: subject
+          channel: channel
+          integration: integration
+          description: description
+          to:
+          - to
+          - to
+          title: title
         end_line_number: 0
         start_line_number: 6
         title: title
+        tags:
+          key: tags
       properties:
         description:
           type: string
@@ -1118,10 +1155,58 @@ components:
           type: string
         name:
           type: string
+        notifies:
+          items:
+            $ref: '#/components/schemas/FpNotify'
+          type: array
         start_line_number:
           type: integer
+        tags:
+          additionalProperties:
+            type: string
+          type: object
         title:
           type: string
+      type: object
+    FpNotify:
+      example:
+        cc:
+        - cc
+        - cc
+        bcc:
+        - bcc
+        - bcc
+        subject: subject
+        channel: channel
+        integration: integration
+        description: description
+        to:
+        - to
+        - to
+        title: title
+      properties:
+        bcc:
+          items:
+            type: string
+          type: array
+        cc:
+          items:
+            type: string
+          type: array
+        channel:
+          type: string
+        description:
+          type: string
+        integration:
+          type: string
+        subject:
+          type: string
+        title:
+          type: string
+        to:
+          items:
+            type: string
+          type: array
       type: object
     FpPipeline:
       example:
@@ -1298,6 +1383,8 @@ components:
           title: title
           type: type
           url: url
+          tags:
+            key: tags
         - file_name: file_name
           documentation: documentation
           name: name
@@ -1307,6 +1394,8 @@ components:
           title: title
           type: type
           url: url
+          tags:
+            key: tags
       properties:
         items:
           items:
@@ -1323,16 +1412,78 @@ components:
           documentation: documentation
           name: name
           description: description
+          notifies:
+          - cc:
+            - cc
+            - cc
+            bcc:
+            - bcc
+            - bcc
+            subject: subject
+            channel: channel
+            integration: integration
+            description: description
+            to:
+            - to
+            - to
+            title: title
+          - cc:
+            - cc
+            - cc
+            bcc:
+            - bcc
+            - bcc
+            subject: subject
+            channel: channel
+            integration: integration
+            description: description
+            to:
+            - to
+            - to
+            title: title
           end_line_number: 0
           start_line_number: 6
           title: title
+          tags:
+            key: tags
         - file_name: file_name
           documentation: documentation
           name: name
           description: description
+          notifies:
+          - cc:
+            - cc
+            - cc
+            bcc:
+            - bcc
+            - bcc
+            subject: subject
+            channel: channel
+            integration: integration
+            description: description
+            to:
+            - to
+            - to
+            title: title
+          - cc:
+            - cc
+            - cc
+            bcc:
+            - bcc
+            - bcc
+            subject: subject
+            channel: channel
+            integration: integration
+            description: description
+            to:
+            - to
+            - to
+            title: title
           end_line_number: 0
           start_line_number: 6
           title: title
+          tags:
+            key: tags
       properties:
         items:
           items:

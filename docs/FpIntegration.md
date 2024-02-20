@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **FileName** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **StartLineNumber** | Pointer to **int32** |  | [optional] 
+**Tags** | Pointer to **map[string]string** |  | [optional] 
 **Title** | Pointer to **string** |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] 
 **Url** | Pointer to **string** |  | [optional] 
@@ -182,6 +183,31 @@ SetStartLineNumber sets StartLineNumber field to given value.
 `func (o *FpIntegration) HasStartLineNumber() bool`
 
 HasStartLineNumber returns a boolean if a field has been set.
+
+### GetTags
+
+`func (o *FpIntegration) GetTags() map[string]string`
+
+GetTags returns the Tags field if non-nil, zero value otherwise.
+
+### GetTagsOk
+
+`func (o *FpIntegration) GetTagsOk() (*map[string]string, bool)`
+
+GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTags
+
+`func (o *FpIntegration) SetTags(v map[string]string)`
+
+SetTags sets Tags field to given value.
+
+### HasTags
+
+`func (o *FpIntegration) HasTags() bool`
+
+HasTags returns a boolean if a field has been set.
 
 ### GetTitle
 

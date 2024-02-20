@@ -25,7 +25,9 @@ type FpNotifier struct {
 	EndLineNumber *int32 `json:"end_line_number,omitempty"`
 	FileName *string `json:"file_name,omitempty"`
 	Name *string `json:"name,omitempty"`
+	Notifies []FpNotify `json:"notifies,omitempty"`
 	StartLineNumber *int32 `json:"start_line_number,omitempty"`
+	Tags *map[string]string `json:"tags,omitempty"`
 	Title *string `json:"title,omitempty"`
 }
 func (o FpNotifier) GetResourceType() string {
@@ -208,6 +210,38 @@ func (o *FpNotifier) SetName(v string) {
 	o.Name = &v
 }
 
+// GetNotifies returns the Notifies field value if set, zero value otherwise.
+func (o *FpNotifier) GetNotifies() []FpNotify {
+	if o == nil || IsNil(o.Notifies) {
+		var ret []FpNotify
+		return ret
+	}
+	return o.Notifies
+}
+
+// GetNotifiesOk returns a tuple with the Notifies field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpNotifier) GetNotifiesOk() ([]FpNotify, bool) {
+	if o == nil || IsNil(o.Notifies) {
+		return nil, false
+	}
+	return o.Notifies, true
+}
+
+// HasNotifies returns a boolean if a field has been set.
+func (o *FpNotifier) HasNotifies() bool {
+	if o != nil && !IsNil(o.Notifies) {
+		return true
+	}
+
+	return false
+}
+
+// SetNotifies gets a reference to the given []FpNotify and assigns it to the Notifies field.
+func (o *FpNotifier) SetNotifies(v []FpNotify) {
+	o.Notifies = v
+}
+
 // GetStartLineNumber returns the StartLineNumber field value if set, zero value otherwise.
 func (o *FpNotifier) GetStartLineNumber() int32 {
 	if o == nil || IsNil(o.StartLineNumber) {
@@ -238,6 +272,38 @@ func (o *FpNotifier) HasStartLineNumber() bool {
 // SetStartLineNumber gets a reference to the given int32 and assigns it to the StartLineNumber field.
 func (o *FpNotifier) SetStartLineNumber(v int32) {
 	o.StartLineNumber = &v
+}
+
+// GetTags returns the Tags field value if set, zero value otherwise.
+func (o *FpNotifier) GetTags() map[string]string {
+	if o == nil || IsNil(o.Tags) {
+		var ret map[string]string
+		return ret
+	}
+	return *o.Tags
+}
+
+// GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpNotifier) GetTagsOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.Tags) {
+		return nil, false
+	}
+	return o.Tags, true
+}
+
+// HasTags returns a boolean if a field has been set.
+func (o *FpNotifier) HasTags() bool {
+	if o != nil && !IsNil(o.Tags) {
+		return true
+	}
+
+	return false
+}
+
+// SetTags gets a reference to the given map[string]string and assigns it to the Tags field.
+func (o *FpNotifier) SetTags(v map[string]string) {
+	o.Tags = &v
 }
 
 // GetTitle returns the Title field value if set, zero value otherwise.
@@ -297,8 +363,14 @@ func (o FpNotifier) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
+	if !IsNil(o.Notifies) {
+		toSerialize["notifies"] = o.Notifies
+	}
 	if !IsNil(o.StartLineNumber) {
 		toSerialize["start_line_number"] = o.StartLineNumber
+	}
+	if !IsNil(o.Tags) {
+		toSerialize["tags"] = o.Tags
 	}
 	if !IsNil(o.Title) {
 		toSerialize["title"] = o.Title

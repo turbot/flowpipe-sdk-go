@@ -9,7 +9,9 @@ Name | Type | Description | Notes
 **EndLineNumber** | Pointer to **int32** |  | [optional] 
 **FileName** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
+**Notifies** | Pointer to [**[]FpNotify**](FpNotify.md) |  | [optional] 
 **StartLineNumber** | Pointer to **int32** |  | [optional] 
+**Tags** | Pointer to **map[string]string** |  | [optional] 
 **Title** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -156,6 +158,31 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### GetNotifies
+
+`func (o *FpNotifier) GetNotifies() []FpNotify`
+
+GetNotifies returns the Notifies field if non-nil, zero value otherwise.
+
+### GetNotifiesOk
+
+`func (o *FpNotifier) GetNotifiesOk() (*[]FpNotify, bool)`
+
+GetNotifiesOk returns a tuple with the Notifies field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNotifies
+
+`func (o *FpNotifier) SetNotifies(v []FpNotify)`
+
+SetNotifies sets Notifies field to given value.
+
+### HasNotifies
+
+`func (o *FpNotifier) HasNotifies() bool`
+
+HasNotifies returns a boolean if a field has been set.
+
 ### GetStartLineNumber
 
 `func (o *FpNotifier) GetStartLineNumber() int32`
@@ -180,6 +207,31 @@ SetStartLineNumber sets StartLineNumber field to given value.
 `func (o *FpNotifier) HasStartLineNumber() bool`
 
 HasStartLineNumber returns a boolean if a field has been set.
+
+### GetTags
+
+`func (o *FpNotifier) GetTags() map[string]string`
+
+GetTags returns the Tags field if non-nil, zero value otherwise.
+
+### GetTagsOk
+
+`func (o *FpNotifier) GetTagsOk() (*map[string]string, bool)`
+
+GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTags
+
+`func (o *FpNotifier) SetTags(v map[string]string)`
+
+SetTags sets Tags field to given value.
+
+### HasTags
+
+`func (o *FpNotifier) HasTags() bool`
+
+HasTags returns a boolean if a field has been set.
 
 ### GetTitle
 
