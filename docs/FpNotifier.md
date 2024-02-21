@@ -5,13 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | Pointer to **string** |  | [optional] 
-**Documentation** | Pointer to **string** |  | [optional] 
 **EndLineNumber** | Pointer to **int32** |  | [optional] 
 **FileName** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Notifies** | Pointer to [**[]FpNotify**](FpNotify.md) |  | [optional] 
 **StartLineNumber** | Pointer to **int32** |  | [optional] 
-**Tags** | Pointer to **map[string]string** |  | [optional] 
 **Title** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -57,31 +55,6 @@ SetDescription sets Description field to given value.
 `func (o *FpNotifier) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
-
-### GetDocumentation
-
-`func (o *FpNotifier) GetDocumentation() string`
-
-GetDocumentation returns the Documentation field if non-nil, zero value otherwise.
-
-### GetDocumentationOk
-
-`func (o *FpNotifier) GetDocumentationOk() (*string, bool)`
-
-GetDocumentationOk returns a tuple with the Documentation field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDocumentation
-
-`func (o *FpNotifier) SetDocumentation(v string)`
-
-SetDocumentation sets Documentation field to given value.
-
-### HasDocumentation
-
-`func (o *FpNotifier) HasDocumentation() bool`
-
-HasDocumentation returns a boolean if a field has been set.
 
 ### GetEndLineNumber
 
@@ -207,31 +180,6 @@ SetStartLineNumber sets StartLineNumber field to given value.
 `func (o *FpNotifier) HasStartLineNumber() bool`
 
 HasStartLineNumber returns a boolean if a field has been set.
-
-### GetTags
-
-`func (o *FpNotifier) GetTags() map[string]string`
-
-GetTags returns the Tags field if non-nil, zero value otherwise.
-
-### GetTagsOk
-
-`func (o *FpNotifier) GetTagsOk() (*map[string]string, bool)`
-
-GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTags
-
-`func (o *FpNotifier) SetTags(v map[string]string)`
-
-SetTags sets Tags field to given value.
-
-### HasTags
-
-`func (o *FpNotifier) HasTags() bool`
-
-HasTags returns a boolean if a field has been set.
 
 ### GetTitle
 

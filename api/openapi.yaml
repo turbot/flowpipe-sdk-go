@@ -1070,7 +1070,6 @@ components:
     FpIntegration:
       example:
         file_name: file_name
-        documentation: documentation
         name: name
         description: description
         end_line_number: 0
@@ -1078,12 +1077,8 @@ components:
         title: title
         type: type
         url: url
-        tags:
-          key: tags
       properties:
         description:
-          type: string
-        documentation:
           type: string
         end_line_number:
           type: integer
@@ -1093,10 +1088,6 @@ components:
           type: string
         start_line_number:
           type: integer
-        tags:
-          additionalProperties:
-            type: string
-          type: object
         title:
           type: string
         type:
@@ -1107,7 +1098,6 @@ components:
     FpNotifier:
       example:
         file_name: file_name
-        documentation: documentation
         name: name
         description: description
         notifies:
@@ -1142,12 +1132,8 @@ components:
         end_line_number: 0
         start_line_number: 6
         title: title
-        tags:
-          key: tags
       properties:
         description:
-          type: string
-        documentation:
           type: string
         end_line_number:
           type: integer
@@ -1161,10 +1147,6 @@ components:
           type: array
         start_line_number:
           type: integer
-        tags:
-          additionalProperties:
-            type: string
-          type: object
         title:
           type: string
       type: object
@@ -1375,7 +1357,6 @@ components:
         next_token: next_token
         items:
         - file_name: file_name
-          documentation: documentation
           name: name
           description: description
           end_line_number: 0
@@ -1383,10 +1364,7 @@ components:
           title: title
           type: type
           url: url
-          tags:
-            key: tags
         - file_name: file_name
-          documentation: documentation
           name: name
           description: description
           end_line_number: 0
@@ -1394,8 +1372,6 @@ components:
           title: title
           type: type
           url: url
-          tags:
-            key: tags
       properties:
         items:
           items:
@@ -1409,7 +1385,6 @@ components:
         next_token: next_token
         items:
         - file_name: file_name
-          documentation: documentation
           name: name
           description: description
           notifies:
@@ -1444,10 +1419,7 @@ components:
           end_line_number: 0
           start_line_number: 6
           title: title
-          tags:
-            key: tags
         - file_name: file_name
-          documentation: documentation
           name: name
           description: description
           notifies:
@@ -1482,8 +1454,6 @@ components:
           end_line_number: 0
           start_line_number: 6
           title: title
-          tags:
-            key: tags
       properties:
         items:
           items:
