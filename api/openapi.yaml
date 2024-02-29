@@ -1069,30 +1069,89 @@ components:
       type: object
     FpIntegration:
       example:
+        cc:
+        - cc
+        - cc
+        bcc:
+        - bcc
+        - bcc
+        signing_secret: signing_secret
+        webhook_url: webhook_url
+        smtp_tls: smtp_tls
         file_name: file_name
-        name: name
+        subject: subject
+        channel: channel
         description: description
         end_line_number: 0
-        start_line_number: 6
+        smtp_host: smtp_host
+        smtps_port: 1
+        start_line_number: 5
         title: title
         type: type
         url: url
+        smtp_username: smtp_username
+        token: token
+        smtp_password: smtp_password
+        smtp_port: 6
+        name: name
+        from: from
+        to:
+        - to
+        - to
       properties:
+        bcc:
+          items:
+            type: string
+          type: array
+        cc:
+          items:
+            type: string
+          type: array
+        channel:
+          type: string
         description:
           type: string
         end_line_number:
           type: integer
         file_name:
           type: string
+        from:
+          type: string
         name:
           type: string
+        signing_secret:
+          type: string
+        smtp_host:
+          description: email
+          type: string
+        smtp_password:
+          type: string
+        smtp_port:
+          type: integer
+        smtp_tls:
+          type: string
+        smtp_username:
+          type: string
+        smtps_port:
+          type: integer
         start_line_number:
           type: integer
+        subject:
+          type: string
         title:
+          type: string
+        to:
+          items:
+            type: string
+          type: array
+        token:
+          description: slack
           type: string
         type:
           type: string
         url:
+          type: string
+        webhook_url:
           type: string
       type: object
     FpNotifier:
@@ -1193,14 +1252,20 @@ components:
     FpPipeline:
       example:
         outputs:
-        - depends_on:
+        - credential_depends_on:
+          - credential_depends_on
+          - credential_depends_on
+          depends_on:
           - depends_on
           - depends_on
           name: name
           description: description
           value: "{}"
           resolved: true
-        - depends_on:
+        - credential_depends_on:
+          - credential_depends_on
+          - credential_depends_on
+          depends_on:
           - depends_on
           - depends_on
           name: name
@@ -1356,22 +1421,64 @@ components:
       example:
         next_token: next_token
         items:
-        - file_name: file_name
-          name: name
+        - cc:
+          - cc
+          - cc
+          bcc:
+          - bcc
+          - bcc
+          signing_secret: signing_secret
+          webhook_url: webhook_url
+          smtp_tls: smtp_tls
+          file_name: file_name
+          subject: subject
+          channel: channel
           description: description
           end_line_number: 0
-          start_line_number: 6
+          smtp_host: smtp_host
+          smtps_port: 1
+          start_line_number: 5
           title: title
           type: type
           url: url
-        - file_name: file_name
+          smtp_username: smtp_username
+          token: token
+          smtp_password: smtp_password
+          smtp_port: 6
           name: name
+          from: from
+          to:
+          - to
+          - to
+        - cc:
+          - cc
+          - cc
+          bcc:
+          - bcc
+          - bcc
+          signing_secret: signing_secret
+          webhook_url: webhook_url
+          smtp_tls: smtp_tls
+          file_name: file_name
+          subject: subject
+          channel: channel
           description: description
           end_line_number: 0
-          start_line_number: 6
+          smtp_host: smtp_host
+          smtps_port: 1
+          start_line_number: 5
           title: title
           type: type
           url: url
+          smtp_username: smtp_username
+          token: token
+          smtp_password: smtp_password
+          smtp_port: 6
+          name: name
+          from: from
+          to:
+          - to
+          - to
       properties:
         items:
           items:
@@ -1467,14 +1574,20 @@ components:
         next_token: next_token
         items:
         - outputs:
-          - depends_on:
+          - credential_depends_on:
+            - credential_depends_on
+            - credential_depends_on
+            depends_on:
             - depends_on
             - depends_on
             name: name
             description: description
             value: "{}"
             resolved: true
-          - depends_on:
+          - credential_depends_on:
+            - credential_depends_on
+            - credential_depends_on
+            depends_on:
             - depends_on
             - depends_on
             name: name
@@ -1507,14 +1620,20 @@ components:
           root_mod: root_mod
           name: name
         - outputs:
-          - depends_on:
+          - credential_depends_on:
+            - credential_depends_on
+            - credential_depends_on
+            depends_on:
             - depends_on
             - depends_on
             name: name
             description: description
             value: "{}"
             resolved: true
-          - depends_on:
+          - credential_depends_on:
+            - credential_depends_on
+            - credential_depends_on
+            depends_on:
             - depends_on
             - depends_on
             name: name
@@ -2281,6 +2400,9 @@ components:
       type: object
     modconfig.PipelineOutput:
       example:
+        credential_depends_on:
+        - credential_depends_on
+        - credential_depends_on
         depends_on:
         - depends_on
         - depends_on
@@ -2289,6 +2411,10 @@ components:
         value: "{}"
         resolved: true
       properties:
+        credential_depends_on:
+          items:
+            type: string
+          type: array
         depends_on:
           items:
             type: string

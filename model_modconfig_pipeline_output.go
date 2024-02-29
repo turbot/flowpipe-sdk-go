@@ -20,6 +20,7 @@ var _ MappedNullable = &ModconfigPipelineOutput{}
 
 // ModconfigPipelineOutput struct for ModconfigPipelineOutput
 type ModconfigPipelineOutput struct {
+	CredentialDependsOn []string `json:"credential_depends_on,omitempty"`
 	DependsOn []string `json:"depends_on,omitempty"`
 	Description *string `json:"description,omitempty"`
 	Name *string `json:"name,omitempty"`
@@ -44,6 +45,38 @@ func NewModconfigPipelineOutput() *ModconfigPipelineOutput {
 func NewModconfigPipelineOutputWithDefaults() *ModconfigPipelineOutput {
 	this := ModconfigPipelineOutput{}
 	return &this
+}
+
+// GetCredentialDependsOn returns the CredentialDependsOn field value if set, zero value otherwise.
+func (o *ModconfigPipelineOutput) GetCredentialDependsOn() []string {
+	if o == nil || IsNil(o.CredentialDependsOn) {
+		var ret []string
+		return ret
+	}
+	return o.CredentialDependsOn
+}
+
+// GetCredentialDependsOnOk returns a tuple with the CredentialDependsOn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModconfigPipelineOutput) GetCredentialDependsOnOk() ([]string, bool) {
+	if o == nil || IsNil(o.CredentialDependsOn) {
+		return nil, false
+	}
+	return o.CredentialDependsOn, true
+}
+
+// HasCredentialDependsOn returns a boolean if a field has been set.
+func (o *ModconfigPipelineOutput) HasCredentialDependsOn() bool {
+	if o != nil && !IsNil(o.CredentialDependsOn) {
+		return true
+	}
+
+	return false
+}
+
+// SetCredentialDependsOn gets a reference to the given []string and assigns it to the CredentialDependsOn field.
+func (o *ModconfigPipelineOutput) SetCredentialDependsOn(v []string) {
+	o.CredentialDependsOn = v
 }
 
 // GetDependsOn returns the DependsOn field value if set, zero value otherwise.
@@ -216,6 +249,9 @@ func (o ModconfigPipelineOutput) MarshalJSON() ([]byte, error) {
 
 func (o ModconfigPipelineOutput) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.CredentialDependsOn) {
+		toSerialize["credential_depends_on"] = o.CredentialDependsOn
+	}
 	if !IsNil(o.DependsOn) {
 		toSerialize["depends_on"] = o.DependsOn
 	}

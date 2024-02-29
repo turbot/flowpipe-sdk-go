@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CredentialDependsOn** | Pointer to **[]string** |  | [optional] 
 **DependsOn** | Pointer to **[]string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
@@ -28,6 +29,31 @@ will change when the set of required properties is changed
 NewModconfigPipelineOutputWithDefaults instantiates a new ModconfigPipelineOutput object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCredentialDependsOn
+
+`func (o *ModconfigPipelineOutput) GetCredentialDependsOn() []string`
+
+GetCredentialDependsOn returns the CredentialDependsOn field if non-nil, zero value otherwise.
+
+### GetCredentialDependsOnOk
+
+`func (o *ModconfigPipelineOutput) GetCredentialDependsOnOk() (*[]string, bool)`
+
+GetCredentialDependsOnOk returns a tuple with the CredentialDependsOn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCredentialDependsOn
+
+`func (o *ModconfigPipelineOutput) SetCredentialDependsOn(v []string)`
+
+SetCredentialDependsOn sets CredentialDependsOn field to given value.
+
+### HasCredentialDependsOn
+
+`func (o *ModconfigPipelineOutput) HasCredentialDependsOn() bool`
+
+HasCredentialDependsOn returns a boolean if a field has been set.
 
 ### GetDependsOn
 
