@@ -20,14 +20,31 @@ var _ MappedNullable = &FpIntegration{}
 
 // FpIntegration struct for FpIntegration
 type FpIntegration struct {
+	Bcc []string `json:"bcc,omitempty"`
+	Cc []string `json:"cc,omitempty"`
+	Channel *string `json:"channel,omitempty"`
 	Description *string `json:"description,omitempty"`
 	EndLineNumber *int32 `json:"end_line_number,omitempty"`
 	FileName *string `json:"file_name,omitempty"`
+	From *string `json:"from,omitempty"`
 	Name *string `json:"name,omitempty"`
+	SigningSecret *string `json:"signing_secret,omitempty"`
+	// email
+	SmtpHost *string `json:"smtp_host,omitempty"`
+	SmtpPassword *string `json:"smtp_password,omitempty"`
+	SmtpPort *int32 `json:"smtp_port,omitempty"`
+	SmtpTls *string `json:"smtp_tls,omitempty"`
+	SmtpUsername *string `json:"smtp_username,omitempty"`
+	SmtpsPort *int32 `json:"smtps_port,omitempty"`
 	StartLineNumber *int32 `json:"start_line_number,omitempty"`
+	Subject *string `json:"subject,omitempty"`
 	Title *string `json:"title,omitempty"`
+	To []string `json:"to,omitempty"`
+	// slack
+	Token *string `json:"token,omitempty"`
 	Type *string `json:"type,omitempty"`
 	Url *string `json:"url,omitempty"`
+	WebhookUrl *string `json:"webhook_url,omitempty"`
 }
 func (o FpIntegration) GetResourceType() string {
 	return "FpIntegration"
@@ -47,6 +64,102 @@ func NewFpIntegration() *FpIntegration {
 func NewFpIntegrationWithDefaults() *FpIntegration {
 	this := FpIntegration{}
 	return &this
+}
+
+// GetBcc returns the Bcc field value if set, zero value otherwise.
+func (o *FpIntegration) GetBcc() []string {
+	if o == nil || IsNil(o.Bcc) {
+		var ret []string
+		return ret
+	}
+	return o.Bcc
+}
+
+// GetBccOk returns a tuple with the Bcc field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpIntegration) GetBccOk() ([]string, bool) {
+	if o == nil || IsNil(o.Bcc) {
+		return nil, false
+	}
+	return o.Bcc, true
+}
+
+// HasBcc returns a boolean if a field has been set.
+func (o *FpIntegration) HasBcc() bool {
+	if o != nil && !IsNil(o.Bcc) {
+		return true
+	}
+
+	return false
+}
+
+// SetBcc gets a reference to the given []string and assigns it to the Bcc field.
+func (o *FpIntegration) SetBcc(v []string) {
+	o.Bcc = v
+}
+
+// GetCc returns the Cc field value if set, zero value otherwise.
+func (o *FpIntegration) GetCc() []string {
+	if o == nil || IsNil(o.Cc) {
+		var ret []string
+		return ret
+	}
+	return o.Cc
+}
+
+// GetCcOk returns a tuple with the Cc field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpIntegration) GetCcOk() ([]string, bool) {
+	if o == nil || IsNil(o.Cc) {
+		return nil, false
+	}
+	return o.Cc, true
+}
+
+// HasCc returns a boolean if a field has been set.
+func (o *FpIntegration) HasCc() bool {
+	if o != nil && !IsNil(o.Cc) {
+		return true
+	}
+
+	return false
+}
+
+// SetCc gets a reference to the given []string and assigns it to the Cc field.
+func (o *FpIntegration) SetCc(v []string) {
+	o.Cc = v
+}
+
+// GetChannel returns the Channel field value if set, zero value otherwise.
+func (o *FpIntegration) GetChannel() string {
+	if o == nil || IsNil(o.Channel) {
+		var ret string
+		return ret
+	}
+	return *o.Channel
+}
+
+// GetChannelOk returns a tuple with the Channel field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpIntegration) GetChannelOk() (*string, bool) {
+	if o == nil || IsNil(o.Channel) {
+		return nil, false
+	}
+	return o.Channel, true
+}
+
+// HasChannel returns a boolean if a field has been set.
+func (o *FpIntegration) HasChannel() bool {
+	if o != nil && !IsNil(o.Channel) {
+		return true
+	}
+
+	return false
+}
+
+// SetChannel gets a reference to the given string and assigns it to the Channel field.
+func (o *FpIntegration) SetChannel(v string) {
+	o.Channel = &v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
@@ -145,6 +258,38 @@ func (o *FpIntegration) SetFileName(v string) {
 	o.FileName = &v
 }
 
+// GetFrom returns the From field value if set, zero value otherwise.
+func (o *FpIntegration) GetFrom() string {
+	if o == nil || IsNil(o.From) {
+		var ret string
+		return ret
+	}
+	return *o.From
+}
+
+// GetFromOk returns a tuple with the From field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpIntegration) GetFromOk() (*string, bool) {
+	if o == nil || IsNil(o.From) {
+		return nil, false
+	}
+	return o.From, true
+}
+
+// HasFrom returns a boolean if a field has been set.
+func (o *FpIntegration) HasFrom() bool {
+	if o != nil && !IsNil(o.From) {
+		return true
+	}
+
+	return false
+}
+
+// SetFrom gets a reference to the given string and assigns it to the From field.
+func (o *FpIntegration) SetFrom(v string) {
+	o.From = &v
+}
+
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *FpIntegration) GetName() string {
 	if o == nil || IsNil(o.Name) {
@@ -175,6 +320,230 @@ func (o *FpIntegration) HasName() bool {
 // SetName gets a reference to the given string and assigns it to the Name field.
 func (o *FpIntegration) SetName(v string) {
 	o.Name = &v
+}
+
+// GetSigningSecret returns the SigningSecret field value if set, zero value otherwise.
+func (o *FpIntegration) GetSigningSecret() string {
+	if o == nil || IsNil(o.SigningSecret) {
+		var ret string
+		return ret
+	}
+	return *o.SigningSecret
+}
+
+// GetSigningSecretOk returns a tuple with the SigningSecret field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpIntegration) GetSigningSecretOk() (*string, bool) {
+	if o == nil || IsNil(o.SigningSecret) {
+		return nil, false
+	}
+	return o.SigningSecret, true
+}
+
+// HasSigningSecret returns a boolean if a field has been set.
+func (o *FpIntegration) HasSigningSecret() bool {
+	if o != nil && !IsNil(o.SigningSecret) {
+		return true
+	}
+
+	return false
+}
+
+// SetSigningSecret gets a reference to the given string and assigns it to the SigningSecret field.
+func (o *FpIntegration) SetSigningSecret(v string) {
+	o.SigningSecret = &v
+}
+
+// GetSmtpHost returns the SmtpHost field value if set, zero value otherwise.
+func (o *FpIntegration) GetSmtpHost() string {
+	if o == nil || IsNil(o.SmtpHost) {
+		var ret string
+		return ret
+	}
+	return *o.SmtpHost
+}
+
+// GetSmtpHostOk returns a tuple with the SmtpHost field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpIntegration) GetSmtpHostOk() (*string, bool) {
+	if o == nil || IsNil(o.SmtpHost) {
+		return nil, false
+	}
+	return o.SmtpHost, true
+}
+
+// HasSmtpHost returns a boolean if a field has been set.
+func (o *FpIntegration) HasSmtpHost() bool {
+	if o != nil && !IsNil(o.SmtpHost) {
+		return true
+	}
+
+	return false
+}
+
+// SetSmtpHost gets a reference to the given string and assigns it to the SmtpHost field.
+func (o *FpIntegration) SetSmtpHost(v string) {
+	o.SmtpHost = &v
+}
+
+// GetSmtpPassword returns the SmtpPassword field value if set, zero value otherwise.
+func (o *FpIntegration) GetSmtpPassword() string {
+	if o == nil || IsNil(o.SmtpPassword) {
+		var ret string
+		return ret
+	}
+	return *o.SmtpPassword
+}
+
+// GetSmtpPasswordOk returns a tuple with the SmtpPassword field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpIntegration) GetSmtpPasswordOk() (*string, bool) {
+	if o == nil || IsNil(o.SmtpPassword) {
+		return nil, false
+	}
+	return o.SmtpPassword, true
+}
+
+// HasSmtpPassword returns a boolean if a field has been set.
+func (o *FpIntegration) HasSmtpPassword() bool {
+	if o != nil && !IsNil(o.SmtpPassword) {
+		return true
+	}
+
+	return false
+}
+
+// SetSmtpPassword gets a reference to the given string and assigns it to the SmtpPassword field.
+func (o *FpIntegration) SetSmtpPassword(v string) {
+	o.SmtpPassword = &v
+}
+
+// GetSmtpPort returns the SmtpPort field value if set, zero value otherwise.
+func (o *FpIntegration) GetSmtpPort() int32 {
+	if o == nil || IsNil(o.SmtpPort) {
+		var ret int32
+		return ret
+	}
+	return *o.SmtpPort
+}
+
+// GetSmtpPortOk returns a tuple with the SmtpPort field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpIntegration) GetSmtpPortOk() (*int32, bool) {
+	if o == nil || IsNil(o.SmtpPort) {
+		return nil, false
+	}
+	return o.SmtpPort, true
+}
+
+// HasSmtpPort returns a boolean if a field has been set.
+func (o *FpIntegration) HasSmtpPort() bool {
+	if o != nil && !IsNil(o.SmtpPort) {
+		return true
+	}
+
+	return false
+}
+
+// SetSmtpPort gets a reference to the given int32 and assigns it to the SmtpPort field.
+func (o *FpIntegration) SetSmtpPort(v int32) {
+	o.SmtpPort = &v
+}
+
+// GetSmtpTls returns the SmtpTls field value if set, zero value otherwise.
+func (o *FpIntegration) GetSmtpTls() string {
+	if o == nil || IsNil(o.SmtpTls) {
+		var ret string
+		return ret
+	}
+	return *o.SmtpTls
+}
+
+// GetSmtpTlsOk returns a tuple with the SmtpTls field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpIntegration) GetSmtpTlsOk() (*string, bool) {
+	if o == nil || IsNil(o.SmtpTls) {
+		return nil, false
+	}
+	return o.SmtpTls, true
+}
+
+// HasSmtpTls returns a boolean if a field has been set.
+func (o *FpIntegration) HasSmtpTls() bool {
+	if o != nil && !IsNil(o.SmtpTls) {
+		return true
+	}
+
+	return false
+}
+
+// SetSmtpTls gets a reference to the given string and assigns it to the SmtpTls field.
+func (o *FpIntegration) SetSmtpTls(v string) {
+	o.SmtpTls = &v
+}
+
+// GetSmtpUsername returns the SmtpUsername field value if set, zero value otherwise.
+func (o *FpIntegration) GetSmtpUsername() string {
+	if o == nil || IsNil(o.SmtpUsername) {
+		var ret string
+		return ret
+	}
+	return *o.SmtpUsername
+}
+
+// GetSmtpUsernameOk returns a tuple with the SmtpUsername field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpIntegration) GetSmtpUsernameOk() (*string, bool) {
+	if o == nil || IsNil(o.SmtpUsername) {
+		return nil, false
+	}
+	return o.SmtpUsername, true
+}
+
+// HasSmtpUsername returns a boolean if a field has been set.
+func (o *FpIntegration) HasSmtpUsername() bool {
+	if o != nil && !IsNil(o.SmtpUsername) {
+		return true
+	}
+
+	return false
+}
+
+// SetSmtpUsername gets a reference to the given string and assigns it to the SmtpUsername field.
+func (o *FpIntegration) SetSmtpUsername(v string) {
+	o.SmtpUsername = &v
+}
+
+// GetSmtpsPort returns the SmtpsPort field value if set, zero value otherwise.
+func (o *FpIntegration) GetSmtpsPort() int32 {
+	if o == nil || IsNil(o.SmtpsPort) {
+		var ret int32
+		return ret
+	}
+	return *o.SmtpsPort
+}
+
+// GetSmtpsPortOk returns a tuple with the SmtpsPort field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpIntegration) GetSmtpsPortOk() (*int32, bool) {
+	if o == nil || IsNil(o.SmtpsPort) {
+		return nil, false
+	}
+	return o.SmtpsPort, true
+}
+
+// HasSmtpsPort returns a boolean if a field has been set.
+func (o *FpIntegration) HasSmtpsPort() bool {
+	if o != nil && !IsNil(o.SmtpsPort) {
+		return true
+	}
+
+	return false
+}
+
+// SetSmtpsPort gets a reference to the given int32 and assigns it to the SmtpsPort field.
+func (o *FpIntegration) SetSmtpsPort(v int32) {
+	o.SmtpsPort = &v
 }
 
 // GetStartLineNumber returns the StartLineNumber field value if set, zero value otherwise.
@@ -209,6 +578,38 @@ func (o *FpIntegration) SetStartLineNumber(v int32) {
 	o.StartLineNumber = &v
 }
 
+// GetSubject returns the Subject field value if set, zero value otherwise.
+func (o *FpIntegration) GetSubject() string {
+	if o == nil || IsNil(o.Subject) {
+		var ret string
+		return ret
+	}
+	return *o.Subject
+}
+
+// GetSubjectOk returns a tuple with the Subject field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpIntegration) GetSubjectOk() (*string, bool) {
+	if o == nil || IsNil(o.Subject) {
+		return nil, false
+	}
+	return o.Subject, true
+}
+
+// HasSubject returns a boolean if a field has been set.
+func (o *FpIntegration) HasSubject() bool {
+	if o != nil && !IsNil(o.Subject) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubject gets a reference to the given string and assigns it to the Subject field.
+func (o *FpIntegration) SetSubject(v string) {
+	o.Subject = &v
+}
+
 // GetTitle returns the Title field value if set, zero value otherwise.
 func (o *FpIntegration) GetTitle() string {
 	if o == nil || IsNil(o.Title) {
@@ -239,6 +640,70 @@ func (o *FpIntegration) HasTitle() bool {
 // SetTitle gets a reference to the given string and assigns it to the Title field.
 func (o *FpIntegration) SetTitle(v string) {
 	o.Title = &v
+}
+
+// GetTo returns the To field value if set, zero value otherwise.
+func (o *FpIntegration) GetTo() []string {
+	if o == nil || IsNil(o.To) {
+		var ret []string
+		return ret
+	}
+	return o.To
+}
+
+// GetToOk returns a tuple with the To field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpIntegration) GetToOk() ([]string, bool) {
+	if o == nil || IsNil(o.To) {
+		return nil, false
+	}
+	return o.To, true
+}
+
+// HasTo returns a boolean if a field has been set.
+func (o *FpIntegration) HasTo() bool {
+	if o != nil && !IsNil(o.To) {
+		return true
+	}
+
+	return false
+}
+
+// SetTo gets a reference to the given []string and assigns it to the To field.
+func (o *FpIntegration) SetTo(v []string) {
+	o.To = v
+}
+
+// GetToken returns the Token field value if set, zero value otherwise.
+func (o *FpIntegration) GetToken() string {
+	if o == nil || IsNil(o.Token) {
+		var ret string
+		return ret
+	}
+	return *o.Token
+}
+
+// GetTokenOk returns a tuple with the Token field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpIntegration) GetTokenOk() (*string, bool) {
+	if o == nil || IsNil(o.Token) {
+		return nil, false
+	}
+	return o.Token, true
+}
+
+// HasToken returns a boolean if a field has been set.
+func (o *FpIntegration) HasToken() bool {
+	if o != nil && !IsNil(o.Token) {
+		return true
+	}
+
+	return false
+}
+
+// SetToken gets a reference to the given string and assigns it to the Token field.
+func (o *FpIntegration) SetToken(v string) {
+	o.Token = &v
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
@@ -305,6 +770,38 @@ func (o *FpIntegration) SetUrl(v string) {
 	o.Url = &v
 }
 
+// GetWebhookUrl returns the WebhookUrl field value if set, zero value otherwise.
+func (o *FpIntegration) GetWebhookUrl() string {
+	if o == nil || IsNil(o.WebhookUrl) {
+		var ret string
+		return ret
+	}
+	return *o.WebhookUrl
+}
+
+// GetWebhookUrlOk returns a tuple with the WebhookUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpIntegration) GetWebhookUrlOk() (*string, bool) {
+	if o == nil || IsNil(o.WebhookUrl) {
+		return nil, false
+	}
+	return o.WebhookUrl, true
+}
+
+// HasWebhookUrl returns a boolean if a field has been set.
+func (o *FpIntegration) HasWebhookUrl() bool {
+	if o != nil && !IsNil(o.WebhookUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetWebhookUrl gets a reference to the given string and assigns it to the WebhookUrl field.
+func (o *FpIntegration) SetWebhookUrl(v string) {
+	o.WebhookUrl = &v
+}
+
 func (o FpIntegration) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -315,6 +812,15 @@ func (o FpIntegration) MarshalJSON() ([]byte, error) {
 
 func (o FpIntegration) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Bcc) {
+		toSerialize["bcc"] = o.Bcc
+	}
+	if !IsNil(o.Cc) {
+		toSerialize["cc"] = o.Cc
+	}
+	if !IsNil(o.Channel) {
+		toSerialize["channel"] = o.Channel
+	}
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
@@ -324,20 +830,56 @@ func (o FpIntegration) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.FileName) {
 		toSerialize["file_name"] = o.FileName
 	}
+	if !IsNil(o.From) {
+		toSerialize["from"] = o.From
+	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.SigningSecret) {
+		toSerialize["signing_secret"] = o.SigningSecret
+	}
+	if !IsNil(o.SmtpHost) {
+		toSerialize["smtp_host"] = o.SmtpHost
+	}
+	if !IsNil(o.SmtpPassword) {
+		toSerialize["smtp_password"] = o.SmtpPassword
+	}
+	if !IsNil(o.SmtpPort) {
+		toSerialize["smtp_port"] = o.SmtpPort
+	}
+	if !IsNil(o.SmtpTls) {
+		toSerialize["smtp_tls"] = o.SmtpTls
+	}
+	if !IsNil(o.SmtpUsername) {
+		toSerialize["smtp_username"] = o.SmtpUsername
+	}
+	if !IsNil(o.SmtpsPort) {
+		toSerialize["smtps_port"] = o.SmtpsPort
 	}
 	if !IsNil(o.StartLineNumber) {
 		toSerialize["start_line_number"] = o.StartLineNumber
 	}
+	if !IsNil(o.Subject) {
+		toSerialize["subject"] = o.Subject
+	}
 	if !IsNil(o.Title) {
 		toSerialize["title"] = o.Title
+	}
+	if !IsNil(o.To) {
+		toSerialize["to"] = o.To
+	}
+	if !IsNil(o.Token) {
+		toSerialize["token"] = o.Token
 	}
 	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
 	}
 	if !IsNil(o.Url) {
 		toSerialize["url"] = o.Url
+	}
+	if !IsNil(o.WebhookUrl) {
+		toSerialize["webhook_url"] = o.WebhookUrl
 	}
 	return toSerialize, nil
 }
