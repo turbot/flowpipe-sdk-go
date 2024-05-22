@@ -20,7 +20,7 @@ var _ MappedNullable = &ListVariableResponse{}
 
 // ListVariableResponse struct for ListVariableResponse
 type ListVariableResponse struct {
-	Items []Variable `json:"items,omitempty"`
+	Items []FpVariable `json:"items,omitempty"`
 	NextToken *string `json:"next_token,omitempty"`
 }
 func (o ListVariableResponse) GetResourceType() string {
@@ -44,9 +44,9 @@ func NewListVariableResponseWithDefaults() *ListVariableResponse {
 }
 
 // GetItems returns the Items field value if set, zero value otherwise.
-func (o *ListVariableResponse) GetItems() []Variable {
+func (o *ListVariableResponse) GetItems() []FpVariable {
 	if o == nil || IsNil(o.Items) {
-		var ret []Variable
+		var ret []FpVariable
 		return ret
 	}
 	return o.Items
@@ -54,7 +54,7 @@ func (o *ListVariableResponse) GetItems() []Variable {
 
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ListVariableResponse) GetItemsOk() ([]Variable, bool) {
+func (o *ListVariableResponse) GetItemsOk() ([]FpVariable, bool) {
 	if o == nil || IsNil(o.Items) {
 		return nil, false
 	}
@@ -70,8 +70,8 @@ func (o *ListVariableResponse) HasItems() bool {
 	return false
 }
 
-// SetItems gets a reference to the given []Variable and assigns it to the Items field.
-func (o *ListVariableResponse) SetItems(v []Variable) {
+// SetItems gets a reference to the given []FpVariable and assigns it to the Items field.
+func (o *ListVariableResponse) SetItems(v []FpVariable) {
 	o.Items = v
 }
 

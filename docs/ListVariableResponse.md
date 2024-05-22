@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | Pointer to [**[]Variable**](Variable.md) |  | [optional] 
+**Items** | Pointer to [**[]FpVariable**](FpVariable.md) |  | [optional] 
 **NextToken** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetItems
 
-`func (o *ListVariableResponse) GetItems() []Variable`
+`func (o *ListVariableResponse) GetItems() []FpVariable`
 
 GetItems returns the Items field if non-nil, zero value otherwise.
 
 ### GetItemsOk
 
-`func (o *ListVariableResponse) GetItemsOk() (*[]Variable, bool)`
+`func (o *ListVariableResponse) GetItemsOk() (*[]FpVariable, bool)`
 
 GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItems
 
-`func (o *ListVariableResponse) SetItems(v []Variable)`
+`func (o *ListVariableResponse) SetItems(v []FpVariable)`
 
 SetItems sets Items field to given value.
 

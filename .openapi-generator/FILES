@@ -26,6 +26,10 @@ docs/FpPipeline.md
 docs/FpPipelineParam.md
 docs/FpTrigger.md
 docs/FpTriggerPipeline.md
+docs/FpVariable.md
+docs/HclPos.md
+docs/HclRange.md
+docs/HclRangeStart.md
 docs/IntegrationApi.md
 docs/ListIntegrationResponse.md
 docs/ListNotifierResponse.md
@@ -54,7 +58,6 @@ docs/ProcessApi.md
 docs/ProcessEventLog.md
 docs/Require.md
 docs/TriggerApi.md
-docs/Variable.md
 docs/VariableApi.md
 git_push.sh
 go.mod
@@ -74,6 +77,10 @@ model_fp_pipeline.go
 model_fp_pipeline_param.go
 model_fp_trigger.go
 model_fp_trigger_pipeline.go
+model_fp_variable.go
+model_hcl_pos.go
+model_hcl_range.go
+model_hcl_range_start.go
 model_list_integration_response.go
 model_list_notifier_response.go
 model_list_pipeline_response.go
@@ -96,6 +103,5 @@ model_perr_error_model.go
 model_process.go
 model_process_event_log.go
 model_require.go
-model_variable.go
 response.go
 utils.go

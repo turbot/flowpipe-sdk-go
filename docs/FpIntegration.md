@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **Token** | Pointer to **string** | slack | [optional] 
 **Type** | Pointer to **string** |  | [optional] 
 **Url** | Pointer to **string** |  | [optional] 
-**WebhookUrl** | Pointer to **string** |  | [optional] 
+**WebhookUrl** | Pointer to **string** | slack &amp; msteams | [optional] 
 
 ## Methods
 

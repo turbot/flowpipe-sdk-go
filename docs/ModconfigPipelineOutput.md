@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Range** | Pointer to [**HclRange**](HclRange.md) |  | [optional] 
 **CredentialDependsOn** | Pointer to **[]string** |  | [optional] 
 **DependsOn** | Pointer to **[]string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
@@ -29,6 +30,31 @@ will change when the set of required properties is changed
 NewModconfigPipelineOutputWithDefaults instantiates a new ModconfigPipelineOutput object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetRange
+
+`func (o *ModconfigPipelineOutput) GetRange() HclRange`
+
+GetRange returns the Range field if non-nil, zero value otherwise.
+
+### GetRangeOk
+
+`func (o *ModconfigPipelineOutput) GetRangeOk() (*HclRange, bool)`
+
+GetRangeOk returns a tuple with the Range field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRange
+
+`func (o *ModconfigPipelineOutput) SetRange(v HclRange)`
+
+SetRange sets Range field to given value.
+
+### HasRange
+
+`func (o *ModconfigPipelineOutput) HasRange() bool`
+
+HasRange returns a boolean if a field has been set.
 
 ### GetCredentialDependsOn
 

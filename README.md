@@ -115,6 +115,10 @@ Class | Method | HTTP request | Description
  - [FpPipelineParam](docs/FpPipelineParam.md)
  - [FpTrigger](docs/FpTrigger.md)
  - [FpTriggerPipeline](docs/FpTriggerPipeline.md)
+ - [FpVariable](docs/FpVariable.md)
+ - [HclPos](docs/HclPos.md)
+ - [HclRange](docs/HclRange.md)
+ - [HclRangeStart](docs/HclRangeStart.md)
  - [ListIntegrationResponse](docs/ListIntegrationResponse.md)
  - [ListNotifierResponse](docs/ListNotifierResponse.md)
  - [ListPipelineResponse](docs/ListPipelineResponse.md)
@@ -137,7 +141,6 @@ Class | Method | HTTP request | Description
  - [Process](docs/Process.md)
  - [ProcessEventLog](docs/ProcessEventLog.md)
  - [Require](docs/Require.md)
- - [Variable](docs/Variable.md)
 
 
 ## Documentation For Authorization

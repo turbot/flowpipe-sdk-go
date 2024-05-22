@@ -44,6 +44,7 @@ type FpIntegration struct {
 	Token *string `json:"token,omitempty"`
 	Type *string `json:"type,omitempty"`
 	Url *string `json:"url,omitempty"`
+	// slack & msteams
 	WebhookUrl *string `json:"webhook_url,omitempty"`
 }
 func (o FpIntegration) GetResourceType() string {

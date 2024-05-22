@@ -23,6 +23,8 @@ type ModconfigOutput struct {
 	Data map[string]interface{} `json:"data,omitempty"`
 	Errors []ModconfigStepError `json:"errors,omitempty"`
 	FailureMode *string `json:"failure_mode,omitempty"`
+	// Flowpipe metadata, contains started_at, finished_at
+	Flowpipe map[string]interface{} `json:"flowpipe,omitempty"`
 	Status *string `json:"status,omitempty"`
 }
 func (o ModconfigOutput) GetResourceType() string {
@@ -141,6 +143,38 @@ func (o *ModconfigOutput) SetFailureMode(v string) {
 	o.FailureMode = &v
 }
 
+// GetFlowpipe returns the Flowpipe field value if set, zero value otherwise.
+func (o *ModconfigOutput) GetFlowpipe() map[string]interface{} {
+	if o == nil || IsNil(o.Flowpipe) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.Flowpipe
+}
+
+// GetFlowpipeOk returns a tuple with the Flowpipe field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModconfigOutput) GetFlowpipeOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Flowpipe) {
+		return map[string]interface{}{}, false
+	}
+	return o.Flowpipe, true
+}
+
+// HasFlowpipe returns a boolean if a field has been set.
+func (o *ModconfigOutput) HasFlowpipe() bool {
+	if o != nil && !IsNil(o.Flowpipe) {
+		return true
+	}
+
+	return false
+}
+
+// SetFlowpipe gets a reference to the given map[string]interface{} and assigns it to the Flowpipe field.
+func (o *ModconfigOutput) SetFlowpipe(v map[string]interface{}) {
+	o.Flowpipe = v
+}
+
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *ModconfigOutput) GetStatus() string {
 	if o == nil || IsNil(o.Status) {
@@ -191,6 +225,9 @@ func (o ModconfigOutput) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.FailureMode) {
 		toSerialize["failure_mode"] = o.FailureMode
+	}
+	if !IsNil(o.Flowpipe) {
+		toSerialize["flowpipe"] = o.Flowpipe
 	}
 	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status

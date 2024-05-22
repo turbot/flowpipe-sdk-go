@@ -30,7 +30,7 @@ type VariableApiGetRequest struct {
 	variableName string
 }
 
-func (r VariableApiGetRequest) Execute() (*Variable, *http.Response, error) {
+func (r VariableApiGetRequest) Execute() (*FpVariable, *http.Response, error) {
 	return r.ApiService.GetExecute(r)
 }
 
@@ -52,13 +52,13 @@ func (a *VariableApiService) Get(ctx context.Context, variableName string) Varia
 }
 
 // Execute executes the request
-//  @return Variable
-func (a *VariableApiService) GetExecute(r VariableApiGetRequest) (*Variable, *http.Response, error) {
+//  @return FpVariable
+func (a *VariableApiService) GetExecute(r VariableApiGetRequest) (*FpVariable, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *Variable
+		localVarReturnValue  *FpVariable
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VariableApiService.Get")

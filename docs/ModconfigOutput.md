@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Data** | Pointer to **map[string]interface{}** |  | [optional] 
 **Errors** | Pointer to [**[]ModconfigStepError**](ModconfigStepError.md) |  | [optional] 
 **FailureMode** | Pointer to **string** |  | [optional] 
+**Flowpipe** | Pointer to **map[string]interface{}** | Flowpipe metadata, contains started_at, finished_at | [optional] 
 **Status** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -102,6 +103,31 @@ SetFailureMode sets FailureMode field to given value.
 `func (o *ModconfigOutput) HasFailureMode() bool`
 
 HasFailureMode returns a boolean if a field has been set.
+
+### GetFlowpipe
+
+`func (o *ModconfigOutput) GetFlowpipe() map[string]interface{}`
+
+GetFlowpipe returns the Flowpipe field if non-nil, zero value otherwise.
+
+### GetFlowpipeOk
+
+`func (o *ModconfigOutput) GetFlowpipeOk() (*map[string]interface{}, bool)`
+
+GetFlowpipeOk returns a tuple with the Flowpipe field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFlowpipe
+
+`func (o *ModconfigOutput) SetFlowpipe(v map[string]interface{})`
+
+SetFlowpipe sets Flowpipe field to given value.
+
+### HasFlowpipe
+
+`func (o *ModconfigOutput) HasFlowpipe() bool`
+
+HasFlowpipe returns a boolean if a field has been set.
 
 ### GetStatus
 

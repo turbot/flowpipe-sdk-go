@@ -986,7 +986,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Variable'
+                $ref: '#/components/schemas/FpVariable'
           description: OK
         "400":
           content:
@@ -1152,6 +1152,7 @@ components:
         url:
           type: string
         webhook_url:
+          description: slack & msteams
           type: string
       type: object
     FpNotifier:
@@ -1260,6 +1261,9 @@ components:
           - depends_on
           name: name
           description: description
+          Range:
+            filename: filename
+            start: null
           value: "{}"
           resolved: true
         - credential_depends_on:
@@ -1270,6 +1274,9 @@ components:
           - depends_on
           name: name
           description: description
+          Range:
+            filename: filename
+            start: null
           value: "{}"
           resolved: true
         mod: mod
@@ -1416,6 +1423,28 @@ components:
           type: string
         pipeline:
           type: string
+      type: object
+    FpVariable:
+      example:
+        default: ""
+        name: name
+        description: description
+        type: type
+        value: ""
+        mod_name: mod_name
+      properties:
+        default:
+          type: AnyType
+        description:
+          type: string
+        mod_name:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        value:
+          type: AnyType
       type: object
     ListIntegrationResponse:
       example:
@@ -1582,6 +1611,9 @@ components:
             - depends_on
             name: name
             description: description
+            Range:
+              filename: filename
+              start: null
             value: "{}"
             resolved: true
           - credential_depends_on:
@@ -1592,6 +1624,9 @@ components:
             - depends_on
             name: name
             description: description
+            Range:
+              filename: filename
+              start: null
             value: "{}"
             resolved: true
           mod: mod
@@ -1628,6 +1663,9 @@ components:
             - depends_on
             name: name
             description: description
+            Range:
+              filename: filename
+              start: null
             value: "{}"
             resolved: true
           - credential_depends_on:
@@ -1638,6 +1676,9 @@ components:
             - depends_on
             name: name
             description: description
+            Range:
+              filename: filename
+              start: null
             value: "{}"
             resolved: true
           mod: mod
@@ -1765,20 +1806,22 @@ components:
       example:
         next_token: next_token
         items:
-        - default: "{}"
+        - default: ""
           name: name
           description: description
           type: type
-          value: "{}"
-        - default: "{}"
+          value: ""
+          mod_name: mod_name
+        - default: ""
           name: name
           description: description
           type: type
-          value: "{}"
+          value: ""
+          mod_name: mod_name
       properties:
         items:
           items:
-            $ref: '#/components/schemas/Variable'
+            $ref: '#/components/schemas/FpVariable'
           type: array
         next_token:
           type: string
@@ -1897,25 +1940,6 @@ components:
           items:
             $ref: '#/components/schemas/ModVersionConstraint'
           type: array
-      type: object
-    Variable:
-      example:
-        default: "{}"
-        name: name
-        description: description
-        type: type
-        value: "{}"
-      properties:
-        default:
-          type: object
-        description:
-          type: string
-        name:
-          type: string
-        type:
-          type: string
-        value:
-          type: object
       type: object
     execution.Execution:
       example:
@@ -2368,6 +2392,47 @@ components:
             $ref: '#/components/schemas/execution.StepExecution'
           type: array
       type: object
+    hcl.Pos:
+      properties:
+        byte:
+          description: |-
+            Byte is the byte offset into the file where the indicated character
+            begins. This is a zero-based offset to the first byte of the first
+            UTF-8 codepoint sequence in the character, and thus gives a position
+            that can be resolved _without_ awareness of Unicode characters.
+          type: integer
+        column:
+          description: |-
+            Column is the source code column where this position points, in
+            unicode characters, with counting starting at 1.
+
+            Column counts characters as they appear visually, so for example a
+            latin letter with a combining diacritic mark counts as one character.
+            This is intended for rendering visual markers against source code in
+            contexts where these diacritics would be rendered in a single character
+            cell. Technically speaking, Column is counting grapheme clusters as
+            used in unicode normalization.
+          type: integer
+        line:
+          description: |-
+            Line is the source code line where this position points. Lines are
+            counted starting at 1 and incremented for each newline character
+            encountered.
+          type: integer
+      type: object
+    hcl.Range:
+      example:
+        filename: filename
+        start: null
+      properties:
+        filename:
+          description: |-
+            Filename is the name of the file into which this range's positions
+            point.
+          type: string
+        start:
+          $ref: '#/components/schemas/hcl_Range_start'
+      type: object
     modconfig.Input:
       additionalProperties: true
       type: object
@@ -2392,6 +2457,10 @@ components:
           type: array
         failure_mode:
           type: string
+        flowpipe:
+          additionalProperties: true
+          description: "Flowpipe metadata, contains started_at, finished_at"
+          type: object
         status:
           type: string
       type: object
@@ -2408,9 +2477,14 @@ components:
         - depends_on
         name: name
         description: description
+        Range:
+          filename: filename
+          start: null
         value: "{}"
         resolved: true
       properties:
+        Range:
+          $ref: '#/components/schemas/hcl.Range'
         credential_depends_on:
           items:
             type: string
@@ -2560,6 +2634,13 @@ components:
       allOf:
       - $ref: '#/components/schemas/modconfig.StepForEach'
       description: for_each controls
+      type: object
+    hcl_Range_start:
+      allOf:
+      - $ref: '#/components/schemas/hcl.Pos'
+      description: |-
+        Start and End represent the bounds of this range. Start is inclusive
+        and End is exclusive.
       type: object
   securitySchemes:
     ApiKeyAuth:

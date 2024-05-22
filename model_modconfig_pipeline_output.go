@@ -20,6 +20,7 @@ var _ MappedNullable = &ModconfigPipelineOutput{}
 
 // ModconfigPipelineOutput struct for ModconfigPipelineOutput
 type ModconfigPipelineOutput struct {
+	Range *HclRange `json:"Range,omitempty"`
 	CredentialDependsOn []string `json:"credential_depends_on,omitempty"`
 	DependsOn []string `json:"depends_on,omitempty"`
 	Description *string `json:"description,omitempty"`
@@ -45,6 +46,38 @@ func NewModconfigPipelineOutput() *ModconfigPipelineOutput {
 func NewModconfigPipelineOutputWithDefaults() *ModconfigPipelineOutput {
 	this := ModconfigPipelineOutput{}
 	return &this
+}
+
+// GetRange returns the Range field value if set, zero value otherwise.
+func (o *ModconfigPipelineOutput) GetRange() HclRange {
+	if o == nil || IsNil(o.Range) {
+		var ret HclRange
+		return ret
+	}
+	return *o.Range
+}
+
+// GetRangeOk returns a tuple with the Range field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModconfigPipelineOutput) GetRangeOk() (*HclRange, bool) {
+	if o == nil || IsNil(o.Range) {
+		return nil, false
+	}
+	return o.Range, true
+}
+
+// HasRange returns a boolean if a field has been set.
+func (o *ModconfigPipelineOutput) HasRange() bool {
+	if o != nil && !IsNil(o.Range) {
+		return true
+	}
+
+	return false
+}
+
+// SetRange gets a reference to the given HclRange and assigns it to the Range field.
+func (o *ModconfigPipelineOutput) SetRange(v HclRange) {
+	o.Range = &v
 }
 
 // GetCredentialDependsOn returns the CredentialDependsOn field value if set, zero value otherwise.
@@ -249,6 +282,9 @@ func (o ModconfigPipelineOutput) MarshalJSON() ([]byte, error) {
 
 func (o ModconfigPipelineOutput) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Range) {
+		toSerialize["Range"] = o.Range
+	}
 	if !IsNil(o.CredentialDependsOn) {
 		toSerialize["credential_depends_on"] = o.CredentialDependsOn
 	}

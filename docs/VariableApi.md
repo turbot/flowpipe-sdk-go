@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## Get
 
-> Variable Get(ctx, variableName).Execute()
+> FpVariable Get(ctx, variableName).Execute()
 
 Get variable
 
@@ -39,7 +39,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `VariableApi.Get``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Get`: Variable
+    // response from `Get`: FpVariable
     fmt.Fprintf(os.Stdout, "Response from `VariableApi.Get`: %v\n", resp)
 }
 ```
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Variable**](Variable.md)
+[**FpVariable**](FpVariable.md)
 
 ### Authorization
 
