@@ -458,6 +458,7 @@ paths:
       - Pipeline
   /pipeline/{pipeline_name}/command:
     post:
+      description: Execute a pipeline command
       operationId: pipeline_command
       parameters:
       - description: The name of the pipeline
@@ -899,6 +900,74 @@ paths:
       summary: Get trigger
       tags:
       - Trigger
+  /trigger/{trigger_name}/command:
+    post:
+      description: Execute a trigger command
+      operationId: trigger_command
+      parameters:
+      - description: The name of the trigger
+        explode: false
+        in: path
+        name: trigger_name
+        required: true
+        schema:
+          format: "^[a-z_]{0,32}$"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CmdPipeline'
+        description: Trigger command.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PipelineExecutionResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Not Found
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/perr.ErrorModel'
+          description: Internal Server Error
+      summary: Execute a trigger command
+      tags:
+      - Trigger
+      x-codegen-request-body-name: request
   /variable:
     get:
       description: Lists variables

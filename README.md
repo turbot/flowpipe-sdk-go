@@ -92,6 +92,7 @@ Class | Method | HTTP request | Description
 *ProcessApi* | [**GetExecution**](docs/ProcessApi.md#getexecution) | **Get** /process/{process_id}/execution | Get process execution
 *ProcessApi* | [**GetLog**](docs/ProcessApi.md#getlog) | **Get** /process/{process_id}/log/process.json | Get process log
 *ProcessApi* | [**List**](docs/ProcessApi.md#list) | **Get** /process | List processs
+*TriggerApi* | [**Command**](docs/TriggerApi.md#command) | **Post** /trigger/{trigger_name}/command | Execute a trigger command
 *TriggerApi* | [**Get**](docs/TriggerApi.md#get) | **Get** /trigger/{trigger_name} | Get trigger
 *TriggerApi* | [**List**](docs/TriggerApi.md#list) | **Get** /trigger | List triggers
 *VariableApi* | [**Get**](docs/VariableApi.md#get) | **Get** /variable/{variable_name} | Get variable

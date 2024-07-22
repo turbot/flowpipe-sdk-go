@@ -44,6 +44,8 @@ func (r PipelineApiCommandRequest) Execute() (map[string]interface{}, *http.Resp
 /*
 Command Execute a pipeline command
 
+Execute a pipeline command
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pipelineName The name of the pipeline
  @return PipelineApiCommandRequest
