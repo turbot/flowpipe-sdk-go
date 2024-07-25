@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## Command
 
-> PipelineExecutionResponse Command(ctx, triggerName).Request(request).Execute()
+> TriggerExecutionResponse Command(ctx, triggerName).Request(request).Execute()
 
 Execute a trigger command
 
@@ -32,7 +32,7 @@ import (
 
 func main() {
     triggerName := "triggerName_example" // string | The name of the trigger
-    request := *openapiclient.NewCmdPipeline("Command_example") // CmdPipeline | Trigger command.
+    request := *openapiclient.NewCmdTrigger("Command_example") // CmdTrigger | Trigger command.
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -41,7 +41,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `TriggerApi.Command``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Command`: PipelineExecutionResponse
+    // response from `Command`: TriggerExecutionResponse
     fmt.Fprintf(os.Stdout, "Response from `TriggerApi.Command`: %v\n", resp)
 }
 ```
@@ -62,11 +62,11 @@ Other parameters are passed through a pointer to a apiCommandRequest struct via 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **request** | [**CmdPipeline**](CmdPipeline.md) | Trigger command. | 
+ **request** | [**CmdTrigger**](CmdTrigger.md) | Trigger command. | 
 
 ### Return type
 
-[**PipelineExecutionResponse**](PipelineExecutionResponse.md)
+[**TriggerExecutionResponse**](TriggerExecutionResponse.md)
 
 ### Authorization
 

@@ -25,6 +25,7 @@ type FlowpipeResponseMetadata struct {
 	LastLoaded *string `json:"last_loaded,omitempty"`
 	Pipeline *string `json:"pipeline,omitempty"`
 	PipelineExecutionId *string `json:"pipeline_execution_id,omitempty"`
+	Status *string `json:"status,omitempty"`
 }
 func (o FlowpipeResponseMetadata) GetResourceType() string {
 	return "FlowpipeResponseMetadata"
@@ -206,6 +207,38 @@ func (o *FlowpipeResponseMetadata) SetPipelineExecutionId(v string) {
 	o.PipelineExecutionId = &v
 }
 
+// GetStatus returns the Status field value if set, zero value otherwise.
+func (o *FlowpipeResponseMetadata) GetStatus() string {
+	if o == nil || IsNil(o.Status) {
+		var ret string
+		return ret
+	}
+	return *o.Status
+}
+
+// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FlowpipeResponseMetadata) GetStatusOk() (*string, bool) {
+	if o == nil || IsNil(o.Status) {
+		return nil, false
+	}
+	return o.Status, true
+}
+
+// HasStatus returns a boolean if a field has been set.
+func (o *FlowpipeResponseMetadata) HasStatus() bool {
+	if o != nil && !IsNil(o.Status) {
+		return true
+	}
+
+	return false
+}
+
+// SetStatus gets a reference to the given string and assigns it to the Status field.
+func (o *FlowpipeResponseMetadata) SetStatus(v string) {
+	o.Status = &v
+}
+
 func (o FlowpipeResponseMetadata) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -230,6 +263,9 @@ func (o FlowpipeResponseMetadata) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.PipelineExecutionId) {
 		toSerialize["pipeline_execution_id"] = o.PipelineExecutionId
+	}
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
 	}
 	return toSerialize, nil
 }

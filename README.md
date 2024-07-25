@@ -102,6 +102,7 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [CmdPipeline](docs/CmdPipeline.md)
+ - [CmdTrigger](docs/CmdTrigger.md)
  - [ExecutionExecution](docs/ExecutionExecution.md)
  - [ExecutionPipelineExecution](docs/ExecutionPipelineExecution.md)
  - [ExecutionStepExecution](docs/ExecutionStepExecution.md)
@@ -110,6 +111,7 @@ Class | Method | HTTP request | Description
  - [ExecutionStepStatus](docs/ExecutionStepStatus.md)
  - [FlowpipeRequire](docs/FlowpipeRequire.md)
  - [FlowpipeResponseMetadata](docs/FlowpipeResponseMetadata.md)
+ - [FlowpipeTriggerResponseMetadata](docs/FlowpipeTriggerResponseMetadata.md)
  - [FpIntegration](docs/FpIntegration.md)
  - [FpNotifier](docs/FpNotifier.md)
  - [FpNotify](docs/FpNotify.md)
@@ -144,6 +146,7 @@ Class | Method | HTTP request | Description
  - [Process](docs/Process.md)
  - [ProcessEventLog](docs/ProcessEventLog.md)
  - [Require](docs/Require.md)
+ - [TriggerExecutionResponse](docs/TriggerExecutionResponse.md)
 
 
 ## Documentation For Authorization

@@ -918,7 +918,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CmdPipeline'
+              $ref: '#/components/schemas/CmdTrigger'
         description: Trigger command.
         required: true
       responses:
@@ -926,7 +926,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PipelineExecutionResponse'
+                $ref: '#/components/schemas/TriggerExecutionResponse'
           description: OK
         "400":
           content:
@@ -1102,6 +1102,7 @@ components:
       example:
         args:
           key: ""
+        execution_id: execution_id
         args_string:
           key: args_string
         execution_mode: synchronous
@@ -1118,6 +1119,47 @@ components:
         command:
           enum:
           - run
+          type: string
+        execution_id:
+          description: "Sepcify execution id, if not specified, a new execution id\
+            \ will be created"
+          type: string
+        execution_mode:
+          enum:
+          - synchronous
+          - asynchronous
+          type: string
+        wait_retry:
+          type: integer
+      required:
+      - command
+      type: object
+    CmdTrigger:
+      example:
+        args:
+          key: ""
+        execution_id: execution_id
+        args_string:
+          key: args_string
+        execution_mode: synchronous
+        wait_retry: 0
+        command: run
+      properties:
+        args:
+          additionalProperties: true
+          type: object
+        args_string:
+          additionalProperties:
+            type: string
+          type: object
+        command:
+          enum:
+          - run
+          - reset
+          type: string
+        execution_id:
+          description: "Sepcify execution id, if not specified, a new execution id\
+            \ will be created"
           type: string
         execution_mode:
           enum:
@@ -1143,6 +1185,7 @@ components:
         pipeline_execution_id: pipeline_execution_id
         last_loaded: last_loaded
         is_stale: true
+        status: status
       properties:
         execution_id:
           type: string
@@ -1153,6 +1196,27 @@ components:
         pipeline:
           type: string
         pipeline_execution_id:
+          type: string
+        status:
+          type: string
+      type: object
+    FlowpipeTriggerResponseMetadata:
+      example:
+        process_id: process_id
+        last_loaded: last_loaded
+        name: name
+        is_stale: true
+        type: type
+      properties:
+        is_stale:
+          type: boolean
+        last_loaded:
+          type: string
+        name:
+          type: string
+        process_id:
+          type: string
+        type:
           type: string
       type: object
     FpIntegration:
@@ -1988,6 +2052,7 @@ components:
           pipeline_execution_id: pipeline_execution_id
           last_loaded: last_loaded
           is_stale: true
+          status: status
         errors:
         - pipeline: pipeline
           pipeline_execution_id: pipeline_execution_id
@@ -2076,6 +2141,103 @@ components:
         mods:
           items:
             $ref: '#/components/schemas/ModVersionConstraint'
+          type: array
+      type: object
+    TriggerExecutionResponse:
+      example:
+        flowpipe:
+          process_id: process_id
+          last_loaded: last_loaded
+          name: name
+          is_stale: true
+          type: type
+        results:
+        - output:
+            key: ""
+          flowpipe:
+            pipeline: pipeline
+            execution_id: execution_id
+            pipeline_execution_id: pipeline_execution_id
+            last_loaded: last_loaded
+            is_stale: true
+            status: status
+          errors:
+          - pipeline: pipeline
+            pipeline_execution_id: pipeline_execution_id
+            step_execution_id: step_execution_id
+            step: step
+            error:
+              instance: instance
+              validation_errors:
+              - location: location
+                message: message
+              - location: location
+                message: message
+              detail: detail
+              title: title
+              type: type
+              status: 0
+          - pipeline: pipeline
+            pipeline_execution_id: pipeline_execution_id
+            step_execution_id: step_execution_id
+            step: step
+            error:
+              instance: instance
+              validation_errors:
+              - location: location
+                message: message
+              - location: location
+                message: message
+              detail: detail
+              title: title
+              type: type
+              status: 0
+        - output:
+            key: ""
+          flowpipe:
+            pipeline: pipeline
+            execution_id: execution_id
+            pipeline_execution_id: pipeline_execution_id
+            last_loaded: last_loaded
+            is_stale: true
+            status: status
+          errors:
+          - pipeline: pipeline
+            pipeline_execution_id: pipeline_execution_id
+            step_execution_id: step_execution_id
+            step: step
+            error:
+              instance: instance
+              validation_errors:
+              - location: location
+                message: message
+              - location: location
+                message: message
+              detail: detail
+              title: title
+              type: type
+              status: 0
+          - pipeline: pipeline
+            pipeline_execution_id: pipeline_execution_id
+            step_execution_id: step_execution_id
+            step: step
+            error:
+              instance: instance
+              validation_errors:
+              - location: location
+                message: message
+              - location: location
+                message: message
+              detail: detail
+              title: title
+              type: type
+              status: 0
+      properties:
+        flowpipe:
+          $ref: '#/components/schemas/FlowpipeTriggerResponseMetadata'
+        results:
+          items:
+            $ref: '#/components/schemas/PipelineExecutionResponse'
           type: array
       type: object
     execution.Execution:

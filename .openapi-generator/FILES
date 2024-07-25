@@ -12,6 +12,7 @@ api_variable.go
 client.go
 configuration.go
 docs/CmdPipeline.md
+docs/CmdTrigger.md
 docs/ExecutionExecution.md
 docs/ExecutionPipelineExecution.md
 docs/ExecutionStepExecution.md
@@ -20,6 +21,7 @@ docs/ExecutionStepExecutionStepForEach.md
 docs/ExecutionStepStatus.md
 docs/FlowpipeRequire.md
 docs/FlowpipeResponseMetadata.md
+docs/FlowpipeTriggerResponseMetadata.md
 docs/FpIntegration.md
 docs/FpNotifier.md
 docs/FpNotify.md
@@ -60,11 +62,13 @@ docs/ProcessApi.md
 docs/ProcessEventLog.md
 docs/Require.md
 docs/TriggerApi.md
+docs/TriggerExecutionResponse.md
 docs/VariableApi.md
 git_push.sh
 go.mod
 go.sum
 model_cmd_pipeline.go
+model_cmd_trigger.go
 model_execution_execution.go
 model_execution_pipeline_execution.go
 model_execution_step_execution.go
@@ -73,6 +77,7 @@ model_execution_step_execution_step_for_each.go
 model_execution_step_status.go
 model_flowpipe_require.go
 model_flowpipe_response_metadata.go
+model_flowpipe_trigger_response_metadata.go
 model_fp_integration.go
 model_fp_notifier.go
 model_fp_notify.go
@@ -107,5 +112,6 @@ model_pipeline_execution_response.go
 model_process.go
 model_process_event_log.go
 model_require.go
+model_trigger_execution_response.go
 response.go
 utils.go
