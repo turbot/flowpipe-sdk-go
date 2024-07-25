@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## Command
 
-> map[string]interface{} Command(ctx, pipelineName).Request(request).Execute()
+> PipelineExecutionResponse Command(ctx, pipelineName).Request(request).Execute()
 
 Execute a pipeline command
 
@@ -41,7 +41,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `PipelineApi.Command``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Command`: map[string]interface{}
+    // response from `Command`: PipelineExecutionResponse
     fmt.Fprintf(os.Stdout, "Response from `PipelineApi.Command`: %v\n", resp)
 }
 ```
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**PipelineExecutionResponse**](PipelineExecutionResponse.md)
 
 ### Authorization
 

@@ -1136,6 +1136,25 @@ components:
         min_version:
           type: string
       type: object
+    FlowpipeResponseMetadata:
+      example:
+        pipeline: pipeline
+        execution_id: execution_id
+        pipeline_execution_id: pipeline_execution_id
+        last_loaded: last_loaded
+        is_stale: true
+      properties:
+        execution_id:
+          type: string
+        is_stale:
+          type: boolean
+        last_loaded:
+          type: string
+        pipeline:
+          type: string
+        pipeline_execution_id:
+          type: string
+      type: object
     FpIntegration:
       example:
         cc:
@@ -1960,7 +1979,56 @@ components:
           type: string
       type: object
     PipelineExecutionResponse:
-      additionalProperties: true
+      example:
+        output:
+          key: ""
+        flowpipe:
+          pipeline: pipeline
+          execution_id: execution_id
+          pipeline_execution_id: pipeline_execution_id
+          last_loaded: last_loaded
+          is_stale: true
+        errors:
+        - pipeline: pipeline
+          pipeline_execution_id: pipeline_execution_id
+          step_execution_id: step_execution_id
+          step: step
+          error:
+            instance: instance
+            validation_errors:
+            - location: location
+              message: message
+            - location: location
+              message: message
+            detail: detail
+            title: title
+            type: type
+            status: 0
+        - pipeline: pipeline
+          pipeline_execution_id: pipeline_execution_id
+          step_execution_id: step_execution_id
+          step: step
+          error:
+            instance: instance
+            validation_errors:
+            - location: location
+              message: message
+            - location: location
+              message: message
+            detail: detail
+            title: title
+            type: type
+            status: 0
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/modconfig.StepError'
+          type: array
+        flowpipe:
+          $ref: '#/components/schemas/FlowpipeResponseMetadata'
+        output:
+          additionalProperties: true
+          type: object
       type: object
     Process:
       example:
@@ -2039,13 +2107,13 @@ components:
                       input:
                         key: ""
                       loop_completed: true
-                      index: 6
+                      index: 0
                     input: "{}"
                     start_time: start_time
                     step_retry:
                       input:
                         key: ""
-                      count: 1
+                      count: 6
                       retry_completed: true
                     name: name
                     id: id
@@ -2061,13 +2129,13 @@ components:
                       input:
                         key: ""
                       loop_completed: true
-                      index: 6
+                      index: 0
                     input: "{}"
                     start_time: start_time
                     step_retry:
                       input:
                         key: ""
-                      count: 1
+                      count: 6
                       retry_completed: true
                     name: name
                     id: id
@@ -2155,13 +2223,13 @@ components:
                   input:
                     key: ""
                   loop_completed: true
-                  index: 6
+                  index: 0
                 input: "{}"
                 start_time: start_time
                 step_retry:
                   input:
                     key: ""
-                  count: 1
+                  count: 6
                   retry_completed: true
                 name: name
                 id: id
@@ -2177,13 +2245,13 @@ components:
                   input:
                     key: ""
                   loop_completed: true
-                  index: 6
+                  index: 0
                 input: "{}"
                 start_time: start_time
                 step_retry:
                   input:
                     key: ""
-                  count: 1
+                  count: 6
                   retry_completed: true
                 name: name
                 id: id
@@ -2300,13 +2368,13 @@ components:
           input:
             key: ""
           loop_completed: true
-          index: 6
+          index: 0
         input: "{}"
         start_time: start_time
         step_retry:
           input:
             key: ""
-          count: 1
+          count: 6
           retry_completed: true
         name: name
         id: id
@@ -2374,13 +2442,13 @@ components:
             input:
               key: ""
             loop_completed: true
-            index: 6
+            index: 0
           input: "{}"
           start_time: start_time
           step_retry:
             input:
               key: ""
-            count: 1
+            count: 6
             retry_completed: true
           name: name
           id: id
@@ -2396,13 +2464,13 @@ components:
             input:
               key: ""
             loop_completed: true
-            index: 6
+            index: 0
           input: "{}"
           start_time: start_time
           step_retry:
             input:
               key: ""
-            count: 1
+            count: 6
             retry_completed: true
           name: name
           id: id
@@ -2619,7 +2687,7 @@ components:
         input:
           key: ""
         loop_completed: true
-        index: 6
+        index: 0
       properties:
         index:
           type: integer
@@ -2635,7 +2703,7 @@ components:
       example:
         input:
           key: ""
-        count: 1
+        count: 6
         retry_completed: true
       properties:
         count:

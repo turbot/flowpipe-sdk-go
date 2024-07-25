@@ -37,7 +37,7 @@ func (r TriggerApiCommandRequest) Request(request CmdPipeline) TriggerApiCommand
 	return r
 }
 
-func (r TriggerApiCommandRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r TriggerApiCommandRequest) Execute() (*PipelineExecutionResponse, *http.Response, error) {
 	return r.ApiService.CommandExecute(r)
 }
 
@@ -59,13 +59,13 @@ func (a *TriggerApiService) Command(ctx context.Context, triggerName string) Tri
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
-func (a *TriggerApiService) CommandExecute(r TriggerApiCommandRequest) (map[string]interface{}, *http.Response, error) {
+//  @return PipelineExecutionResponse
+func (a *TriggerApiService) CommandExecute(r TriggerApiCommandRequest) (*PipelineExecutionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  *PipelineExecutionResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TriggerApiService.Command")
