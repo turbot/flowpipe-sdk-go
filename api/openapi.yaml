@@ -1185,6 +1185,7 @@ components:
         pipeline_execution_id: pipeline_execution_id
         last_loaded: last_loaded
         is_stale: true
+        type: type
         status: status
       properties:
         execution_id:
@@ -1198,6 +1199,8 @@ components:
         pipeline_execution_id:
           type: string
         status:
+          type: string
+        type:
           type: string
       type: object
     FlowpipeTriggerResponseMetadata:
@@ -2052,6 +2055,7 @@ components:
           pipeline_execution_id: pipeline_execution_id
           last_loaded: last_loaded
           is_stale: true
+          type: type
           status: status
         errors:
         - pipeline: pipeline
@@ -2160,6 +2164,7 @@ components:
             pipeline_execution_id: pipeline_execution_id
             last_loaded: last_loaded
             is_stale: true
+            type: type
             status: status
           errors:
           - pipeline: pipeline
@@ -2200,6 +2205,7 @@ components:
             pipeline_execution_id: pipeline_execution_id
             last_loaded: last_loaded
             is_stale: true
+            type: type
             status: status
           errors:
           - pipeline: pipeline
