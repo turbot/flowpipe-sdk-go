@@ -15,11 +15,11 @@ import (
 	"encoding/json"
 )
 
-// checks if the CmdPipeline type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &CmdPipeline{}
+// checks if the CmdTrigger type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CmdTrigger{}
 
-// CmdPipeline struct for CmdPipeline
-type CmdPipeline struct {
+// CmdTrigger struct for CmdTrigger
+type CmdTrigger struct {
 	Args map[string]interface{} `json:"args,omitempty"`
 	ArgsString *map[string]string `json:"args_string,omitempty"`
 	Command string `json:"command"`
@@ -28,29 +28,29 @@ type CmdPipeline struct {
 	ExecutionMode *string `json:"execution_mode,omitempty"`
 	WaitRetry *int32 `json:"wait_retry,omitempty"`
 }
-func (o CmdPipeline) GetResourceType() string {
-	return "CmdPipeline"
+func (o CmdTrigger) GetResourceType() string {
+	return "CmdTrigger"
 }
-// NewCmdPipeline instantiates a new CmdPipeline object
+// NewCmdTrigger instantiates a new CmdTrigger object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCmdPipeline(command string) *CmdPipeline {
-	this := CmdPipeline{}
+func NewCmdTrigger(command string) *CmdTrigger {
+	this := CmdTrigger{}
 	this.Command = command
 	return &this
 }
 
-// NewCmdPipelineWithDefaults instantiates a new CmdPipeline object
+// NewCmdTriggerWithDefaults instantiates a new CmdTrigger object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewCmdPipelineWithDefaults() *CmdPipeline {
-	this := CmdPipeline{}
+func NewCmdTriggerWithDefaults() *CmdTrigger {
+	this := CmdTrigger{}
 	return &this
 }
 
 // GetArgs returns the Args field value if set, zero value otherwise.
-func (o *CmdPipeline) GetArgs() map[string]interface{} {
+func (o *CmdTrigger) GetArgs() map[string]interface{} {
 	if o == nil || IsNil(o.Args) {
 		var ret map[string]interface{}
 		return ret
@@ -60,7 +60,7 @@ func (o *CmdPipeline) GetArgs() map[string]interface{} {
 
 // GetArgsOk returns a tuple with the Args field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CmdPipeline) GetArgsOk() (map[string]interface{}, bool) {
+func (o *CmdTrigger) GetArgsOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Args) {
 		return map[string]interface{}{}, false
 	}
@@ -68,7 +68,7 @@ func (o *CmdPipeline) GetArgsOk() (map[string]interface{}, bool) {
 }
 
 // HasArgs returns a boolean if a field has been set.
-func (o *CmdPipeline) HasArgs() bool {
+func (o *CmdTrigger) HasArgs() bool {
 	if o != nil && !IsNil(o.Args) {
 		return true
 	}
@@ -77,12 +77,12 @@ func (o *CmdPipeline) HasArgs() bool {
 }
 
 // SetArgs gets a reference to the given map[string]interface{} and assigns it to the Args field.
-func (o *CmdPipeline) SetArgs(v map[string]interface{}) {
+func (o *CmdTrigger) SetArgs(v map[string]interface{}) {
 	o.Args = v
 }
 
 // GetArgsString returns the ArgsString field value if set, zero value otherwise.
-func (o *CmdPipeline) GetArgsString() map[string]string {
+func (o *CmdTrigger) GetArgsString() map[string]string {
 	if o == nil || IsNil(o.ArgsString) {
 		var ret map[string]string
 		return ret
@@ -92,7 +92,7 @@ func (o *CmdPipeline) GetArgsString() map[string]string {
 
 // GetArgsStringOk returns a tuple with the ArgsString field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CmdPipeline) GetArgsStringOk() (*map[string]string, bool) {
+func (o *CmdTrigger) GetArgsStringOk() (*map[string]string, bool) {
 	if o == nil || IsNil(o.ArgsString) {
 		return nil, false
 	}
@@ -100,7 +100,7 @@ func (o *CmdPipeline) GetArgsStringOk() (*map[string]string, bool) {
 }
 
 // HasArgsString returns a boolean if a field has been set.
-func (o *CmdPipeline) HasArgsString() bool {
+func (o *CmdTrigger) HasArgsString() bool {
 	if o != nil && !IsNil(o.ArgsString) {
 		return true
 	}
@@ -109,12 +109,12 @@ func (o *CmdPipeline) HasArgsString() bool {
 }
 
 // SetArgsString gets a reference to the given map[string]string and assigns it to the ArgsString field.
-func (o *CmdPipeline) SetArgsString(v map[string]string) {
+func (o *CmdTrigger) SetArgsString(v map[string]string) {
 	o.ArgsString = &v
 }
 
 // GetCommand returns the Command field value
-func (o *CmdPipeline) GetCommand() string {
+func (o *CmdTrigger) GetCommand() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -125,7 +125,7 @@ func (o *CmdPipeline) GetCommand() string {
 
 // GetCommandOk returns a tuple with the Command field value
 // and a boolean to check if the value has been set.
-func (o *CmdPipeline) GetCommandOk() (*string, bool) {
+func (o *CmdTrigger) GetCommandOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -133,12 +133,12 @@ func (o *CmdPipeline) GetCommandOk() (*string, bool) {
 }
 
 // SetCommand sets field value
-func (o *CmdPipeline) SetCommand(v string) {
+func (o *CmdTrigger) SetCommand(v string) {
 	o.Command = v
 }
 
 // GetExecutionId returns the ExecutionId field value if set, zero value otherwise.
-func (o *CmdPipeline) GetExecutionId() string {
+func (o *CmdTrigger) GetExecutionId() string {
 	if o == nil || IsNil(o.ExecutionId) {
 		var ret string
 		return ret
@@ -148,7 +148,7 @@ func (o *CmdPipeline) GetExecutionId() string {
 
 // GetExecutionIdOk returns a tuple with the ExecutionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CmdPipeline) GetExecutionIdOk() (*string, bool) {
+func (o *CmdTrigger) GetExecutionIdOk() (*string, bool) {
 	if o == nil || IsNil(o.ExecutionId) {
 		return nil, false
 	}
@@ -156,7 +156,7 @@ func (o *CmdPipeline) GetExecutionIdOk() (*string, bool) {
 }
 
 // HasExecutionId returns a boolean if a field has been set.
-func (o *CmdPipeline) HasExecutionId() bool {
+func (o *CmdTrigger) HasExecutionId() bool {
 	if o != nil && !IsNil(o.ExecutionId) {
 		return true
 	}
@@ -165,12 +165,12 @@ func (o *CmdPipeline) HasExecutionId() bool {
 }
 
 // SetExecutionId gets a reference to the given string and assigns it to the ExecutionId field.
-func (o *CmdPipeline) SetExecutionId(v string) {
+func (o *CmdTrigger) SetExecutionId(v string) {
 	o.ExecutionId = &v
 }
 
 // GetExecutionMode returns the ExecutionMode field value if set, zero value otherwise.
-func (o *CmdPipeline) GetExecutionMode() string {
+func (o *CmdTrigger) GetExecutionMode() string {
 	if o == nil || IsNil(o.ExecutionMode) {
 		var ret string
 		return ret
@@ -180,7 +180,7 @@ func (o *CmdPipeline) GetExecutionMode() string {
 
 // GetExecutionModeOk returns a tuple with the ExecutionMode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CmdPipeline) GetExecutionModeOk() (*string, bool) {
+func (o *CmdTrigger) GetExecutionModeOk() (*string, bool) {
 	if o == nil || IsNil(o.ExecutionMode) {
 		return nil, false
 	}
@@ -188,7 +188,7 @@ func (o *CmdPipeline) GetExecutionModeOk() (*string, bool) {
 }
 
 // HasExecutionMode returns a boolean if a field has been set.
-func (o *CmdPipeline) HasExecutionMode() bool {
+func (o *CmdTrigger) HasExecutionMode() bool {
 	if o != nil && !IsNil(o.ExecutionMode) {
 		return true
 	}
@@ -197,12 +197,12 @@ func (o *CmdPipeline) HasExecutionMode() bool {
 }
 
 // SetExecutionMode gets a reference to the given string and assigns it to the ExecutionMode field.
-func (o *CmdPipeline) SetExecutionMode(v string) {
+func (o *CmdTrigger) SetExecutionMode(v string) {
 	o.ExecutionMode = &v
 }
 
 // GetWaitRetry returns the WaitRetry field value if set, zero value otherwise.
-func (o *CmdPipeline) GetWaitRetry() int32 {
+func (o *CmdTrigger) GetWaitRetry() int32 {
 	if o == nil || IsNil(o.WaitRetry) {
 		var ret int32
 		return ret
@@ -212,7 +212,7 @@ func (o *CmdPipeline) GetWaitRetry() int32 {
 
 // GetWaitRetryOk returns a tuple with the WaitRetry field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CmdPipeline) GetWaitRetryOk() (*int32, bool) {
+func (o *CmdTrigger) GetWaitRetryOk() (*int32, bool) {
 	if o == nil || IsNil(o.WaitRetry) {
 		return nil, false
 	}
@@ -220,7 +220,7 @@ func (o *CmdPipeline) GetWaitRetryOk() (*int32, bool) {
 }
 
 // HasWaitRetry returns a boolean if a field has been set.
-func (o *CmdPipeline) HasWaitRetry() bool {
+func (o *CmdTrigger) HasWaitRetry() bool {
 	if o != nil && !IsNil(o.WaitRetry) {
 		return true
 	}
@@ -229,11 +229,11 @@ func (o *CmdPipeline) HasWaitRetry() bool {
 }
 
 // SetWaitRetry gets a reference to the given int32 and assigns it to the WaitRetry field.
-func (o *CmdPipeline) SetWaitRetry(v int32) {
+func (o *CmdTrigger) SetWaitRetry(v int32) {
 	o.WaitRetry = &v
 }
 
-func (o CmdPipeline) MarshalJSON() ([]byte, error) {
+func (o CmdTrigger) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -241,7 +241,7 @@ func (o CmdPipeline) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o CmdPipeline) ToMap() (map[string]interface{}, error) {
+func (o CmdTrigger) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Args) {
 		toSerialize["args"] = o.Args
@@ -262,38 +262,38 @@ func (o CmdPipeline) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableCmdPipeline struct {
-	value *CmdPipeline
+type NullableCmdTrigger struct {
+	value *CmdTrigger
 	isSet bool
 }
 
-func (v NullableCmdPipeline) Get() *CmdPipeline {
+func (v NullableCmdTrigger) Get() *CmdTrigger {
 	return v.value
 }
 
-func (v *NullableCmdPipeline) Set(val *CmdPipeline) {
+func (v *NullableCmdTrigger) Set(val *CmdTrigger) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableCmdPipeline) IsSet() bool {
+func (v NullableCmdTrigger) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableCmdPipeline) Unset() {
+func (v *NullableCmdTrigger) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableCmdPipeline(val *CmdPipeline) *NullableCmdPipeline {
-	return &NullableCmdPipeline{value: val, isSet: true}
+func NewNullableCmdTrigger(val *CmdTrigger) *NullableCmdTrigger {
+	return &NullableCmdTrigger{value: val, isSet: true}
 }
 
-func (v NullableCmdPipeline) MarshalJSON() ([]byte, error) {
+func (v NullableCmdTrigger) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableCmdPipeline) UnmarshalJSON(src []byte) error {
+func (v *NullableCmdTrigger) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

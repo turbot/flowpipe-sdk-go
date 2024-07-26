@@ -92,6 +92,7 @@ Class | Method | HTTP request | Description
 *ProcessApi* | [**GetExecution**](docs/ProcessApi.md#getexecution) | **Get** /process/{process_id}/execution | Get process execution
 *ProcessApi* | [**GetLog**](docs/ProcessApi.md#getlog) | **Get** /process/{process_id}/log/process.json | Get process log
 *ProcessApi* | [**List**](docs/ProcessApi.md#list) | **Get** /process | List processs
+*TriggerApi* | [**Command**](docs/TriggerApi.md#command) | **Post** /trigger/{trigger_name}/command | Execute a trigger command
 *TriggerApi* | [**Get**](docs/TriggerApi.md#get) | **Get** /trigger/{trigger_name} | Get trigger
 *TriggerApi* | [**List**](docs/TriggerApi.md#list) | **Get** /trigger | List triggers
 *VariableApi* | [**Get**](docs/VariableApi.md#get) | **Get** /variable/{variable_name} | Get variable
@@ -101,6 +102,7 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [CmdPipeline](docs/CmdPipeline.md)
+ - [CmdTrigger](docs/CmdTrigger.md)
  - [ExecutionExecution](docs/ExecutionExecution.md)
  - [ExecutionPipelineExecution](docs/ExecutionPipelineExecution.md)
  - [ExecutionStepExecution](docs/ExecutionStepExecution.md)
@@ -108,6 +110,8 @@ Class | Method | HTTP request | Description
  - [ExecutionStepExecutionStepForEach](docs/ExecutionStepExecutionStepForEach.md)
  - [ExecutionStepStatus](docs/ExecutionStepStatus.md)
  - [FlowpipeRequire](docs/FlowpipeRequire.md)
+ - [FlowpipeResponseMetadata](docs/FlowpipeResponseMetadata.md)
+ - [FlowpipeTriggerResponseMetadata](docs/FlowpipeTriggerResponseMetadata.md)
  - [FpIntegration](docs/FpIntegration.md)
  - [FpNotifier](docs/FpNotifier.md)
  - [FpNotify](docs/FpNotify.md)
@@ -138,9 +142,11 @@ Class | Method | HTTP request | Description
  - [OpenGraph](docs/OpenGraph.md)
  - [PerrErrorDetailModel](docs/PerrErrorDetailModel.md)
  - [PerrErrorModel](docs/PerrErrorModel.md)
+ - [PipelineExecutionResponse](docs/PipelineExecutionResponse.md)
  - [Process](docs/Process.md)
  - [ProcessEventLog](docs/ProcessEventLog.md)
  - [Require](docs/Require.md)
+ - [TriggerExecutionResponse](docs/TriggerExecutionResponse.md)
 
 
 ## Documentation For Authorization

@@ -37,12 +37,14 @@ func (r PipelineApiCommandRequest) Request(request CmdPipeline) PipelineApiComma
 	return r
 }
 
-func (r PipelineApiCommandRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r PipelineApiCommandRequest) Execute() (*PipelineExecutionResponse, *http.Response, error) {
 	return r.ApiService.CommandExecute(r)
 }
 
 /*
 Command Execute a pipeline command
+
+Execute a pipeline command
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pipelineName The name of the pipeline
@@ -57,13 +59,13 @@ func (a *PipelineApiService) Command(ctx context.Context, pipelineName string) P
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
-func (a *PipelineApiService) CommandExecute(r PipelineApiCommandRequest) (map[string]interface{}, *http.Response, error) {
+//  @return PipelineExecutionResponse
+func (a *PipelineApiService) CommandExecute(r PipelineApiCommandRequest) (*PipelineExecutionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  *PipelineExecutionResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PipelineApiService.Command")
