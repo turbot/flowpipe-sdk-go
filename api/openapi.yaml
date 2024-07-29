@@ -2156,95 +2156,13 @@ components:
           is_stale: true
           type: type
         results:
-        - flowpipe:
-            pipeline: pipeline
-            execution_id: execution_id
-            pipeline_execution_id: pipeline_execution_id
-            last_loaded: last_loaded
-            is_stale: true
-            type: type
-            status: status
-          results:
-            key: ""
-          errors:
-          - pipeline: pipeline
-            pipeline_execution_id: pipeline_execution_id
-            step_execution_id: step_execution_id
-            step: step
-            error:
-              instance: instance
-              validation_errors:
-              - location: location
-                message: message
-              - location: location
-                message: message
-              detail: detail
-              title: title
-              type: type
-              status: 0
-          - pipeline: pipeline
-            pipeline_execution_id: pipeline_execution_id
-            step_execution_id: step_execution_id
-            step: step
-            error:
-              instance: instance
-              validation_errors:
-              - location: location
-                message: message
-              - location: location
-                message: message
-              detail: detail
-              title: title
-              type: type
-              status: 0
-        - flowpipe:
-            pipeline: pipeline
-            execution_id: execution_id
-            pipeline_execution_id: pipeline_execution_id
-            last_loaded: last_loaded
-            is_stale: true
-            type: type
-            status: status
-          results:
-            key: ""
-          errors:
-          - pipeline: pipeline
-            pipeline_execution_id: pipeline_execution_id
-            step_execution_id: step_execution_id
-            step: step
-            error:
-              instance: instance
-              validation_errors:
-              - location: location
-                message: message
-              - location: location
-                message: message
-              detail: detail
-              title: title
-              type: type
-              status: 0
-          - pipeline: pipeline
-            pipeline_execution_id: pipeline_execution_id
-            step_execution_id: step_execution_id
-            step: step
-            error:
-              instance: instance
-              validation_errors:
-              - location: location
-                message: message
-              - location: location
-                message: message
-              detail: detail
-              title: title
-              type: type
-              status: 0
+          key: ""
       properties:
         flowpipe:
           $ref: '#/components/schemas/FlowpipeTriggerResponseMetadata'
         results:
-          items:
-            $ref: '#/components/schemas/PipelineExecutionResponse'
-          type: array
+          additionalProperties: true
+          type: object
       type: object
     execution.Execution:
       example:

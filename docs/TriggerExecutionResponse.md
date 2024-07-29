@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Flowpipe** | Pointer to [**FlowpipeTriggerResponseMetadata**](FlowpipeTriggerResponseMetadata.md) |  | [optional] 
-**Results** | Pointer to [**[]PipelineExecutionResponse**](PipelineExecutionResponse.md) |  | [optional] 
+**Results** | Pointer to **map[string]interface{}** |  | [optional] 
 
 ## Methods
 
@@ -53,20 +53,20 @@ HasFlowpipe returns a boolean if a field has been set.
 
 ### GetResults
 
-`func (o *TriggerExecutionResponse) GetResults() []PipelineExecutionResponse`
+`func (o *TriggerExecutionResponse) GetResults() map[string]interface{}`
 
 GetResults returns the Results field if non-nil, zero value otherwise.
 
 ### GetResultsOk
 
-`func (o *TriggerExecutionResponse) GetResultsOk() (*[]PipelineExecutionResponse, bool)`
+`func (o *TriggerExecutionResponse) GetResultsOk() (*map[string]interface{}, bool)`
 
 GetResultsOk returns a tuple with the Results field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResults
 
-`func (o *TriggerExecutionResponse) SetResults(v []PipelineExecutionResponse)`
+`func (o *TriggerExecutionResponse) SetResults(v map[string]interface{})`
 
 SetResults sets Results field to given value.
 

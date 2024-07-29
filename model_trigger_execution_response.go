@@ -21,7 +21,7 @@ var _ MappedNullable = &TriggerExecutionResponse{}
 // TriggerExecutionResponse struct for TriggerExecutionResponse
 type TriggerExecutionResponse struct {
 	Flowpipe *FlowpipeTriggerResponseMetadata `json:"flowpipe,omitempty"`
-	Results []PipelineExecutionResponse `json:"results,omitempty"`
+	Results map[string]interface{} `json:"results,omitempty"`
 }
 func (o TriggerExecutionResponse) GetResourceType() string {
 	return "TriggerExecutionResponse"
@@ -76,9 +76,9 @@ func (o *TriggerExecutionResponse) SetFlowpipe(v FlowpipeTriggerResponseMetadata
 }
 
 // GetResults returns the Results field value if set, zero value otherwise.
-func (o *TriggerExecutionResponse) GetResults() []PipelineExecutionResponse {
+func (o *TriggerExecutionResponse) GetResults() map[string]interface{} {
 	if o == nil || IsNil(o.Results) {
-		var ret []PipelineExecutionResponse
+		var ret map[string]interface{}
 		return ret
 	}
 	return o.Results
@@ -86,9 +86,9 @@ func (o *TriggerExecutionResponse) GetResults() []PipelineExecutionResponse {
 
 // GetResultsOk returns a tuple with the Results field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TriggerExecutionResponse) GetResultsOk() ([]PipelineExecutionResponse, bool) {
+func (o *TriggerExecutionResponse) GetResultsOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Results) {
-		return nil, false
+		return map[string]interface{}{}, false
 	}
 	return o.Results, true
 }
@@ -102,8 +102,8 @@ func (o *TriggerExecutionResponse) HasResults() bool {
 	return false
 }
 
-// SetResults gets a reference to the given []PipelineExecutionResponse and assigns it to the Results field.
-func (o *TriggerExecutionResponse) SetResults(v []PipelineExecutionResponse) {
+// SetResults gets a reference to the given map[string]interface{} and assigns it to the Results field.
+func (o *TriggerExecutionResponse) SetResults(v map[string]interface{}) {
 	o.Results = v
 }
 
