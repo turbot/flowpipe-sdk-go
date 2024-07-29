@@ -2047,8 +2047,6 @@ components:
       type: object
     PipelineExecutionResponse:
       example:
-        output:
-          key: ""
         flowpipe:
           pipeline: pipeline
           execution_id: execution_id
@@ -2057,6 +2055,8 @@ components:
           is_stale: true
           type: type
           status: status
+        results:
+          key: ""
         errors:
         - pipeline: pipeline
           pipeline_execution_id: pipeline_execution_id
@@ -2095,7 +2095,7 @@ components:
           type: array
         flowpipe:
           $ref: '#/components/schemas/FlowpipeResponseMetadata'
-        output:
+        results:
           additionalProperties: true
           type: object
       type: object
@@ -2156,9 +2156,7 @@ components:
           is_stale: true
           type: type
         results:
-        - output:
-            key: ""
-          flowpipe:
+        - flowpipe:
             pipeline: pipeline
             execution_id: execution_id
             pipeline_execution_id: pipeline_execution_id
@@ -2166,6 +2164,8 @@ components:
             is_stale: true
             type: type
             status: status
+          results:
+            key: ""
           errors:
           - pipeline: pipeline
             pipeline_execution_id: pipeline_execution_id
@@ -2197,9 +2197,7 @@ components:
               title: title
               type: type
               status: 0
-        - output:
-            key: ""
-          flowpipe:
+        - flowpipe:
             pipeline: pipeline
             execution_id: execution_id
             pipeline_execution_id: pipeline_execution_id
@@ -2207,6 +2205,8 @@ components:
             is_stale: true
             type: type
             status: status
+          results:
+            key: ""
           errors:
           - pipeline: pipeline
             pipeline_execution_id: pipeline_execution_id

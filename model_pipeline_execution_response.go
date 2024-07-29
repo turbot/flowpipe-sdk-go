@@ -22,7 +22,7 @@ var _ MappedNullable = &PipelineExecutionResponse{}
 type PipelineExecutionResponse struct {
 	Errors []ModconfigStepError `json:"errors,omitempty"`
 	Flowpipe *FlowpipeResponseMetadata `json:"flowpipe,omitempty"`
-	Output map[string]interface{} `json:"output,omitempty"`
+	Results map[string]interface{} `json:"results,omitempty"`
 }
 func (o PipelineExecutionResponse) GetResourceType() string {
 	return "PipelineExecutionResponse"
@@ -108,36 +108,36 @@ func (o *PipelineExecutionResponse) SetFlowpipe(v FlowpipeResponseMetadata) {
 	o.Flowpipe = &v
 }
 
-// GetOutput returns the Output field value if set, zero value otherwise.
-func (o *PipelineExecutionResponse) GetOutput() map[string]interface{} {
-	if o == nil || IsNil(o.Output) {
+// GetResults returns the Results field value if set, zero value otherwise.
+func (o *PipelineExecutionResponse) GetResults() map[string]interface{} {
+	if o == nil || IsNil(o.Results) {
 		var ret map[string]interface{}
 		return ret
 	}
-	return o.Output
+	return o.Results
 }
 
-// GetOutputOk returns a tuple with the Output field value if set, nil otherwise
+// GetResultsOk returns a tuple with the Results field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PipelineExecutionResponse) GetOutputOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.Output) {
+func (o *PipelineExecutionResponse) GetResultsOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Results) {
 		return map[string]interface{}{}, false
 	}
-	return o.Output, true
+	return o.Results, true
 }
 
-// HasOutput returns a boolean if a field has been set.
-func (o *PipelineExecutionResponse) HasOutput() bool {
-	if o != nil && !IsNil(o.Output) {
+// HasResults returns a boolean if a field has been set.
+func (o *PipelineExecutionResponse) HasResults() bool {
+	if o != nil && !IsNil(o.Results) {
 		return true
 	}
 
 	return false
 }
 
-// SetOutput gets a reference to the given map[string]interface{} and assigns it to the Output field.
-func (o *PipelineExecutionResponse) SetOutput(v map[string]interface{}) {
-	o.Output = v
+// SetResults gets a reference to the given map[string]interface{} and assigns it to the Results field.
+func (o *PipelineExecutionResponse) SetResults(v map[string]interface{}) {
+	o.Results = v
 }
 
 func (o PipelineExecutionResponse) MarshalJSON() ([]byte, error) {
@@ -156,8 +156,8 @@ func (o PipelineExecutionResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Flowpipe) {
 		toSerialize["flowpipe"] = o.Flowpipe
 	}
-	if !IsNil(o.Output) {
-		toSerialize["output"] = o.Output
+	if !IsNil(o.Results) {
+		toSerialize["results"] = o.Results
 	}
 	return toSerialize, nil
 }

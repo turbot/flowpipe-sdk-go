@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Errors** | Pointer to [**[]ModconfigStepError**](ModconfigStepError.md) |  | [optional] 
 **Flowpipe** | Pointer to [**FlowpipeResponseMetadata**](FlowpipeResponseMetadata.md) |  | [optional] 
-**Output** | Pointer to **map[string]interface{}** |  | [optional] 
+**Results** | Pointer to **map[string]interface{}** |  | [optional] 
 
 ## Methods
 
@@ -77,30 +77,30 @@ SetFlowpipe sets Flowpipe field to given value.
 
 HasFlowpipe returns a boolean if a field has been set.
 
-### GetOutput
+### GetResults
 
-`func (o *PipelineExecutionResponse) GetOutput() map[string]interface{}`
+`func (o *PipelineExecutionResponse) GetResults() map[string]interface{}`
 
-GetOutput returns the Output field if non-nil, zero value otherwise.
+GetResults returns the Results field if non-nil, zero value otherwise.
 
-### GetOutputOk
+### GetResultsOk
 
-`func (o *PipelineExecutionResponse) GetOutputOk() (*map[string]interface{}, bool)`
+`func (o *PipelineExecutionResponse) GetResultsOk() (*map[string]interface{}, bool)`
 
-GetOutputOk returns a tuple with the Output field if it's non-nil, zero value otherwise
+GetResultsOk returns a tuple with the Results field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOutput
+### SetResults
 
-`func (o *PipelineExecutionResponse) SetOutput(v map[string]interface{})`
+`func (o *PipelineExecutionResponse) SetResults(v map[string]interface{})`
 
-SetOutput sets Output field to given value.
+SetResults sets Results field to given value.
 
-### HasOutput
+### HasResults
 
-`func (o *PipelineExecutionResponse) HasOutput() bool`
+`func (o *PipelineExecutionResponse) HasResults() bool`
 
-HasOutput returns a boolean if a field has been set.
+HasResults returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
