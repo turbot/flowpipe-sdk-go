@@ -1873,16 +1873,24 @@ components:
       example:
         next_token: next_token
         items:
-        - event_type: event_type
-          payload: payload
-          ts: ts
-        - event_type: event_type
-          payload: payload
-          ts: ts
+        - process_id: process_id
+          struct_version: struct_version
+          level: level
+          created_at: created_at
+          detail: "{}"
+          id: id
+          message: message
+        - process_id: process_id
+          struct_version: struct_version
+          level: level
+          created_at: created_at
+          detail: "{}"
+          id: id
+          message: message
       properties:
         items:
           items:
-            $ref: '#/components/schemas/ProcessEventLog'
+            $ref: '#/components/schemas/event.EventLogImpl'
           type: array
         next_token:
           type: string
@@ -2115,21 +2123,6 @@ components:
         status:
           type: string
       type: object
-    ProcessEventLog:
-      example:
-        event_type: event_type
-        payload: payload
-        ts: ts
-      properties:
-        event_type:
-          type: string
-        payload:
-          description: "Setting the type as string for now, as the CLI need to print\
-            \ the payload"
-          type: string
-        ts:
-          type: string
-      type: object
     Require:
       example:
         mods:
@@ -2163,6 +2156,31 @@ components:
         results:
           additionalProperties: true
           type: object
+      type: object
+    event.EventLogImpl:
+      example:
+        process_id: process_id
+        struct_version: struct_version
+        level: level
+        created_at: created_at
+        detail: "{}"
+        id: id
+        message: message
+      properties:
+        created_at:
+          type: string
+        detail:
+          type: object
+        id:
+          type: string
+        level:
+          type: string
+        message:
+          type: string
+        process_id:
+          type: string
+        struct_version:
+          type: string
       type: object
     execution.Execution:
       example:

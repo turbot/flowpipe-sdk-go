@@ -20,7 +20,7 @@ var _ MappedNullable = &ListProcessLogJSONResponse{}
 
 // ListProcessLogJSONResponse struct for ListProcessLogJSONResponse
 type ListProcessLogJSONResponse struct {
-	Items []ProcessEventLog `json:"items,omitempty"`
+	Items []EventEventLogImpl `json:"items,omitempty"`
 	NextToken *string `json:"next_token,omitempty"`
 }
 func (o ListProcessLogJSONResponse) GetResourceType() string {
@@ -44,9 +44,9 @@ func NewListProcessLogJSONResponseWithDefaults() *ListProcessLogJSONResponse {
 }
 
 // GetItems returns the Items field value if set, zero value otherwise.
-func (o *ListProcessLogJSONResponse) GetItems() []ProcessEventLog {
+func (o *ListProcessLogJSONResponse) GetItems() []EventEventLogImpl {
 	if o == nil || IsNil(o.Items) {
-		var ret []ProcessEventLog
+		var ret []EventEventLogImpl
 		return ret
 	}
 	return o.Items
@@ -54,7 +54,7 @@ func (o *ListProcessLogJSONResponse) GetItems() []ProcessEventLog {
 
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ListProcessLogJSONResponse) GetItemsOk() ([]ProcessEventLog, bool) {
+func (o *ListProcessLogJSONResponse) GetItemsOk() ([]EventEventLogImpl, bool) {
 	if o == nil || IsNil(o.Items) {
 		return nil, false
 	}
@@ -70,8 +70,8 @@ func (o *ListProcessLogJSONResponse) HasItems() bool {
 	return false
 }
 
-// SetItems gets a reference to the given []ProcessEventLog and assigns it to the Items field.
-func (o *ListProcessLogJSONResponse) SetItems(v []ProcessEventLog) {
+// SetItems gets a reference to the given []EventEventLogImpl and assigns it to the Items field.
+func (o *ListProcessLogJSONResponse) SetItems(v []EventEventLogImpl) {
 	o.Items = v
 }
 

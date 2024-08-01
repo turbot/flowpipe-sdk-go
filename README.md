@@ -103,6 +103,7 @@ Class | Method | HTTP request | Description
 
  - [CmdPipeline](docs/CmdPipeline.md)
  - [CmdTrigger](docs/CmdTrigger.md)
+ - [EventEventLogImpl](docs/EventEventLogImpl.md)
  - [ExecutionExecution](docs/ExecutionExecution.md)
  - [ExecutionPipelineExecution](docs/ExecutionPipelineExecution.md)
  - [ExecutionStepExecution](docs/ExecutionStepExecution.md)
@@ -144,7 +145,6 @@ Class | Method | HTTP request | Description
  - [PerrErrorModel](docs/PerrErrorModel.md)
  - [PipelineExecutionResponse](docs/PipelineExecutionResponse.md)
  - [Process](docs/Process.md)
- - [ProcessEventLog](docs/ProcessEventLog.md)
  - [Require](docs/Require.md)
  - [TriggerExecutionResponse](docs/TriggerExecutionResponse.md)
 
