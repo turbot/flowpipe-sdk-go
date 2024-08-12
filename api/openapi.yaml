@@ -1441,15 +1441,17 @@ components:
         end_line_number: 0
         params:
         - default: "{}"
+          type_string: type_string
           name: name
           description: description
           optional: true
-          type: type
+          type: "{}"
         - default: "{}"
+          type_string: type_string
           name: name
           description: description
           optional: true
-          type: type
+          type: "{}"
         start_line_number: 6
         title: title
         steps:
@@ -1498,10 +1500,11 @@ components:
     FpPipelineParam:
       example:
         default: "{}"
+        type_string: type_string
         name: name
         description: description
         optional: true
-        type: type
+        type: "{}"
       properties:
         default:
           type: object
@@ -1512,6 +1515,8 @@ components:
         optional:
           type: boolean
         type:
+          type: object
+        type_string:
           type: string
       type: object
     FpTrigger:
@@ -1791,15 +1796,17 @@ components:
           end_line_number: 0
           params:
           - default: "{}"
+            type_string: type_string
             name: name
             description: description
             optional: true
-            type: type
+            type: "{}"
           - default: "{}"
+            type_string: type_string
             name: name
             description: description
             optional: true
-            type: type
+            type: "{}"
           start_line_number: 6
           title: title
           steps:
@@ -1843,15 +1850,17 @@ components:
           end_line_number: 0
           params:
           - default: "{}"
+            type_string: type_string
             name: name
             description: description
             optional: true
-            type: type
+            type: "{}"
           - default: "{}"
+            type_string: type_string
             name: name
             description: description
             optional: true
-            type: type
+            type: "{}"
           start_line_number: 6
           title: title
           steps:

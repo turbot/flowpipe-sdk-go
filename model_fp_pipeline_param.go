@@ -24,7 +24,8 @@ type FpPipelineParam struct {
 	Description *string `json:"description,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Optional *bool `json:"optional,omitempty"`
-	Type *string `json:"type,omitempty"`
+	Type map[string]interface{} `json:"type,omitempty"`
+	TypeString *string `json:"type_string,omitempty"`
 }
 func (o FpPipelineParam) GetResourceType() string {
 	return "FpPipelineParam"
@@ -175,19 +176,19 @@ func (o *FpPipelineParam) SetOptional(v bool) {
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
-func (o *FpPipelineParam) GetType() string {
+func (o *FpPipelineParam) GetType() map[string]interface{} {
 	if o == nil || IsNil(o.Type) {
-		var ret string
+		var ret map[string]interface{}
 		return ret
 	}
-	return *o.Type
+	return o.Type
 }
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FpPipelineParam) GetTypeOk() (*string, bool) {
+func (o *FpPipelineParam) GetTypeOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Type) {
-		return nil, false
+		return map[string]interface{}{}, false
 	}
 	return o.Type, true
 }
@@ -201,9 +202,41 @@ func (o *FpPipelineParam) HasType() bool {
 	return false
 }
 
-// SetType gets a reference to the given string and assigns it to the Type field.
-func (o *FpPipelineParam) SetType(v string) {
-	o.Type = &v
+// SetType gets a reference to the given map[string]interface{} and assigns it to the Type field.
+func (o *FpPipelineParam) SetType(v map[string]interface{}) {
+	o.Type = v
+}
+
+// GetTypeString returns the TypeString field value if set, zero value otherwise.
+func (o *FpPipelineParam) GetTypeString() string {
+	if o == nil || IsNil(o.TypeString) {
+		var ret string
+		return ret
+	}
+	return *o.TypeString
+}
+
+// GetTypeStringOk returns a tuple with the TypeString field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpPipelineParam) GetTypeStringOk() (*string, bool) {
+	if o == nil || IsNil(o.TypeString) {
+		return nil, false
+	}
+	return o.TypeString, true
+}
+
+// HasTypeString returns a boolean if a field has been set.
+func (o *FpPipelineParam) HasTypeString() bool {
+	if o != nil && !IsNil(o.TypeString) {
+		return true
+	}
+
+	return false
+}
+
+// SetTypeString gets a reference to the given string and assigns it to the TypeString field.
+func (o *FpPipelineParam) SetTypeString(v string) {
+	o.TypeString = &v
 }
 
 func (o FpPipelineParam) MarshalJSON() ([]byte, error) {
@@ -230,6 +263,9 @@ func (o FpPipelineParam) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
+	}
+	if !IsNil(o.TypeString) {
+		toSerialize["type_string"] = o.TypeString
 	}
 	return toSerialize, nil
 }

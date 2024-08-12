@@ -8,7 +8,8 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Optional** | Pointer to **bool** |  | [optional] 
-**Type** | Pointer to **string** |  | [optional] 
+**Type** | Pointer to **map[string]interface{}** |  | [optional] 
+**TypeString** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -131,20 +132,20 @@ HasOptional returns a boolean if a field has been set.
 
 ### GetType
 
-`func (o *FpPipelineParam) GetType() string`
+`func (o *FpPipelineParam) GetType() map[string]interface{}`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *FpPipelineParam) GetTypeOk() (*string, bool)`
+`func (o *FpPipelineParam) GetTypeOk() (*map[string]interface{}, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *FpPipelineParam) SetType(v string)`
+`func (o *FpPipelineParam) SetType(v map[string]interface{})`
 
 SetType sets Type field to given value.
 
@@ -153,6 +154,31 @@ SetType sets Type field to given value.
 `func (o *FpPipelineParam) HasType() bool`
 
 HasType returns a boolean if a field has been set.
+
+### GetTypeString
+
+`func (o *FpPipelineParam) GetTypeString() string`
+
+GetTypeString returns the TypeString field if non-nil, zero value otherwise.
+
+### GetTypeStringOk
+
+`func (o *FpPipelineParam) GetTypeStringOk() (*string, bool)`
+
+GetTypeStringOk returns a tuple with the TypeString field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTypeString
+
+`func (o *FpPipelineParam) SetTypeString(v string)`
+
+SetTypeString sets TypeString field to given value.
+
+### HasTypeString
+
+`func (o *FpPipelineParam) HasTypeString() bool`
+
+HasTypeString returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
