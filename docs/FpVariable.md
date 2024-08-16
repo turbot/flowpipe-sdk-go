@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Default** | Pointer to **interface{}** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **EndLineNumber** | Pointer to **int32** |  | [optional] 
 **FileName** | Pointer to **string** |  | [optional] 
@@ -14,7 +13,7 @@ Name | Type | Description | Notes
 **Type** | Pointer to **string** |  | [optional] 
 **TypeString** | Pointer to **string** |  | [optional] 
 **Value** | Pointer to **interface{}** |  | [optional] 
-**ValueDefault** | Pointer to **map[string]interface{}** |  | [optional] 
+**ValueDefault** | Pointer to **interface{}** |  | [optional] 
 
 ## Methods
 
@@ -34,31 +33,6 @@ will change when the set of required properties is changed
 NewFpVariableWithDefaults instantiates a new FpVariable object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetDefault
-
-`func (o *FpVariable) GetDefault() interface{}`
-
-GetDefault returns the Default field if non-nil, zero value otherwise.
-
-### GetDefaultOk
-
-`func (o *FpVariable) GetDefaultOk() (*interface{}, bool)`
-
-GetDefaultOk returns a tuple with the Default field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDefault
-
-`func (o *FpVariable) SetDefault(v interface{})`
-
-SetDefault sets Default field to given value.
-
-### HasDefault
-
-`func (o *FpVariable) HasDefault() bool`
-
-HasDefault returns a boolean if a field has been set.
 
 ### GetDescription
 
@@ -287,20 +261,20 @@ HasValue returns a boolean if a field has been set.
 
 ### GetValueDefault
 
-`func (o *FpVariable) GetValueDefault() map[string]interface{}`
+`func (o *FpVariable) GetValueDefault() interface{}`
 
 GetValueDefault returns the ValueDefault field if non-nil, zero value otherwise.
 
 ### GetValueDefaultOk
 
-`func (o *FpVariable) GetValueDefaultOk() (*map[string]interface{}, bool)`
+`func (o *FpVariable) GetValueDefaultOk() (*interface{}, bool)`
 
 GetValueDefaultOk returns a tuple with the ValueDefault field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValueDefault
 
-`func (o *FpVariable) SetValueDefault(v map[string]interface{})`
+`func (o *FpVariable) SetValueDefault(v interface{})`
 
 SetValueDefault sets ValueDefault field to given value.
 

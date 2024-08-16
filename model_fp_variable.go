@@ -20,7 +20,6 @@ var _ MappedNullable = &FpVariable{}
 
 // FpVariable struct for FpVariable
 type FpVariable struct {
-	Default *interface{} `json:"default,omitempty"`
 	Description *string `json:"description,omitempty"`
 	EndLineNumber *int32 `json:"end_line_number,omitempty"`
 	FileName *string `json:"file_name,omitempty"`
@@ -30,7 +29,7 @@ type FpVariable struct {
 	Type *string `json:"type,omitempty"`
 	TypeString *string `json:"type_string,omitempty"`
 	Value *interface{} `json:"value,omitempty"`
-	ValueDefault map[string]interface{} `json:"value_default,omitempty"`
+	ValueDefault *interface{} `json:"value_default,omitempty"`
 }
 func (o FpVariable) GetResourceType() string {
 	return "FpVariable"
@@ -50,38 +49,6 @@ func NewFpVariable() *FpVariable {
 func NewFpVariableWithDefaults() *FpVariable {
 	this := FpVariable{}
 	return &this
-}
-
-// GetDefault returns the Default field value if set, zero value otherwise.
-func (o *FpVariable) GetDefault() interface{} {
-	if o == nil || IsNil(o.Default) {
-		var ret interface{}
-		return ret
-	}
-	return *o.Default
-}
-
-// GetDefaultOk returns a tuple with the Default field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FpVariable) GetDefaultOk() (*interface{}, bool) {
-	if o == nil || IsNil(o.Default) {
-		return nil, false
-	}
-	return o.Default, true
-}
-
-// HasDefault returns a boolean if a field has been set.
-func (o *FpVariable) HasDefault() bool {
-	if o != nil && !IsNil(o.Default) {
-		return true
-	}
-
-	return false
-}
-
-// SetDefault gets a reference to the given interface{} and assigns it to the Default field.
-func (o *FpVariable) SetDefault(v interface{}) {
-	o.Default = &v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
@@ -373,19 +340,19 @@ func (o *FpVariable) SetValue(v interface{}) {
 }
 
 // GetValueDefault returns the ValueDefault field value if set, zero value otherwise.
-func (o *FpVariable) GetValueDefault() map[string]interface{} {
+func (o *FpVariable) GetValueDefault() interface{} {
 	if o == nil || IsNil(o.ValueDefault) {
-		var ret map[string]interface{}
+		var ret interface{}
 		return ret
 	}
-	return o.ValueDefault
+	return *o.ValueDefault
 }
 
 // GetValueDefaultOk returns a tuple with the ValueDefault field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FpVariable) GetValueDefaultOk() (map[string]interface{}, bool) {
+func (o *FpVariable) GetValueDefaultOk() (*interface{}, bool) {
 	if o == nil || IsNil(o.ValueDefault) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.ValueDefault, true
 }
@@ -399,9 +366,9 @@ func (o *FpVariable) HasValueDefault() bool {
 	return false
 }
 
-// SetValueDefault gets a reference to the given map[string]interface{} and assigns it to the ValueDefault field.
-func (o *FpVariable) SetValueDefault(v map[string]interface{}) {
-	o.ValueDefault = v
+// SetValueDefault gets a reference to the given interface{} and assigns it to the ValueDefault field.
+func (o *FpVariable) SetValueDefault(v interface{}) {
+	o.ValueDefault = &v
 }
 
 func (o FpVariable) MarshalJSON() ([]byte, error) {
@@ -414,9 +381,6 @@ func (o FpVariable) MarshalJSON() ([]byte, error) {
 
 func (o FpVariable) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Default) {
-		toSerialize["default"] = o.Default
-	}
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
