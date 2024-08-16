@@ -22,10 +22,15 @@ var _ MappedNullable = &FpVariable{}
 type FpVariable struct {
 	Default *interface{} `json:"default,omitempty"`
 	Description *string `json:"description,omitempty"`
+	EndLineNumber *int32 `json:"end_line_number,omitempty"`
+	FileName *string `json:"file_name,omitempty"`
 	ModName *string `json:"mod_name,omitempty"`
 	Name *string `json:"name,omitempty"`
+	StartLineNumber *int32 `json:"start_line_number,omitempty"`
 	Type *string `json:"type,omitempty"`
+	TypeString *string `json:"type_string,omitempty"`
 	Value *interface{} `json:"value,omitempty"`
+	ValueDefault map[string]interface{} `json:"value_default,omitempty"`
 }
 func (o FpVariable) GetResourceType() string {
 	return "FpVariable"
@@ -111,6 +116,70 @@ func (o *FpVariable) SetDescription(v string) {
 	o.Description = &v
 }
 
+// GetEndLineNumber returns the EndLineNumber field value if set, zero value otherwise.
+func (o *FpVariable) GetEndLineNumber() int32 {
+	if o == nil || IsNil(o.EndLineNumber) {
+		var ret int32
+		return ret
+	}
+	return *o.EndLineNumber
+}
+
+// GetEndLineNumberOk returns a tuple with the EndLineNumber field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpVariable) GetEndLineNumberOk() (*int32, bool) {
+	if o == nil || IsNil(o.EndLineNumber) {
+		return nil, false
+	}
+	return o.EndLineNumber, true
+}
+
+// HasEndLineNumber returns a boolean if a field has been set.
+func (o *FpVariable) HasEndLineNumber() bool {
+	if o != nil && !IsNil(o.EndLineNumber) {
+		return true
+	}
+
+	return false
+}
+
+// SetEndLineNumber gets a reference to the given int32 and assigns it to the EndLineNumber field.
+func (o *FpVariable) SetEndLineNumber(v int32) {
+	o.EndLineNumber = &v
+}
+
+// GetFileName returns the FileName field value if set, zero value otherwise.
+func (o *FpVariable) GetFileName() string {
+	if o == nil || IsNil(o.FileName) {
+		var ret string
+		return ret
+	}
+	return *o.FileName
+}
+
+// GetFileNameOk returns a tuple with the FileName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpVariable) GetFileNameOk() (*string, bool) {
+	if o == nil || IsNil(o.FileName) {
+		return nil, false
+	}
+	return o.FileName, true
+}
+
+// HasFileName returns a boolean if a field has been set.
+func (o *FpVariable) HasFileName() bool {
+	if o != nil && !IsNil(o.FileName) {
+		return true
+	}
+
+	return false
+}
+
+// SetFileName gets a reference to the given string and assigns it to the FileName field.
+func (o *FpVariable) SetFileName(v string) {
+	o.FileName = &v
+}
+
 // GetModName returns the ModName field value if set, zero value otherwise.
 func (o *FpVariable) GetModName() string {
 	if o == nil || IsNil(o.ModName) {
@@ -175,6 +244,38 @@ func (o *FpVariable) SetName(v string) {
 	o.Name = &v
 }
 
+// GetStartLineNumber returns the StartLineNumber field value if set, zero value otherwise.
+func (o *FpVariable) GetStartLineNumber() int32 {
+	if o == nil || IsNil(o.StartLineNumber) {
+		var ret int32
+		return ret
+	}
+	return *o.StartLineNumber
+}
+
+// GetStartLineNumberOk returns a tuple with the StartLineNumber field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpVariable) GetStartLineNumberOk() (*int32, bool) {
+	if o == nil || IsNil(o.StartLineNumber) {
+		return nil, false
+	}
+	return o.StartLineNumber, true
+}
+
+// HasStartLineNumber returns a boolean if a field has been set.
+func (o *FpVariable) HasStartLineNumber() bool {
+	if o != nil && !IsNil(o.StartLineNumber) {
+		return true
+	}
+
+	return false
+}
+
+// SetStartLineNumber gets a reference to the given int32 and assigns it to the StartLineNumber field.
+func (o *FpVariable) SetStartLineNumber(v int32) {
+	o.StartLineNumber = &v
+}
+
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *FpVariable) GetType() string {
 	if o == nil || IsNil(o.Type) {
@@ -205,6 +306,38 @@ func (o *FpVariable) HasType() bool {
 // SetType gets a reference to the given string and assigns it to the Type field.
 func (o *FpVariable) SetType(v string) {
 	o.Type = &v
+}
+
+// GetTypeString returns the TypeString field value if set, zero value otherwise.
+func (o *FpVariable) GetTypeString() string {
+	if o == nil || IsNil(o.TypeString) {
+		var ret string
+		return ret
+	}
+	return *o.TypeString
+}
+
+// GetTypeStringOk returns a tuple with the TypeString field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpVariable) GetTypeStringOk() (*string, bool) {
+	if o == nil || IsNil(o.TypeString) {
+		return nil, false
+	}
+	return o.TypeString, true
+}
+
+// HasTypeString returns a boolean if a field has been set.
+func (o *FpVariable) HasTypeString() bool {
+	if o != nil && !IsNil(o.TypeString) {
+		return true
+	}
+
+	return false
+}
+
+// SetTypeString gets a reference to the given string and assigns it to the TypeString field.
+func (o *FpVariable) SetTypeString(v string) {
+	o.TypeString = &v
 }
 
 // GetValue returns the Value field value if set, zero value otherwise.
@@ -239,6 +372,38 @@ func (o *FpVariable) SetValue(v interface{}) {
 	o.Value = &v
 }
 
+// GetValueDefault returns the ValueDefault field value if set, zero value otherwise.
+func (o *FpVariable) GetValueDefault() map[string]interface{} {
+	if o == nil || IsNil(o.ValueDefault) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.ValueDefault
+}
+
+// GetValueDefaultOk returns a tuple with the ValueDefault field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpVariable) GetValueDefaultOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.ValueDefault) {
+		return map[string]interface{}{}, false
+	}
+	return o.ValueDefault, true
+}
+
+// HasValueDefault returns a boolean if a field has been set.
+func (o *FpVariable) HasValueDefault() bool {
+	if o != nil && !IsNil(o.ValueDefault) {
+		return true
+	}
+
+	return false
+}
+
+// SetValueDefault gets a reference to the given map[string]interface{} and assigns it to the ValueDefault field.
+func (o *FpVariable) SetValueDefault(v map[string]interface{}) {
+	o.ValueDefault = v
+}
+
 func (o FpVariable) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -255,17 +420,32 @@ func (o FpVariable) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
+	if !IsNil(o.EndLineNumber) {
+		toSerialize["end_line_number"] = o.EndLineNumber
+	}
+	if !IsNil(o.FileName) {
+		toSerialize["file_name"] = o.FileName
+	}
 	if !IsNil(o.ModName) {
 		toSerialize["mod_name"] = o.ModName
 	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
+	if !IsNil(o.StartLineNumber) {
+		toSerialize["start_line_number"] = o.StartLineNumber
+	}
 	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
 	}
+	if !IsNil(o.TypeString) {
+		toSerialize["type_string"] = o.TypeString
+	}
 	if !IsNil(o.Value) {
 		toSerialize["value"] = o.Value
+	}
+	if !IsNil(o.ValueDefault) {
+		toSerialize["value_default"] = o.ValueDefault
 	}
 	return toSerialize, nil
 }

@@ -1587,8 +1587,13 @@ components:
     FpVariable:
       example:
         default: ""
+        type_string: type_string
+        file_name: file_name
+        value_default: "{}"
         name: name
         description: description
+        end_line_number: 0
+        start_line_number: 6
         type: type
         value: ""
         mod_name: mod_name
@@ -1597,14 +1602,24 @@ components:
           type: AnyType
         description:
           type: string
+        end_line_number:
+          type: integer
+        file_name:
+          type: string
         mod_name:
           type: string
         name:
           type: string
+        start_line_number:
+          type: integer
         type:
+          type: string
+        type_string:
           type: string
         value:
           type: AnyType
+        value_default:
+          type: object
       type: object
     ListIntegrationResponse:
       example:
@@ -1979,14 +1994,24 @@ components:
         next_token: next_token
         items:
         - default: ""
+          type_string: type_string
+          file_name: file_name
+          value_default: "{}"
           name: name
           description: description
+          end_line_number: 0
+          start_line_number: 6
           type: type
           value: ""
           mod_name: mod_name
         - default: ""
+          type_string: type_string
+          file_name: file_name
+          value_default: "{}"
           name: name
           description: description
+          end_line_number: 0
+          start_line_number: 6
           type: type
           value: ""
           mod_name: mod_name
