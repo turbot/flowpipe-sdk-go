@@ -8,7 +8,8 @@ Name | Type | Description | Notes
 **EndLineNumber** | Pointer to **int32** |  | [optional] 
 **FileName** | Pointer to **string** |  | [optional] 
 **ModName** | Pointer to **string** |  | [optional] 
-**Name** | Pointer to **string** |  | [optional] 
+**QualifiedName** | Pointer to **string** |  | [optional] 
+**ResourceName** | Pointer to **string** |  | [optional] 
 **StartLineNumber** | Pointer to **int32** |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] 
 **TypeString** | Pointer to **string** |  | [optional] 
@@ -134,30 +135,55 @@ SetModName sets ModName field to given value.
 
 HasModName returns a boolean if a field has been set.
 
-### GetName
+### GetQualifiedName
 
-`func (o *FpVariable) GetName() string`
+`func (o *FpVariable) GetQualifiedName() string`
 
-GetName returns the Name field if non-nil, zero value otherwise.
+GetQualifiedName returns the QualifiedName field if non-nil, zero value otherwise.
 
-### GetNameOk
+### GetQualifiedNameOk
 
-`func (o *FpVariable) GetNameOk() (*string, bool)`
+`func (o *FpVariable) GetQualifiedNameOk() (*string, bool)`
 
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+GetQualifiedNameOk returns a tuple with the QualifiedName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetName
+### SetQualifiedName
 
-`func (o *FpVariable) SetName(v string)`
+`func (o *FpVariable) SetQualifiedName(v string)`
 
-SetName sets Name field to given value.
+SetQualifiedName sets QualifiedName field to given value.
 
-### HasName
+### HasQualifiedName
 
-`func (o *FpVariable) HasName() bool`
+`func (o *FpVariable) HasQualifiedName() bool`
 
-HasName returns a boolean if a field has been set.
+HasQualifiedName returns a boolean if a field has been set.
+
+### GetResourceName
+
+`func (o *FpVariable) GetResourceName() string`
+
+GetResourceName returns the ResourceName field if non-nil, zero value otherwise.
+
+### GetResourceNameOk
+
+`func (o *FpVariable) GetResourceNameOk() (*string, bool)`
+
+GetResourceNameOk returns a tuple with the ResourceName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResourceName
+
+`func (o *FpVariable) SetResourceName(v string)`
+
+SetResourceName sets ResourceName field to given value.
+
+### HasResourceName
+
+`func (o *FpVariable) HasResourceName() bool`
+
+HasResourceName returns a boolean if a field has been set.
 
 ### GetStartLineNumber
 

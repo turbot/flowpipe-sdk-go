@@ -1587,11 +1587,12 @@ components:
     FpVariable:
       example:
         type_string: type_string
+        qualified_name: qualified_name
         file_name: file_name
         value_default: ""
-        name: name
         description: description
         end_line_number: 0
+        resource_name: resource_name
         start_line_number: 6
         type: type
         value: ""
@@ -1605,7 +1606,9 @@ components:
           type: string
         mod_name:
           type: string
-        name:
+        qualified_name:
+          type: string
+        resource_name:
           type: string
         start_line_number:
           type: integer
@@ -1991,21 +1994,23 @@ components:
         next_token: next_token
         items:
         - type_string: type_string
+          qualified_name: qualified_name
           file_name: file_name
           value_default: ""
-          name: name
           description: description
           end_line_number: 0
+          resource_name: resource_name
           start_line_number: 6
           type: type
           value: ""
           mod_name: mod_name
         - type_string: type_string
+          qualified_name: qualified_name
           file_name: file_name
           value_default: ""
-          name: name
           description: description
           end_line_number: 0
+          resource_name: resource_name
           start_line_number: 6
           type: type
           value: ""

@@ -24,7 +24,8 @@ type FpVariable struct {
 	EndLineNumber *int32 `json:"end_line_number,omitempty"`
 	FileName *string `json:"file_name,omitempty"`
 	ModName *string `json:"mod_name,omitempty"`
-	Name *string `json:"name,omitempty"`
+	QualifiedName *string `json:"qualified_name,omitempty"`
+	ResourceName *string `json:"resource_name,omitempty"`
 	StartLineNumber *int32 `json:"start_line_number,omitempty"`
 	Type *string `json:"type,omitempty"`
 	TypeString *string `json:"type_string,omitempty"`
@@ -179,36 +180,68 @@ func (o *FpVariable) SetModName(v string) {
 	o.ModName = &v
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
-func (o *FpVariable) GetName() string {
-	if o == nil || IsNil(o.Name) {
+// GetQualifiedName returns the QualifiedName field value if set, zero value otherwise.
+func (o *FpVariable) GetQualifiedName() string {
+	if o == nil || IsNil(o.QualifiedName) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.QualifiedName
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetQualifiedNameOk returns a tuple with the QualifiedName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FpVariable) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+func (o *FpVariable) GetQualifiedNameOk() (*string, bool) {
+	if o == nil || IsNil(o.QualifiedName) {
 		return nil, false
 	}
-	return o.Name, true
+	return o.QualifiedName, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *FpVariable) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
+// HasQualifiedName returns a boolean if a field has been set.
+func (o *FpVariable) HasQualifiedName() bool {
+	if o != nil && !IsNil(o.QualifiedName) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
-func (o *FpVariable) SetName(v string) {
-	o.Name = &v
+// SetQualifiedName gets a reference to the given string and assigns it to the QualifiedName field.
+func (o *FpVariable) SetQualifiedName(v string) {
+	o.QualifiedName = &v
+}
+
+// GetResourceName returns the ResourceName field value if set, zero value otherwise.
+func (o *FpVariable) GetResourceName() string {
+	if o == nil || IsNil(o.ResourceName) {
+		var ret string
+		return ret
+	}
+	return *o.ResourceName
+}
+
+// GetResourceNameOk returns a tuple with the ResourceName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpVariable) GetResourceNameOk() (*string, bool) {
+	if o == nil || IsNil(o.ResourceName) {
+		return nil, false
+	}
+	return o.ResourceName, true
+}
+
+// HasResourceName returns a boolean if a field has been set.
+func (o *FpVariable) HasResourceName() bool {
+	if o != nil && !IsNil(o.ResourceName) {
+		return true
+	}
+
+	return false
+}
+
+// SetResourceName gets a reference to the given string and assigns it to the ResourceName field.
+func (o *FpVariable) SetResourceName(v string) {
+	o.ResourceName = &v
 }
 
 // GetStartLineNumber returns the StartLineNumber field value if set, zero value otherwise.
@@ -393,8 +426,11 @@ func (o FpVariable) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ModName) {
 		toSerialize["mod_name"] = o.ModName
 	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
+	if !IsNil(o.QualifiedName) {
+		toSerialize["qualified_name"] = o.QualifiedName
+	}
+	if !IsNil(o.ResourceName) {
+		toSerialize["resource_name"] = o.ResourceName
 	}
 	if !IsNil(o.StartLineNumber) {
 		toSerialize["start_line_number"] = o.StartLineNumber
