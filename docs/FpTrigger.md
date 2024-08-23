@@ -9,9 +9,11 @@ Name | Type | Description | Notes
 **Enabled** | Pointer to **bool** |  | [optional] 
 **EndLineNumber** | Pointer to **int32** |  | [optional] 
 **FileName** | Pointer to **string** |  | [optional] 
+**Mod** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Pipelines** | Pointer to [**[]FpTriggerPipeline**](FpTriggerPipeline.md) |  | [optional] 
 **Query** | Pointer to **string** |  | [optional] 
+**RootMod** | Pointer to **string** |  | [optional] 
 **Schedule** | Pointer to **string** |  | [optional] 
 **StartLineNumber** | Pointer to **int32** |  | [optional] 
 **Tags** | Pointer to **map[string]string** |  | [optional] 
@@ -163,6 +165,31 @@ SetFileName sets FileName field to given value.
 
 HasFileName returns a boolean if a field has been set.
 
+### GetMod
+
+`func (o *FpTrigger) GetMod() string`
+
+GetMod returns the Mod field if non-nil, zero value otherwise.
+
+### GetModOk
+
+`func (o *FpTrigger) GetModOk() (*string, bool)`
+
+GetModOk returns a tuple with the Mod field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMod
+
+`func (o *FpTrigger) SetMod(v string)`
+
+SetMod sets Mod field to given value.
+
+### HasMod
+
+`func (o *FpTrigger) HasMod() bool`
+
+HasMod returns a boolean if a field has been set.
+
 ### GetName
 
 `func (o *FpTrigger) GetName() string`
@@ -237,6 +264,31 @@ SetQuery sets Query field to given value.
 `func (o *FpTrigger) HasQuery() bool`
 
 HasQuery returns a boolean if a field has been set.
+
+### GetRootMod
+
+`func (o *FpTrigger) GetRootMod() string`
+
+GetRootMod returns the RootMod field if non-nil, zero value otherwise.
+
+### GetRootModOk
+
+`func (o *FpTrigger) GetRootModOk() (*string, bool)`
+
+GetRootModOk returns a tuple with the RootMod field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRootMod
+
+`func (o *FpTrigger) SetRootMod(v string)`
+
+SetRootMod sets RootMod field to given value.
+
+### HasRootMod
+
+`func (o *FpTrigger) HasRootMod() bool`
+
+HasRootMod returns a boolean if a field has been set.
 
 ### GetSchedule
 

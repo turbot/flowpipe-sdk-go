@@ -1521,6 +1521,7 @@ components:
       type: object
     FpTrigger:
       example:
+        mod: mod
         file_name: file_name
         documentation: documentation
         query: query
@@ -1539,6 +1540,7 @@ components:
           capture_group: capture_group
         - pipeline: pipeline
           capture_group: capture_group
+        root_mod: root_mod
         name: name
       properties:
         description:
@@ -1551,6 +1553,8 @@ components:
           type: integer
         file_name:
           type: string
+        mod:
+          type: string
         name:
           type: string
         pipelines:
@@ -1558,6 +1562,8 @@ components:
             $ref: '#/components/schemas/FpTriggerPipeline'
           type: array
         query:
+          type: string
+        root_mod:
           type: string
         schedule:
           type: string
@@ -1943,7 +1949,8 @@ components:
       example:
         next_token: next_token
         items:
-        - file_name: file_name
+        - mod: mod
+          file_name: file_name
           documentation: documentation
           query: query
           description: description
@@ -1961,8 +1968,10 @@ components:
             capture_group: capture_group
           - pipeline: pipeline
             capture_group: capture_group
+          root_mod: root_mod
           name: name
-        - file_name: file_name
+        - mod: mod
+          file_name: file_name
           documentation: documentation
           query: query
           description: description
@@ -1980,6 +1989,7 @@ components:
             capture_group: capture_group
           - pipeline: pipeline
             capture_group: capture_group
+          root_mod: root_mod
           name: name
       properties:
         items:

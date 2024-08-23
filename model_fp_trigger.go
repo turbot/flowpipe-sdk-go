@@ -25,9 +25,11 @@ type FpTrigger struct {
 	Enabled *bool `json:"enabled,omitempty"`
 	EndLineNumber *int32 `json:"end_line_number,omitempty"`
 	FileName *string `json:"file_name,omitempty"`
+	Mod *string `json:"mod,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Pipelines []FpTriggerPipeline `json:"pipelines,omitempty"`
 	Query *string `json:"query,omitempty"`
+	RootMod *string `json:"root_mod,omitempty"`
 	Schedule *string `json:"schedule,omitempty"`
 	StartLineNumber *int32 `json:"start_line_number,omitempty"`
 	Tags *map[string]string `json:"tags,omitempty"`
@@ -215,6 +217,38 @@ func (o *FpTrigger) SetFileName(v string) {
 	o.FileName = &v
 }
 
+// GetMod returns the Mod field value if set, zero value otherwise.
+func (o *FpTrigger) GetMod() string {
+	if o == nil || IsNil(o.Mod) {
+		var ret string
+		return ret
+	}
+	return *o.Mod
+}
+
+// GetModOk returns a tuple with the Mod field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpTrigger) GetModOk() (*string, bool) {
+	if o == nil || IsNil(o.Mod) {
+		return nil, false
+	}
+	return o.Mod, true
+}
+
+// HasMod returns a boolean if a field has been set.
+func (o *FpTrigger) HasMod() bool {
+	if o != nil && !IsNil(o.Mod) {
+		return true
+	}
+
+	return false
+}
+
+// SetMod gets a reference to the given string and assigns it to the Mod field.
+func (o *FpTrigger) SetMod(v string) {
+	o.Mod = &v
+}
+
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *FpTrigger) GetName() string {
 	if o == nil || IsNil(o.Name) {
@@ -309,6 +343,38 @@ func (o *FpTrigger) HasQuery() bool {
 // SetQuery gets a reference to the given string and assigns it to the Query field.
 func (o *FpTrigger) SetQuery(v string) {
 	o.Query = &v
+}
+
+// GetRootMod returns the RootMod field value if set, zero value otherwise.
+func (o *FpTrigger) GetRootMod() string {
+	if o == nil || IsNil(o.RootMod) {
+		var ret string
+		return ret
+	}
+	return *o.RootMod
+}
+
+// GetRootModOk returns a tuple with the RootMod field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpTrigger) GetRootModOk() (*string, bool) {
+	if o == nil || IsNil(o.RootMod) {
+		return nil, false
+	}
+	return o.RootMod, true
+}
+
+// HasRootMod returns a boolean if a field has been set.
+func (o *FpTrigger) HasRootMod() bool {
+	if o != nil && !IsNil(o.RootMod) {
+		return true
+	}
+
+	return false
+}
+
+// SetRootMod gets a reference to the given string and assigns it to the RootMod field.
+func (o *FpTrigger) SetRootMod(v string) {
+	o.RootMod = &v
 }
 
 // GetSchedule returns the Schedule field value if set, zero value otherwise.
@@ -528,6 +594,9 @@ func (o FpTrigger) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.FileName) {
 		toSerialize["file_name"] = o.FileName
 	}
+	if !IsNil(o.Mod) {
+		toSerialize["mod"] = o.Mod
+	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
@@ -536,6 +605,9 @@ func (o FpTrigger) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Query) {
 		toSerialize["query"] = o.Query
+	}
+	if !IsNil(o.RootMod) {
+		toSerialize["root_mod"] = o.RootMod
 	}
 	if !IsNil(o.Schedule) {
 		toSerialize["schedule"] = o.Schedule
