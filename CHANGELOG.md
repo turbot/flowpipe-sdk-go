@@ -1,6 +1,6 @@
 # Flowpipe SDK Go
 
-## v0.6.0 [tbd]
+## v0.6.0 [2024-08-23]
 
 SDK generated from Flowpipe v0.7.x
 
