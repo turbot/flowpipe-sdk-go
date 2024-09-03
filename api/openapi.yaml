@@ -1440,20 +1440,20 @@ components:
         description: description
         end_line_number: 0
         params:
-        - default: "{}"
+        - default: ""
           type_string: type_string
           name: name
           description: description
           optional: true
-          type: "{}"
+          type: ""
           tags:
             key: tags
-        - default: "{}"
+        - default: ""
           type_string: type_string
           name: name
           description: description
           optional: true
-          type: "{}"
+          type: ""
           tags:
             key: tags
         start_line_number: 6
@@ -1503,17 +1503,17 @@ components:
       type: object
     FpPipelineParam:
       example:
-        default: "{}"
+        default: ""
         type_string: type_string
         name: name
         description: description
         optional: true
-        type: "{}"
+        type: ""
         tags:
           key: tags
       properties:
         default:
-          type: object
+          type: AnyType
         description:
           type: string
         name:
@@ -1525,7 +1525,7 @@ components:
             type: string
           type: object
         type:
-          type: object
+          type: AnyType
         type_string:
           type: string
       type: object
@@ -1610,7 +1610,7 @@ components:
         end_line_number: 0
         resource_name: resource_name
         start_line_number: 6
-        type: "{}"
+        type: ""
         value: ""
         mod_name: mod_name
         tags:
@@ -1635,7 +1635,7 @@ components:
             type: string
           type: object
         type:
-          type: object
+          type: AnyType
         type_string:
           type: string
         value:
@@ -1832,20 +1832,20 @@ components:
           description: description
           end_line_number: 0
           params:
-          - default: "{}"
+          - default: ""
             type_string: type_string
             name: name
             description: description
             optional: true
-            type: "{}"
+            type: ""
             tags:
               key: tags
-          - default: "{}"
+          - default: ""
             type_string: type_string
             name: name
             description: description
             optional: true
-            type: "{}"
+            type: ""
             tags:
               key: tags
           start_line_number: 6
@@ -1890,20 +1890,20 @@ components:
           description: description
           end_line_number: 0
           params:
-          - default: "{}"
+          - default: ""
             type_string: type_string
             name: name
             description: description
             optional: true
-            type: "{}"
+            type: ""
             tags:
               key: tags
-          - default: "{}"
+          - default: ""
             type_string: type_string
             name: name
             description: description
             optional: true
-            type: "{}"
+            type: ""
             tags:
               key: tags
           start_line_number: 6
@@ -2035,7 +2035,7 @@ components:
           end_line_number: 0
           resource_name: resource_name
           start_line_number: 6
-          type: "{}"
+          type: ""
           value: ""
           mod_name: mod_name
           tags:
@@ -2048,7 +2048,7 @@ components:
           end_line_number: 0
           resource_name: resource_name
           start_line_number: 6
-          type: "{}"
+          type: ""
           value: ""
           mod_name: mod_name
           tags:

@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **ResourceName** | Pointer to **string** |  | [optional] 
 **StartLineNumber** | Pointer to **int32** |  | [optional] 
 **Tags** | Pointer to **map[string]string** |  | [optional] 
-**Type** | Pointer to **map[string]interface{}** |  | [optional] 
+**Type** | Pointer to **interface{}** |  | [optional] 
 **TypeString** | Pointer to **string** |  | [optional] 
 **Value** | Pointer to **interface{}** |  | [optional] 
 **ValueDefault** | Pointer to **interface{}** |  | [optional] 
@@ -238,20 +238,20 @@ HasTags returns a boolean if a field has been set.
 
 ### GetType
 
-`func (o *FpVariable) GetType() map[string]interface{}`
+`func (o *FpVariable) GetType() interface{}`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *FpVariable) GetTypeOk() (*map[string]interface{}, bool)`
+`func (o *FpVariable) GetTypeOk() (*interface{}, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *FpVariable) SetType(v map[string]interface{})`
+`func (o *FpVariable) SetType(v interface{})`
 
 SetType sets Type field to given value.
 

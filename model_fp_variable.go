@@ -28,7 +28,7 @@ type FpVariable struct {
 	ResourceName *string `json:"resource_name,omitempty"`
 	StartLineNumber *int32 `json:"start_line_number,omitempty"`
 	Tags *map[string]string `json:"tags,omitempty"`
-	Type map[string]interface{} `json:"type,omitempty"`
+	Type *interface{} `json:"type,omitempty"`
 	TypeString *string `json:"type_string,omitempty"`
 	Value *interface{} `json:"value,omitempty"`
 	ValueDefault *interface{} `json:"value_default,omitempty"`
@@ -310,19 +310,19 @@ func (o *FpVariable) SetTags(v map[string]string) {
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
-func (o *FpVariable) GetType() map[string]interface{} {
+func (o *FpVariable) GetType() interface{} {
 	if o == nil || IsNil(o.Type) {
-		var ret map[string]interface{}
+		var ret interface{}
 		return ret
 	}
-	return o.Type
+	return *o.Type
 }
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FpVariable) GetTypeOk() (map[string]interface{}, bool) {
+func (o *FpVariable) GetTypeOk() (*interface{}, bool) {
 	if o == nil || IsNil(o.Type) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.Type, true
 }
@@ -336,9 +336,9 @@ func (o *FpVariable) HasType() bool {
 	return false
 }
 
-// SetType gets a reference to the given map[string]interface{} and assigns it to the Type field.
-func (o *FpVariable) SetType(v map[string]interface{}) {
-	o.Type = v
+// SetType gets a reference to the given interface{} and assigns it to the Type field.
+func (o *FpVariable) SetType(v interface{}) {
+	o.Type = &v
 }
 
 // GetTypeString returns the TypeString field value if set, zero value otherwise.

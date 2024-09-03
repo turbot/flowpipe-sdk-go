@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Default** | Pointer to **map[string]interface{}** |  | [optional] 
+**Default** | Pointer to **interface{}** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Optional** | Pointer to **bool** |  | [optional] 
 **Tags** | Pointer to **map[string]string** |  | [optional] 
-**Type** | Pointer to **map[string]interface{}** |  | [optional] 
+**Type** | Pointer to **interface{}** |  | [optional] 
 **TypeString** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -33,20 +33,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDefault
 
-`func (o *FpPipelineParam) GetDefault() map[string]interface{}`
+`func (o *FpPipelineParam) GetDefault() interface{}`
 
 GetDefault returns the Default field if non-nil, zero value otherwise.
 
 ### GetDefaultOk
 
-`func (o *FpPipelineParam) GetDefaultOk() (*map[string]interface{}, bool)`
+`func (o *FpPipelineParam) GetDefaultOk() (*interface{}, bool)`
 
 GetDefaultOk returns a tuple with the Default field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefault
 
-`func (o *FpPipelineParam) SetDefault(v map[string]interface{})`
+`func (o *FpPipelineParam) SetDefault(v interface{})`
 
 SetDefault sets Default field to given value.
 
@@ -158,20 +158,20 @@ HasTags returns a boolean if a field has been set.
 
 ### GetType
 
-`func (o *FpPipelineParam) GetType() map[string]interface{}`
+`func (o *FpPipelineParam) GetType() interface{}`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *FpPipelineParam) GetTypeOk() (*map[string]interface{}, bool)`
+`func (o *FpPipelineParam) GetTypeOk() (*interface{}, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *FpPipelineParam) SetType(v map[string]interface{})`
+`func (o *FpPipelineParam) SetType(v interface{})`
 
 SetType sets Type field to given value.
 

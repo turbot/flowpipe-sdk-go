@@ -20,12 +20,12 @@ var _ MappedNullable = &FpPipelineParam{}
 
 // FpPipelineParam struct for FpPipelineParam
 type FpPipelineParam struct {
-	Default map[string]interface{} `json:"default,omitempty"`
+	Default *interface{} `json:"default,omitempty"`
 	Description *string `json:"description,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Optional *bool `json:"optional,omitempty"`
 	Tags *map[string]string `json:"tags,omitempty"`
-	Type map[string]interface{} `json:"type,omitempty"`
+	Type *interface{} `json:"type,omitempty"`
 	TypeString *string `json:"type_string,omitempty"`
 }
 func (o FpPipelineParam) GetResourceType() string {
@@ -49,19 +49,19 @@ func NewFpPipelineParamWithDefaults() *FpPipelineParam {
 }
 
 // GetDefault returns the Default field value if set, zero value otherwise.
-func (o *FpPipelineParam) GetDefault() map[string]interface{} {
+func (o *FpPipelineParam) GetDefault() interface{} {
 	if o == nil || IsNil(o.Default) {
-		var ret map[string]interface{}
+		var ret interface{}
 		return ret
 	}
-	return o.Default
+	return *o.Default
 }
 
 // GetDefaultOk returns a tuple with the Default field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FpPipelineParam) GetDefaultOk() (map[string]interface{}, bool) {
+func (o *FpPipelineParam) GetDefaultOk() (*interface{}, bool) {
 	if o == nil || IsNil(o.Default) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.Default, true
 }
@@ -75,9 +75,9 @@ func (o *FpPipelineParam) HasDefault() bool {
 	return false
 }
 
-// SetDefault gets a reference to the given map[string]interface{} and assigns it to the Default field.
-func (o *FpPipelineParam) SetDefault(v map[string]interface{}) {
-	o.Default = v
+// SetDefault gets a reference to the given interface{} and assigns it to the Default field.
+func (o *FpPipelineParam) SetDefault(v interface{}) {
+	o.Default = &v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
@@ -209,19 +209,19 @@ func (o *FpPipelineParam) SetTags(v map[string]string) {
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
-func (o *FpPipelineParam) GetType() map[string]interface{} {
+func (o *FpPipelineParam) GetType() interface{} {
 	if o == nil || IsNil(o.Type) {
-		var ret map[string]interface{}
+		var ret interface{}
 		return ret
 	}
-	return o.Type
+	return *o.Type
 }
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FpPipelineParam) GetTypeOk() (map[string]interface{}, bool) {
+func (o *FpPipelineParam) GetTypeOk() (*interface{}, bool) {
 	if o == nil || IsNil(o.Type) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.Type, true
 }
@@ -235,9 +235,9 @@ func (o *FpPipelineParam) HasType() bool {
 	return false
 }
 
-// SetType gets a reference to the given map[string]interface{} and assigns it to the Type field.
-func (o *FpPipelineParam) SetType(v map[string]interface{}) {
-	o.Type = v
+// SetType gets a reference to the given interface{} and assigns it to the Type field.
+func (o *FpPipelineParam) SetType(v interface{}) {
+	o.Type = &v
 }
 
 // GetTypeString returns the TypeString field value if set, zero value otherwise.
