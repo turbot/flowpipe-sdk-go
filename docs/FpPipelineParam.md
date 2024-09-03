@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Optional** | Pointer to **bool** |  | [optional] 
+**Tags** | Pointer to **map[string]string** |  | [optional] 
 **Type** | Pointer to **map[string]interface{}** |  | [optional] 
 **TypeString** | Pointer to **string** |  | [optional] 
 
@@ -129,6 +130,31 @@ SetOptional sets Optional field to given value.
 `func (o *FpPipelineParam) HasOptional() bool`
 
 HasOptional returns a boolean if a field has been set.
+
+### GetTags
+
+`func (o *FpPipelineParam) GetTags() map[string]string`
+
+GetTags returns the Tags field if non-nil, zero value otherwise.
+
+### GetTagsOk
+
+`func (o *FpPipelineParam) GetTagsOk() (*map[string]string, bool)`
+
+GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTags
+
+`func (o *FpPipelineParam) SetTags(v map[string]string)`
+
+SetTags sets Tags field to given value.
+
+### HasTags
+
+`func (o *FpPipelineParam) HasTags() bool`
+
+HasTags returns a boolean if a field has been set.
 
 ### GetType
 

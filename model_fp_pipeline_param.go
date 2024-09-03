@@ -24,6 +24,7 @@ type FpPipelineParam struct {
 	Description *string `json:"description,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Optional *bool `json:"optional,omitempty"`
+	Tags *map[string]string `json:"tags,omitempty"`
 	Type map[string]interface{} `json:"type,omitempty"`
 	TypeString *string `json:"type_string,omitempty"`
 }
@@ -175,6 +176,38 @@ func (o *FpPipelineParam) SetOptional(v bool) {
 	o.Optional = &v
 }
 
+// GetTags returns the Tags field value if set, zero value otherwise.
+func (o *FpPipelineParam) GetTags() map[string]string {
+	if o == nil || IsNil(o.Tags) {
+		var ret map[string]string
+		return ret
+	}
+	return *o.Tags
+}
+
+// GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpPipelineParam) GetTagsOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.Tags) {
+		return nil, false
+	}
+	return o.Tags, true
+}
+
+// HasTags returns a boolean if a field has been set.
+func (o *FpPipelineParam) HasTags() bool {
+	if o != nil && !IsNil(o.Tags) {
+		return true
+	}
+
+	return false
+}
+
+// SetTags gets a reference to the given map[string]string and assigns it to the Tags field.
+func (o *FpPipelineParam) SetTags(v map[string]string) {
+	o.Tags = &v
+}
+
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *FpPipelineParam) GetType() map[string]interface{} {
 	if o == nil || IsNil(o.Type) {
@@ -260,6 +293,9 @@ func (o FpPipelineParam) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Optional) {
 		toSerialize["optional"] = o.Optional
+	}
+	if !IsNil(o.Tags) {
+		toSerialize["tags"] = o.Tags
 	}
 	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type

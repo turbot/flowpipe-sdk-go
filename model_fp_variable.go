@@ -27,7 +27,8 @@ type FpVariable struct {
 	QualifiedName *string `json:"qualified_name,omitempty"`
 	ResourceName *string `json:"resource_name,omitempty"`
 	StartLineNumber *int32 `json:"start_line_number,omitempty"`
-	Type *string `json:"type,omitempty"`
+	Tags *map[string]string `json:"tags,omitempty"`
+	Type map[string]interface{} `json:"type,omitempty"`
 	TypeString *string `json:"type_string,omitempty"`
 	Value *interface{} `json:"value,omitempty"`
 	ValueDefault *interface{} `json:"value_default,omitempty"`
@@ -276,20 +277,52 @@ func (o *FpVariable) SetStartLineNumber(v int32) {
 	o.StartLineNumber = &v
 }
 
-// GetType returns the Type field value if set, zero value otherwise.
-func (o *FpVariable) GetType() string {
-	if o == nil || IsNil(o.Type) {
-		var ret string
+// GetTags returns the Tags field value if set, zero value otherwise.
+func (o *FpVariable) GetTags() map[string]string {
+	if o == nil || IsNil(o.Tags) {
+		var ret map[string]string
 		return ret
 	}
-	return *o.Type
+	return *o.Tags
+}
+
+// GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpVariable) GetTagsOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.Tags) {
+		return nil, false
+	}
+	return o.Tags, true
+}
+
+// HasTags returns a boolean if a field has been set.
+func (o *FpVariable) HasTags() bool {
+	if o != nil && !IsNil(o.Tags) {
+		return true
+	}
+
+	return false
+}
+
+// SetTags gets a reference to the given map[string]string and assigns it to the Tags field.
+func (o *FpVariable) SetTags(v map[string]string) {
+	o.Tags = &v
+}
+
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *FpVariable) GetType() map[string]interface{} {
+	if o == nil || IsNil(o.Type) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.Type
 }
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FpVariable) GetTypeOk() (*string, bool) {
+func (o *FpVariable) GetTypeOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Type) {
-		return nil, false
+		return map[string]interface{}{}, false
 	}
 	return o.Type, true
 }
@@ -303,9 +336,9 @@ func (o *FpVariable) HasType() bool {
 	return false
 }
 
-// SetType gets a reference to the given string and assigns it to the Type field.
-func (o *FpVariable) SetType(v string) {
-	o.Type = &v
+// SetType gets a reference to the given map[string]interface{} and assigns it to the Type field.
+func (o *FpVariable) SetType(v map[string]interface{}) {
+	o.Type = v
 }
 
 // GetTypeString returns the TypeString field value if set, zero value otherwise.
@@ -434,6 +467,9 @@ func (o FpVariable) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.StartLineNumber) {
 		toSerialize["start_line_number"] = o.StartLineNumber
+	}
+	if !IsNil(o.Tags) {
+		toSerialize["tags"] = o.Tags
 	}
 	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
