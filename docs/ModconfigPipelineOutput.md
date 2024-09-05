@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Range** | Pointer to [**HclRange**](HclRange.md) |  | [optional] 
+**ConnectionDependsOn** | Pointer to **[]string** |  | [optional] 
 **CredentialDependsOn** | Pointer to **[]string** |  | [optional] 
 **DependsOn** | Pointer to **[]string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
@@ -55,6 +56,31 @@ SetRange sets Range field to given value.
 `func (o *ModconfigPipelineOutput) HasRange() bool`
 
 HasRange returns a boolean if a field has been set.
+
+### GetConnectionDependsOn
+
+`func (o *ModconfigPipelineOutput) GetConnectionDependsOn() []string`
+
+GetConnectionDependsOn returns the ConnectionDependsOn field if non-nil, zero value otherwise.
+
+### GetConnectionDependsOnOk
+
+`func (o *ModconfigPipelineOutput) GetConnectionDependsOnOk() (*[]string, bool)`
+
+GetConnectionDependsOnOk returns a tuple with the ConnectionDependsOn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConnectionDependsOn
+
+`func (o *ModconfigPipelineOutput) SetConnectionDependsOn(v []string)`
+
+SetConnectionDependsOn sets ConnectionDependsOn field to given value.
+
+### HasConnectionDependsOn
+
+`func (o *ModconfigPipelineOutput) HasConnectionDependsOn() bool`
+
+HasConnectionDependsOn returns a boolean if a field has been set.
 
 ### GetCredentialDependsOn
 

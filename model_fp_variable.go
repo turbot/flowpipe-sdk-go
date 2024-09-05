@@ -22,6 +22,7 @@ var _ MappedNullable = &FpVariable{}
 type FpVariable struct {
 	Description *string `json:"description,omitempty"`
 	EndLineNumber *int32 `json:"end_line_number,omitempty"`
+	Enum []interface{} `json:"enum,omitempty"`
 	FileName *string `json:"file_name,omitempty"`
 	ModName *string `json:"mod_name,omitempty"`
 	QualifiedName *string `json:"qualified_name,omitempty"`
@@ -115,6 +116,38 @@ func (o *FpVariable) HasEndLineNumber() bool {
 // SetEndLineNumber gets a reference to the given int32 and assigns it to the EndLineNumber field.
 func (o *FpVariable) SetEndLineNumber(v int32) {
 	o.EndLineNumber = &v
+}
+
+// GetEnum returns the Enum field value if set, zero value otherwise.
+func (o *FpVariable) GetEnum() []interface{} {
+	if o == nil || IsNil(o.Enum) {
+		var ret []interface{}
+		return ret
+	}
+	return o.Enum
+}
+
+// GetEnumOk returns a tuple with the Enum field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpVariable) GetEnumOk() ([]interface{}, bool) {
+	if o == nil || IsNil(o.Enum) {
+		return nil, false
+	}
+	return o.Enum, true
+}
+
+// HasEnum returns a boolean if a field has been set.
+func (o *FpVariable) HasEnum() bool {
+	if o != nil && !IsNil(o.Enum) {
+		return true
+	}
+
+	return false
+}
+
+// SetEnum gets a reference to the given []interface{} and assigns it to the Enum field.
+func (o *FpVariable) SetEnum(v []interface{}) {
+	o.Enum = v
 }
 
 // GetFileName returns the FileName field value if set, zero value otherwise.
@@ -452,6 +485,9 @@ func (o FpVariable) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.EndLineNumber) {
 		toSerialize["end_line_number"] = o.EndLineNumber
+	}
+	if !IsNil(o.Enum) {
+		toSerialize["enum"] = o.Enum
 	}
 	if !IsNil(o.FileName) {
 		toSerialize["file_name"] = o.FileName

@@ -22,6 +22,7 @@ var _ MappedNullable = &FpPipelineParam{}
 type FpPipelineParam struct {
 	Default *interface{} `json:"default,omitempty"`
 	Description *string `json:"description,omitempty"`
+	Enum []interface{} `json:"enum,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Optional *bool `json:"optional,omitempty"`
 	Tags *map[string]string `json:"tags,omitempty"`
@@ -110,6 +111,38 @@ func (o *FpPipelineParam) HasDescription() bool {
 // SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *FpPipelineParam) SetDescription(v string) {
 	o.Description = &v
+}
+
+// GetEnum returns the Enum field value if set, zero value otherwise.
+func (o *FpPipelineParam) GetEnum() []interface{} {
+	if o == nil || IsNil(o.Enum) {
+		var ret []interface{}
+		return ret
+	}
+	return o.Enum
+}
+
+// GetEnumOk returns a tuple with the Enum field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpPipelineParam) GetEnumOk() ([]interface{}, bool) {
+	if o == nil || IsNil(o.Enum) {
+		return nil, false
+	}
+	return o.Enum, true
+}
+
+// HasEnum returns a boolean if a field has been set.
+func (o *FpPipelineParam) HasEnum() bool {
+	if o != nil && !IsNil(o.Enum) {
+		return true
+	}
+
+	return false
+}
+
+// SetEnum gets a reference to the given []interface{} and assigns it to the Enum field.
+func (o *FpPipelineParam) SetEnum(v []interface{}) {
+	o.Enum = v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -287,6 +320,9 @@ func (o FpPipelineParam) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
+	}
+	if !IsNil(o.Enum) {
+		toSerialize["enum"] = o.Enum
 	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name

@@ -21,6 +21,7 @@ var _ MappedNullable = &ModconfigPipelineOutput{}
 // ModconfigPipelineOutput struct for ModconfigPipelineOutput
 type ModconfigPipelineOutput struct {
 	Range *HclRange `json:"Range,omitempty"`
+	ConnectionDependsOn []string `json:"connection_depends_on,omitempty"`
 	CredentialDependsOn []string `json:"credential_depends_on,omitempty"`
 	DependsOn []string `json:"depends_on,omitempty"`
 	Description *string `json:"description,omitempty"`
@@ -78,6 +79,38 @@ func (o *ModconfigPipelineOutput) HasRange() bool {
 // SetRange gets a reference to the given HclRange and assigns it to the Range field.
 func (o *ModconfigPipelineOutput) SetRange(v HclRange) {
 	o.Range = &v
+}
+
+// GetConnectionDependsOn returns the ConnectionDependsOn field value if set, zero value otherwise.
+func (o *ModconfigPipelineOutput) GetConnectionDependsOn() []string {
+	if o == nil || IsNil(o.ConnectionDependsOn) {
+		var ret []string
+		return ret
+	}
+	return o.ConnectionDependsOn
+}
+
+// GetConnectionDependsOnOk returns a tuple with the ConnectionDependsOn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModconfigPipelineOutput) GetConnectionDependsOnOk() ([]string, bool) {
+	if o == nil || IsNil(o.ConnectionDependsOn) {
+		return nil, false
+	}
+	return o.ConnectionDependsOn, true
+}
+
+// HasConnectionDependsOn returns a boolean if a field has been set.
+func (o *ModconfigPipelineOutput) HasConnectionDependsOn() bool {
+	if o != nil && !IsNil(o.ConnectionDependsOn) {
+		return true
+	}
+
+	return false
+}
+
+// SetConnectionDependsOn gets a reference to the given []string and assigns it to the ConnectionDependsOn field.
+func (o *ModconfigPipelineOutput) SetConnectionDependsOn(v []string) {
+	o.ConnectionDependsOn = v
 }
 
 // GetCredentialDependsOn returns the CredentialDependsOn field value if set, zero value otherwise.
@@ -284,6 +317,9 @@ func (o ModconfigPipelineOutput) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Range) {
 		toSerialize["Range"] = o.Range
+	}
+	if !IsNil(o.ConnectionDependsOn) {
+		toSerialize["connection_depends_on"] = o.ConnectionDependsOn
 	}
 	if !IsNil(o.CredentialDependsOn) {
 		toSerialize["credential_depends_on"] = o.CredentialDependsOn

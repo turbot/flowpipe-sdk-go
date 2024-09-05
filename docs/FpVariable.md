@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | Pointer to **string** |  | [optional] 
 **EndLineNumber** | Pointer to **int32** |  | [optional] 
+**Enum** | Pointer to **[]interface{}** |  | [optional] 
 **FileName** | Pointer to **string** |  | [optional] 
 **ModName** | Pointer to **string** |  | [optional] 
 **QualifiedName** | Pointer to **string** |  | [optional] 
@@ -85,6 +86,31 @@ SetEndLineNumber sets EndLineNumber field to given value.
 `func (o *FpVariable) HasEndLineNumber() bool`
 
 HasEndLineNumber returns a boolean if a field has been set.
+
+### GetEnum
+
+`func (o *FpVariable) GetEnum() []interface{}`
+
+GetEnum returns the Enum field if non-nil, zero value otherwise.
+
+### GetEnumOk
+
+`func (o *FpVariable) GetEnumOk() (*[]interface{}, bool)`
+
+GetEnumOk returns a tuple with the Enum field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnum
+
+`func (o *FpVariable) SetEnum(v []interface{})`
+
+SetEnum sets Enum field to given value.
+
+### HasEnum
+
+`func (o *FpVariable) HasEnum() bool`
+
+HasEnum returns a boolean if a field has been set.
 
 ### GetFileName
 

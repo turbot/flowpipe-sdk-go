@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Default** | Pointer to **interface{}** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Enum** | Pointer to **[]interface{}** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Optional** | Pointer to **bool** |  | [optional] 
 **Tags** | Pointer to **map[string]string** |  | [optional] 
@@ -80,6 +81,31 @@ SetDescription sets Description field to given value.
 `func (o *FpPipelineParam) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
+
+### GetEnum
+
+`func (o *FpPipelineParam) GetEnum() []interface{}`
+
+GetEnum returns the Enum field if non-nil, zero value otherwise.
+
+### GetEnumOk
+
+`func (o *FpPipelineParam) GetEnumOk() (*[]interface{}, bool)`
+
+GetEnumOk returns a tuple with the Enum field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnum
+
+`func (o *FpPipelineParam) SetEnum(v []interface{})`
+
+SetEnum sets Enum field to given value.
+
+### HasEnum
+
+`func (o *FpPipelineParam) HasEnum() bool`
+
+HasEnum returns a boolean if a field has been set.
 
 ### GetName
 

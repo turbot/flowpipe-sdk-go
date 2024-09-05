@@ -1415,6 +1415,9 @@ components:
           - depends_on
           - depends_on
           name: name
+          connection_depends_on:
+          - connection_depends_on
+          - connection_depends_on
           description: description
           Range:
             filename: filename
@@ -1428,6 +1431,9 @@ components:
           - depends_on
           - depends_on
           name: name
+          connection_depends_on:
+          - connection_depends_on
+          - connection_depends_on
           description: description
           Range:
             filename: filename
@@ -1446,6 +1452,9 @@ components:
           description: description
           optional: true
           type: ""
+          enum:
+          - ""
+          - ""
           tags:
             key: tags
         - default: ""
@@ -1454,6 +1463,9 @@ components:
           description: description
           optional: true
           type: ""
+          enum:
+          - ""
+          - ""
           tags:
             key: tags
         start_line_number: 6
@@ -1509,6 +1521,9 @@ components:
         description: description
         optional: true
         type: ""
+        enum:
+        - ""
+        - ""
         tags:
           key: tags
       properties:
@@ -1516,6 +1531,10 @@ components:
           type: AnyType
         description:
           type: string
+        enum:
+          items:
+            type: AnyType
+          type: array
         name:
           type: string
         optional:
@@ -1602,24 +1621,31 @@ components:
       type: object
     FpVariable:
       example:
-        type_string: type_string
-        qualified_name: qualified_name
         file_name: file_name
-        value_default: ""
         description: description
         end_line_number: 0
-        resource_name: resource_name
         start_line_number: 6
         type: ""
-        value: ""
+        enum:
+        - ""
+        - ""
         mod_name: mod_name
         tags:
           key: tags
+        type_string: type_string
+        qualified_name: qualified_name
+        value_default: ""
+        resource_name: resource_name
+        value: ""
       properties:
         description:
           type: string
         end_line_number:
           type: integer
+        enum:
+          items:
+            type: AnyType
+          type: array
         file_name:
           type: string
         mod_name:
@@ -1807,6 +1833,9 @@ components:
             - depends_on
             - depends_on
             name: name
+            connection_depends_on:
+            - connection_depends_on
+            - connection_depends_on
             description: description
             Range:
               filename: filename
@@ -1820,6 +1849,9 @@ components:
             - depends_on
             - depends_on
             name: name
+            connection_depends_on:
+            - connection_depends_on
+            - connection_depends_on
             description: description
             Range:
               filename: filename
@@ -1838,6 +1870,9 @@ components:
             description: description
             optional: true
             type: ""
+            enum:
+            - ""
+            - ""
             tags:
               key: tags
           - default: ""
@@ -1846,6 +1881,9 @@ components:
             description: description
             optional: true
             type: ""
+            enum:
+            - ""
+            - ""
             tags:
               key: tags
           start_line_number: 6
@@ -1865,6 +1903,9 @@ components:
             - depends_on
             - depends_on
             name: name
+            connection_depends_on:
+            - connection_depends_on
+            - connection_depends_on
             description: description
             Range:
               filename: filename
@@ -1878,6 +1919,9 @@ components:
             - depends_on
             - depends_on
             name: name
+            connection_depends_on:
+            - connection_depends_on
+            - connection_depends_on
             description: description
             Range:
               filename: filename
@@ -1896,6 +1940,9 @@ components:
             description: description
             optional: true
             type: ""
+            enum:
+            - ""
+            - ""
             tags:
               key: tags
           - default: ""
@@ -1904,6 +1951,9 @@ components:
             description: description
             optional: true
             type: ""
+            enum:
+            - ""
+            - ""
             tags:
               key: tags
           start_line_number: 6
@@ -2027,32 +2077,38 @@ components:
       example:
         next_token: next_token
         items:
-        - type_string: type_string
-          qualified_name: qualified_name
-          file_name: file_name
-          value_default: ""
+        - file_name: file_name
           description: description
           end_line_number: 0
-          resource_name: resource_name
           start_line_number: 6
           type: ""
-          value: ""
+          enum:
+          - ""
+          - ""
           mod_name: mod_name
           tags:
             key: tags
-        - type_string: type_string
+          type_string: type_string
           qualified_name: qualified_name
-          file_name: file_name
           value_default: ""
+          resource_name: resource_name
+          value: ""
+        - file_name: file_name
           description: description
           end_line_number: 0
-          resource_name: resource_name
           start_line_number: 6
           type: ""
-          value: ""
+          enum:
+          - ""
+          - ""
           mod_name: mod_name
           tags:
             key: tags
+          type_string: type_string
+          qualified_name: qualified_name
+          value_default: ""
+          resource_name: resource_name
+          value: ""
       properties:
         items:
           items:
@@ -2789,6 +2845,9 @@ components:
         - depends_on
         - depends_on
         name: name
+        connection_depends_on:
+        - connection_depends_on
+        - connection_depends_on
         description: description
         Range:
           filename: filename
@@ -2798,6 +2857,10 @@ components:
       properties:
         Range:
           $ref: '#/components/schemas/hcl.Range'
+        connection_depends_on:
+          items:
+            type: string
+          type: array
         credential_depends_on:
           items:
             type: string
