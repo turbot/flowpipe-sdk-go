@@ -1537,6 +1537,23 @@ components:
         query: query
         description: description
         end_line_number: 0
+        params:
+        - default: ""
+          type_string: type_string
+          name: name
+          description: description
+          optional: true
+          type: ""
+          tags:
+            key: tags
+        - default: ""
+          type_string: type_string
+          name: name
+          description: description
+          optional: true
+          type: ""
+          tags:
+            key: tags
         start_line_number: 6
         title: title
         type: type
@@ -1567,6 +1584,10 @@ components:
           type: string
         name:
           type: string
+        params:
+          items:
+            $ref: '#/components/schemas/FpPipelineParam'
+          type: array
         pipelines:
           items:
             $ref: '#/components/schemas/FpTriggerPipeline'
@@ -1979,6 +2000,23 @@ components:
           query: query
           description: description
           end_line_number: 0
+          params:
+          - default: ""
+            type_string: type_string
+            name: name
+            description: description
+            optional: true
+            type: ""
+            tags:
+              key: tags
+          - default: ""
+            type_string: type_string
+            name: name
+            description: description
+            optional: true
+            type: ""
+            tags:
+              key: tags
           start_line_number: 6
           title: title
           type: type
@@ -2000,6 +2038,23 @@ components:
           query: query
           description: description
           end_line_number: 0
+          params:
+          - default: ""
+            type_string: type_string
+            name: name
+            description: description
+            optional: true
+            type: ""
+            tags:
+              key: tags
+          - default: ""
+            type_string: type_string
+            name: name
+            description: description
+            optional: true
+            type: ""
+            tags:
+              key: tags
           start_line_number: 6
           title: title
           type: type
