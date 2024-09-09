@@ -27,6 +27,7 @@ type FpTrigger struct {
 	FileName *string `json:"file_name,omitempty"`
 	Mod *string `json:"mod,omitempty"`
 	Name *string `json:"name,omitempty"`
+	Params []FpPipelineParam `json:"params,omitempty"`
 	Pipelines []FpTriggerPipeline `json:"pipelines,omitempty"`
 	Query *string `json:"query,omitempty"`
 	RootMod *string `json:"root_mod,omitempty"`
@@ -279,6 +280,38 @@ func (o *FpTrigger) HasName() bool {
 // SetName gets a reference to the given string and assigns it to the Name field.
 func (o *FpTrigger) SetName(v string) {
 	o.Name = &v
+}
+
+// GetParams returns the Params field value if set, zero value otherwise.
+func (o *FpTrigger) GetParams() []FpPipelineParam {
+	if o == nil || IsNil(o.Params) {
+		var ret []FpPipelineParam
+		return ret
+	}
+	return o.Params
+}
+
+// GetParamsOk returns a tuple with the Params field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FpTrigger) GetParamsOk() ([]FpPipelineParam, bool) {
+	if o == nil || IsNil(o.Params) {
+		return nil, false
+	}
+	return o.Params, true
+}
+
+// HasParams returns a boolean if a field has been set.
+func (o *FpTrigger) HasParams() bool {
+	if o != nil && !IsNil(o.Params) {
+		return true
+	}
+
+	return false
+}
+
+// SetParams gets a reference to the given []FpPipelineParam and assigns it to the Params field.
+func (o *FpTrigger) SetParams(v []FpPipelineParam) {
+	o.Params = v
 }
 
 // GetPipelines returns the Pipelines field value if set, zero value otherwise.
@@ -599,6 +632,9 @@ func (o FpTrigger) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.Params) {
+		toSerialize["params"] = o.Params
 	}
 	if !IsNil(o.Pipelines) {
 		toSerialize["pipelines"] = o.Pipelines

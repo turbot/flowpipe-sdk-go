@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **FileName** | Pointer to **string** |  | [optional] 
 **Mod** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
+**Params** | Pointer to [**[]FpPipelineParam**](FpPipelineParam.md) |  | [optional] 
 **Pipelines** | Pointer to [**[]FpTriggerPipeline**](FpTriggerPipeline.md) |  | [optional] 
 **Query** | Pointer to **string** |  | [optional] 
 **RootMod** | Pointer to **string** |  | [optional] 
@@ -214,6 +215,31 @@ SetName sets Name field to given value.
 `func (o *FpTrigger) HasName() bool`
 
 HasName returns a boolean if a field has been set.
+
+### GetParams
+
+`func (o *FpTrigger) GetParams() []FpPipelineParam`
+
+GetParams returns the Params field if non-nil, zero value otherwise.
+
+### GetParamsOk
+
+`func (o *FpTrigger) GetParamsOk() (*[]FpPipelineParam, bool)`
+
+GetParamsOk returns a tuple with the Params field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetParams
+
+`func (o *FpTrigger) SetParams(v []FpPipelineParam)`
+
+SetParams sets Params field to given value.
+
+### HasParams
+
+`func (o *FpTrigger) HasParams() bool`
+
+HasParams returns a boolean if a field has been set.
 
 ### GetPipelines
 
