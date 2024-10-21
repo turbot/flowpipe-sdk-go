@@ -1,5 +1,9 @@
 # Flowpipe SDK Go
 
+## v1.0.0 [2024-10-21]
+
+SDK Generated from Flowpipe v1.0.x branch
+
 ## v0.7.1 [2024-09-09]
 
 SDK generated from Flowpipe v0.9.1
